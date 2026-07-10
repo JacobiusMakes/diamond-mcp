@@ -48,3 +48,47 @@ https://pypi.org/project/diamond-mcp/ .
 PyPI Trusted Publishing lets a GitHub Actions workflow publish on a tagged release with
 no token stored anywhere (it uses short lived OIDC credentials). Worth setting up once
 releases become routine; not needed for the first manual publish.
+
+## The Node package (npm)
+
+The Node twin lives in `node/` and publishes to npm under the same name, `diamond-mcp`.
+The build compiles TypeScript to `node/dist/` and copies `facts.json` and
+`encyclopedia.json` into `node/dist/data/`, so the published tarball is self contained.
+
+### One time setup
+
+1. Create an npm account at https://www.npmjs.com/signup and verify the email.
+2. Turn on two factor authentication (recommended for any publisher).
+3. Sign in on the machine you publish from, one of two ways:
+   - Interactive: run `npm login` and enter your username, password, and one time code.
+   - Token (good for a scripted or CI release): create a Granular Access Token with
+     publish permission for the diamond-mcp package (or an Automation token) at
+     https://www.npmjs.com/settings/ and put it in `~/.npmrc` as:
+     ```
+     //registry.npmjs.org/:_authToken=npm_XXXXXXXXXXXXXXXXXXXX
+     ```
+     Treat the token like a password: never commit it, never paste it into a file in
+     this repo.
+
+### Cutting a release
+
+1. Bump the version in `node/package.json` (keep it in step with the Python version).
+2. Publish:
+   ```
+   cd node
+   npm publish --access public
+   ```
+   `prepublishOnly` runs the build automatically, so `npm publish` compiles the
+   TypeScript and copies the two JSON data files into `dist/data/` before it packs.
+   `--access public` publishes publicly, which npm requires the first time for a new or
+   scoped package and ignores thereafter.
+3. To inspect the tarball first without publishing:
+   ```
+   npm pack --dry-run
+   ```
+   The file list must include `dist/bin.js`, `dist/server.js`, and both
+   `dist/data/*.json`. If the data files are missing, the published server cannot load
+   its facts.
+
+After it lands, `npm install diamond-mcp` works for anyone, and the project page is at
+https://www.npmjs.com/package/diamond-mcp .

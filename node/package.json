@@ -1,0 +1,53 @@
+{
+  "name": "diamond-mcp",
+  "version": "0.2.0",
+  "description": "Diamond education tools for AI assistants over the Model Context Protocol. Sourced, dated facts and a gemology encyclopedia.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Stienhardt & Stones",
+  "homepage": "https://github.com/JacobiusMakes/diamond-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobiusMakes/diamond-mcp.git",
+    "directory": "node"
+  },
+  "bugs": {
+    "url": "https://github.com/JacobiusMakes/diamond-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "diamonds",
+    "lab-grown-diamonds",
+    "gemology",
+    "education"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "bin": {
+    "diamond-mcp": "dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prebuild": "npm run clean",
+    "build": "tsc && node scripts/copy-data.mjs",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "smoke": "node test/smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

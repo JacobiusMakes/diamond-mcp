@@ -80,6 +80,15 @@ Calling `define` with `{"term": "Dutch Marquise"}` returns, among other fields:
 }
 ```
 
+## Two flavors: Python and Node
+
+`diamond-mcp` ships in two builds that expose the same eight tools and load the same data, so they answer the same questions the same way:
+
+- Python (this directory): `pip install diamond-mcp`, or run straight from a clone with `python server.py`. Pure standard library.
+- Node and TypeScript ([`node/`](node/)): `npm install diamond-mcp`, or run with `npx diamond-mcp`. Built on the official MCP SDK.
+
+Both read the same `facts.json` and `encyclopedia.json` at the root of this repository, which are the single source of truth. See [`node/README.md`](node/README.md) for the Node install and its Claude Desktop config.
+
 ## Install and run
 
 Requirements: Python 3.9 or newer. Nothing else.
