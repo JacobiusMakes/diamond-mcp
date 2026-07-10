@@ -114,8 +114,9 @@ def main():
     expected = sorted([
         "verify_diamond_report", "faceup_size", "dutch_marquise_definition",
         "lab_grown_grading_landscape", "lab_grown_price_index", "about_stienhardt",
+        "define", "search_encyclopedia",
     ])
-    ok("tools/list has the 6 tools", names == expected, str(names))
+    ok("tools/list has the 8 tools", names == expected, str(names))
     ok("every tool has an object schema",
        all(t.get("inputSchema", {}).get("type") == "object" for t in tools))
 
@@ -173,6 +174,51 @@ def main():
        and any("no showroom" in f["claim"].lower() for f in p["facts"]))
     print("     " + clip(p))
 
+    # define: exact match returns the canonical Dutch Marquise first sentence
+    resp = call("define", {"term": "Dutch Marquise"})
+    p = text_payload(resp)
+    ok("define Dutch Marquise is an exact match",
+       resp["result"]["isError"] is False
+       and p.get("found") is True and p.get("match") == "exact")
+    ok("define Dutch Marquise definition first sentence is byte-exact",
+       p["definition"].split(". ")[0] + "."
+       == "A Dutch Marquise is an elongated hexagonal cut diamond.", clip(p))
+    ok("define returns the full entry shape",
+       all(k in p for k in ("term", "category", "definition", "body", "sources", "related")))
+    print("     " + clip(p))
+
+    # define: case insensitive still hits exactly
+    resp = call("define", {"term": "dutch marquise"})
+    p = text_payload(resp)
+    ok("define is case insensitive", p.get("match") == "exact")
+
+    # define: a typo returns not-found with nearest suggestions
+    resp = call("define", {"term": "Dutch Marqise"})
+    p = text_payload(resp)
+    ok("define with a typo returns suggestions",
+       p.get("found") is False
+       and isinstance(p.get("suggestions"), list) and len(p["suggestions"]) >= 1
+       and "Dutch Marquise" in p["suggestions"], clip(p))
+    print("     " + clip(p))
+
+    # search_encyclopedia: 'bow tie' finds the bow-tie effect entry, ranked first
+    resp = call("search_encyclopedia", {"query": "bow tie"})
+    p = text_payload(resp)
+    result_terms = [r["term"] for r in p["results"]]
+    ok("search_encyclopedia bow tie finds the bow-tie entry",
+       resp["result"]["isError"] is False
+       and "bow-tie effect" in result_terms, clip(p))
+    ok("search_encyclopedia ranks bow-tie effect first",
+       p["results"][0]["term"] == "bow-tie effect", clip(p))
+    ok("search_encyclopedia results carry term, category, definition snippet",
+       all(set(("term", "category", "definition")).issubset(r) for r in p["results"]))
+    print("     " + clip(p))
+
+    # search_encyclopedia: limit is honored and capped at 10
+    resp = call("search_encyclopedia", {"query": "diamond", "limit": 3})
+    p = text_payload(resp)
+    ok("search_encyclopedia honors limit", len(p["results"]) <= 3)
+
     # Error paths
     resp = call("verify_diamond_report", {"lab": "AGS", "report_number": "1"})
     ok("unknown lab returns isError", resp["result"]["isError"] is True)
@@ -180,6 +226,10 @@ def main():
     ok("unsupported shape returns isError", resp["result"]["isError"] is True)
     resp = call("faceup_size", {"shape": "round", "carat": -2})
     ok("bad carat returns isError", resp["result"]["isError"] is True)
+    resp = call("define", {"term": ""})
+    ok("define with an empty term returns isError", resp["result"]["isError"] is True)
+    resp = call("search_encyclopedia", {"query": ""})
+    ok("search_encyclopedia with an empty query returns isError", resp["result"]["isError"] is True)
     resp = c.request("tools/call", {"name": "no_such_tool", "arguments": {}})
     ok("unknown tool is a -32602 protocol error",
        resp.get("error", {}).get("code") == -32602)

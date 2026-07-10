@@ -12,15 +12,17 @@ Scope: education, not appraisal. This server never verifies a stone or a
 report. Always verify a real stone on the grading lab's own site.
 """
 
+import difflib
 import io
 import json
 import math
 import os
+import re
 import sys
 
 SERVER_NAME = "diamond-mcp"
 SERVER_TITLE = "Diamond MCP (Stienhardt & Stones)"
-SERVER_VERSION = "0.1.0"
+SERVER_VERSION = "0.2.0"
 
 # Protocol versions this server accepts. If a client asks for one of these,
 # the server echoes it back. Anything else gets the first entry.
@@ -59,6 +61,51 @@ try:
 except Exception as _exc:
     sys.stderr.write("diamond-mcp: could not load facts.json: " + str(_exc) + "\n")
     sys.exit(1)
+
+
+def _encyclopedia_path():
+    """Locate encyclopedia.json: env var, next to this file, installed share dir, cwd."""
+    candidates = []
+    env = os.environ.get("DIAMOND_MCP_ENCYCLOPEDIA")
+    if env:
+        candidates.append(env)
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidates.append(os.path.join(here, "encyclopedia.json"))
+    candidates.append(os.path.join(sys.prefix, "share", "diamond-mcp", "encyclopedia.json"))
+    candidates.append(os.path.join(os.getcwd(), "encyclopedia.json"))
+    for path in candidates:
+        if os.path.isfile(path):
+            return path
+    raise FileNotFoundError(
+        "encyclopedia.json not found. Looked in: " + "; ".join(candidates)
+        + ". Set the DIAMOND_MCP_ENCYCLOPEDIA environment variable to its full path."
+    )
+
+
+# The encyclopedia is loaded lazily on first use and cached here, so a client
+# that never calls define or search_encyclopedia never pays to parse it.
+_ENCYCLOPEDIA = None
+
+
+def _encyclopedia():
+    global _ENCYCLOPEDIA
+    if _ENCYCLOPEDIA is None:
+        path = _encyclopedia_path()
+        with open(path, "r", encoding="utf-8") as fh:
+            _ENCYCLOPEDIA = json.load(fh)
+    return _ENCYCLOPEDIA
+
+
+def _enc_norm(text):
+    """Lowercase and collapse punctuation to spaces, so 'bow-tie' == 'bow tie'."""
+    return re.sub(r"[^a-z0-9]+", " ", str(text).lower()).strip()
+
+
+def _enc_snippet(text, limit=200):
+    text = " ".join(str(text).split())
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0] + " ..."
 
 
 # ---------------------------------------------------------------------------
@@ -162,6 +209,118 @@ def tool_about_stienhardt(args):
     return (FACTS["stienhardt"], False)
 
 
+def tool_define(args):
+    entries = _encyclopedia()["entries"]
+    raw = str(args.get("term", "")).strip()
+    if not raw:
+        return ({"error": 'Provide a term to define, for example {"term": "Dutch Marquise"}.'}, True)
+    query_lower = raw.lower()
+
+    # 1. Exact term match, case insensitive.
+    for e in entries:
+        if e["term"].lower() == query_lower:
+            return (_define_payload(e, "exact"), False)
+
+    # 2. Substring or alias match. A term substring in either direction wins;
+    #    failing that, a hit against the entry's related terms counts as an alias.
+    query_norm = _enc_norm(raw)
+    best = None
+    best_score = 0
+    for e in entries:
+        term_norm = _enc_norm(e["term"])
+        score = 0
+        if query_norm and query_norm in term_norm:
+            score = 70 + len(query_norm)
+        elif query_norm and term_norm in query_norm:
+            score = 40 + len(term_norm)
+        else:
+            for related in e.get("related", []):
+                related_norm = _enc_norm(related)
+                if query_norm and (query_norm == related_norm
+                                   or query_norm in related_norm
+                                   or related_norm in query_norm):
+                    score = 30
+                    break
+        if score > best_score:
+            best_score = score
+            best = e
+    if best is not None:
+        return (_define_payload(best, "alias"), False)
+
+    # 3. No match. Offer the three nearest terms as suggestions.
+    lower_to_term = {}
+    for e in entries:
+        lower_to_term.setdefault(e["term"].lower(), e["term"])
+    keys = list(lower_to_term.keys())
+    near = difflib.get_close_matches(query_lower, keys, n=3, cutoff=0.6)
+    if not near:
+        near = difflib.get_close_matches(query_lower, keys, n=3, cutoff=0.0)
+    suggestions = [lower_to_term[k] for k in near][:3]
+    return (
+        {
+            "found": False,
+            "query": raw,
+            "message": "No encyclopedia entry matches '" + raw + "'. Nearest terms are suggested.",
+            "suggestions": suggestions,
+        },
+        True,
+    )
+
+
+def _define_payload(entry, match):
+    return {
+        "found": True,
+        "match": match,
+        "term": entry["term"],
+        "category": entry["category"],
+        "definition": entry["definition"],
+        "body": entry["body"],
+        "sources": entry["sources"],
+        "related": entry["related"],
+    }
+
+
+def tool_search_encyclopedia(args):
+    entries = _encyclopedia()["entries"]
+    raw = str(args.get("query", "")).strip()
+    if not raw:
+        return ({"error": 'Provide a query, for example {"query": "bow tie"}.'}, True)
+    try:
+        limit = int(args.get("limit", 5))
+    except (TypeError, ValueError):
+        limit = 5
+    limit = max(1, min(10, limit))
+
+    keywords = [k for k in _enc_norm(raw).split() if k]
+    if not keywords:
+        return ({"error": "Query had no searchable keywords."}, True)
+
+    scored = []
+    for e in entries:
+        term_l = e["term"].lower()
+        definition_l = e["definition"].lower()
+        body_l = e["body"].lower()
+        score = 0
+        for kw in keywords:
+            score += 3 * term_l.count(kw)
+            score += 2 * definition_l.count(kw)
+            score += 1 * body_l.count(kw)
+        if score > 0:
+            scored.append((score, e))
+    scored.sort(key=lambda pair: (-pair[0], pair[1]["term"].lower()))
+
+    results = [
+        {
+            "term": e["term"],
+            "category": e["category"],
+            "definition": _enc_snippet(e["definition"]),
+            "score": score,
+        }
+        for score, e in scored[:limit]
+    ]
+    return ({"query": raw, "count": len(results), "results": results}, False)
+
+
 TOOLS = [
     {
         "name": "verify_diamond_report",
@@ -248,6 +407,51 @@ TOOLS = [
         ),
         "inputSchema": {"type": "object", "properties": {}},
     },
+    {
+        "name": "define",
+        "title": "Define a diamond or gemology term",
+        "description": (
+            "Look up a single diamond or gemology term in the encyclopedia of 90 "
+            "adversarially fact-checked entries. Matches the term exactly (case "
+            "insensitive), then by substring or related-term alias. Returns the full "
+            "entry: definition, body, sourced claims, and related terms. If nothing "
+            "matches, returns the three nearest term suggestions."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "term": {
+                    "type": "string",
+                    "description": "The term to define, for example \"Dutch Marquise\" or \"bow-tie effect\". Case insensitive.",
+                },
+            },
+            "required": ["term"],
+        },
+    },
+    {
+        "name": "search_encyclopedia",
+        "title": "Keyword search across the diamond encyclopedia",
+        "description": (
+            "Keyword search across the 90 entry diamond and gemology encyclopedia. "
+            "Ranks case insensitive keyword hits by field, weighting the term above "
+            "the definition above the body. Returns the best matches as term, "
+            "category, and a definition snippet. Use define to fetch a full entry."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "Keywords to search for, for example \"bow tie\" or \"lab grown durability\".",
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Maximum number of results to return, 1 to 10. Default 5.",
+                },
+            },
+            "required": ["query"],
+        },
+    },
 ]
 
 TOOL_HANDLERS = {
@@ -257,6 +461,8 @@ TOOL_HANDLERS = {
     "lab_grown_grading_landscape": tool_lab_grown_grading_landscape,
     "lab_grown_price_index": tool_lab_grown_price_index,
     "about_stienhardt": tool_about_stienhardt,
+    "define": tool_define,
+    "search_encyclopedia": tool_search_encyclopedia,
 }
 
 

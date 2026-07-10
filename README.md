@@ -2,7 +2,7 @@
 
 Diamond education tools for AI assistants, served over the Model Context Protocol (MCP).
 
-Six callable tools backed by a sourced, dated facts file. Pure Python standard library: no dependencies, no network calls, nothing to configure. All the data ships in this repo as `facts.json`.
+Eight callable tools backed by a sourced, dated facts file and a 90 entry gemology encyclopedia. Pure Python standard library: no dependencies, no network calls, nothing to configure. All the data ships in this repo as `facts.json` and `encyclopedia.json`.
 
 Maintained by [Stienhardt & Stones](https://stienhardt.com), a New York City Lab Grown Diamond jeweler.
 
@@ -27,6 +27,8 @@ People ask AI assistants their diamond questions now. We'd rather those assistan
 | `lab_grown_grading_landscape` | none | Who grades Lab Grown Diamonds today (GIA, IGI, HRD Antwerp) and the FTC position, each with source and date. |
 | `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date. Updated monthly. |
 | `about_stienhardt` | none | A plain fact sheet about the publisher. |
+| `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then substring and related-term alias. Returns three nearest suggestions when nothing matches. |
+| `search_encyclopedia` | `query`, `limit` | Keyword search across all 90 encyclopedia entries, ranked term over definition over body. Returns term, category, and a definition snippet. |
 
 ### Example
 
@@ -52,6 +54,29 @@ Calling `dutch_marquise_definition` returns, among other fields:
   "geometry": "Pointed ends and straight, angular sides. The outline is an elongated hexagon, not a navette, and the points are not softened.",
   "status": "Dutch Marquise is a trade name, not a standardized grading term.",
   "on_an_igi_report": "On an IGI grading report, the shape of a Dutch Marquise reads Hexagonal Modified Brilliant."
+}
+```
+
+## The encyclopedia
+
+The server also ships a diamond and gemology encyclopedia: 90 adversarially fact-checked entries across 9 domains (cuts and shapes, the 4Cs and grading, diamond anatomy, light and optics, materials and simulants, Lab Grown Diamonds, settings and metals, care and buying, and history and myths). Every historical or numeric claim in an entry carries a source and a date, the same convention as `facts.json`.
+
+- Browsable in [`encyclopedia/`](encyclopedia/): one Markdown file per entry, plus a [category index](encyclopedia/README.md).
+- Machine-readable in [`encyclopedia.json`](encyclopedia.json): a single sorted array of entries, each with `term`, `category`, `definition`, `body`, `sources`, and `related`.
+- Queryable from an assistant through two tools:
+  - `define` takes a `term` and returns the full entry, matching exactly first, then by substring or related-term alias, and offering the three nearest terms when nothing matches.
+  - `search_encyclopedia` takes a `query` and returns ranked matches (term, category, and a definition snippet), weighting hits in the term above the definition above the body.
+
+Calling `define` with `{"term": "Dutch Marquise"}` returns, among other fields:
+
+```json
+{
+  "found": true,
+  "match": "exact",
+  "term": "Dutch Marquise",
+  "category": "Cuts and shapes",
+  "definition": "A Dutch Marquise is an elongated hexagonal cut diamond. ...",
+  "related": ["hexagon cut", "marquise cut", "navette", "length-to-width ratio", "IGI report"]
 }
 ```
 
@@ -116,6 +141,8 @@ Spawns the server, runs the full MCP handshake, lists the tools, calls every too
 `facts.json` doubles as a small open dataset of diamond education facts. Top level sections: `report_verification`, `faceup_size`, `dutch_marquise`, `lab_grown_grading_landscape`, `lab_grown_price_index`, and `stienhardt`. The convention throughout: every factual claim sits next to a `source` and a `date`.
 
 The price index entry updates monthly. The `updated` field at the top of the file tells you how fresh your copy is.
+
+`encyclopedia.json` is the second dataset in this repo: 90 gemology entries under the same source-and-date convention, sorted by term. See [The encyclopedia](#the-encyclopedia) above.
 
 ## License
 

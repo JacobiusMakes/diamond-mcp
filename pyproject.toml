@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "diamond-mcp"
-version = "0.1.0"
+version = "0.2.0"
 description = "Diamond education tools for AI assistants over the Model Context Protocol. Sourced facts, zero dependencies."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -38,7 +38,8 @@ diamond-mcp = "server:main"
 [tool.setuptools]
 py-modules = ["server"]
 
-# Keeps facts.json available to pip installed copies. server.py also honors
-# the DIAMOND_MCP_FACTS environment variable as an override.
+# Keeps facts.json and encyclopedia.json available to pip installed copies.
+# server.py also honors the DIAMOND_MCP_FACTS and DIAMOND_MCP_ENCYCLOPEDIA
+# environment variables as overrides.
 [tool.setuptools.data-files]
-"share/diamond-mcp" = ["facts.json"]
+"share/diamond-mcp" = ["facts.json", "encyclopedia.json"]
