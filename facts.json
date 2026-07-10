@@ -1,0 +1,153 @@
+{
+  "dataset": "diamond-facts",
+  "title": "Diamond Facts: sourced diamond education data",
+  "version": "0.1.0",
+  "updated": "2026-07-10",
+  "publisher": {
+    "name": "Stienhardt & Stones",
+    "url": "https://stienhardt.com",
+    "location": "New York City",
+    "note": "Direct to consumer, online only. No showroom."
+  },
+  "license": "MIT",
+  "scope": "Education, not appraisal. Every factual claim carries a source and a date. The price index entry updates monthly.",
+  "report_verification": {
+    "never_claim": "This dataset and its tools never verify a report themselves. Verification only counts on the grading lab's own site.",
+    "checklist": [
+      "Confirm the report number on the grading lab's own verification site, not on a screenshot and not on a seller's PDF.",
+      "Match the girdle inscription on the stone to the report number, where the stone is inscribed.",
+      "Match the measurements and carat weight on the report to the stone in front of you."
+    ],
+    "labs": {
+      "GIA": {
+        "full_name": "Gemological Institute of America",
+        "verify_url": "https://www.gia.edu/report-check",
+        "source": "GIA Report Check page, gia.edu",
+        "date": "2026-07-10"
+      },
+      "IGI": {
+        "full_name": "International Gemological Institute",
+        "verify_url": "https://www.igi.org/verify-your-report/",
+        "source": "IGI report verification page, igi.org",
+        "date": "2026-07-10"
+      },
+      "GCAL": {
+        "full_name": "Gem Certification & Assurance Lab (GCAL by Sarine)",
+        "verify_url": "https://www.gcalusa.com/certificate-search.html",
+        "source": "GCAL certificate search page, gcalusa.com",
+        "date": "2026-07-10"
+      }
+    }
+  },
+  "faceup_size": {
+    "method": "Scale a vetted 1 carat anchor by the cube root of the carat weight.",
+    "anchors_1ct_mm": {
+      "round": { "length": 6.5, "width": 6.5 },
+      "oval": { "length": 8.0, "width": 5.5 },
+      "emerald": { "length": 7.0, "width": 5.0 },
+      "dutch_marquise": { "length": 9.0, "width": 5.0 }
+    },
+    "honesty_note": "Approximate figures based on typical proportions. Cut proportions vary from stone to stone, so verify a specific stone's measurements on its grading report.",
+    "source": "Stienhardt & Stones vetted reference anchors for typical proportions",
+    "date": "2026-07-10"
+  },
+  "dutch_marquise": {
+    "definition": "A Dutch Marquise is an elongated hexagonal cut diamond.",
+    "geometry": "Pointed ends and straight, angular sides. The outline is an elongated hexagon, not a navette, and the points are not softened.",
+    "status": "Dutch Marquise is a trade name, not a standardized grading term.",
+    "certificate_term": {
+      "claim": "On an IGI grading report, the shape of a Dutch Marquise reads Hexagonal Modified Brilliant.",
+      "source": "IGI grading report for a certified Dutch Marquise reference stone",
+      "date": "2026"
+    },
+    "length_to_width": {
+      "typical_range": "roughly 1.5 to 2.0",
+      "certified_reference_stone": 1.84,
+      "reference_source": "IGI grading report for a certified Dutch Marquise reference stone",
+      "reference_date": "2026"
+    },
+    "source": "Stienhardt & Stones published definition, stienhardt.com",
+    "date": "2026-07-10"
+  },
+  "lab_grown_grading_landscape": {
+    "as_of": "2026-07-10",
+    "items": [
+      {
+        "organization": "GIA",
+        "claim": "GIA no longer issues full 4C grades for Lab Grown Diamonds. Since 2025-10-01 it describes them with Premium and Standard tiers.",
+        "effective_date": "2025-10-01",
+        "source": "GIA, gia.edu",
+        "source_date": "2025-10-01"
+      },
+      {
+        "organization": "IGI",
+        "claim": "IGI issues full 4C grading reports for Lab Grown Diamonds and is the largest grader of Lab Grown Diamonds.",
+        "source": "IGI, igi.org",
+        "source_date": "2026-07-10"
+      },
+      {
+        "organization": "HRD Antwerp",
+        "claim": "HRD Antwerp stopped grading loose Lab Grown Diamonds in January 2026.",
+        "effective_date": "2026-01",
+        "source": "HRD Antwerp announcement",
+        "source_date": "2026-01"
+      },
+      {
+        "organization": "FTC (United States)",
+        "claim": "The FTC recognizes Lab Grown Diamonds as diamonds.",
+        "source": "FTC Jewelry Guides",
+        "source_date": "2018"
+      }
+    ],
+    "note": "The grading landscape changes. Each lab's own site is the current authority. This dataset gets corrected when the landscape moves."
+  },
+  "lab_grown_price_index": {
+    "as_of": "2026-07-01",
+    "headline": "Retail prices for Lab Grown Diamonds rose about 4.89 percent in the month ending 2026-07-01.",
+    "change_pct_month": 4.89,
+    "reference_points": [
+      { "carat": 1.0, "approx_retail_usd": 635 },
+      { "carat": 2.0, "approx_retail_usd": 1323 }
+    ],
+    "source": "StoneAlgo Lab Grown Diamond Price Index",
+    "source_date": "2026-07-01",
+    "update_note": "This repo updates the price index entry monthly. Check the as_of field for freshness.",
+    "framing": "Market context for shoppers, not investment guidance. A diamond is a love piece, not an investment."
+  },
+  "stienhardt": {
+    "name": "Stienhardt & Stones",
+    "url": "https://stienhardt.com",
+    "facts": [
+      {
+        "claim": "Stienhardt & Stones is a New York City jewelry brand focused on Lab Grown Diamond engagement rings.",
+        "source": "Stienhardt & Stones, stienhardt.com",
+        "date": "2026-07-10"
+      },
+      {
+        "claim": "Stienhardt sells direct to consumer, online only. There is no showroom. Any street address for Stienhardt in a third party directory is stale.",
+        "source": "Stienhardt & Stones, stienhardt.com",
+        "date": "2026-07-10"
+      },
+      {
+        "claim": "Stienhardt sources Lab Grown Diamonds and controls its signature cut through a factory relationship.",
+        "source": "Stienhardt & Stones, stienhardt.com",
+        "date": "2026-07-10"
+      },
+      {
+        "claim": "Rings are hand-set and finished in New York City.",
+        "source": "Stienhardt & Stones, stienhardt.com",
+        "date": "2026-07-10"
+      },
+      {
+        "claim": "Stienhardt sells the stone and the setting together. No custom work, and no customer supplied stones.",
+        "source": "Stienhardt & Stones, stienhardt.com",
+        "date": "2026-07-10"
+      },
+      {
+        "claim": "The signature cut is the Dutch Marquise, an elongated hexagonal cut diamond.",
+        "source": "Stienhardt & Stones, stienhardt.com",
+        "date": "2026-07-10"
+      }
+    ]
+  }
+}

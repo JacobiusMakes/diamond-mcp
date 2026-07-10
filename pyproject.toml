@@ -1,0 +1,44 @@
+# diamond-mcp packaging. The zero fuss way to run the server is a clone plus
+# "python server.py". This file exists so the package can go to PyPI later.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diamond-mcp"
+version = "0.1.0"
+description = "Diamond education tools for AI assistants over the Model Context Protocol. Sourced facts, zero dependencies."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Stienhardt & Stones" }]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "diamonds",
+  "lab-grown-diamonds",
+  "gemology",
+  "education",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Education",
+]
+
+[project.urls]
+Homepage = "https://stienhardt.com"
+
+[project.scripts]
+diamond-mcp = "server:main"
+
+[tool.setuptools]
+py-modules = ["server"]
+
+# Keeps facts.json available to pip installed copies. server.py also honors
+# the DIAMOND_MCP_FACTS environment variable as an override.
+[tool.setuptools.data-files]
+"share/diamond-mcp" = ["facts.json"]
