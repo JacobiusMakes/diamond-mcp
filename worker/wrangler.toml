@@ -1,0 +1,12 @@
+name = "diamond-mcp"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Stienhardt's hosted Model Context Protocol endpoint (Streamable HTTP, stateless).
+# Serves the diamond-mcp education tools plus live-inventory tools that proxy the
+# store's Universal Commerce Protocol server with this Worker's own agent profile.
+
+[vars]
+UCP_ENDPOINT = "https://stienhard-stones.myshopify.com/api/ucp/mcp"
+STORE_ORIGIN = "https://stienhardt.com"
