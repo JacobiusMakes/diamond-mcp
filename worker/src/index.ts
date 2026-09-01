@@ -20,9 +20,12 @@ configure({ facts: factsJson, encyclopedia: encyclopediaJson });
 interface Env {
   UCP_ENDPOINT: string;
   STORE_ORIGIN: string;
+  AGENT_PROFILE_URL?: string;
 }
 
 const PROTOCOL = "2025-06-18";
+// bump to force UCP merchants to re-fetch the profile (they cache fetch results)
+const PROFILE_REV = "2";
 
 const STORE_TOOLS = [
   {
@@ -93,7 +96,7 @@ function agentProfile(origin: string) {
 async function ucpCall(env: Env, origin: string, tool: string, catalog: any): Promise<any> {
   const body = {
     jsonrpc: "2.0", id: 1, method: "tools/call",
-    params: { name: tool, arguments: { meta: { "ucp-agent": { profile: origin + "/agent-profile.json" } }, catalog } },
+    params: { name: tool, arguments: { meta: { "ucp-agent": { profile: env.AGENT_PROFILE_URL || (origin + "/agent-profile.json?v=" + SERVER_VERSION + "-" + PROFILE_REV) } }, catalog } },
   };
   const res = await fetch(env.UCP_ENDPOINT, {
     method: "POST",
