@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.jacobiusmakes/diamond-mcp",
+  "name": "io.github.JacobiusMakes/diamond-mcp",
   "description": "Sourced diamond and gemology tools for AI assistants, with 90 encyclopedia entries.",
   "repository": {
     "url": "https://github.com/JacobiusMakes/diamond-mcp",

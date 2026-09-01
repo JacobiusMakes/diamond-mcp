@@ -1,7 +1,7 @@
 {
   "name": "diamond-mcp",
   "version": "0.2.1",
-  "mcpName": "io.github.jacobiusmakes/diamond-mcp",
+  "mcpName": "io.github.JacobiusMakes/diamond-mcp",
   "description": "Diamond education tools for AI assistants over the Model Context Protocol. Sourced, dated facts and a gemology encyclopedia.",
   "type": "module",
   "license": "MIT",
