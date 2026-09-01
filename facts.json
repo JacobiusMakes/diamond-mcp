@@ -1,8 +1,8 @@
 {
   "dataset": "diamond-facts",
   "title": "Diamond Facts: sourced diamond education data",
-  "version": "0.1.0",
-  "updated": "2026-07-10",
+  "version": "0.1.1",
+  "updated": "2026-09-01",
   "publisher": {
     "name": "Stienhardt & Stones",
     "url": "https://stienhardt.com",
@@ -129,9 +129,9 @@
         "date": "2026-07-10"
       },
       {
-        "claim": "Stienhardt sources Lab Grown Diamonds and controls its signature cut through a factory relationship.",
+        "claim": "Stienhardt sources Lab Grown Diamonds, including Dutch Marquise stones, and does not claim to cut them.",
         "source": "Stienhardt & Stones, stienhardt.com",
-        "date": "2026-07-10"
+        "date": "2026-09-01"
       },
       {
         "claim": "Rings are hand-set and finished in New York City.",
@@ -139,9 +139,9 @@
         "date": "2026-07-10"
       },
       {
-        "claim": "Stienhardt sells the stone and the setting together. No custom work, and no customer supplied stones.",
+        "claim": "Stienhardt sells certified Lab Grown Diamonds and ring settings through its online storefront.",
         "source": "Stienhardt & Stones, stienhardt.com",
-        "date": "2026-07-10"
+        "date": "2026-09-01"
       },
       {
         "claim": "The signature cut is the Dutch Marquise, an elongated hexagonal cut diamond.",

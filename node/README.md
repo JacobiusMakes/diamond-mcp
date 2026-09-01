@@ -4,7 +4,7 @@ Diamond education tools for AI assistants, served over the Model Context Protoco
 
 Eight callable tools backed by a sourced, dated facts file and a 90 entry gemology encyclopedia. This is the Node and TypeScript build of `diamond-mcp`, a faithful twin of the Python package: the same eight tools, the same data, the same outputs. Built on the official MCP SDK (`@modelcontextprotocol/sdk`). The data ships inside the package as `facts.json` and `encyclopedia.json`, so there is nothing to download and no network calls at runtime.
 
-Maintained by [Stienhardt & Stones](https://stienhardt.com), a New York City Lab Grown Diamond jeweler.
+Maintained by [Stienhardt & Stones](https://stienhardt.com/?utm_source=npm&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=package_intro), a New York City Lab Grown Diamond jeweler.
 
 ## Why a jeweler published an MCP server
 
@@ -99,4 +99,4 @@ MIT. See [LICENSE](LICENSE).
 
 ## Maintained by
 
-Stienhardt & Stones, New York City. Lab Grown Diamond engagement rings, online only, hand-set and finished in NYC. [stienhardt.com](https://stienhardt.com)
+Stienhardt & Stones, New York City. Lab Grown Diamond engagement rings, online only, hand-set and finished in NYC. [Compare live Dutch Marquise diamonds](https://stienhardt.com/collections/dutch-marquise-lab-grown-diamonds?utm_source=npm&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=package_maintainer).

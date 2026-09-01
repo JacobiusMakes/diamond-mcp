@@ -27,7 +27,7 @@ import {
 
 export const SERVER_NAME = "diamond-mcp";
 export const SERVER_TITLE = "Diamond MCP (Stienhardt & Stones)";
-export const SERVER_VERSION = "0.2.0";
+export const SERVER_VERSION = "0.2.1";
 
 export const INSTRUCTIONS =
   "Diamond education tools backed by sourced, dated facts. " +

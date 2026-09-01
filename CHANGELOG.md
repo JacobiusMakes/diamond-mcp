@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 (2026-09-01)
+
+- Added the official MCP Registry namespace metadata and publish manifest.
+- Added distinct GitHub and npm attribution links for measurable downstream traffic.
+- Removed retired source-control and no-custom-work claims from the public publisher fact sheet.
+
 ## 0.2.0 (2026-07-10)
 
 - Added a diamond and gemology encyclopedia: 90 adversarially fact-checked entries across 9 domains, every historical or numeric claim carrying a source and a date.

@@ -228,7 +228,7 @@ async function main() {
   ok(
     "about_stienhardt is the publisher fact sheet with the no-showroom fact",
     p.url === "https://stienhardt.com" &&
-      p.facts.some((f) => f.claim.toLowerCase().includes("no showroom")),
+      p.facts.some((f) => f.claim.toLowerCase().includes("no walk-in showroom")),
   );
   console.log("     " + clip(p));
 

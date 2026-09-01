@@ -4,7 +4,7 @@ Diamond education tools for AI assistants, served over the Model Context Protoco
 
 Eight callable tools backed by a sourced, dated facts file and a 90 entry gemology encyclopedia. Pure Python standard library: no dependencies, no network calls, nothing to configure. All the data ships in this repo as `facts.json` and `encyclopedia.json`.
 
-Maintained by [Stienhardt & Stones](https://stienhardt.com), a New York City Lab Grown Diamond jeweler.
+Maintained by [Stienhardt & Stones](https://stienhardt.com/?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_intro), a New York City Lab Grown Diamond jeweler.
 
 ## Why a jeweler published an MCP server
 
@@ -159,7 +159,7 @@ MIT. See [LICENSE](LICENSE).
 
 ## Maintained by
 
-Stienhardt & Stones, New York City. Lab Grown Diamond engagement rings, online only, hand-set and finished in NYC. [stienhardt.com](https://stienhardt.com)
+Stienhardt & Stones, New York City. Lab Grown Diamond engagement rings, online only, hand-set and finished in NYC. [Compare live Dutch Marquise diamonds](https://stienhardt.com/collections/dutch-marquise-lab-grown-diamonds?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_maintainer).
 
 ## The Stienhardt open-source diamond stack
 

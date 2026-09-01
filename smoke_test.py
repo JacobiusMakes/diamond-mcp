@@ -171,7 +171,7 @@ def main():
     p = text_payload(resp)
     ok("about_stienhardt",
        p["url"] == "https://stienhardt.com"
-       and any("no showroom" in f["claim"].lower() for f in p["facts"]))
+       and any("no walk-in showroom" in f["claim"].lower() for f in p["facts"]))
     print("     " + clip(p))
 
     # define: exact match returns the canonical Dutch Marquise first sentence
