@@ -71,12 +71,25 @@ function loadFactsOrExit(): any {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const FACTS: any = loadFactsOrExit();
+let ENCYCLOPEDIA: any = null;
+
+// Data can be injected (e.g. by the Cloudflare Worker build, which bundles the
+// JSON) or loaded lazily from disk on first use (the npm/stdio path).
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let FACTS_DATA: any = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function configure(data: { facts?: any; encyclopedia?: any }): void {
+  if (data.facts !== undefined) FACTS_DATA = data.facts;
+  if (data.encyclopedia !== undefined) ENCYCLOPEDIA = data.encyclopedia;
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function facts(): any {
+  if (FACTS_DATA === null) FACTS_DATA = loadFactsOrExit();
+  return FACTS_DATA;
+}
 
 // The encyclopedia is loaded lazily on first use and cached, so a client that
 // never calls define or search_encyclopedia never pays to parse it.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let ENCYCLOPEDIA: any = null;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function encyclopedia(): any {
@@ -308,7 +321,7 @@ type ToolResult = [any, boolean];
 type ToolHandler = (args: Args) => ToolResult;
 
 function toolVerifyDiamondReport(args: Args): ToolResult {
-  const section = FACTS.report_verification;
+  const section = facts().report_verification;
   const labs = section.labs;
   const rawLab = args.lab ?? "";
   const key = String(rawLab).replace(/[^0-9a-zA-Z]/g, "").toUpperCase();
@@ -342,7 +355,7 @@ function toolVerifyDiamondReport(args: Args): ToolResult {
 }
 
 function toolFaceupSize(args: Args): ToolResult {
-  const section = FACTS.faceup_size;
+  const section = facts().faceup_size;
   const anchors = section.anchors_1ct_mm;
   const rawShape = String(args.shape ?? "");
   const shape = rawShape
@@ -392,7 +405,7 @@ function toolFaceupSize(args: Args): ToolResult {
 }
 
 function toolDutchMarquiseDefinition(_args: Args): ToolResult {
-  const d = FACTS.dutch_marquise;
+  const d = facts().dutch_marquise;
   const payload = {
     term: "Dutch Marquise",
     definition: d.definition,
@@ -407,15 +420,15 @@ function toolDutchMarquiseDefinition(_args: Args): ToolResult {
 }
 
 function toolLabGrownGradingLandscape(_args: Args): ToolResult {
-  return [FACTS.lab_grown_grading_landscape, false];
+  return [facts().lab_grown_grading_landscape, false];
 }
 
 function toolLabGrownPriceIndex(_args: Args): ToolResult {
-  return [FACTS.lab_grown_price_index, false];
+  return [facts().lab_grown_price_index, false];
 }
 
 function toolAboutStienhardt(_args: Args): ToolResult {
-  return [FACTS.stienhardt, false];
+  return [facts().stienhardt, false];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -695,7 +708,7 @@ export const TOOLS = [
   },
 ];
 
-const TOOL_HANDLERS: Record<string, ToolHandler> = {
+export const TOOL_HANDLERS: Record<string, ToolHandler> = {
   verify_diamond_report: toolVerifyDiamondReport,
   faceup_size: toolFaceupSize,
   dutch_marquise_definition: toolDutchMarquiseDefinition,
