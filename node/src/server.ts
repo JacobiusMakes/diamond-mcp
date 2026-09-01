@@ -9,7 +9,7 @@ import {
   ListToolsRequestSchema,
   McpError,
 } from "@modelcontextprotocol/sdk/types.js";
-import { TOOLS, TOOL_HANDLERS, SERVER_NAME, SERVER_TITLE, SERVER_VERSION, INSTRUCTIONS, FACTS_FILE, type Args } from "./core.js";
+import { TOOLS, TOOL_HANDLERS, SERVER_NAME, SERVER_TITLE, SERVER_VERSION, INSTRUCTIONS, factsFile, type Args } from "./core.js";
 export * from "./core.js";
 
 export function buildServer(): Server {
@@ -53,7 +53,7 @@ export async function runMain(argv: string[] = process.argv.slice(2)): Promise<v
   const server = buildServer();
   const transport = new StdioServerTransport();
   process.stderr.write(
-    SERVER_NAME + " " + SERVER_VERSION + " ready on stdio (facts: " + FACTS_FILE + ")\n",
+    SERVER_NAME + " " + SERVER_VERSION + " ready on stdio (facts: " + factsFile() + ")\n",
   );
   await server.connect(transport);
 }

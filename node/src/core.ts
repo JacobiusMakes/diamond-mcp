@@ -53,12 +53,14 @@ function loadJson(path: string): any {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
-export const FACTS_FILE = resolveDataFile("facts.json", "DIAMOND_MCP_FACTS");
+export function factsFile(): string {
+  return resolveDataFile("facts.json", "DIAMOND_MCP_FACTS");
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function loadFactsOrExit(): any {
   try {
-    return loadJson(FACTS_FILE);
+    return loadJson(factsFile());
   } catch (err) {
     process.stderr.write("diamond-mcp: could not load facts.json: " + String(err) + "\n");
     process.exit(1);
