@@ -7,12 +7,12 @@
     "source": "github",
     "id": "1296813197"
   },
-  "version": "0.2.1",
+  "version": "0.2.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "diamond-mcp",
-      "version": "0.2.1",
+      "version": "0.2.0",
       "transport": {
         "type": "stdio"
       }
