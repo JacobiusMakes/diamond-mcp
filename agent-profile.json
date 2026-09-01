@@ -13,10 +13,24 @@
     },
     "capabilities": {
       "dev.ucp.shopping.checkout": [
-        {"version": "2026-08-25", "spec": "https://ucp.dev/2026-08-25/specification/checkout", "schema": "https://ucp.dev/2026-08-25/schemas/shopping/checkout.json"}
+        {"version": "2026-08-25", "spec": "https://ucp.dev/2026-08-25/specification/shopping/checkout", "schema": "https://ucp.dev/2026-08-25/schemas/shopping/checkout.json"}
+      ],
+      "dev.ucp.shopping.fulfillment": [
+        {"version": "2026-08-25", "spec": "https://ucp.dev/2026-08-25/specification/shopping/extensions/fulfillment", "schema": "https://ucp.dev/2026-08-25/schemas/shopping/fulfillment.json", "extends": "dev.ucp.shopping.checkout"}
+      ]
+    },
+    "payment_handlers": {
+      "dev.shopify.shop_pay": [
+        {
+          "id": "shop_pay_stienhardt_agent",
+          "version": "2026-08-25",
+          "spec": "https://shopify.dev/ucp/shop-pay-handler",
+          "schema": "https://shopify.dev/ucp/schemas/shop-pay-config.json",
+          "available_instruments": [{"type": "shop_pay"}]
+        }
       ]
     }
   },
-  "name": "Stienhardt diamond assistant (test profile)",
+  "name": "Stienhardt diamond assistant (agent profile)",
   "operator": "Stienhardt, New York"
 }
