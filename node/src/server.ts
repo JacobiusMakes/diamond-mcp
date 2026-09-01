@@ -42,15 +42,18 @@ export const INSTRUCTIONS =
 // matching the Python server (DIAMOND_MCP_FACTS, DIAMOND_MCP_ENCYCLOPEDIA).
 // ---------------------------------------------------------------------------
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(HERE, "data");
+// Resolved lazily: import.meta.url is not a file: URL inside Cloudflare Workers, and
+// the Worker build injects data via configure() so this path is never needed there.
+function dataDir(): string {
+  return join(dirname(fileURLToPath(import.meta.url)), "data");
+}
 
 function resolveDataFile(filename: string, envVar: string): string {
   const override = process.env[envVar];
   if (override && existsSync(override)) {
     return override;
   }
-  return join(DATA_DIR, filename);
+  return join(dataDir(), filename);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
