@@ -10,3 +10,6 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 UCP_ENDPOINT = "https://stienhard-stones.myshopify.com/api/ucp/mcp"
 STORE_ORIGIN = "https://stienhardt.com"
+# Shopify's UCP profile fetcher refuses *.workers.dev hosts ("Http error"); a CDN-hosted copy of the
+# same profile passes. Pin to a pushed commit sha (jsDelivr caches @main for days).
+AGENT_PROFILE_URL = "https://cdn.jsdelivr.net/gh/JacobiusMakes/diamond-mcp@13c204f2316b2d48b764db3e/agent-profile.json"
