@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2 (2026-09-02)
+
+- Data: the Dutch Marquise entries no longer state a length-to-width range; only the measured
+  reference stone (1.84) is given. Publisher name is Stienhardt throughout.
+- Worker: tool annotations, /privacy, OpenAI plugin challenge route (deployed).
+
 ## 0.2.1 (2026-09-01)
 
 - Added the official MCP Registry namespace metadata and publish manifest.
