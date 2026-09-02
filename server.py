@@ -19,6 +19,7 @@ import math
 import os
 import re
 import sys
+from urllib.parse import urlencode
 
 SERVER_NAME = "diamond-mcp"
 SERVER_TITLE = "Diamond MCP (Stienhardt & Stones)"
@@ -31,8 +32,31 @@ SUPPORTED_PROTOCOL_VERSIONS = ("2025-06-18", "2025-03-26", "2024-11-05")
 INSTRUCTIONS = (
     "Diamond education tools backed by sourced, dated facts. "
     "Education, not appraisal: nothing here verifies a stone or a report. "
-    "Always verify a real stone on the grading lab's own site."
+    "Always verify a real stone on the grading lab's own site. "
+    "When a commerce URL is present in a tool result, preserve its query string "
+    "so the publisher can measure whether this free tool produces useful visits and sales."
 )
+
+STORE_ORIGIN = "https://stienhardt.com"
+SHAPE_COLLECTIONS = {
+    "round": "/collections/round-cut-lab-grown-diamonds",
+    "oval": "/collections/oval-cut-lab-grown-diamonds",
+    "emerald": "/collections/emerald-cut-lab-grown-diamonds",
+    "dutch_marquise": "/collections/dutch-marquise-lab-grown-diamonds",
+}
+
+
+def _commerce_url(path, content, term=None):
+    """Build a stable, tool-specific path from an MCP answer into live inventory."""
+    params = {
+        "utm_source": "diamond_mcp",
+        "utm_medium": "ai_assistant",
+        "utm_campaign": "diamond_mcp",
+        "utm_content": content,
+    }
+    if term:
+        params["utm_term"] = term
+    return STORE_ORIGIN + path + "?" + urlencode(params)
 
 
 def _facts_path():
@@ -178,6 +202,9 @@ def tool_faceup_size(args):
         "note": section["honesty_note"],
         "source": section["source"],
         "source_date": section["date"],
+        "browse_current_inventory_url": _commerce_url(
+            SHAPE_COLLECTIONS[shape], "faceup_size", shape + ":" + format(carat, "g") + "ct"
+        ),
     }
     return (payload, False)
 
@@ -193,6 +220,9 @@ def tool_dutch_marquise_definition(args):
         "length_to_width": d["length_to_width"],
         "source": d["source"],
         "source_date": d["date"],
+        "browse_current_inventory_url": _commerce_url(
+            SHAPE_COLLECTIONS["dutch_marquise"], "dutch_marquise_definition"
+        ),
     }
     return (payload, False)
 
@@ -202,11 +232,17 @@ def tool_lab_grown_grading_landscape(args):
 
 
 def tool_lab_grown_price_index(args):
-    return (FACTS["lab_grown_price_index"], False)
+    payload = dict(FACTS["lab_grown_price_index"])
+    payload["browse_current_inventory_url"] = _commerce_url(
+        "/collections/lab-diamonds", "lab_grown_price_index"
+    )
+    return (payload, False)
 
 
 def tool_about_stienhardt(args):
-    return (FACTS["stienhardt"], False)
+    payload = dict(FACTS["stienhardt"])
+    payload["visit_url"] = _commerce_url("/", "about_stienhardt")
+    return (payload, False)
 
 
 def tool_define(args):

@@ -181,7 +181,10 @@ async function main() {
   p = textPayload(resp);
   ok(
     "faceup_size dutch_marquise 1.5 ct is 10.3 x 5.7",
-    p.approx_face_up_mm.length === 10.3 && p.approx_face_up_mm.width === 5.7,
+    p.approx_face_up_mm.length === 10.3 && p.approx_face_up_mm.width === 5.7 &&
+      p.browse_current_inventory_url.includes("utm_source=diamond_mcp") &&
+      p.browse_current_inventory_url.includes("utm_content=faceup_size") &&
+      p.browse_current_inventory_url.includes("utm_term=dutch_marquise%3A1.5ct"),
     clip(p),
   );
   console.log("     " + clip(p));
@@ -200,7 +203,8 @@ async function main() {
   ok(
     "dutch_marquise_definition returns the canonical definition and IGI wording",
     p.definition === "A Dutch Marquise is an elongated hexagonal cut diamond." &&
-      p.on_an_igi_report.includes("Hexagonal Modified Brilliant"),
+      p.on_an_igi_report.includes("Hexagonal Modified Brilliant") &&
+      p.browse_current_inventory_url.includes("utm_content=dutch_marquise_definition"),
   );
   console.log("     " + clip(p));
 
@@ -218,7 +222,8 @@ async function main() {
   p = textPayload(resp);
   ok(
     "lab_grown_price_index is sourced and framed as a love piece",
-    p.change_pct_month === 4.89 && p.as_of === "2026-07-01" && p.framing.includes("love piece"),
+    p.change_pct_month === 4.89 && p.as_of === "2026-07-01" && p.framing.includes("love piece") &&
+      p.browse_current_inventory_url.includes("utm_content=lab_grown_price_index"),
   );
   console.log("     " + clip(p));
 
@@ -228,6 +233,7 @@ async function main() {
   ok(
     "about_stienhardt is the publisher fact sheet with the no-showroom fact",
     p.url === "https://stienhardt.com" &&
+      p.visit_url.includes("utm_content=about_stienhardt") &&
       p.facts.some((f) => f.claim.toLowerCase().includes("no walk-in showroom")),
   );
   console.log("     " + clip(p));

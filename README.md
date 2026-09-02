@@ -17,6 +17,10 @@ People ask AI assistants their diamond questions now. We'd rather those assistan
 - The price index is market context for shoppers, not investment guidance. A diamond is a love piece, not an investment.
 - The server makes no network calls. It reads `facts.json` from disk and answers.
 
+## Measurable commerce paths
+
+High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_price_index`, and `about_stienhardt` include an optional Stienhardt link. Each link carries `diamond_mcp` source tags plus the originating tool. Shape and carat are included for `faceup_size`. Preserve the query string if you surface one of these links to a user. This lets the publisher measure useful visits and orders without collecting identity or conversation text.
+
 ## The tools
 
 | Tool | Arguments | What it returns |

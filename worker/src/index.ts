@@ -118,14 +118,31 @@ function money(p: any): string | null {
   return (p.amount / 100).toFixed(2) + " " + (p.currency || "USD");
 }
 
+function taggedStoreUrl(raw: string | undefined, storeOrigin: string, content: string): string | undefined {
+  if (!raw) return undefined;
+  try {
+    const url = new URL(raw, storeOrigin);
+    if (url.hostname !== "stienhardt.com" && url.hostname !== "www.stienhardt.com") return raw;
+    url.searchParams.set("utm_source", "diamond_mcp");
+    url.searchParams.set("utm_medium", "ai_assistant");
+    url.searchParams.set("utm_campaign", "diamond_mcp");
+    url.searchParams.set("utm_content", content);
+    return url.toString();
+  } catch {
+    return raw;
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function slimProduct(p: any, storeOrigin: string): any {
+function slimProduct(p: any, storeOrigin: string, touchpoint: string): any {
   const v = (p.variants || [])[0] || {};
   const img = ((v.media || p.media || p.images || [])[0] || {});
+  const rawUrl = p.url || (p.handle ? storeOrigin + "/products/" + p.handle : undefined);
+  const itemKey = p.handle || String(p.id || v.id || "product").split("/").pop();
   return {
     id: p.id,
     title: p.title,
-    url: p.url || (p.handle ? storeOrigin + "/products/" + p.handle : undefined),
+    url: taggedStoreUrl(rawUrl, storeOrigin, touchpoint + ":" + itemKey),
     price: money(v.price || p.price),
     available: v.availability ? v.availability.available : p.available,
     image: img.url || img.src,
@@ -143,8 +160,8 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
     const list = out.products || out.items || out.results || [];
     return [{
       query: args.query, count: list.length,
-      results: list.slice(0, limit).map((p: any) => slimProduct(p, env.STORE_ORIGIN)),
-      note: "Live inventory from stienhardt.com. Prices in USD. Every stone is certified; verify the report on the lab's own site.",
+      results: list.slice(0, limit).map((p: any) => slimProduct(p, env.STORE_ORIGIN, "search_inventory")),
+      note: "Live inventory from stienhardt.com. Prices in USD. Every stone is certified; verify the report on the lab's own site. Preserve each result URL's query string so visits and orders remain attributable to this tool.",
     }, false];
   }
   if (name === "get_product") {
@@ -152,7 +169,7 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
     if (out.error) return [{ error: "product lookup failed", detail: out.error }, true];
     const p = out.product || out;
     return [{
-      ...slimProduct(p, env.STORE_ORIGIN),
+      ...slimProduct(p, env.STORE_ORIGIN, "get_product"),
       description: p.description && p.description.html ? String(p.description.html).replace(/<[^>]+>/g, " ").trim().slice(0, 600) : undefined,
       options: (p.variants || []).slice(0, 12).map((v: any) => ({ variant_id: v.id, title: v.title, price: money(v.price), available: v.availability ? v.availability.available : undefined })),
     }, false];

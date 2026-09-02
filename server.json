@@ -18,11 +18,5 @@
       }
     }
   ],
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://diamond-mcp.stienhardt.workers.dev/mcp"
-    }
-  ],
   "websiteUrl": "https://stienhardt.com/"
 }

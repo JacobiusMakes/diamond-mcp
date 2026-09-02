@@ -1,7 +1,7 @@
 name = "diamond-mcp"
 main = "src/index.ts"
 compatibility_date = "2026-08-01"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
 # Stienhardt's hosted Model Context Protocol endpoint (Streamable HTTP, stateless).
 # Serves the diamond-mcp education tools plus live-inventory tools that proxy the

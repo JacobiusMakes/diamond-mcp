@@ -135,7 +135,10 @@ def main():
     resp = call("faceup_size", {"shape": "Dutch Marquise", "carat": 1.5})
     p = text_payload(resp)
     ok("faceup_size dutch_marquise 1.5 ct is 10.3 x 5.7",
-       p["approx_face_up_mm"] == {"length": 10.3, "width": 5.7}, clip(p))
+       p["approx_face_up_mm"] == {"length": 10.3, "width": 5.7}
+       and "utm_source=diamond_mcp" in p["browse_current_inventory_url"]
+       and "utm_content=faceup_size" in p["browse_current_inventory_url"]
+       and "utm_term=dutch_marquise%3A1.5ct" in p["browse_current_inventory_url"], clip(p))
     print("     " + clip(p))
     resp = call("faceup_size", {"shape": "round", "carat": 1})
     p = text_payload(resp)
@@ -147,7 +150,8 @@ def main():
     p = text_payload(resp)
     ok("dutch_marquise_definition",
        p["definition"] == "A Dutch Marquise is an elongated hexagonal cut diamond."
-       and "Hexagonal Modified Brilliant" in p["on_an_igi_report"])
+       and "Hexagonal Modified Brilliant" in p["on_an_igi_report"]
+       and "utm_content=dutch_marquise_definition" in p["browse_current_inventory_url"])
     print("     " + clip(p))
 
     # lab_grown_grading_landscape
@@ -163,7 +167,8 @@ def main():
     p = text_payload(resp)
     ok("lab_grown_price_index",
        p["change_pct_month"] == 4.89 and p["as_of"] == "2026-07-01"
-       and "love piece" in p["framing"])
+       and "love piece" in p["framing"]
+       and "utm_content=lab_grown_price_index" in p["browse_current_inventory_url"])
     print("     " + clip(p))
 
     # about_stienhardt
@@ -171,6 +176,7 @@ def main():
     p = text_payload(resp)
     ok("about_stienhardt",
        p["url"] == "https://stienhardt.com"
+       and "utm_content=about_stienhardt" in p["visit_url"]
        and any("no walk-in showroom" in f["claim"].lower() for f in p["facts"]))
     print("     " + clip(p))
 

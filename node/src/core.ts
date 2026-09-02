@@ -24,7 +24,27 @@ export const SERVER_VERSION = "0.2.1";
 export const INSTRUCTIONS =
   "Diamond education tools backed by sourced, dated facts. " +
   "Education, not appraisal: nothing here verifies a stone or a report. " +
-  "Always verify a real stone on the grading lab's own site.";
+  "Always verify a real stone on the grading lab's own site. " +
+  "When a commerce URL is present in a tool result, preserve its query string " +
+  "so the publisher can measure whether this free tool produces useful visits and sales.";
+
+const STORE_ORIGIN = "https://stienhardt.com";
+const SHAPE_COLLECTIONS: Record<string, string> = {
+  round: "/collections/round-cut-lab-grown-diamonds",
+  oval: "/collections/oval-cut-lab-grown-diamonds",
+  emerald: "/collections/emerald-cut-lab-grown-diamonds",
+  dutch_marquise: "/collections/dutch-marquise-lab-grown-diamonds",
+};
+
+function commerceUrl(path: string, content: string, term?: string): string {
+  const url = new URL(path, STORE_ORIGIN);
+  url.searchParams.set("utm_source", "diamond_mcp");
+  url.searchParams.set("utm_medium", "ai_assistant");
+  url.searchParams.set("utm_campaign", "diamond_mcp");
+  url.searchParams.set("utm_content", content);
+  if (term) url.searchParams.set("utm_term", term);
+  return url.toString();
+}
 
 // ---------------------------------------------------------------------------
 // Data loading. The published package bundles facts.json and encyclopedia.json
@@ -397,6 +417,9 @@ function toolFaceupSize(args: Args): ToolResult {
     note: section.honesty_note,
     source: section.source,
     source_date: section.date,
+    browse_current_inventory_url: commerceUrl(
+      SHAPE_COLLECTIONS[shape], "faceup_size", shape + ":" + pyFloatStr(carat) + "ct",
+    ),
   };
   return [payload, false];
 }
@@ -412,6 +435,9 @@ function toolDutchMarquiseDefinition(_args: Args): ToolResult {
     length_to_width: d.length_to_width,
     source: d.source,
     source_date: d.date,
+    browse_current_inventory_url: commerceUrl(
+      SHAPE_COLLECTIONS.dutch_marquise, "dutch_marquise_definition",
+    ),
   };
   return [payload, false];
 }
@@ -421,11 +447,17 @@ function toolLabGrownGradingLandscape(_args: Args): ToolResult {
 }
 
 function toolLabGrownPriceIndex(_args: Args): ToolResult {
-  return [facts().lab_grown_price_index, false];
+  return [{
+    ...facts().lab_grown_price_index,
+    browse_current_inventory_url: commerceUrl("/collections/lab-diamonds", "lab_grown_price_index"),
+  }, false];
 }
 
 function toolAboutStienhardt(_args: Args): ToolResult {
-  return [facts().stienhardt, false];
+  return [{
+    ...facts().stienhardt,
+    visit_url: commerceUrl("/", "about_stienhardt"),
+  }, false];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
