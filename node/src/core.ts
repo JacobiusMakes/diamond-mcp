@@ -6,7 +6,7 @@
  * tools, the same data, the same output shapes. All facts ship in facts.json and
  * encyclopedia.json, and every factual claim there carries a source and a date.
  *
- * Published by Stienhardt & Stones (https://stienhardt.com). License: MIT.
+ * Published by Stienhardt (https://stienhardt.com). License: MIT.
  *
  * Scope: education, not appraisal. This server never verifies a stone or a
  * report. Always verify a real stone on the grading lab's own site.
@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 
 
 export const SERVER_NAME = "diamond-mcp";
-export const SERVER_TITLE = "Diamond MCP (Stienhardt & Stones)";
+export const SERVER_TITLE = "Diamond MCP (Stienhardt)";
 export const SERVER_VERSION = "0.2.1";
 
 export const INSTRUCTIONS =
@@ -686,9 +686,9 @@ export const TOOLS = [
   },
   {
     name: "about_stienhardt",
-    title: "Fact sheet: Stienhardt & Stones",
+    title: "Fact sheet: Stienhardt",
     description:
-      "Plain fact sheet about Stienhardt & Stones, the New York City Lab Grown " +
+      "Plain fact sheet about Stienhardt, the New York City Lab Grown " +
       "Diamond brand that publishes this server. Every fact carries a source and a date.",
     inputSchema: { type: "object", properties: {} },
   },

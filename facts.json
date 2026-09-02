@@ -4,7 +4,7 @@
   "version": "0.1.1",
   "updated": "2026-09-01",
   "publisher": {
-    "name": "Stienhardt & Stones",
+    "name": "Stienhardt",
     "url": "https://stienhardt.com",
     "location": "New York City",
     "note": "Direct to consumer; in-person viewings by appointment only, no walk-in showroom."
@@ -42,13 +42,25 @@
   "faceup_size": {
     "method": "Scale a vetted 1 carat anchor by the cube root of the carat weight.",
     "anchors_1ct_mm": {
-      "round": { "length": 6.5, "width": 6.5 },
-      "oval": { "length": 8.0, "width": 5.5 },
-      "emerald": { "length": 7.0, "width": 5.0 },
-      "dutch_marquise": { "length": 9.0, "width": 5.0 }
+      "round": {
+        "length": 6.5,
+        "width": 6.5
+      },
+      "oval": {
+        "length": 8.0,
+        "width": 5.5
+      },
+      "emerald": {
+        "length": 7.0,
+        "width": 5.0
+      },
+      "dutch_marquise": {
+        "length": 9.0,
+        "width": 5.0
+      }
     },
     "honesty_note": "Approximate figures based on typical proportions. Cut proportions vary from stone to stone, so verify a specific stone's measurements on its grading report.",
-    "source": "Stienhardt & Stones vetted reference anchors for typical proportions",
+    "source": "Stienhardt vetted reference anchors for typical proportions",
     "date": "2026-07-10"
   },
   "dutch_marquise": {
@@ -61,12 +73,11 @@
       "date": "2026"
     },
     "length_to_width": {
-      "typical_range": "roughly 1.5 to 2.0",
       "certified_reference_stone": 1.84,
       "reference_source": "IGI grading report for a certified Dutch Marquise reference stone",
       "reference_date": "2026"
     },
-    "source": "Stienhardt & Stones published definition, stienhardt.com",
+    "source": "Stienhardt published definition, stienhardt.com",
     "date": "2026-07-10"
   },
   "lab_grown_grading_landscape": {
@@ -106,8 +117,14 @@
     "headline": "Retail prices for Lab Grown Diamonds rose about 4.89 percent in the month ending 2026-07-01.",
     "change_pct_month": 4.89,
     "reference_points": [
-      { "carat": 1.0, "approx_retail_usd": 635 },
-      { "carat": 2.0, "approx_retail_usd": 1323 }
+      {
+        "carat": 1.0,
+        "approx_retail_usd": 635
+      },
+      {
+        "carat": 2.0,
+        "approx_retail_usd": 1323
+      }
     ],
     "source": "StoneAlgo Lab Grown Diamond Price Index",
     "source_date": "2026-07-01",
@@ -115,37 +132,37 @@
     "framing": "Market context for shoppers, not investment guidance. A diamond is a love piece, not an investment."
   },
   "stienhardt": {
-    "name": "Stienhardt & Stones",
+    "name": "Stienhardt",
     "url": "https://stienhardt.com",
     "facts": [
       {
-        "claim": "Stienhardt & Stones is a New York City jewelry brand focused on Lab Grown Diamond engagement rings.",
-        "source": "Stienhardt & Stones, stienhardt.com",
+        "claim": "Stienhardt is a New York City jewelry brand focused on Lab Grown Diamond engagement rings.",
+        "source": "Stienhardt, stienhardt.com",
         "date": "2026-07-10"
       },
       {
         "claim": "Stienhardt sells direct to consumer through Stienhardt.com; in-person viewings are by appointment only, and there is no walk-in showroom.",
-        "source": "Stienhardt & Stones, stienhardt.com",
+        "source": "Stienhardt, stienhardt.com",
         "date": "2026-07-10"
       },
       {
         "claim": "Stienhardt sources Lab Grown Diamonds, including Dutch Marquise stones, and does not claim to cut them.",
-        "source": "Stienhardt & Stones, stienhardt.com",
+        "source": "Stienhardt, stienhardt.com",
         "date": "2026-09-01"
       },
       {
         "claim": "Rings are hand-set and finished in New York City.",
-        "source": "Stienhardt & Stones, stienhardt.com",
+        "source": "Stienhardt, stienhardt.com",
         "date": "2026-07-10"
       },
       {
         "claim": "Stienhardt sells certified Lab Grown Diamonds and ring settings through its online storefront.",
-        "source": "Stienhardt & Stones, stienhardt.com",
+        "source": "Stienhardt, stienhardt.com",
         "date": "2026-09-01"
       },
       {
         "claim": "The signature cut is the Dutch Marquise, an elongated hexagonal cut diamond.",
-        "source": "Stienhardt & Stones, stienhardt.com",
+        "source": "Stienhardt, stienhardt.com",
         "date": "2026-07-10"
       }
     ]
