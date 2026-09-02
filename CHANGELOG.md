@@ -5,6 +5,8 @@
 - Added the official MCP Registry namespace metadata and publish manifest.
 - Added distinct GitHub and npm attribution links for measurable downstream traffic.
 - Removed retired source-control and no-custom-work claims from the public publisher fact sheet.
+- Added a self-contained MCP Bundle for one-click local installation and official registry distribution without a package-manager account.
+- Updated the Node MCP SDK and locked production dependencies to versions with no known npm audit findings at release time.
 
 ## 0.2.0 (2026-07-10)
 

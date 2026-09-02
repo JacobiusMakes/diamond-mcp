@@ -16,8 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Verify npm package exists
-        run: npm view "diamond-mcp@$(node -p \"require('./server.json').version\")" version
+      - name: Verify MCPB artifact hash
+        run: |
+          bundle_url="$(jq -r '.packages[0].identifier' server.json)"
+          expected_sha="$(jq -r '.packages[0].fileSha256' server.json)"
+          curl --fail --location "$bundle_url" --output /tmp/diamond-mcp.mcpb
+          actual_sha="$(sha256sum /tmp/diamond-mcp.mcpb | cut -d ' ' -f 1)"
+          test "$actual_sha" = "$expected_sha"
 
       - name: Install MCP publisher
         run: |

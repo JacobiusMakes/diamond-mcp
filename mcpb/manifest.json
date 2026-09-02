@@ -1,0 +1,81 @@
+{
+  "manifest_version": "0.3",
+  "name": "diamond-mcp",
+  "display_name": "Diamond MCP by Stienhardt & Stones",
+  "version": "0.2.1",
+  "description": "Sourced diamond education and gemology tools for AI assistants.",
+  "long_description": "Eight local tools for diamond report verification guidance, face up size estimates, Lab Grown Diamond grading and market context, the Dutch Marquise definition, and a 90 entry gemology encyclopedia. No account, API key, or user data collection.",
+  "author": {
+    "name": "Stienhardt & Stones",
+    "url": "https://stienhardt.com/?utm_source=mcpb&utm_medium=ai_assistant&utm_campaign=diamond_mcp&utm_content=bundle_manifest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JacobiusMakes/diamond-mcp.git"
+  },
+  "homepage": "https://github.com/JacobiusMakes/diamond-mcp",
+  "documentation": "https://github.com/JacobiusMakes/diamond-mcp#readme",
+  "support": "https://github.com/JacobiusMakes/diamond-mcp/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/bin.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/bin.js"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "verify_diamond_report",
+      "description": "Return the official GIA, IGI, or GCAL verification URL and a three step report-checking checklist."
+    },
+    {
+      "name": "faceup_size",
+      "description": "Estimate face up millimeter dimensions for round, oval, emerald, and Dutch Marquise diamonds."
+    },
+    {
+      "name": "dutch_marquise_definition",
+      "description": "Return the published definition, geometry, certificate wording, and typical ratio for a Dutch Marquise."
+    },
+    {
+      "name": "lab_grown_grading_landscape",
+      "description": "Explain who grades Lab Grown Diamonds today, with a source and date for every item."
+    },
+    {
+      "name": "lab_grown_price_index",
+      "description": "Return the latest tracked Lab Grown Diamond retail price reading with its source and date."
+    },
+    {
+      "name": "about_stienhardt",
+      "description": "Return a sourced fact sheet about Stienhardt & Stones."
+    },
+    {
+      "name": "define",
+      "description": "Look up a diamond or gemology term in the 90 entry fact-checked encyclopedia."
+    },
+    {
+      "name": "search_encyclopedia",
+      "description": "Run ranked keyword search across the diamond and gemology encyclopedia."
+    }
+  ],
+  "keywords": [
+    "diamonds",
+    "gemology",
+    "lab-grown-diamonds",
+    "education",
+    "engagement-rings"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

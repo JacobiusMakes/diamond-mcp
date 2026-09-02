@@ -6,6 +6,10 @@ Eight callable tools backed by a sourced, dated facts file and a 90 entry gemolo
 
 Maintained by [Stienhardt & Stones](https://stienhardt.com/?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_intro), a New York City Lab Grown Diamond jeweler.
 
+## One-click desktop bundle
+
+Download [`diamond-mcp-0.2.1.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.1/diamond-mcp-0.2.1.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
+
 ## Why a jeweler published an MCP server
 
 People ask AI assistants their diamond questions now. We'd rather those assistants answer with sourced facts than with guesses. So we published the facts in a form an assistant can call: where to verify a grading report, how big a 1.5 carat oval actually looks, what a Dutch Marquise is, who grades Lab Grown Diamonds today, and what the market did last month. Every factual claim in `facts.json` carries a source and a date.

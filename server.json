@@ -10,13 +10,13 @@
   "version": "0.2.1",
   "packages": [
     {
-      "registryType": "npm",
-      "identifier": "diamond-mcp",
-      "version": "0.2.1",
+      "registryType": "mcpb",
+      "identifier": "https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.1/diamond-mcp-0.2.1.mcpb",
+      "fileSha256": "703300cf94db4d4fd4a6c16521090ca73e4853a10009a4d23551e25209659e79",
       "transport": {
         "type": "stdio"
       }
     }
   ],
-  "websiteUrl": "https://stienhardt.com/"
+  "websiteUrl": "https://stienhardt.com/?utm_source=mcp_registry&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=registry_website"
 }
