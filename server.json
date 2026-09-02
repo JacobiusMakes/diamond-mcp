@@ -6,7 +6,7 @@
     "url": "https://github.com/JacobiusMakes/diamond-mcp",
     "source": "github"
   },
-  "version": "0.2.3",
+  "version": "0.2.4",
   "packages": [
     {
       "registryType": "mcpb",
@@ -17,5 +17,11 @@
       }
     }
   ],
-  "websiteUrl": "https://stienhardt.com/?utm_source=mcp_registry&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=registry_website"
+  "websiteUrl": "https://stienhardt.com/?utm_source=mcp_registry&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=registry_website",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://diamond-mcp.stienhardt.workers.dev/mcp"
+    }
+  ]
 }
