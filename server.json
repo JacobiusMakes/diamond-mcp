@@ -4,10 +4,9 @@
   "description": "Sourced diamond and gemology tools for AI assistants, with 90 encyclopedia entries.",
   "repository": {
     "url": "https://github.com/JacobiusMakes/diamond-mcp",
-    "source": "github",
-    "id": "1296813197"
+    "source": "github"
   },
-  "version": "0.2.1",
+  "version": "0.2.3",
   "packages": [
     {
       "registryType": "mcpb",
