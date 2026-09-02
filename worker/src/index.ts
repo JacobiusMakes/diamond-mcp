@@ -9,7 +9,8 @@
  *     profile URL; this Worker serves its own profile at /agent-profile.json and injects it,
  *     so ordinary MCP clients (Claude, ChatGPT developer mode, Cursor) never have to know.
  *
- * Routes:  POST /mcp (JSON-RPC)   GET /agent-profile.json   GET /  (info)
+ * Routes:  POST /mcp (JSON-RPC)   GET /agent-profile.json   GET /privacy   GET /  (info)
+ *          GET /.well-known/openai-apps-challenge (OpenAI plugin domain verification token, when set)
  */
 import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTIONS } from "../../node/src/core.js";
 import factsJson from "../../facts.json";
@@ -21,11 +22,56 @@ interface Env {
   UCP_ENDPOINT: string;
   STORE_ORIGIN: string;
   AGENT_PROFILE_URL?: string;
+  OPENAI_APPS_CHALLENGE?: string; // plain-text token from the OpenAI plugin portal (domain verification)
 }
 
 const PROTOCOL = "2025-06-18";
 // bump to force UCP merchants to re-fetch the profile (they cache fetch results)
 const PROFILE_REV = "2";
+
+// Directory listings (Claude Connectors, ChatGPT plugins) require a title and read/write
+// annotations on every tool. Education tools are pure functions over bundled data.
+const TITLES: Record<string, string> = {
+  verify_diamond_report: "Verify a diamond grading report",
+  faceup_size: "Face-up size in millimeters",
+  dutch_marquise_definition: "Dutch Marquise definition",
+  lab_grown_grading_landscape: "Lab Grown grading landscape",
+  lab_grown_price_index: "Lab Grown price index (sourced, dated)",
+  about_stienhardt: "About Stienhardt",
+  define: "Define a diamond term",
+  search_encyclopedia: "Search the gemology encyclopedia",
+};
+function annotated(t: any) {
+  return {
+    ...t,
+    title: t.title || TITLES[t.name] || t.name,
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false, ...(t.annotations || {}) },
+  };
+}
+const allTools = () => [...TOOLS, ...STORE_TOOLS].map(annotated);
+
+const PRIVACY = `Stienhardt diamond MCP server: privacy notice (2026-09-02)
+
+What we collect about you: nothing. This server is stateless and unauthenticated. It sets no
+cookies, stores no requests, and builds no profiles.
+
+What a request contains: the tool name and its arguments, for example a diamond term, a carat
+weight and shape, a grading lab and report number, or a search phrase. Purpose: to answer that
+request.
+
+Where it goes: the education tools are answered from data bundled in the server. The live
+inventory tools (search_inventory, get_product) forward only the search phrase or product id to
+Stienhardt's Shopify storefront endpoint to read public catalog data; Shopify's policies govern that
+hop (https://stienhardt.com/policies/privacy-policy). Cloudflare, which hosts this server, may keep
+standard operational logs (IP address, timestamps) under its own policy.
+
+Retention: we retain nothing. Third parties: Cloudflare (hosting) and Shopify (catalog reads).
+Your controls: there is nothing to delete because nothing is stored; stop using the server to stop
+sending requests.
+
+Contact: jgalperin@stienhardt.com
+Source code: https://github.com/JacobiusMakes/diamond-mcp
+`;
 
 const STORE_TOOLS = [
   {
@@ -200,7 +246,7 @@ async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null
   }
   if (method === "notifications/initialized" || (typeof method === "string" && method.startsWith("notifications/"))) return null;
   if (method === "ping") return { jsonrpc: "2.0", id, result: {} };
-  if (method === "tools/list") return { jsonrpc: "2.0", id, result: { tools: [...TOOLS, ...STORE_TOOLS] } };
+  if (method === "tools/list") return { jsonrpc: "2.0", id, result: { tools: allTools() } };
   if (method === "tools/call") {
     const name = msg.params && msg.params.name;
     const args = (msg.params && msg.params.arguments) || {};
@@ -223,10 +269,17 @@ export default {
     const origin = url.origin;
     if (request.method === "OPTIONS") return json({}, 204);
     if (url.pathname === "/agent-profile.json") return json(agentProfile(origin));
+    if (url.pathname === "/.well-known/openai-apps-challenge") {
+      // OpenAI plugin domain verification: the exact token, plain text, HTTP 200, nothing else.
+      if (!env.OPENAI_APPS_CHALLENGE) return new Response("not configured", { status: 404, headers: { "Content-Type": "text/plain" } });
+      return new Response(env.OPENAI_APPS_CHALLENGE, { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
+    }
+    if (url.pathname === "/privacy") return new Response(PRIVACY, { headers: { "Content-Type": "text/plain; charset=utf-8", "Access-Control-Allow-Origin": "*" } });
     if (url.pathname === "/" || url.pathname === "") {
       return json({
         name: SERVER_NAME, version: SERVER_VERSION, transport: "streamable-http", endpoint: origin + "/mcp",
-        tools: [...TOOLS, ...STORE_TOOLS].map((t) => t.name),
+        tools: allTools().map((t) => t.name),
+        privacy: origin + "/privacy", documentation: "https://github.com/JacobiusMakes/diamond-mcp#readme", support: "jgalperin@stienhardt.com",
         publisher: "Stienhardt, New York City Lab Grown Diamond jeweler", website: env.STORE_ORIGIN,
         source: "https://github.com/JacobiusMakes/diamond-mcp",
       });

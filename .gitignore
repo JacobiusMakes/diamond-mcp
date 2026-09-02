@@ -7,3 +7,7 @@ build/
 dist/
 *.egg-info/
 .DS_Store
+
+# wrangler local state
+worker/.wrangler/
+worker/.preview-url
