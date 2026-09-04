@@ -1,14 +1,16 @@
 # diamond-mcp
 
+[![AllMCPs Verified](https://allmcps.com/api/badge/stienhardt-diamond-mcp?style=shield)](https://allmcps.com/mcp/stienhardt-diamond-mcp)
+
 Diamond education tools for AI assistants, served over the Model Context Protocol (MCP).
 
-Eight callable tools backed by a sourced, dated facts file and a 90 entry gemology encyclopedia. Pure Python standard library: no dependencies, no network calls, nothing to configure. All the data ships in this repo as `facts.json` and `encyclopedia.json`.
+Eight local tools are backed by a sourced, dated facts file and a 90 entry gemology encyclopedia. The hosted endpoint adds two read-only live inventory tools, for 10 tools total. The local Python build uses only the standard library and makes no network calls. All education data ships in this repo as `facts.json` and `encyclopedia.json`.
 
 Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_intro), a New York City Lab Grown Diamond jeweler.
 
 ## One-click desktop bundle
 
-Download [`diamond-mcp-0.2.1.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.1/diamond-mcp-0.2.1.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
+Download [`diamond-mcp-0.2.2.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.2/diamond-mcp-0.2.2.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
 
 ## Why a jeweler published an MCP server
 
@@ -37,6 +39,13 @@ High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_
 | `about_stienhardt` | none | A plain fact sheet about the publisher. |
 | `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then substring and related-term alias. Returns three nearest suggestions when nothing matches. |
 | `search_encyclopedia` | `query`, `limit` | Keyword search across all 90 encyclopedia entries, ranked term over definition over body. Returns term, category, and a definition snippet. |
+
+The hosted endpoint also exposes two live, read-only commerce tools:
+
+| Tool | Arguments | What it returns |
+| --- | --- | --- |
+| `search_inventory` | `query`, `limit` | Current in-stock diamonds, engagement ring settings, and fine jewelry with prices and attributed product links. |
+| `get_product` | `id` | Current product detail, availability, options, images, and an attributed product link. |
 
 ### Example
 
@@ -88,7 +97,17 @@ Calling `define` with `{"term": "Dutch Marquise"}` returns, among other fields:
 }
 ```
 
-## Two flavors: Python and Node
+## Hosted endpoint
+
+Connect any Streamable HTTP MCP client to:
+
+```
+https://diamond-mcp.stienhardt.workers.dev/mcp
+```
+
+The endpoint requires no account or API key. It exposes all 10 tools, including the live inventory search.
+
+## Two local flavors: Python and Node
 
 `diamond-mcp` ships in two builds that expose the same eight tools and load the same data, so they answer the same questions the same way:
 
