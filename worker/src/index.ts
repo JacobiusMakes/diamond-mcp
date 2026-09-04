@@ -11,6 +11,7 @@
  *
  * Routes:  POST /mcp (JSON-RPC)   GET /agent-profile.json   GET /privacy   GET /  (info)
  *          GET /.well-known/mcp/server-card.json (crawler metadata)
+ *          GET /.well-known/mcp.json (open directory discovery metadata)
  *          GET /.well-known/openai-apps-challenge (OpenAI plugin domain verification token, when set)
  */
 import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTIONS } from "../../node/src/core.js";
@@ -121,6 +122,22 @@ function serverCard() {
     tools: allTools(),
     resources: [],
     prompts: [],
+  };
+}
+
+function directoryDiscovery(origin: string) {
+  return {
+    name: "Stienhardt Diamond MCP",
+    description:
+      "Ten no-auth tools for sourced diamond education, report-verification guidance, " +
+      "face-up size estimates, encyclopedia search, and live Stienhardt inventory.",
+    version: SERVER_VERSION,
+    url: origin + "/mcp",
+    transport: "streamable-http",
+    repository: "https://github.com/JacobiusMakes/diamond-mcp",
+    homepage:
+      "https://stienhardt.com/?utm_source=mcpub&utm_medium=mcp_directory" +
+      "&utm_campaign=diamond_mcp&utm_content=well_known_discovery",
   };
 }
 
@@ -288,6 +305,9 @@ export default {
     if (url.pathname === "/agent-profile.json") return json(agentProfile(origin));
     if (url.pathname === "/.well-known/mcp/server-card.json") {
       return json(serverCard(), 200, { "Cache-Control": "public, max-age=300" });
+    }
+    if (url.pathname === "/.well-known/mcp.json") {
+      return json(directoryDiscovery(origin), 200, { "Cache-Control": "public, max-age=300" });
     }
     if (url.pathname === "/.well-known/openai-apps-challenge") {
       // OpenAI plugin domain verification: the exact token, plain text, HTTP 200, nothing else.
