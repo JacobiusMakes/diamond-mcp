@@ -257,12 +257,16 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
   return [{ error: "Unknown tool: " + name }, true];
 }
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version, Authorization",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+};
+
 function json(body: unknown, status = 200, extra: Record<string, string> = {}): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version, Authorization",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS", ...extra },
+    headers: { "Content-Type": "application/json; charset=utf-8", ...CORS_HEADERS, ...extra },
   });
 }
 
@@ -301,7 +305,9 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     const origin = url.origin;
-    if (request.method === "OPTIONS") return json({}, 204);
+    // A 204 response cannot have a body. Returning json({}, 204) works in some runtimes but
+    // Cloudflare rejects it with HTTP 500, which breaks browser-based MCP clients at preflight.
+    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS_HEADERS });
     if (url.pathname === "/agent-profile.json") return json(agentProfile(origin));
     if (url.pathname === "/.well-known/mcp/server-card.json") {
       return json(serverCard(), 200, { "Cache-Control": "public, max-age=300" });
