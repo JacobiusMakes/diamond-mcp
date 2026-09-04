@@ -9,5 +9,7 @@ dist/
 .DS_Store
 
 # wrangler local state
+.wrangler/
 worker/.wrangler/
 worker/.preview-url
+publicmcp-worker/.wrangler/

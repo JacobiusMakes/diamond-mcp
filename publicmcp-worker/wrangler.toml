@@ -1,0 +1,8 @@
+name = "stienhardt-business-mcp"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+[vars]
+DIAMOND_MCP_ENDPOINT = "https://diamond-mcp.stienhardt.workers.dev/mcp"
+STORE_ORIGIN = "https://stienhardt.com"
