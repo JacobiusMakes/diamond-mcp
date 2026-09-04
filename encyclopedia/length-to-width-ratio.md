@@ -12,7 +12,7 @@ The ratio also shapes how a stone reads in wear. A more elongated outline can ma
 
 ## Sources
 
-- The Dutch Marquise is an elongated hexagonal cut (a trade name; an IGI report describes it as 'Hexagonal Modified Brilliant') with a length-to-width ratio of roughly 1.5 to 2.0. (Source: Stienhardt & Stones Dutch Marquise reference; IGI diamond report, 2026-07-10)
+- The Dutch Marquise is an elongated hexagonal cut (a trade name; an IGI report describes it as 'Hexagonal Modified Brilliant'). There is no official length-to-width range for it; a certified reference stone measures 1.84. (Source: Stienhardt Dutch Marquise reference; IGI diamond report, 2026)
 
 ## Related
 

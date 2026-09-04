@@ -4,7 +4,7 @@
 
 Machine-readable copy: [`../encyclopedia.json`](../encyclopedia.json). Queryable in the MCP server via the `define` and `search_encyclopedia` tools.
 
-Updated 2026-07-10. Maintained by Stienhardt & Stones. License: MIT.
+Updated 2026-09-04. Maintained by Stienhardt. License: MIT.
 
 ## Cuts and shapes (16)
 

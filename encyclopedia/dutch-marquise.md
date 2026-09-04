@@ -6,7 +6,7 @@
 
 A Dutch Marquise is an elongated hexagon in outline: two pointed ends joined by straight, angular sides, rather than the curved sides of a true marquise. That straight-sided geometry is what separates it from the classic marquise, or navette, which is a boat shape with two points but sides that curve outward. The Dutch Marquise does not have curved sides and does not have softened or rounded points; its silhouette is angular and hexagonal.
 
-Because Dutch Marquise is a trade name rather than an official gemological category, it is not the wording that appears on a grading report. On an IGI report, the same stone is described by its standard shape classification, Hexagonal Modified Brilliant. The length-to-width ratio of a Dutch Marquise is typically in the range of roughly 1.5 to 2.0 to one, which gives it an elongated look while keeping the clearly hexagonal outline.
+Because Dutch Marquise is a trade name rather than an official gemological category, it is not the wording that appears on a grading report. On an IGI report, the same stone is described by its standard shape classification, Hexagonal Modified Brilliant. There is no official length-to-width range for the Dutch Marquise, because it is a trade name rather than a standardized shape. A certified reference stone measures 1.84 (IGI grading report, 2026). Read the ratio off the report for the individual stone; the outline stays clearly hexagonal across the range sellers offer.
 
 Face-up, like other elongated shapes it covers more of the finger than a compact shape of similar weight and lengthens the look of the hand. As with any cut that comes to points, the two ends are the thinnest and most exposed areas, so they benefit from protective prongs or a setting that shields the tips.
 

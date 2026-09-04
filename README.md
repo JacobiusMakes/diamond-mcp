@@ -167,7 +167,7 @@ MIT. See [LICENSE](LICENSE).
 
 ## Maintained by
 
-Stienhardt, New York City. Lab Grown Diamond engagement rings, online only, hand-set and finished in NYC. [Compare live Dutch Marquise diamonds](https://stienhardt.com/collections/dutch-marquise-lab-grown-diamonds?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_maintainer).
+Stienhardt, New York City. Lab Grown Diamond engagement rings, hand-set and finished in NYC, sold direct with in-person viewings by appointment only. [Compare live Dutch Marquise diamonds](https://stienhardt.com/collections/dutch-marquise-lab-grown-diamonds?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_maintainer).
 
 ## The Stienhardt open-source diamond stack
 
