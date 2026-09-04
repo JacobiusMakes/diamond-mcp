@@ -12,6 +12,8 @@ Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=
 
 Download [`diamond-mcp-0.2.2.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.2/diamond-mcp-0.2.2.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
 
+For a managed gateway with all 10 hosted tools, [connect through Smithery](https://smithery.ai/servers/jgalperin/stienhardt-diamond-mcp). The Smithery release exposes the same sourced education tools plus live inventory search.
+
 ## Why a jeweler published an MCP server
 
 People ask AI assistants their diamond questions now. We'd rather those assistants answer with sourced facts than with guesses. So we published the facts in a form an assistant can call: where to verify a grading report, how big a 1.5 carat oval actually looks, what a Dutch Marquise is, who grades Lab Grown Diamonds today, and what the market did last month. Every factual claim in `facts.json` carries a source and a date.
