@@ -10,6 +10,7 @@
  *     so ordinary MCP clients (Claude, ChatGPT developer mode, Cursor) never have to know.
  *
  * Routes:  POST /mcp (JSON-RPC)   GET /agent-profile.json   GET /privacy   GET /  (info)
+ *          GET /.well-known/mcp/server-card.json (crawler metadata)
  *          GET /.well-known/openai-apps-challenge (OpenAI plugin domain verification token, when set)
  */
 import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTIONS } from "../../node/src/core.js";
@@ -106,6 +107,22 @@ const STORE_TOOLS = [
     annotations: { readOnlyHint: true, openWorldHint: true },
   },
 ];
+
+function serverCard() {
+  return {
+    serverInfo: {
+      name: "Stienhardt Diamond MCP",
+      version: SERVER_VERSION,
+      description:
+        "Ten no-auth tools for sourced diamond education, report-verification guidance, " +
+        "face-up size estimates, encyclopedia search, and live Stienhardt inventory.",
+    },
+    authentication: { required: false, schemes: [] },
+    tools: allTools(),
+    resources: [],
+    prompts: [],
+  };
+}
 
 function agentProfile(origin: string) {
   return {
@@ -269,6 +286,9 @@ export default {
     const origin = url.origin;
     if (request.method === "OPTIONS") return json({}, 204);
     if (url.pathname === "/agent-profile.json") return json(agentProfile(origin));
+    if (url.pathname === "/.well-known/mcp/server-card.json") {
+      return json(serverCard(), 200, { "Cache-Control": "public, max-age=300" });
+    }
     if (url.pathname === "/.well-known/openai-apps-challenge") {
       // OpenAI plugin domain verification: the exact token, plain text, HTTP 200, nothing else.
       if (!env.OPENAI_APPS_CHALLENGE) return new Response("not configured", { status: 404, headers: { "Content-Type": "text/plain" } });

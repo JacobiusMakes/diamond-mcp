@@ -19,7 +19,7 @@ import { fileURLToPath } from "node:url";
 
 export const SERVER_NAME = "diamond-mcp";
 export const SERVER_TITLE = "Diamond MCP (Stienhardt)";
-export const SERVER_VERSION = "0.2.1";
+export const SERVER_VERSION = "0.2.5";
 
 export const INSTRUCTIONS =
   "Diamond education tools backed by sourced, dated facts. " +
