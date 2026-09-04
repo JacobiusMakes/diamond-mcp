@@ -118,16 +118,39 @@ function json(body: unknown, status = 200, extra: Record<string, string> = {}): 
   });
 }
 
-function trackedUrl(storeOrigin: string, path: string, content: string): string {
+type DiscoveryChannel = "publicmcp" | "a2aregistry";
+
+function attribution(channel: DiscoveryChannel) {
+  if (channel === "a2aregistry") {
+    return {
+      source: "a2aregistry",
+      medium: "ai_agent_registry",
+      campaign: "agent_discovery",
+    };
+  }
+  return {
+    source: "publicmcp",
+    medium: "ai_business_directory",
+    campaign: "local_discovery",
+  };
+}
+
+function trackedUrl(
+  storeOrigin: string,
+  path: string,
+  content: string,
+  channel: DiscoveryChannel = "publicmcp",
+): string {
   const url = new URL(path, storeOrigin);
-  url.searchParams.set("utm_source", "publicmcp");
-  url.searchParams.set("utm_medium", "ai_business_directory");
-  url.searchParams.set("utm_campaign", "local_discovery");
+  const tags = attribution(channel);
+  url.searchParams.set("utm_source", tags.source);
+  url.searchParams.set("utm_medium", tags.medium);
+  url.searchParams.set("utm_campaign", tags.campaign);
   url.searchParams.set("utm_content", content);
   return url.toString();
 }
 
-function businessInfo(storeOrigin: string) {
+function businessInfo(storeOrigin: string, channel: DiscoveryChannel) {
   return {
     publicmcp_version: PUBLICMCP_VERSION,
     name: "Stienhardt & Stones",
@@ -137,13 +160,13 @@ function businessInfo(storeOrigin: string) {
     founded: null,
     founder: "",
     co_founder: "",
-    website: trackedUrl(storeOrigin, "/", "get_info"),
+    website: trackedUrl(storeOrigin, "/", "get_info", channel),
     business_type: ["JewelryStore", "LocalBusiness", "OnlineStore"],
     legal_name: "Stienhardt & Stones",
     logo: "",
     price_range: "Varies by diamond and setting",
     contact: {
-      quote_url: trackedUrl(storeOrigin, "/pages/book-an-appointment", "get_info_appointment"),
+      quote_url: trackedUrl(storeOrigin, "/pages/book-an-appointment", "get_info_appointment", channel),
       email: "jgalperin@stienhardt.com",
       telephone: "",
     },
@@ -158,7 +181,7 @@ function businessInfo(storeOrigin: string) {
   };
 }
 
-function services(storeOrigin: string) {
+function services(storeOrigin: string, channel: DiscoveryChannel) {
   return [
     {
       name: "Certified Lab Grown Diamonds",
@@ -167,7 +190,7 @@ function services(storeOrigin: string) {
         "Live catalog of sourced Lab Grown Diamonds with current pricing and grading-report details.",
       highlights: ["Live inventory", "Grading-report details", "Multiple shapes and carat weights"],
       pricing: { model: "Current catalog price in USD" },
-      url: trackedUrl(storeOrigin, "/collections/lab-diamonds", "service_lab_diamonds"),
+      url: trackedUrl(storeOrigin, "/collections/lab-diamonds", "service_lab_diamonds", channel),
     },
     {
       name: "Engagement Rings",
@@ -176,7 +199,7 @@ function services(storeOrigin: string) {
         "Engagement ring settings paired with certified Lab Grown Diamonds. Rings are hand-set and finished in New York City.",
       highlights: ["Setting and center-stone selection", "New York hand-setting and finishing", "Online consultation"],
       pricing: { model: "Current setting and diamond price in USD" },
-      url: trackedUrl(storeOrigin, "/collections/engagement-rings", "service_engagement_rings"),
+      url: trackedUrl(storeOrigin, "/collections/engagement-rings", "service_engagement_rings", channel),
     },
     {
       name: "Wedding Bands",
@@ -184,7 +207,7 @@ function services(storeOrigin: string) {
       description: "Women's and men's wedding bands in a range of metals and designs.",
       highlights: ["Women's bands", "Men's bands", "Diamond and metal styles"],
       pricing: { model: "Current catalog price in USD" },
-      url: trackedUrl(storeOrigin, "/collections/wedding-bands", "service_wedding_bands"),
+      url: trackedUrl(storeOrigin, "/collections/wedding-bands", "service_wedding_bands", channel),
     },
     {
       name: "Fine Jewelry",
@@ -192,7 +215,7 @@ function services(storeOrigin: string) {
       description: "Diamond earrings, necklaces, pendants, and bracelets sold directly online.",
       highlights: ["Earrings", "Necklaces and pendants", "Bracelets"],
       pricing: { model: "Current catalog price in USD" },
-      url: trackedUrl(storeOrigin, "/collections/diamond-earrings", "service_fine_jewelry"),
+      url: trackedUrl(storeOrigin, "/collections/diamond-earrings", "service_fine_jewelry", channel),
     },
     {
       name: "Diamond Education and Report Guidance",
@@ -201,7 +224,11 @@ function services(storeOrigin: string) {
         "Free sourced guidance on grading reports, diamond terminology, face-up size, and Lab Grown Diamond buying questions. Educational information is not an appraisal.",
       highlights: ["Report verification steps", "Face-up size estimates", "Gemology reference"],
       pricing: { project_range: "Free" },
-      url: "https://diamond-mcp.stienhardt.workers.dev/?utm_source=publicmcp&utm_medium=ai_business_directory&utm_campaign=local_discovery&utm_content=service_education",
+      url:
+        "https://diamond-mcp.stienhardt.workers.dev/?utm_source=" + attribution(channel).source +
+        "&utm_medium=" + attribution(channel).medium +
+        "&utm_campaign=" + attribution(channel).campaign +
+        "&utm_content=service_education",
     },
   ];
 }
@@ -226,8 +253,13 @@ function locationInfo() {
   };
 }
 
-function rewriteProductLinks(value: unknown, storeOrigin: string, content: string): unknown {
-  if (Array.isArray(value)) return value.map((item) => rewriteProductLinks(item, storeOrigin, content));
+function rewriteProductLinks(
+  value: unknown,
+  storeOrigin: string,
+  content: string,
+  channel: DiscoveryChannel,
+): unknown {
+  if (Array.isArray(value)) return value.map((item) => rewriteProductLinks(item, storeOrigin, content, channel));
   if (!value || typeof value !== "object") return value;
   const out: Record<string, unknown> = {};
   for (const [key, item] of Object.entries(value as Record<string, unknown>)) {
@@ -235,9 +267,10 @@ function rewriteProductLinks(value: unknown, storeOrigin: string, content: strin
       try {
         const url = new URL(item);
         if (url.hostname === "stienhardt.com" || url.hostname === "www.stienhardt.com") {
-          url.searchParams.set("utm_source", "publicmcp");
-          url.searchParams.set("utm_medium", "ai_business_directory");
-          url.searchParams.set("utm_campaign", "local_discovery");
+          const tags = attribution(channel);
+          url.searchParams.set("utm_source", tags.source);
+          url.searchParams.set("utm_medium", tags.medium);
+          url.searchParams.set("utm_campaign", tags.campaign);
           url.searchParams.set("utm_content", content);
           out[key] = url.toString();
           continue;
@@ -247,7 +280,7 @@ function rewriteProductLinks(value: unknown, storeOrigin: string, content: strin
         continue;
       }
     }
-    out[key] = rewriteProductLinks(item, storeOrigin, content);
+    out[key] = rewriteProductLinks(item, storeOrigin, content, channel);
   }
   return out;
 }
@@ -270,11 +303,16 @@ async function callDiamondMcp(env: Env, name: string, args: Record<string, unkno
   return result;
 }
 
-async function runTool(env: Env, name: string, args: Record<string, unknown>): Promise<unknown> {
-  if (name === "get_info") return businessInfo(env.STORE_ORIGIN);
+async function runTool(
+  env: Env,
+  name: string,
+  args: Record<string, unknown>,
+  channel: DiscoveryChannel,
+): Promise<unknown> {
+  if (name === "get_info") return businessInfo(env.STORE_ORIGIN, channel);
   if (name === "get_services") {
     const category = String(args.category || "").trim().toLowerCase();
-    const all = services(env.STORE_ORIGIN);
+    const all = services(env.STORE_ORIGIN, channel);
     return category ? all.filter((service) => service.category.includes(category)) : all;
   }
   if (name === "get_location") {
@@ -287,16 +325,20 @@ async function runTool(env: Env, name: string, args: Record<string, unknown>): P
   if (name === "get_products") {
     const limit = Math.max(1, Math.min(10, Number(args.limit) || 5));
     const result = await callDiamondMcp(env, "search_inventory", { query: String(args.query || ""), limit });
-    return rewriteProductLinks(result, env.STORE_ORIGIN, "get_products");
+    return rewriteProductLinks(result, env.STORE_ORIGIN, "get_products", channel);
   }
   if (name === "get_product_summary") {
     const result = await callDiamondMcp(env, "get_product", { id: String(args.id || "") });
-    return rewriteProductLinks(result, env.STORE_ORIGIN, "get_product_summary");
+    return rewriteProductLinks(result, env.STORE_ORIGIN, "get_product_summary", channel);
   }
   throw new Error("Unknown tool: " + name);
 }
 
-async function handleRpc(env: Env, message: any): Promise<any | null> {
+async function handleRpc(
+  env: Env,
+  message: any,
+  channel: DiscoveryChannel = "publicmcp",
+): Promise<any | null> {
   const id = message.id;
   const method = message.method;
   if (method === "initialize") {
@@ -319,7 +361,7 @@ async function handleRpc(env: Env, message: any): Promise<any | null> {
     const name = String(message.params && message.params.name || "");
     const args = message.params && message.params.arguments || {};
     try {
-      const payload = await runTool(env, name, args);
+      const payload = await runTool(env, name, args, channel);
       return {
         jsonrpc: "2.0",
         id,
@@ -375,13 +417,36 @@ function serverCard(origin: string) {
   };
 }
 
+function a2aAgent(origin: string) {
+  return {
+    name: "Stienhardt Diamond Shopping Agent",
+    description:
+      "Search current certified Lab Grown Diamond and jewelry inventory, retrieve product details, and get canonical Stienhardt & Stones business information.",
+    url: origin + "/a2a/mcp",
+    version: VERSION,
+    capabilities: TOOLS.map((tool) => ({
+      name: tool.name,
+      description: tool.description,
+      input_schema: tool.inputSchema,
+      output_schema: tool.outputSchema,
+    })),
+    authentication: { type: "none" },
+  };
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     const origin = url.origin;
     if (request.method === "OPTIONS") return json({}, 204);
-    if (url.pathname === "/.well-known/publicmcp.json" || url.pathname === "/.well-known/agents.json") {
+    if (url.pathname === "/.well-known/publicmcp.json") {
       return json(discovery(origin), 200, { "Cache-Control": "public, max-age=300" });
+    }
+    if (url.pathname === "/.well-known/agents.json") {
+      return json([a2aAgent(origin)], 200, { "Cache-Control": "public, max-age=300" });
+    }
+    if (url.pathname === "/.well-known/agent-card.json") {
+      return json(a2aAgent(origin), 200, { "Cache-Control": "public, max-age=300" });
     }
     if (url.pathname === "/.well-known/mcp/server-card.json") {
       return json(serverCard(origin), 200, { "Cache-Control": "public, max-age=300" });
@@ -399,7 +464,7 @@ export default {
       );
     }
     if (url.pathname === "/" || url.pathname === "") return json(discovery(origin));
-    if (url.pathname === "/mcp") {
+    if (url.pathname === "/mcp" || url.pathname === "/a2a/mcp") {
       if (request.method !== "POST") return json({ error: "Use POST with JSON-RPC." }, 405);
       let body: unknown;
       try { body = await request.json(); }
@@ -407,7 +472,8 @@ export default {
       const messages = Array.isArray(body) ? body : [body];
       const output = [];
       for (const message of messages) {
-        const result = await handleRpc(env, message);
+        const channel: DiscoveryChannel = url.pathname === "/a2a/mcp" ? "a2aregistry" : "publicmcp";
+        const result = await handleRpc(env, message, channel);
         if (result) output.push(result);
       }
       if (output.length === 0) return new Response(null, { status: 202, headers: { "Access-Control-Allow-Origin": "*" } });

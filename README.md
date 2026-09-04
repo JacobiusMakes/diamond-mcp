@@ -112,7 +112,7 @@ The endpoint requires no account or API key. It exposes all 10 tools, including 
 
 ### Business discovery endpoint
 
-Stienhardt also publishes a separate [PUBLICMCP-compatible business profile](https://stienhardt-business-mcp.stienhardt.workers.dev). It gives AI assistants canonical business identity, services, New York location, and live product discovery through five read-only tools. Product links use a dedicated `publicmcp` source so visits and sales can be measured independently.
+Stienhardt also publishes a separate [PUBLICMCP-compatible business profile](https://stienhardt-business-mcp.stienhardt.workers.dev). It gives AI assistants canonical business identity, services, New York location, and live product discovery through five read-only tools. PUBLICMCP and A2A Registry calls have separate attributed paths, so visits and sales can be measured by discovery source.
 
 The business endpoint is separate from the 10-tool Diamond MCP server. Its source is in [`publicmcp-worker/`](publicmcp-worker/).
 
