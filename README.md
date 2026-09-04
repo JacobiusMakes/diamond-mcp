@@ -1,6 +1,7 @@
 # diamond-mcp
 
 [![AllMCPs Verified](https://allmcps.com/api/badge/stienhardt-diamond-mcp)](https://allmcps.com/mcp/stienhardt-diamond-mcp?verify=071f1de3-b208-4ddc-b8b9-dc0738dd128d)
+[![MCP Badge](https://lobehub.com/badge/mcp/jacobiusmakes-diamond-mcp)](https://lobehub.com/mcp/jacobiusmakes-diamond-mcp)
 
 Diamond education tools for AI assistants, served over the Model Context Protocol (MCP).
 
