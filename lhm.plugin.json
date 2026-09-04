@@ -1,0 +1,18 @@
+{
+  "author": "Stienhardt & Stones",
+  "authorUrl": "https://github.com/JacobiusMakes",
+  "cloudEndpoint": "https://diamond-mcp.stienhardt.workers.dev/mcp",
+  "description": "Ten no-auth tools for sourced diamond education, report-verification guidance, face-up size estimates, encyclopedia search, and live Stienhardt inventory.",
+  "homepage": "https://stienhardt.com/?utm_source=lobehub&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=marketplace_listing",
+  "icon": "💎",
+  "identifier": "stienhardt-diamond-mcp",
+  "name": "Stienhardt Diamond MCP",
+  "tags": [
+    "diamonds",
+    "gemology",
+    "jewelry",
+    "shopping",
+    "education"
+  ],
+  "version": "0.2.5"
+}
