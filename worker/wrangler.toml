@@ -16,3 +16,7 @@ AGENT_PROFILE_URL = "https://cdn.jsdelivr.net/gh/JacobiusMakes/diamond-mcp@13c20
 # OpenAI plugin directory domain verification: paste the portal token here (or `wrangler secret put
 # OPENAI_APPS_CHALLENGE`) before submitting; served at /.well-known/openai-apps-challenge.
 # OPENAI_APPS_CHALLENGE = ""
+
+[[kv_namespaces]]
+binding = "CLICK_COUNTS"
+id = "3574e08debb745afa57f764c71d5684a"

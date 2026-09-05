@@ -110,6 +110,12 @@ https://diamond-mcp.stienhardt.workers.dev/mcp
 
 The endpoint requires no account or API key. It exposes all 10 tools, including the live inventory search.
 
+The hosted Worker also provides a measured `/go` redirect for external buying tools. It accepts only
+HTTPS destinations on `stienhardt.com`, preserves the destination's UTM parameters, and records a
+90-day click event containing campaign labels and destination path. It does not store an IP address,
+cookie, identity, or free-form search phrase in the click dataset. This supplies an outbound-click
+denominator even when storefront analytics are blocked.
+
 ### Business discovery endpoint
 
 Stienhardt also publishes a separate [PUBLICMCP-compatible business profile](https://stienhardt-business-mcp.stienhardt.workers.dev). It gives AI assistants canonical business identity, services, New York location, and live product discovery through five read-only tools. PUBLICMCP and A2A Registry calls have separate attributed paths, so visits and sales can be measured by discovery source.

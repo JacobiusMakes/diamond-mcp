@@ -10,6 +10,7 @@
  *     so ordinary MCP clients (Claude, ChatGPT developer mode, Cursor) never have to know.
  *
  * Routes:  POST /mcp (JSON-RPC)   GET /agent-profile.json   GET /privacy   GET /  (info)
+ *          GET /go (privacy-safe measured redirect to stienhardt.com)
  *          GET /.well-known/mcp/server-card.json (crawler metadata)
  *          GET /.well-known/mcp.json (open directory discovery metadata)
  *          GET /.well-known/openai-apps-challenge (OpenAI plugin domain verification token, when set)
@@ -25,6 +26,9 @@ interface Env {
   STORE_ORIGIN: string;
   AGENT_PROFILE_URL?: string;
   OPENAI_APPS_CHALLENGE?: string; // plain-text token from the OpenAI plugin portal (domain verification)
+  CLICK_COUNTS?: {
+    put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
+  };
 }
 
 const PROTOCOL = "2025-06-18";
@@ -54,8 +58,13 @@ const allTools = () => [...TOOLS, ...STORE_TOOLS].map(annotated);
 
 const PRIVACY = `Stienhardt diamond MCP server: privacy notice (2026-09-02)
 
-What we collect about you: nothing. This server is stateless and unauthenticated. It sets no
-cookies, stores no requests, and builds no profiles.
+What we collect about MCP users: nothing. The MCP tools are stateless and unauthenticated. They set
+no cookies, store no requests, and build no profiles.
+
+Measured outbound links: the /go redirect records one click event containing the declared
+source, medium, campaign, content label, and destination path. It does not record an IP address,
+cookie, account, identity, or free-form search phrase in Stienhardt's analytics dataset. The tagged
+destination URL is then returned as an immediate redirect.
 
 What a request contains: the tool name and its arguments, for example a diamond term, a carat
 weight and shape, a grading lab and report number, or a search phrase. Purpose: to answer that
@@ -67,9 +76,10 @@ Stienhardt's Shopify storefront endpoint to read public catalog data; Shopify's 
 hop (https://stienhardt.com/policies/privacy-policy). Cloudflare, which hosts this server, may keep
 standard operational logs (IP address, timestamps) under its own policy.
 
-Retention: we retain nothing. Third parties: Cloudflare (hosting) and Shopify (catalog reads).
-Your controls: there is nothing to delete because nothing is stored; stop using the server to stop
-sending requests.
+Retention: MCP request content is not retained. Outbound click events expire after 90 days and are
+used only for aggregate campaign measurement. Third parties: Cloudflare (hosting and click storage) and Shopify
+(catalog reads). Your controls: the click data cannot be tied to an identity because Stienhardt does
+not store one in the dataset; stop using measured outbound links to stop sending click events.
 
 Contact: jgalperin@stienhardt.com
 Source code: https://github.com/JacobiusMakes/diamond-mcp
@@ -270,6 +280,50 @@ function json(body: unknown, status = 200, extra: Record<string, string> = {}): 
   });
 }
 
+function clickDimension(value: string | null, fallback: string): string {
+  return (value || fallback).replace(/[^a-zA-Z0-9_:./-]/g, "_").slice(0, 120);
+}
+
+async function measuredRedirect(url: URL, env: Env): Promise<Response> {
+  const rawTarget = url.searchParams.get("url");
+  if (!rawTarget) return json({ error: "missing destination" }, 400);
+
+  let target: URL;
+  try {
+    target = new URL(rawTarget);
+  } catch {
+    return json({ error: "invalid destination" }, 400);
+  }
+  if (target.protocol !== "https:" || !["stienhardt.com", "www.stienhardt.com"].includes(target.hostname)) {
+    return json({ error: "destination must be on stienhardt.com" }, 400);
+  }
+
+  const source = clickDimension(url.searchParams.get("source"), "unknown");
+  const medium = clickDimension(url.searchParams.get("medium"), "unknown");
+  const campaign = clickDimension(url.searchParams.get("campaign"), "unknown");
+  const content = clickDimension(url.searchParams.get("content"), "unknown");
+  const destinationPath = clickDimension(target.pathname, "/");
+  const capturedAt = new Date().toISOString();
+  const event = { capturedAt, source, medium, campaign, content, destinationPath };
+  if (env.CLICK_COUNTS) {
+    await env.CLICK_COUNTS.put(
+      `click:${capturedAt}:${crypto.randomUUID()}`,
+      JSON.stringify(event),
+      { expirationTtl: 90 * 24 * 60 * 60 },
+    );
+  }
+
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: target.toString(),
+      "Cache-Control": "no-store",
+      "Referrer-Policy": "no-referrer",
+      "X-Robots-Tag": "noindex, nofollow",
+    },
+  });
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null> {
   const id = msg.id;
@@ -321,6 +375,10 @@ export default {
       return new Response(env.OPENAI_APPS_CHALLENGE, { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
     }
     if (url.pathname === "/privacy") return new Response(PRIVACY, { headers: { "Content-Type": "text/plain; charset=utf-8", "Access-Control-Allow-Origin": "*" } });
+    if (url.pathname === "/go") {
+      if (request.method !== "GET") return json({ error: "method not allowed" }, 405);
+      return measuredRedirect(url, env);
+    }
     if (url.pathname === "/" || url.pathname === "") {
       return json({
         name: SERVER_NAME, version: SERVER_VERSION, transport: "streamable-http", endpoint: origin + "/mcp",
