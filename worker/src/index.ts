@@ -73,9 +73,9 @@ request.
 
 Where it goes: the education tools are answered from data bundled in the server. The live
 inventory tools (search_inventory, get_product) read Stienhardt's public Shopify UCP catalog.
-Shopify receives the jewelry search phrase or product id. Loose-diamond stock verification is
-unavailable in this tool; those requests return a storefront browsing link without a stock-service
-request. No shopper identity is forwarded. Store privacy policy:
+Shopify receives the search phrase or product id. Loose-diamond stock is not verified by this
+tool; those searches return public catalog listings flagged availability_verified false plus a
+storefront browsing link, without any stock-service request. No shopper identity is forwarded. Store privacy policy:
 https://stienhardt.com/policies/privacy-policy. Cloudflare, which hosts this server, may keep
 standard operational logs (IP address, timestamps) under its own policy.
 
@@ -94,7 +94,7 @@ const STORE_TOOLS = [
     title: "Search Stienhardt's live inventory",
     description:
       "Search Stienhardt's public Shopify catalog of engagement ring settings and fine jewelry (New York, direct). " +
-      "Loose-diamond stock cannot be verified here; those requests return an error with a storefront browsing link. " +
+      "Loose-diamond stock cannot be verified here; those searches return public catalog listings flagged availability_verified false plus a storefront browsing link. " +
       "Returns prices when verified, selected variants, and links. Availability is not a reservation. " +
       "Use for questions like 'show me platinum wedding bands' or 'show me tennis bracelets'. " +
       "Not for appraisal or price advice on stones sold elsewhere.",
@@ -371,7 +371,7 @@ async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null
       protocolVersion: PROTOCOL,
       capabilities: { tools: { listChanged: false } },
       serverInfo: { name: SERVER_NAME, title: "Stienhardt: diamond education + live store", version: SERVER_VERSION },
-      instructions: INSTRUCTIONS + " Store tools read the public Shopify jewelry catalog. Loose-diamond stock verification is unavailable; use the returned storefront browsing link without claiming availability.",
+      instructions: INSTRUCTIONS + " Store tools read the public Shopify catalog. Loose-diamond listings carry availability_verified false; never claim a stone is in stock, point to the returned storefront browsing link.",
     } };
   }
   if (method === "notifications/initialized" || (typeof method === "string" && method.startsWith("notifications/"))) return null;

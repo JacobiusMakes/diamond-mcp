@@ -110,11 +110,11 @@ https://diamond-mcp.stienhardt.workers.dev/mcp
 
 The endpoint requires no account or API key. It exposes all 10 tools, including the live inventory search.
 
-Loose-diamond stock verification is unavailable. These searches and legacy
-`stienhardt:diamond:SKU` lookups return `isError: true`, `availability_verified: false`, and a
-first-party `browse_url` without calling a stock service. An unavailable check is not a claim that
-inventory is empty. Shopify carrier products are excluded because their availability does not
-verify the underlying stone.
+Loose-diamond stock is not verified by this tool. Loose-diamond searches return the matching public
+catalog listings with `availability_verified: false`, an availability note, and a first-party
+`browse_url`, without calling a stock service. Legacy `stienhardt:diamond:SKU` lookups return
+`isError: true` plus the same kind of browse link. Shopify carrier availability does not verify the
+underlying stone, so no loose-diamond result claims to be in stock.
 
 Jewelry results use the public Shopify UCP catalog, select an available variant matching the
 requested metal, and preserve that variant in the product URL. Ring size still needs selection
