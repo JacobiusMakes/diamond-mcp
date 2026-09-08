@@ -18,12 +18,14 @@
 import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTIONS } from "../../node/src/core.js";
 import factsJson from "../../facts.json";
 import encyclopediaJson from "../../encyclopedia.json";
+import { diamondIntent, searchDiamonds, diamondBySku, checkedCatalogProduct } from './inventory';
 
 configure({ facts: factsJson, encyclopedia: encyclopediaJson });
 
 interface Env {
   UCP_ENDPOINT: string;
   STORE_ORIGIN: string;
+  STOREFRONT_READ_AUTH?: string;
   AGENT_PROFILE_URL?: string;
   OPENAI_APPS_CHALLENGE?: string; // plain-text token from the OpenAI plugin portal (domain verification)
   CLICK_COUNTS?: {
@@ -56,7 +58,7 @@ function annotated(t: any) {
 }
 const allTools = () => [...TOOLS, ...STORE_TOOLS].map(annotated);
 
-const PRIVACY = `Stienhardt diamond MCP server: privacy notice (2026-09-02)
+const PRIVACY = `Stienhardt diamond MCP server: privacy notice (2026-09-08)
 
 What we collect about MCP users: nothing. The MCP tools are stateless and unauthenticated. They set
 no cookies, store no requests, and build no profiles.
@@ -71,14 +73,16 @@ weight and shape, a grading lab and report number, or a search phrase. Purpose: 
 request.
 
 Where it goes: the education tools are answered from data bundled in the server. The live
-inventory tools (search_inventory, get_product) forward only the search phrase or product id to
-Stienhardt's Shopify storefront endpoint to read public catalog data; Shopify's policies govern that
-hop (https://stienhardt.com/policies/privacy-policy). Cloudflare, which hosts this server, may keep
+inventory tools (search_inventory, get_product) read Stienhardt's Shopify catalog and its storefront
+inventory service hosted on Supabase. Shopify receives the search phrase or product id; the inventory
+service receives parsed product filters or a diamond SKU. No shopper identity is forwarded. Supplier
+costs and internal inventory fields are not returned by these tools. Store privacy policy:
+https://stienhardt.com/policies/privacy-policy. Cloudflare, which hosts this server, may keep
 standard operational logs (IP address, timestamps) under its own policy.
 
 Retention: MCP request content is not retained. Outbound click events expire after 90 days and are
-used only for aggregate campaign measurement. Third parties: Cloudflare (hosting and click storage) and Shopify
-(catalog reads). Your controls: the click data cannot be tied to an identity because Stienhardt does
+used only for aggregate campaign measurement. Third parties: Cloudflare (hosting and click storage), Shopify
+(catalog reads), and Supabase (Stienhardt storefront inventory reads). Your controls: the click data cannot be tied to an identity because Stienhardt does
 not store one in the dataset; stop using measured outbound links to stop sending click events.
 
 Contact: jgalperin@stienhardt.com
@@ -91,7 +95,8 @@ const STORE_TOOLS = [
     title: "Search Stienhardt's live inventory",
     description:
       "Search Stienhardt's live catalog of certified Lab Grown Diamonds, engagement ring settings, " +
-      "and fine jewelry (New York, direct). Returns real, in-stock products with prices and links. " +
+      "and fine jewelry (New York, direct). Checks current storefront availability and excludes held, hidden, or sold stones. " +
+      "Returns prices when verified, selected variants, and links. Availability is not a reservation. " +
       "Use for questions like 'do you have a 2 carat Dutch Marquise' or 'show me tennis bracelets'. " +
       "Not for appraisal or price advice on stones sold elsewhere.",
     inputSchema: {
@@ -112,7 +117,7 @@ const STORE_TOOLS = [
       "availability, options, images, and the product URL on stienhardt.com.",
     inputSchema: {
       type: "object",
-      properties: { id: { type: "string", description: "Product id, e.g. gid://shopify/Product/123" } },
+      properties: { id: { type: "string", description: "Exact id returned by search_inventory: a Shopify product gid or stienhardt:diamond:SKU." } },
       required: ["id"],
     },
     annotations: { readOnlyHint: true, openWorldHint: true },
@@ -194,8 +199,10 @@ async function ucpCall(env: Env, origin: string, tool: string, catalog: any): Pr
     body: JSON.stringify(body),
   });
   const data = await res.json() as any;
+  if (!res.ok) return { error: {code:'upstream_http_error', status:res.status} };
   if (data.error) return { error: data.error };
   const r = data.result || {};
+  if (r.isError) return { error: {code:'upstream_tool_error'} };
   if (r.structuredContent) return r.structuredContent;
   const c = (r.content || [])[0];
   if (c && typeof c.text === "string") { try { return JSON.parse(c.text); } catch { return { text: c.text }; } }
@@ -244,28 +251,59 @@ function slimProduct(p: any, storeOrigin: string, touchpoint: string): any {
 async function storeTool(env: Env, origin: string, name: string, args: any): Promise<[any, boolean]> {
   if (name === "search_inventory") {
     const limit = Math.max(1, Math.min(10, Number(args.limit) || 5));
+    const query=String(args.query || '').slice(0,500);
+    if(/\b(natural|mined)\s+(?:diamonds?|stones?)\b/i.test(query)) {
+      return [{query,count:0,results:[],note:'This catalog offers lab-grown diamonds. No natural-diamond match is claimed.'},false];
+    }
+    const filters=diamondIntent(query);
+    if(filters) {
+      const results=(await searchDiamonds(env,filters,limit)).map(p=>({...p,
+        url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+p.sku)}));
+      const browse=new URL('/collections/lab-diamonds',env.STORE_ORIGIN);
+      if(filters.shape) browse.searchParams.set('shape',filters.shape);
+      if(filters.carat_min!==null) browse.searchParams.set('caratMin',String(filters.carat_min));
+      if(filters.carat_max!==null) browse.searchParams.set('caratMax',String(filters.carat_max));
+      if(filters.price_max) browse.searchParams.set('priceMax',String(filters.price_max));
+      if(filters.color) browse.searchParams.set('color',filters.color);
+      if(filters.clarity) browse.searchParams.set('clarity',filters.clarity);
+      if(filters.lab) browse.searchParams.set('lab',filters.lab);
+      return [{query,count:results.length,results,filters,
+        browse_url:taggedStoreUrl(browse.toString(),env.STORE_ORIGIN,'search_inventory:browse'),
+        note:'Current storefront inventory, excluding held, hidden, inactive, and sold stones. A single carat weight searches that weight through 0.10 carat higher; see filters. Availability is not a reservation. Verify the grading report with the lab. Preserve URL query strings.'},false];
+    }
     const out = await ucpCall(env, origin, "search_catalog",
-      { query: String(args.query || ""), context: { address_country: "US", currency: "USD", language: "en" } });
+      { query, context: { address_country: "US", currency: "USD", language: "en" } });
     if (out.error) return [{ error: "store search failed", detail: out.error }, true];
     const list = out.products || out.items || out.results || [];
-    const results = list.slice(0, limit).map((p: any) => slimProduct(p, env.STORE_ORIGIN, "search_inventory"));
+    const candidates=await Promise.all(list.slice(0,Math.min(15,limit*2)).map((p:any)=>checkedCatalogProduct(p,env,query)));
+    const results=candidates.filter(Boolean).slice(0,limit).map((p:any)=>{
+      const {options,...result}=p;
+      return {...result,url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+String(p.id).split('/').pop())};
+    });
     return [{
       query: args.query, count: results.length,
       results,
-      note: "Live inventory from stienhardt.com. Prices in USD. Every stone is certified; verify the report on the lab's own site. Preserve each result URL's query string so visits and orders remain attributable to this tool.",
+      note: "Current storefront availability and matching metal/type variants checked. Select and confirm ring size on the product page. Preserve URL query strings, including the selected variant and campaign tags. Availability is not a reservation.",
     }, false];
   }
   if (name === "get_product") {
+    if(String(args.id || '').startsWith('stienhardt:diamond:')) {
+      const diamond=await diamondBySku(env,String(args.id).slice('stienhardt:diamond:'.length));
+      if(!diamond) return [{error:'This diamond is not currently available.',available:false},true];
+      return [{...diamond,url:taggedStoreUrl(diamond.url,env.STORE_ORIGIN,'get_product:'+diamond.sku)},false];
+    }
     const out = await ucpCall(env, origin, "get_product", { id: String(args.id || ""), context: { address_country: "US", currency: "USD" } });
     if (out.error) return [{ error: "product lookup failed", detail: out.error }, true];
     const p = out.product || (out.id || out.title ? out : null);
     if (!p || (!p.id && !p.title)) {
       return [{ error: "Product not found: " + String(args.id || ""), note: "No live product matches that id. Use an id returned by search_inventory, e.g. gid://shopify/Product/123." }, true];
     }
+    const checked=await checkedCatalogProduct(p,env);
+    if(!checked) return [{error:'This product is not currently available.',available:false},true];
     return [{
-      ...slimProduct(p, env.STORE_ORIGIN, "get_product"),
+      ...checked,
+      url:taggedStoreUrl(checked.url,env.STORE_ORIGIN,'get_product:'+String(checked.id).split('/').pop()),
       description: p.description && p.description.html ? String(p.description.html).replace(/<[^>]+>/g, " ").trim().slice(0, 600) : undefined,
-      options: (p.variants || []).slice(0, 12).map((v: any) => ({ variant_id: v.id, title: v.title, price: money(v.price), available: v.availability ? v.availability.available : undefined })),
     }, false];
   }
   return [{ error: "Unknown tool: " + name }, true];

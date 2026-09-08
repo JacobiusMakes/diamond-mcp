@@ -12,4 +12,6 @@ dist/
 .wrangler/
 worker/.wrangler/
 worker/.preview-url
+.env
+worker/.dev.vars
 publicmcp-worker/.wrangler/
