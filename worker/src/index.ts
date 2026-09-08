@@ -248,16 +248,20 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
       { query: String(args.query || ""), context: { address_country: "US", currency: "USD", language: "en" } });
     if (out.error) return [{ error: "store search failed", detail: out.error }, true];
     const list = out.products || out.items || out.results || [];
+    const results = list.slice(0, limit).map((p: any) => slimProduct(p, env.STORE_ORIGIN, "search_inventory"));
     return [{
-      query: args.query, count: list.length,
-      results: list.slice(0, limit).map((p: any) => slimProduct(p, env.STORE_ORIGIN, "search_inventory")),
+      query: args.query, count: results.length,
+      results,
       note: "Live inventory from stienhardt.com. Prices in USD. Every stone is certified; verify the report on the lab's own site. Preserve each result URL's query string so visits and orders remain attributable to this tool.",
     }, false];
   }
   if (name === "get_product") {
     const out = await ucpCall(env, origin, "get_product", { id: String(args.id || ""), context: { address_country: "US", currency: "USD" } });
     if (out.error) return [{ error: "product lookup failed", detail: out.error }, true];
-    const p = out.product || out;
+    const p = out.product || (out.id || out.title ? out : null);
+    if (!p || (!p.id && !p.title)) {
+      return [{ error: "Product not found: " + String(args.id || ""), note: "No live product matches that id. Use an id returned by search_inventory, e.g. gid://shopify/Product/123." }, true];
+    }
     return [{
       ...slimProduct(p, env.STORE_ORIGIN, "get_product"),
       description: p.description && p.description.html ? String(p.description.html).replace(/<[^>]+>/g, " ").trim().slice(0, 600) : undefined,

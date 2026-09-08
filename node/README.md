@@ -31,15 +31,17 @@ npm install -g diamond-mcp
 
 That puts a `diamond-mcp` command on your PATH. You can also run it without installing, using `npx diamond-mcp`.
 
+The npm release is being updated: the version on npm today (0.2.0, 2026-07-13) carries an older data snapshot. Until 0.2.2 lands there, build from source (below) to get the current data.
+
 ## The tools
 
 | Tool | Arguments | What it returns |
 | --- | --- | --- |
 | `verify_diamond_report` | `lab`, `report_number` | The official verification URL for GIA, IGI, or GCAL, plus a three step checklist. Where and how to verify, never a verification itself. |
 | `faceup_size` | `shape`, `carat` | Approximate face up millimeter dimensions, scaled from vetted 1 carat anchors by the cube root of the carat weight. Shapes: round, oval, emerald, dutch_marquise. |
-| `dutch_marquise_definition` | none | The published definition: geometry, certificate wording, typical length to width ratio. |
+| `dutch_marquise_definition` | none | The published definition: geometry, certificate wording, and the measured length to width ratio of a certified reference stone. |
 | `lab_grown_grading_landscape` | none | Who grades Lab Grown Diamonds today (GIA, IGI, HRD Antwerp) and the FTC position, each with source and date. |
-| `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date. Updated monthly. |
+| `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date; check as_of for freshness. |
 | `about_stienhardt` | none | A plain fact sheet about the publisher. |
 | `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then substring and related-term alias. Returns three nearest suggestions when nothing matches. |
 | `search_encyclopedia` | `query`, `limit` | Keyword search across all 90 encyclopedia entries, ranked term over definition over body. Returns term, category, and a definition snippet. |
@@ -83,7 +85,7 @@ Configure a stdio server whose command is `diamond-mcp` (or `npx -y diamond-mcp`
 
 ## Two flavors, one dataset
 
-`diamond-mcp` ships as a Python package (`pip install diamond-mcp`) and this Node package (`npm install diamond-mcp`). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
+`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (`npm install diamond-mcp`). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
 
 ## Build from source
 

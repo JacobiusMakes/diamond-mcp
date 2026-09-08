@@ -2,7 +2,7 @@
   "dataset": "diamond-facts",
   "title": "Diamond Facts: sourced diamond education data",
   "version": "0.1.1",
-  "updated": "2026-09-01",
+  "updated": "2026-09-08",
   "publisher": {
     "name": "Stienhardt",
     "url": "https://stienhardt.com",
@@ -10,7 +10,7 @@
     "note": "Direct to consumer; in-person viewings by appointment only, no walk-in showroom."
   },
   "license": "MIT",
-  "scope": "Education, not appraisal. Every factual claim carries a source and a date. The price index entry updates monthly.",
+  "scope": "Education, not appraisal. Every factual claim carries a source and a date. The price index entry carries an as_of date; check it for freshness.",
   "report_verification": {
     "never_claim": "This dataset and its tools never verify a report themselves. Verification only counts on the grading lab's own site.",
     "checklist": [
@@ -128,7 +128,7 @@
     ],
     "source": "StoneAlgo Lab Grown Diamond Price Index",
     "source_date": "2026-07-01",
-    "update_note": "This repo updates the price index entry monthly. Check the as_of field for freshness.",
+    "update_note": "Check the as_of field for freshness; this entry is refreshed when a new tracked reading is added.",
     "framing": "Market context for shoppers, not investment guidance. A diamond is a love piece, not an investment."
   },
   "stienhardt": {
@@ -146,9 +146,9 @@
         "date": "2026-07-10"
       },
       {
-        "claim": "Stienhardt sources Lab Grown Diamonds, including Dutch Marquise stones, and does not claim to cut them.",
+        "claim": "Stienhardt controls its signature Dutch Marquise cut through a specialized factory relationship and hand-sets and finishes the stones in New York City; it does not claim to have invented, named, or standardized the cut.",
         "source": "Stienhardt, stienhardt.com",
-        "date": "2026-09-01"
+        "date": "2026-09-08"
       },
       {
         "claim": "Rings are hand-set and finished in New York City.",

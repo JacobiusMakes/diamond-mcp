@@ -37,7 +37,7 @@
     },
     {
       "name": "dutch_marquise_definition",
-      "description": "Return the published definition, geometry, certificate wording, and typical ratio for a Dutch Marquise."
+      "description": "Return the published definition, geometry, certificate wording, and the measured length to width ratio of a certified reference stone for a Dutch Marquise."
     },
     {
       "name": "lab_grown_grading_landscape",

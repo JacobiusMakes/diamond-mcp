@@ -36,9 +36,9 @@ High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_
 | --- | --- | --- |
 | `verify_diamond_report` | `lab`, `report_number` | The official verification URL for GIA, IGI, or GCAL, plus a three step checklist. Where and how to verify, never a verification itself. |
 | `faceup_size` | `shape`, `carat` | Approximate face up millimeter dimensions, scaled from vetted 1 carat anchors by the cube root of the carat weight. Shapes: round, oval, emerald, dutch_marquise. |
-| `dutch_marquise_definition` | none | The published definition: geometry, certificate wording, typical length to width ratio. |
+| `dutch_marquise_definition` | none | The published definition: geometry, certificate wording, and the measured length to width ratio of a certified reference stone. |
 | `lab_grown_grading_landscape` | none | Who grades Lab Grown Diamonds today (GIA, IGI, HRD Antwerp) and the FTC position, each with source and date. |
-| `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date. Updated monthly. |
+| `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date; check as_of for freshness. |
 | `about_stienhardt` | none | A plain fact sheet about the publisher. |
 | `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then substring and related-term alias. Returns three nearest suggestions when nothing matches. |
 | `search_encyclopedia` | `query`, `limit` | Keyword search across all 90 encyclopedia entries, ranked term over definition over body. Returns term, category, and a definition snippet. |
@@ -126,8 +126,8 @@ The business endpoint is separate from the 10-tool Diamond MCP server. Its sourc
 
 `diamond-mcp` ships in two builds that expose the same eight tools and load the same data, so they answer the same questions the same way:
 
-- Python (this directory): `pip install diamond-mcp`, or run straight from a clone with `python server.py`. Pure standard library.
-- Node and TypeScript ([`node/`](node/)): `npm install diamond-mcp`, or run with `npx diamond-mcp`. Built on the official MCP SDK.
+- Python (this directory): run straight from a clone with `python server.py` (PyPI publication pending). Pure standard library.
+- Node and TypeScript ([`node/`](node/)): build from the repo; the npm release is being updated (the version on npm today, 0.2.0 from 2026-07-13, carries an older data snapshot). Built on the official MCP SDK.
 
 Both read the same `facts.json` and `encyclopedia.json` at the root of this repository, which are the single source of truth. See [`node/README.md`](node/README.md) for the Node install and its Claude Desktop config.
 
@@ -177,7 +177,7 @@ Configure a stdio server: command `python`, one argument, the absolute path to `
 
 ### uvx and pip
 
-The supported way to run 0.1.0 is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
+The supported way to run the Python build (0.2.2) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
 
 ### Smoke test
 
@@ -191,7 +191,7 @@ Spawns the server, runs the full MCP handshake, lists the tools, calls every too
 
 `facts.json` doubles as a small open dataset of diamond education facts. Top level sections: `report_verification`, `faceup_size`, `dutch_marquise`, `lab_grown_grading_landscape`, `lab_grown_price_index`, and `stienhardt`. The convention throughout: every factual claim sits next to a `source` and a `date`.
 
-The price index entry updates monthly. The `updated` field at the top of the file tells you how fresh your copy is.
+The price index entry carries its own `as_of` date; check it for freshness. The `updated` field at the top of the file tells you how fresh your copy is.
 
 `encyclopedia.json` is the second dataset in this repo: 90 gemology entries under the same source-and-date convention, sorted by term. See [The encyclopedia](#the-encyclopedia) above.
 
@@ -205,6 +205,6 @@ Stienhardt, New York City. Lab Grown Diamond engagement rings, hand-set and fini
 
 ## The Stienhardt open-source diamond stack
 
-- [dutch-marquise-spec](https://github.com/JacobiusMakes/dutch-marquise-spec): the open geometry standard. DOI: [10.5281/zenodo.21938900](https://doi.org/10.5281/zenodo.21938900)
+- [dutch-marquise-spec](https://github.com/JacobiusMakes/dutch-marquise-spec): the open geometry standard. DOI: [10.5281/zenodo.21938899](https://doi.org/10.5281/zenodo.21938899)
 - [DiamondBench](https://github.com/JacobiusMakes/diamondbench): open benchmark of AI answer-engine accuracy on diamond questions
 - [Diamond & Gemology Encyclopedia](https://huggingface.co/datasets/JacobiusMakes/diamond-gemology-encyclopedia): the encyclopedia as a Hugging Face dataset
