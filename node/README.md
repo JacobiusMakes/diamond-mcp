@@ -23,15 +23,18 @@ High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_
 
 ## Install
 
-Requires Node.js 18 or newer.
+Build from source until the npm release is updated (the published npm version, 0.2.0 from July, carries
+out-of-date data and should not be used):
 
 ```
-npm install -g diamond-mcp
+git clone https://github.com/JacobiusMakes/diamond-mcp
+cd diamond-mcp/node
+npm install
+npm run build
+node dist/index.js
 ```
 
-That puts a `diamond-mcp` command on your PATH. You can also run it without installing, using `npx diamond-mcp`.
-
-The npm release is being updated: the version on npm today (0.2.0, 2026-07-13) carries an older data snapshot. Until 0.2.2 lands there, build from source (below) to get the current data.
+The `npm install -g diamond-mcp` and `npx diamond-mcp` paths return once 0.2.3 is published; until then they install the stale 0.2.0.
 
 ## The tools
 
@@ -85,7 +88,7 @@ Configure a stdio server whose command is `diamond-mcp` (or `npx -y diamond-mcp`
 
 ## Two flavors, one dataset
 
-`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (`npm install diamond-mcp`). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
+`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (build from source until 0.2.3 is on npm). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
 
 ## Build from source
 

@@ -664,7 +664,7 @@ export const TOOLS = [
     title: "The published definition of the Dutch Marquise cut",
     description:
       "The published definition of the Dutch Marquise diamond cut: geometry, " +
-      "certificate wording, and typical length to width ratio. " +
+      "certificate wording, and the measured length to width ratio of a certified reference stone. " +
       "A Dutch Marquise is an elongated hexagonal cut diamond.",
     inputSchema: { type: "object", properties: {} },
   },

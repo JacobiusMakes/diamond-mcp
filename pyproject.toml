@@ -12,7 +12,7 @@ description = "Diamond education tools for AI assistants over the Model Context 
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "Stienhardt & Stones" }]
+authors = [{ name = "Stienhardt" }]
 keywords = [
   "mcp",
   "model-context-protocol",

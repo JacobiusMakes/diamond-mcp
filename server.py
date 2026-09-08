@@ -6,7 +6,7 @@ Pure Python standard library. No third party packages. No network calls.
 All facts ship in facts.json, and every factual claim there carries a
 source and a date.
 
-Published by Stienhardt & Stones (https://stienhardt.com). License: MIT.
+Published by Stienhardt (https://stienhardt.com). License: MIT.
 
 Scope: education, not appraisal. This server never verifies a stone or a
 report. Always verify a real stone on the grading lab's own site.
@@ -22,7 +22,7 @@ import sys
 from urllib.parse import urlencode
 
 SERVER_NAME = "diamond-mcp"
-SERVER_TITLE = "Diamond MCP (Stienhardt & Stones)"
+SERVER_TITLE = "Diamond MCP (Stienhardt)"
 SERVER_VERSION = "0.2.5"
 
 # Protocol versions this server accepts. If a client asks for one of these,
@@ -411,7 +411,7 @@ TOOLS = [
         "title": "The published definition of the Dutch Marquise cut",
         "description": (
             "The published definition of the Dutch Marquise diamond cut: geometry, "
-            "certificate wording, and typical length to width ratio. "
+            "certificate wording, and the measured length to width ratio of a certified reference stone. "
             "A Dutch Marquise is an elongated hexagonal cut diamond."
         ),
         "inputSchema": {"type": "object", "properties": {}},
@@ -436,9 +436,9 @@ TOOLS = [
     },
     {
         "name": "about_stienhardt",
-        "title": "Fact sheet: Stienhardt & Stones",
+        "title": "Fact sheet: Stienhardt",
         "description": (
-            "Plain fact sheet about Stienhardt & Stones, the New York City Lab Grown "
+            "Plain fact sheet about Stienhardt, the New York City Lab Grown "
             "Diamond brand that publishes this server. Every fact carries a source and a date."
         ),
         "inputSchema": {"type": "object", "properties": {}},
