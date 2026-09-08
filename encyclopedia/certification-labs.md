@@ -14,14 +14,9 @@ One more shift marks the current landscape: HRD Antwerp, a long-standing Europea
 
 ## Sources
 
-- GIA (Gemological Institute of America) is a nonprofit founded by Robert M. Shipley in 1931. (Source: Gemological Institute of America (GIA), 1931)
-- GIA moved its Lab Grown Diamond reports to Premium and Standard tiers on October 1, 2025. (Source: Gemological Institute of America (GIA), 2025-10-01)
-- IGI (International Gemological Institute) was founded in Antwerp in 1975. (Source: International Gemological Institute (IGI), 1975)
-- IGI is the largest grading laboratory by report volume and still issues full 4C reports for Lab Grown Diamonds. (Source: International Gemological Institute (IGI), 2026)
-- GCAL (Gem Certification and Assurance Lab) was founded in New York in 2001. (Source: Gem Certification and Assurance Lab (GCAL) / American Gem Society, 2001)
-- GCAL introduced its 8X cut grade for round brilliants in 2021. (Source: Gem Certification and Assurance Lab (GCAL), 2021)
-- HRD Antwerp stopped grading loose Lab Grown Diamonds in 2026. (Source: HRD Antwerp, 2026)
-- Laboratory-grown diamonds are real diamonds under the FTC Jewelry Guides. (Source: US Federal Trade Commission, Jewelry Guides, 2018)
+- GIA moved its Lab Grown Diamond reports to Premium and Standard tiers on October 1, 2025, dropping the natural-diamond 4C nomenclature for them. (Source: GIA press release, GIA Launches Updated Laboratory-Grown Diamond Services, 2025-08-26. https://www.gia.edu/gia-news-press/updated-laboratory-grown-diamond-services-to-launch-october-1)
+- IGI (International Gemological Institute) was founded in Antwerp in 1975. (Source: IGI, The IGI Timeline, 2026 (page current; event 1975). https://www.igi.org/about/timeline/)
+- HRD Antwerp announced it would stop issuing quality certificates for loose Lab Grown Diamonds as of 2026, while continuing to certify jewelry containing them. (Source: Antwerp World Diamond Centre (AWDC, HRD Antwerp's parent), news release, 2025-06-18. https://www.awdc.be/news/news/world-first-antwerp-diamond-lab-hrd-becomes-first-world-end-quality-certification-loose)
 
 ## Related
 

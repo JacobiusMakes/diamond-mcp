@@ -15,7 +15,9 @@ Brightness is a property of the diamond material and the cut, not of origin. A L
 ## Sources
 
 - GIA released its round brilliant cut grading system in January 2006; it assesses face-up appearance through brightness (white light return), fire, and scintillation, and assigns a cut grade from Excellent to Poor. (Source: GIA (Gemological Institute of America), Diamond Cut grading system, gia.edu / 4cs.gia.edu, 2006-01)
-- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond, so it shares the same optical properties. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018)
+- Under the revised FTC Jewelry Guides a laboratory-grown diamond has essentially the same optical, physical and chemical properties as a mined diamond and is therefore a diamond; the word natural was removed from the definition. (Source: U.S. Federal Trade Commission, Statement of Basis and Purpose: Final Revisions to the Jewelry Guides (PDF), 2018-07 (final Guides announced 2018-07-24). https://www.ftc.gov/system/files/documents/public_statements/1393857/g711001_jewelry_guides_statement_of_basis_and_purpose_for_final_jewelry__.pdf)
+- GIA's cut grading system evaluates face-up appearance through brightness (white light return), fire and scintillation, and grades standard round brilliants from Excellent to Poor. (Source: GIA 4Cs, Diamond Cut: Understanding the Cut Scale (4cs.gia.edu), undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/diamond-cut/)
+- Brightness is defined by GIA as the effect of all internal and external reflections of white light; GIA introduced the cut grading system in 2005. (Source: GIA, Diamond Cut: The Wow Factor (gia.edu), undated page (system dated 2005 on page); accessed 2026-09-08. https://www.gia.edu/diamond-cut/diamond-cut-basic-overview)
 
 ## Related
 

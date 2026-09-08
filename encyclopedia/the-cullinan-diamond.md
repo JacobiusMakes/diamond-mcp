@@ -14,8 +14,8 @@ The Cullinan is worth knowing for scale. A finished one carat diamond is a commo
 
 - The Cullinan, at 3,106 carats, is the largest gem-quality rough diamond ever found; it was discovered in 1905 at the Premier mine near Pretoria, South Africa. (Source: Task anchor (3,106 carats, found 1905); Encyclopaedia Britannica, 1905)
 - The diamond was named after Thomas Cullinan, chairman of the mining company, and in 1907 the Transvaal government bought it and presented it to King Edward VII. (Source: Royal Collection Trust; Encyclopaedia Britannica, 1907)
-- The rough was cut by the firm of Joseph Asscher in Amsterdam beginning in 1908 and yielded nine principal stones and a number of smaller ones. (Source: Royal Collection Trust, 1908)
-- Cullinan I (the Great Star of Africa), 530.4 carats, is set in the Sovereign's Sceptre with Cross; Cullinan II (the Second Star of Africa), 317.4 carats, is set in the Imperial State Crown; both are part of the British Crown Jewels. (Source: Royal Collection Trust, 2026)
+- The Cullinan is the largest diamond ever found; it weighed 3,106 metric carats uncut, was discovered near Pretoria in 1905, is named after the mining company's chairman Thomas Cullinan, was cut by Asschers of Amsterdam into nine large stones plus smaller ones, and Cullinan I and II were set in the Sovereign's Sceptre and the Imperial State Crown. (Source: Royal Collection Trust, The Crown Jewels: The Cullinan Diamond, undated (accessed 2026-09-08). https://www.rct.uk/collection/stories/the-crown-jewels/the-cullinan-diamond)
+- The Cullinan is the largest diamond ever found; it weighed 3,106 metric carats uncut, was discovered near Pretoria in 1905, is named after the mining company's chairman Thomas Cullinan, was cut by Asschers of Amsterdam into nine large stones plus smaller ones, and Cullinan I and II were set in the Sovereign's Sceptre and the Imperial State Crown. (Source: Royal Collection Trust, The Crown Jewels: The Cullinan Diamond, undated (accessed 2026-09-08). https://www.rct.uk/collection/stories/the-crown-jewels/the-cullinan-diamond)
 
 ## Related
 

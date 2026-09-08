@@ -13,6 +13,9 @@ Because Lab Grown Diamonds are grown crystals with the same physical properties 
 ## Sources
 
 - Lab Grown Diamonds are real diamonds with the same physical and optical properties as mined diamonds. (Source: FTC Jewelry Guides, 2018)
+- An ultrasonic cleaner sends high-frequency sound waves through a liquid bath; the vibration can shake stones loose, so check that stones are secure before and after, and never use one on stones whose surface-reaching breaks have been filled. (Source: GIA 4Cs blog, Gems and Ultrasonic Cleaners, 2015-04-10. https://4cs.gia.edu/en-us/blog/gems-ultrasonic-cleaners/)
+- Fracture filling is a glass-like filler in feathers or surface-reaching fractures; it is not permanent, and steam, acid or ultrasonic cleaning and common repairs can damage it. (Source: GIA 4Cs, How Diamond Treatments Can Impact Color, Clarity and Value of a Diamond, undated (accessed 2026-09-08). https://4cs.gia.edu/en-us/diamond-treatments/)
+- Ultrasonic and steam cleaners can loosen gemstones in their settings and are not recommended for home use. (Source: GIA Gem Encyclopedia, Diamond Care and Cleaning Guide, undated (accessed 2026-09-08). https://www.gia.edu/diamond-care-cleaning)
 
 ## Related
 

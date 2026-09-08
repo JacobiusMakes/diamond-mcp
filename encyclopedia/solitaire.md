@@ -10,7 +10,9 @@ The appeal is timelessness and clarity. A solitaire never looks dated, it is eas
 
 ## Sources
 
-- Lab Grown Diamonds have essentially the same optical, physical, and chemical properties as mined diamonds and are properly called diamonds; the U.S. Federal Trade Commission recognized this in its revised Jewelry Guides. (Source: U.S. Federal Trade Commission, Guides for the Jewelry, Precious Metals, and Pewter Industries (revised), 2018)
+- Lab Grown Diamonds have essentially the same optical, physical, and chemical properties as mined diamonds and are diamonds under the revised FTC Jewelry Guides (2018). (Source: Federal Register, 83 FR 40665, Guides for the Jewelry, Precious Metals, and Pewter Industries (FTC final rule), 2018-08-16. https://www.federalregister.gov/documents/2018/08/16/2018-17454/guides-for-the-jewelry-precious-metals-and-pewter-industries)
+- A solitaire is a piece of jewelry with a single diamond; buyers choose it to showcase the stone; a bezel surrounds the diamond with metal. (Source: GIA 4Cs blog, What is a Solitaire Setting?, 2012-06-06. https://4cs.gia.edu/en-us/blog/what-is-a-diamond-solitaire-setting/)
+- The solitaire style has one center stone with little or no decoration; prongs hold securely and admit light but can catch on fabric; V-prongs protect pointed corners; bezels resist chips; a halo adds sparkle and can make the center look larger. (Source: GIA 4Cs blog, Complete Guide to Engagement Ring Settings: Types vs. Styles, 2026-08-14. https://4cs.gia.edu/en-us/blog/guide-to-ring-settings/)
 
 ## Related
 

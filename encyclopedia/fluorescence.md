@@ -15,6 +15,9 @@ Fluorescence occurs in both mined and Lab Grown Diamonds and is reported the sam
 ## Sources
 
 - A GIA study published in Gems & Gemology (Winter 1997) found that, for the average observer, blue fluorescence had no systematic effect on diamond appearance, and strongly blue fluorescent diamonds were perceived slightly better in the face-up position. (Source: GIA, Gems & Gemology (Moses et al.), 1997)
+- GIA's 1997 study found that for the average observer, representing the jewelry-buying public, blue fluorescence had no systematic effect on appearance, and strongly blue fluorescent diamonds were perceived to have better color face-up (table-up). (Source: Moses, Reinitz, Johnson, King and Shigley, A Contribution to Understanding the Effect of Blue Fluorescence on the Appearance of Diamonds, Gems & Gemology, Vol. 33, No. 4 (Winter 1997), 1997. https://www.gia.edu/gems-gemology/winter-1997-fluorescence-diamonds-moses)
+- GIA reports fluorescence intensity as None, Faint, Medium, Strong and Very Strong; blue fluorescence can offset yellow tint in lower color grades; some laboratory-grown diamonds also fluoresce. (Source: GIA 4Cs, Dispelling Myths: The Truth About Diamond Fluorescence, 2018-03-27. https://4cs.gia.edu/en-us/blog/fact-checking-diamond-fluorescence-myths-dispelled/)
+- Fluorescence is visible light a diamond emits under UV; in more than 95% of fluorescent diamonds the color is blue; fewer than 0.2% of fluorescent diamonds submitted to GIA show a hazy or oily appearance, and only at very strong intensity; the average person could not tell fluorescent from non-fluorescent stones in the 1997 study. (Source: GIA 4Cs, Understanding Diamond Fluorescence, 2012-05-09. https://4cs.gia.edu/en-us/blog/understanding-diamond-fluorescence/)
 
 ## Related
 

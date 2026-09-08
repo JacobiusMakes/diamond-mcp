@@ -12,6 +12,13 @@ The vulnerabilities depend on the specific outline. The corners where the straig
 
 The practical note is that hexagon is a shape, not a standardized cut with fixed proportions, so faceting style, symmetry, and length-to-width ratio all vary widely. It is worth looking at the individual stone to understand how it handles light. The elongated hexagon with pointed ends and straight sides is also the outline behind the trade name Dutch Marquise; the name describes that outline only and does not specify a faceting style.
 
+## Sources
+
+- Shape is the outline of the stone and cut (faceting style) is the facet arrangement, so the same outline can carry different facet arrangements. (Source: GIA 4Cs blog, How Diamonds Shape Up, 2012-06-19. https://4cs.gia.edu/en-us/blog/how-diamonds-shape-up/)
+- Brilliant-style faceting uses many small kite and triangular facets for brilliance and fire; step cuts use concentric parallel facets for a hall-of-mirrors look; sharp corners and points need protective settings such as V-prongs. (Source: GIA 4Cs blog, Guide to Diamond Shapes for Engagement Rings, 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
+- Hexagon is a shape, not a standardized cut with fixed proportions: GIA issues no overall cut grade for fancy shapes. (Source: GIA 4Cs blog, GIA Diamond Grading Reports: Understanding Diamond Grading and Cut Grades, 2015-11-09. https://4cs.gia.edu/en-us/blog/gia-diamond-grading-reports-understanding-diamond-cut-grades/)
+- A hexagon is a fancy shape: fancy shapes are all shapes other than round. (Source: IGI, Diamond Shapes (consumer education), 2023-04-04, updated 2024-02-26. https://www.igi.org/consumer-education/diamond-shapes/)
+
 ## Related
 
 [Dutch Marquise](dutch-marquise.md), [emerald cut](emerald-cut.md), step cut, [bezel setting](bezel-setting.md), marquise cut, brilliant cut

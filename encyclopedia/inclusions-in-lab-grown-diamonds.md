@@ -14,8 +14,10 @@ It's worth saying plainly: inclusions aren't flaws to be nervous about. They're 
 
 ## Sources
 
-- IGI issues full 4C grading reports for Lab Grown Diamonds, including clarity. (Source: IGI, 2026)
-- GIA places Lab Grown Diamonds in descriptive Premium and Standard tiers rather than issuing individual 4C grades. (Source: GIA, 2025-10-01)
+- IGI grades Lab Grown Diamond clarity at 10X magnification on the same basis as natural stones, and its reports may state the growth method (HPHT or CVD). (Source: IGI, Laboratory Grown Diamond Report, 2026 (fetched 2026-09-08). https://www.igi.org/reports/lab-grown-diamond-report/)
+- HPHT-grown diamonds often contain metallic flux inclusions (dark in transmitted light, metallic in reflected light) and stones with larger metallic inclusions can be picked up with a magnet; CVD-grown diamonds have no metallic inclusions but may contain dark graphite inclusions and can show a striated pattern. (Source: GIA, "HPHT and CVD Diamond Growth Processes: Making Lab-Grown Diamonds", n.d. (fetched 2026-09-08). https://www.gia.edu/hpht-and-cvd-diamond-growth-processes)
+- IGI issues full 4C grading reports (cut, color, clarity, carat) for Lab Grown Diamonds and confirmed in July 2025 it will continue to do so. (Source: IGI press release, "IGI Reaffirms Commitment to 4Cs Grading for all Diamonds", 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
+- From October 1, 2025 GIA describes D-to-Z Lab Grown Diamonds as Premium or Standard instead of issuing the natural-diamond color and clarity grades; stones below Standard receive no assessment. (Source: GIA press release, "GIA Launches Updated Laboratory-Grown Diamond Services", 2025-08-26. https://www.gia.edu/gia-news-press/updated-laboratory-grown-diamond-services-to-launch-october-1)
 
 ## Related
 

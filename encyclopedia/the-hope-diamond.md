@@ -12,11 +12,9 @@ You will often hear that the diamond is cursed. That part is a legend, a story p
 
 ## Sources
 
-- The Hope Diamond weighs 45.52 carats, is a deep grayish-blue color described by the Smithsonian as the largest known deep-blue diamond, and is displayed at the Smithsonian's National Museum of Natural History. (Source: Smithsonian National Museum of Natural History, 2026)
-- Jeweler Harry Winston donated the Hope Diamond to the Smithsonian in 1958, sending it by registered mail. (Source: Smithsonian Institution, 1958)
-- The diamond's blue color is caused by trace boron, and the stone phosphoresces red after exposure to ultraviolet light. (Source: Smithsonian National Museum of Natural History, 2026)
-- The Hope traces to a large blue diamond Jean-Baptiste Tavernier sold to Louis XIV in 1668 (recut as the "French Blue"), which vanished during the French Revolution; 2005 Smithsonian research concluded the Hope was cut from that gem. (Source: Smithsonian Institution (2005 research led by Jeffrey Post and Steven Attaway); History of the Hope Diamond, 2005)
-- The "curse" of the Hope Diamond is a legend popularized by early twentieth-century publicity, not a documented fact. (Source: Smithsonian (treats the curse as folklore), 2026)
+- The Hope Diamond weighs 45.52 carats (measured out of its setting in 1975), was graded fancy deep grayish-blue by GIA in 1996, phosphoresces red under UV, and has been at the Smithsonian since Harry Winston donated it in 1958, arriving by registered mail in a plain brown package. (Source: Smithsonian National Museum of Natural History, Hope Diamond, accessed 2026-09-08. https://naturalhistory.si.edu/explore/collections/hope-diamond)
+- The blue color is attributed to trace boron; the stone is a type IIb diamond that phosphoresces a strong red after short-wave UV; Tavernier sold it to Louis XIV in 1668 and it became the French Blue. (Source: Smithsonian Institution, History of the Hope Diamond (Spotlight), accessed 2026-09-08. https://www.si.edu/spotlight/hope-diamond/history)
+- The Hope Diamond weighs 45.52 carats (measured out of its setting in 1975), was graded fancy deep grayish-blue by GIA in 1996, phosphoresces red under UV, and has been at the Smithsonian since Harry Winston donated it in 1958, arriving by registered mail in a plain brown package. (Source: Smithsonian National Museum of Natural History, Hope Diamond, accessed 2026-09-08. https://naturalhistory.si.edu/explore/collections/hope-diamond)
 
 ## Related
 

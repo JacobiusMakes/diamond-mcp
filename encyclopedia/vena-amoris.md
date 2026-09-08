@@ -15,6 +15,7 @@ None of this should spoil the custom. Knowing that the anatomy is a myth takes n
 - "Vena amoris" (Latin for "vein of love") names the belief that a vein runs from the ring finger directly to the heart, long cited as a reason for wearing the ring on that finger. (Source: Vena amoris, Wikipedia (encyclopedic summary of the tradition), 2026)
 - A version of the belief is recorded by the Roman writer Macrobius around 400 AD, and the Latin phrase appears in later marriage writing, including Henry Swinburne's treatise published in 1686. (Source: Vena amoris, Wikipedia (citing Macrobius and Henry Swinburne), 1686)
 - Blood circulation, by which veins in all fingers return blood to the heart, was described by the physician William Harvey in 1628, contradicting the idea of a single vein unique to the ring finger. (Source: William Harvey, "De Motu Cordis" (history of medicine), 1628)
+- Around AD 400 Macrobius recorded the belief that a nerve runs from the heart to the finger next to the little finger of the left hand, which is why the ancients ringed that finger; he attributes the account to Egypt and its priests. (Source: Macrobius, Saturnalia 7.13.7 to 9, Latin text at LacusCurtius (University of Chicago); Britannica dates Macrobius as flourished AD 400, c. AD 400 (composition); page accessed 2026-09-08. https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Macrobius/Saturnalia/7*.html)
 
 ## Related
 

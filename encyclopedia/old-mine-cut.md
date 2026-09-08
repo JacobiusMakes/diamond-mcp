@@ -12,6 +12,12 @@ Because the corners are rounded, an old mine cut is durable and free of the frag
 
 The honest practical note is that each old mine cut is an individual. These stones were cut by hand, one at a time, so symmetry is often irregular and no two are quite alike, and they should be read on their own terms rather than against modern ideal-cut expectations. Modern cutters also make new stones in the old mine style, so if genuine age matters to you, it is worth asking whether a given stone is an antique or a contemporary cut in the antique manner.
 
+## Sources
+
+- An old mine cut has a squarish outline, a smaller table, larger culet, higher crown and short lower half facets; it was common from the early 18th to the late 19th century; cut by hand and designed for candlelight; it shows less brilliance but more fire in bold flashes; modern cutters are reviving the style. (Source: GIA 4Cs, Guide to Old Mine Cut Diamonds, 2025-09-03. https://4cs.gia.edu/en-us/blog/old-mine-cut-diamond-guide/)
+- The old mine cut is an early brilliant cut with a high crown, small table, deep pavilion and large culet, and the modern cushion cut descends from it. (Source: GIA 4Cs, Cushion Cut Diamond: An Old And New Classic, 2015-09-09. https://4cs.gia.edu/en-us/blog/cushion-cut-diamond-old-new-classic/)
+- Old mine cuts vary in proportion, were used in Georgian and Victorian jewelry, and no two are identical. (Source: GIA 4Cs, How to Shop for Antique and Vintage Engagement Rings, 2018-03-01. https://4cs.gia.edu/en-us/blog/shop-antique-vintage-engagement-rings/)
+
 ## Related
 
 [old european cut](old-european-cut.md), [cushion cut](cushion-cut.md), [culet](culet.md), brilliant cut, [crown](crown.md), [table](table.md)

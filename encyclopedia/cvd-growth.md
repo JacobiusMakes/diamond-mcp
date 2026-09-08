@@ -10,6 +10,12 @@ CVD gives growers fine control over the conditions in the chamber, which is one 
 
 Fresh out of the chamber, CVD diamonds sometimes carry a faint brown or gray tint from the way the crystal grew. Growers often follow with post-growth treatment (HPHT annealing) to move the color toward colorless. That step is standard, permanent, and disclosed on the grading report. The finished stone is a genuine diamond, the same carbon and the same hardness as a mined one; CVD is simply the method that produced it.
 
+## Sources
+
+- CVD grows diamond inside a vacuum chamber from a hydrogen and methane gas mix broken down by microwave energy; carbon deposits on flat diamond seed plates; the method runs at lower pressure than HPHT; crystals grow flat and tabular; as-grown brown color is removed by HPHT annealing. (Source: GIA, HPHT and CVD Diamond Growth Processes, 2016-07-25. https://www.gia.edu/hpht-and-cvd-diamond-growth-processes)
+- CVD uses a plasma reactor with hydrogen and methane flowing over diamond seeds; colorless CVD diamonds are type IIa (no detectable nitrogen); type II is rare among natural diamonds; most CVD diamonds seen by GIA have had post-growth treatment. (Source: Eaton-Magana, Hardman and Odake, Laboratory-Grown Diamonds: An Update on Identification and Products Evaluated at GIA, Gems & Gemology, Summer 2024, Vol. 60, No. 2, 2024. https://www.gia.edu/gems-gemology/summer-2024-gia-update-on-laboratory-grown-diamonds)
+- A CVD-grown stone is a genuine diamond under the US FTC Jewelry Guides, which recognize laboratory-created diamonds as having essentially the same optical, physical and chemical properties as mined diamonds. (Source: US Federal Trade Commission, Jewelry Guides, 16 CFR 23.12 (eCFR), 2018 revision (eCFR current text, fetched 2026-09-08). https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.12)
+
 ## Related
 
 [HPHT Growth](hpht-growth.md), [Post-Growth Treatment (HPHT Annealing)](post-growth-treatment-hpht-annealing.md), [Lab Grown Diamond](lab-grown-diamond.md), [Inclusions in Lab Grown Diamonds](inclusions-in-lab-grown-diamonds.md), Diamond Type IIa

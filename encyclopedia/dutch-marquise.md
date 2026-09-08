@@ -14,7 +14,10 @@ One practical note: because it is a trade name, different sellers may apply the 
 
 ## Sources
 
-- IGI report LG799689559, issued 2026-05-09 for a diamond cut and sold as a Dutch Marquise, classifies the shape as Hexagonal Modified Brilliant. (Source: IGI (International Gemological Institute) diamond grading report No. LG799689559, 2026-05-09)
+- IGI report LG799689559, issued May 9, 2026, describes the stone as a laboratory grown diamond with shape and cut Hexagonal Modified Brilliant, 1.03 ct, measuring 9.49 x 5.15 x 3.36 mm (length-to-width 1.84), inscription IGI LG799689559. (Source: IGI (International Gemological Institute), Verify Your Report, report LG799689559, 2026-05-09. https://lookup.igi.org/index.php/verify-your-report/?r=LG799689559)
+- Dutch Marquise is a trade name with no canonical gemological definition; laboratories do not print it on a report. The published open specification defines it as an elongated hexagonal cut diamond. (Source: First-party: Stienhardt, dutch-marquise-spec (open geometry standard, CC BY 4.0, v1.0.2; Zenodo concept DOI 10.5281/zenodo.21938899), 2026-09-02 (v1.0.2). https://github.com/JacobiusMakes/dutch-marquise-spec/blob/main/SPEC.md)
+- On a grading report the Dutch Marquise appears under its standard shape classification (on IGI, Hexagonal Modified Brilliant), because it is a trade name rather than an officially recognized gemological category. (Source: First-party: Stienhardt, "The Dutch Marquise: Definition, Size Chart, and Report Guide", 2026 (fetched 2026-09-08). https://stienhardt.com/pages/dutch-marquise)
+- The classic marquise (navette) has curved sides and pointed ends, and its points are vulnerable to breakage (the contrast the entry draws, and the reason to protect the tips). (Source: GIA 4Cs blog, "How to Choose a Marquise Diamond", 2016-11-29. https://4cs.gia.edu/en-us/blog/choose-marquise-diamond/)
 
 ## Related
 

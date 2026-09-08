@@ -16,6 +16,8 @@ Some leakage is normal and even useful, since a little contrast reads as sparkle
 
 - The ASET (Angular Spectrum Evaluation Tool), developed by AGS Laboratories, and the Idealscope reveal returned light versus leakage and contrast, showing leakage as white or uncolored areas. (Source: AGS Laboratories (American Gem Society); PriceScope education, ASET / Idealscope, 2005)
 - Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond, so light leakage behaves identically. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018)
+- Light leakage is light that exits through the pavilion instead of returning to the observer; a fisheye is one of the undesirable patterns GIA's cut grading penalizes. (Source: Moses et al., A Foundation for Grading the Overall Cut Quality of Round Brilliant Cut Diamonds, Gems & Gemology, Fall 2004, Vol. 40, No. 3 (GIA), 2004. https://www.gia.edu/gems-gemology/fall-2004-grading-cut-quality-brilliant-diamond-moses)
+- In an ASET (Angular Spectrum Evaluation Tool) image red shows brilliance, blue contrast, green lower-angle light, and white or black areas show where light is being lost. (Source: American Gem Society, ASET: Using Your Smartphone to Compare Diamonds, 2013-07-18. https://www.americangemsociety.org/smart-phones-diamonds/)
 
 ## Related
 

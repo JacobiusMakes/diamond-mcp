@@ -15,7 +15,7 @@ One nuance, for completeness: a rare few diamonds hold carbon that was once near
 - Most natural diamonds form deep in Earth's mantle, roughly 150 kilometers (about 90 miles) or more below the surface, under high pressure and temperature, and are carried upward by kimberlite volcanic eruptions. (Source: GIA, "Diamonds from the Deep: How Do Diamonds Form in the Deep Earth?" (Gems & Gemology, Winter 2018); geology.com, 2018)
 - Most natural diamonds are more than a billion years old, hundreds of millions of years older than Earth's first land plants (the source material for coal), so coal is not their carbon source. (Source: GIA, "Diamonds from the Deep: How Old Are Diamonds? Are They Forever?" (Gems & Gemology, Spring 2019); geology.com, 2019)
 - A rare minority of diamonds contain carbon that originated near the surface and was carried deep by plate tectonics; this is still not coal. (Source: GIA, "Diamonds from the Deep" series (Gems & Gemology, 2018 to 2019), on deep-carbon recycling via subduction, 2019)
-- Lab Grown Diamonds are grown from a carbon source rather than mined and are real diamonds. (Source: FTC Jewelry Guides, 2018)
+- Under the FTC Jewelry Guides a diamond is defined as a mineral consisting essentially of pure carbon crystallized in the isometric system (no word natural), and laboratory-grown stones are treated as diamonds having essentially the same optical, physical and chemical properties as mined diamonds, provided origin is disclosed. (Source: 16 CFR 23.12, Definition and misuse of the word diamond (FTC Jewelry Guides, as revised 2018), via Cornell Legal Information Institute, 2018 revision (FTC press release 2018-07-24); text as currently codified. https://www.law.cornell.edu/cfr/text/16/23.12)
 
 ## Related
 

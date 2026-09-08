@@ -11,6 +11,9 @@ You will see V-tips on the pointed ends of marquise and pear cuts, on the tip of
 ## Sources
 
 - Diamond rates 10, the maximum, on the Mohs scale of scratch hardness; Mohs hardness measures resistance to scratching, not toughness against breakage. (Source: Mohs scale of mineral hardness (introduced by Friedrich Mohs), 1812)
+- V-shaped prongs protect pointed corners and are used on heart, princess, pear and marquise cuts; they wrap the vulnerable point to reduce chipping risk. (Source: GIA 4Cs blog, Complete Guide to Engagement Ring Settings: Types vs. Styles, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/guide-to-ring-settings/)
+- Diamond is 10 on the Mohs scale yet can still be damaged; shapes with points or sharp corners (princess, marquise, pear, heart) are more vulnerable to chipping and should be set with V-shaped prongs. (Source: GIA 4Cs blog, How to Protect Your Diamond Engagement Ring, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/how-to-protect-your-diamond-engagement-ring/)
+- The Mohs scale, devised in 1812 by Friedrich Mohs, is a measure of resistance to scratching. (Source: Encyclopaedia Britannica, Mohs hardness, accessed 2026-09-08. https://www.britannica.com/science/Mohs-hardness)
 
 ## Related
 

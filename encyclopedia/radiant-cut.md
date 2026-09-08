@@ -12,6 +12,11 @@ On durability the radiant is one of the sturdier fancy shapes, because the cropp
 
 One honest caveat: radiant is a broad label. The faceting pattern and how chunky or crushed the sparkle looks vary quite a bit from stone to stone, and length-to-width ratio ranges from square to distinctly long. It is worth viewing a specific radiant face-up to see whether its particular sparkle and proportions suit you.
 
+## Sources
+
+- A radiant has an eight-sided square or rectangular outline with cut corners; it mixes step-cut crown facets with brilliant-cut pavilion facets (a mixed cut); it was patented by Henry Grossbard in the late 1970s; it is more forgiving of inclusions than an emerald cut; buyers should see it in person. (Source: GIA 4Cs blog, How to Select a Radiant Cut Diamond, 2015-11-05. https://4cs.gia.edu/en-us/blog/select-radiant-cut-diamond-2/)
+- The radiant blends the emerald cut's geometric outline with brilliant sparkle, conceals inclusions, and its trimmed corners add durability. (Source: GIA 4Cs blog, Guide to Diamond Engagement Ring Shapes, 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
+
 ## Related
 
 [emerald cut](emerald-cut.md), [princess cut](princess-cut.md), [cushion cut](cushion-cut.md), brilliant cut, mixed cut, [length-to-width ratio](length-to-width-ratio.md)

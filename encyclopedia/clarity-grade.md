@@ -14,7 +14,9 @@ Lab Grown Diamonds are graded on the same clarity scale and assessed the same wa
 
 ## Sources
 
-- IGI still issues full 4C grading reports, including a clarity grade, for Lab Grown Diamonds. (Source: International Gemological Institute (IGI), 2026)
+- IGI still issues full 4C grading reports, including a clarity grade, for laboratory-grown diamonds. (Source: IGI press release, IGI Reaffirms Commitment to 4Cs Grading for all Diamonds (Mumbai), 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
+- The GIA clarity scale runs Flawless (FL), Internally Flawless (IF), VVS1 and VVS2, VS1 and VS2, SI1 and SI2, and I1, I2, I3; grading is done at 10x magnification; internal characteristics are inclusions and external ones are blemishes; grades weigh number, size, relief, nature and location; many characteristics are not visible to the naked eye. (Source: GIA, Diamond Clarity (4Cs education page), Current GIA page; accessed 2026-09-08. https://4cs.gia.edu/en-us/diamond-clarity/)
+- Lab-grown diamonds are graded on the same clarity scale and at the same 10x magnification standard as mined diamonds. (Source: IGI, Lab Grown Diamond Report page, Current IGI page; accessed 2026-09-08. https://www.igi.org/reports/lab-grown-diamond-report/)
 
 ## Related
 

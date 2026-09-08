@@ -10,6 +10,13 @@ To insure a ring you typically provide documentation of what it is and what it c
 
 A few practical questions to ask: Is loss covered or only theft and damage? Is there a deductible? Can you choose where the ring is repaired or replaced, or must you use the insurer's vendor? Does coverage follow you when you travel? Premiums vary with the ring's value, your location, and the coverage, so it is worth getting more than one quote. Keep your documentation and clear photos somewhere separate from the ring itself.
 
+## Sources
+
+- Standard homeowners or renters coverage may be insufficient for expensive jewelry; the options are a separate policy or an endorsement (rider); insurers usually require an appraisal; keep photos and the appraisal separately. (Source: National Association of Insurance Commissioners (NAIC), Consumer Insight: Learn How to Insure Expensive Jewelry and Gifts, undated consumer article; accessed 2026-09-08. https://content.naic.org/article/consumer-insight-learn-how-insure-expensive-jewelry-gifts)
+- Home and renters policies often cover jewelry theft but not necessarily damage or loss; high-value jewelry may need dedicated insurance; insurance requires an appraisal. (Source: GIA 4Cs, Insurance and Appraisal, undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/insurance-and-appraisal/)
+- Insurers typically require an appraisal to set the ring's replacement value, and the policy should be checked for damage and loss coverage. (Source: GIA 4Cs, "How to Protect Your Diamond Engagement Ring", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/how-to-protect-your-diamond-engagement-ring/)
+- A floater (scheduled personal property endorsement) adds coverage for jewelry beyond the base policy; actual cash value deducts depreciation while replacement cost does not. (Source: Utah Insurance Department, Glossary of Homeowner Insurance Terms, undated state regulator page; accessed 2026-09-08. https://insurance.utah.gov/consumers/home-insurance/home-glossary/)
+
 ## Related
 
 Appraisal, [Grading Report](grading-report.md), Verifying a Grading Report, [Annual Prong Check](annual-prong-check.md), Replacement Value

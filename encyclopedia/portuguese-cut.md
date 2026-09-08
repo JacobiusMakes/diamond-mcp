@@ -12,6 +12,13 @@ On durability the Portuguese cut behaves like any round: its curved outline has 
 
 The honest practical note is that the Portuguese cut is a labor-intensive specialty. All those extra facets take more time and skill to cut, and the style is far more common in quartz, tourmaline, and other gemstones than in diamond, so as a diamond it is an uncommon, deliberate choice rather than a stock shape. If you want one in diamond, expect limited availability and to seek out a cutter or seller who offers it specifically.
 
+## Sources
+
+- The Portuguese cut is a traditional named cut with several tiers of facets, exceptional scintillation, many facets, considerable labor, and a need for deeper than normal rough. (Source: International Gem Society (IGS, educational nonprofit), "A Guide to Gem Cutting Styles", undated page; accessed 2026-09-08. https://www.gemsociety.org/article/gem-cutting-terms/)
+- The classic Portuguese design has 161 facets, needs a lot of depth, and performs best in materials with refractive index of about 1.76 or higher; low-RI stones such as quartz show a dead area with the classic angles. (Source: International Gem Society, "How to Cut a Simple Portuguese Gem Design" (Jeff Graham), undated page; accessed 2026-09-08. https://www.gemsociety.org/article/simple-portuguese-gem-design/)
+- The Portuguese cut is an old, widely used traditional style; with traditional angles it produces a fish-eye in low-refractive-index material. (Source: International Gem Society, "Online Faceting Designs and Diagrams: Gram Portuguese", undated page; accessed 2026-09-08. https://www.gemsociety.org/article/online-faceting-designs-diagrams-gram-portuguese/)
+- The Portuguese cut suits deep, high-refractive-index gems and shows a starburst pattern through the table. (Source: International Gem Society, "Simple Portuguese: Online Faceting Designs and Diagrams", undated page; accessed 2026-09-08. https://www.gemsociety.org/article/online-faceting-designs-diagrams-simple-portuguese/)
+
 ## Related
 
 [round brilliant cut](round-brilliant-cut.md), brilliant cut, [scintillation](scintillation.md), [facet](facet.md), [girdle](girdle.md), [old european cut](old-european-cut.md)

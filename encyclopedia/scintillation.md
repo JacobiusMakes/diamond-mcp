@@ -16,6 +16,8 @@ GIA's cut grading system, released in January 2006, treats scintillation as one 
 
 - GIA's round brilliant cut grading system (released January 2006) treats scintillation as one of three face-up appearance components, alongside brightness and fire, in a cut grade from Excellent to Poor. (Source: GIA (Gemological Institute of America), Diamond Cut grading system, gia.edu / 4cs.gia.edu, 2006-01)
 - Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018)
+- GIA defines scintillation as the pattern of light and dark areas plus the sparkle when the diamond moves; the GIA cut scale runs Excellent to Poor; a standard round brilliant has 57 or 58 facets. (Source: GIA 4Cs, "Diamond Cut: Understanding the Cut Scale", n.d. (fetched 2026-09-08). https://4cs.gia.edu/en-us/diamond-cut/)
+- GIA's cut grading research defines scintillation as two things, sparkle (flashes as diamond, observer or light moves) and pattern (size, arrangement and contrast of bright and dark areas), and grades cut on brightness, fire, scintillation, polish, symmetry, weight and durability. (Source: Moses, Johnson, Green, Blodgett et al., "A Foundation for Grading the Overall Cut Quality of Round Brilliant Cut Diamonds", Gems & Gemology, Fall 2004, Vol. 40 No. 3, 2004 (Fall). https://www.gia.edu/gems-gemology/fall-2004-grading-cut-quality-brilliant-diamond-moses)
 
 ## Related
 

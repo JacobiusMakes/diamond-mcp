@@ -10,6 +10,12 @@ This matters because eye-clean stones appear across a wide span of clarity grade
 
 Eye-clean isn't printed on a grading report, because it depends on the observer, the distance, and the individual stone rather than a fixed laboratory standard. The reliable way to judge it is to look at the specific diamond, or a clear image of it, and check whether anything catches your eye. Larger stones and step-cut shapes like emerald cuts show inclusions more readily, so the eye-clean question deserves more attention as size goes up. Lab Grown Diamonds are assessed for eye-cleanliness in exactly the same way.
 
+## Sources
+
+- Eye-clean is an industry term for a diamond whose inclusions cannot be seen with the naked eye; GIA does not use the term; clarity grades are determined at 10x magnification. (Source: GIA 4Cs, Seven Things to Know When Looking at Diamond Clarity, 2018-04-17. https://4cs.gia.edu/en-us/blog/seven-things-to-know-about-diamond-clarity/)
+- Every diamond is clarity-graded under 10x magnification on an 11-grade scale from Flawless to Included, and many VS to SI clarity characteristics are not visible to the naked eye. (Source: GIA 4Cs, Diamond Clarity, 2026 (page current). https://4cs.gia.edu/en-us/diamond-clarity/)
+- Step-cut shapes such as the emerald cut show inclusions more readily, so higher clarity is needed for an eye-clean look. (Source: GIA 4Cs, Guide to Diamond Engagement Ring Shapes, 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
+
 ## Related
 
 [clarity grade](clarity-grade.md), [the 4Cs](the-4cs.md), inclusion, [emerald cut](emerald-cut.md), [grading report](grading-report.md)

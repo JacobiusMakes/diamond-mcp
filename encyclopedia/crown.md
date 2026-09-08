@@ -10,6 +10,13 @@ The crown has two jobs. It lets light into the stone, and as light leaves, its a
 
 Crown height, given as a percentage of the stone's width, is one of the proportions a grading lab records. Read on its own it means little; read together with table size, pavilion depth, and the two key angles, it helps describe how well a stone is cut. In short, the crown is the part of the diamond you look into and the part that makes colored flashes, while the pavilion below is the part that sends light back to your eye.
 
+## Sources
+
+- The crown is the upper portion of the diamond, from the top edge of the girdle to the table; crown angle is the angle where the bezel facets meet the girdle plane; crown height is expressed as a percentage of average girdle diameter; appearance arises from the combined contribution of all proportions. (Source: GIA 4Cs, Diamond Anatomy, Explained, 2014-04-09. https://4cs.gia.edu/en-us/blog/diamond-anatomy-explained/)
+- On a round brilliant the crown facets are 8 bezels, 8 stars and 16 upper girdle (upper half) facets; they gather and disperse light to create brightness, fire and scintillation; the pavilion facets reflect light back through the crown to the eye; a standard round brilliant has 57 or 58 facets. (Source: GIA, Diamond Cut: Anatomy of a Round Brilliant, undated, accessed 2026-09-08. https://www.gia.edu/diamond-cut/diamond-cut-anatomy-round-brilliant)
+- Crown angle does not act alone: brilliance depends on crown angle, pavilion angle and table size together, and cut should not be judged one proportion at a time. (Source: Hemphill, Reinitz, Johnson and Shigley, Modeling the Appearance of the Round Brilliant Cut Diamond: An Analysis of Brilliance, Gems & Gemology, Vol. 34, No. 3, 1998. https://www.gia.edu/gems-gemology/fall-1998-an-analysis-of-brilliance-hemphill)
+- Crown height and crown angle mean little read alone; proportions must be read together. (Source: Moses et al., A Foundation for Grading the Overall Cut Quality of Round Brilliant Cut Diamonds, Gems & Gemology, Fall 2004, 2004. https://www.gia.edu/gems-gemology/fall-2004-grading-cut-quality-brilliant-diamond-moses)
+
 ## Related
 
 [table](table.md), [girdle](girdle.md), [pavilion](pavilion.md), crown angle, [facet](facet.md)

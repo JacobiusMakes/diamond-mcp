@@ -12,6 +12,12 @@ That is also its durability story. Because the ends are gently rounded points ra
 
 The practical note is that the moval is a fancy, less common shape, so selection is limited and there is no fixed standard for exactly how pointed the ends should be. It is worth viewing the specific stone, since the balance between oval softness and marquise point varies from cutter to cutter and is the whole reason to choose this shape.
 
+## Sources
+
+- The marquise has pointed tips that are more susceptible to chipping and are protected with V-prongs; ovals create the illusion of a larger size per carat and make fingers appear longer; the bow-tie is a dark shadow across the center of some elongated diamonds. (Source: GIA 4Cs blog, Guide to Diamond Engagement Ring Shapes, 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
+- Rounded ends are less prone to chipping; some degree of bow tie is always present in an oval; ovals can be thought of as a stretched round brilliant. (Source: GIA 4Cs blog, Oval Cut Diamond Buying Guide, 2025-09-23. https://4cs.gia.edu/en-us/blog/oval-cut-diamond-guide/)
+- A marquise is an elongated shape with pointed ends; an oval combines the brilliance of a round with the slenderness of a marquise. (Source: IGI, Diamond Shapes, accessed 2026-09-08. https://www.igi.org/consumer-education/diamond-shapes/)
+
 ## Related
 
 [oval cut](oval-cut.md), marquise cut, brilliant cut, [bow-tie effect](bow-tie-effect.md), [length-to-width ratio](length-to-width-ratio.md), [pear cut](pear-cut.md)

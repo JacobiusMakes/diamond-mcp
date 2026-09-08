@@ -12,6 +12,13 @@ The surface can be finished three ways. A bruted girdle has a frosted, matte loo
 
 The girdle also gives gemologists their main reference measurement, the average girdle diameter: the average of the stone's own diameter measurements taken at the girdle, its widest point, not the thickness of the girdle band itself. That figure is the denominator used to calculate both table percentage and depth percentage. On many diamonds the report number is laser-inscribed along the girdle, small enough to need magnification to read.
 
+## Sources
+
+- The girdle is the narrow band between crown and pavilion that serves as the setting edge; thick girdles add hidden weight, extremely thin (knife-edge) girdles chip more easily, and medium to slightly thick is preferred. (Source: GIA 4Cs, "Diamond Anatomy, Explained", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/diamond-anatomy-explained/)
+- GIA grades girdle thickness from Extremely Thin to Extremely Thick and the girdle may be bruted, polished or faceted. (Source: GIA, "Finish, Culet Size, and Girdle Thickness: Categories of the GIA Cut Grading System" (PDF booklet), undated GIA document (Cut Grading System materials, c. 2006); accessed 2026-09-08. https://www.gia.edu/doc/booklet_finish_culet_girdle.pdf)
+- Girdle-based proportions are expressed as a percentage of the diamond's average girdle diameter. (Source: GIA Facetware Help (gia.edu), undated page; accessed 2026-09-08. https://www.gia.edu/facetware-help)
+- The GIA report number is microscopically inscribed on the girdle and read under 10x magnification. (Source: GIA 4Cs, "How to Protect Your Diamond Engagement Ring", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/how-to-protect-your-diamond-engagement-ring/)
+
 ## Related
 
 [crown](crown.md), [pavilion](pavilion.md), [culet](culet.md), [depth percentage](depth-percentage.md), [facet](facet.md)

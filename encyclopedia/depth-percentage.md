@@ -13,6 +13,9 @@ What counts as favorable depends on the shape and on the grading lab's cut stand
 ## Sources
 
 - Marcel Tolkowsky published influential round brilliant proportions, covering depth and facet angles, in 1919. (Source: Marcel Tolkowsky, Diamond Design (1919), 1919)
+- Total depth percentage is the table-to-culet depth expressed as a percentage of the average girdle diameter. (Source: GIA, Diamond Cut: Anatomy of a Round Brilliant, Current GIA page; accessed 2026-09-08. https://www.gia.edu/diamond-cut/diamond-cut-anatomy-round-brilliant)
+- Depth is read together with table size and angles, and a stone cut too shallow or too deep leaks light out of the bottom or sides instead of returning it through the crown. (Source: GIA 4Cs blog, Diamond Anatomy, Explained, 2014-04-09. https://4cs.gia.edu/en-us/blog/diamond-anatomy-explained/)
+- Marcel Tolkowsky published Diamond Design in 1919. (Source: Internet Archive, Diamond design, by Marcel Tolkowsky (Library of Congress scan), 1919 (publication); record accessed 2026-09-08. https://archive.org/details/diamonddesign00tolk)
 
 ## Related
 

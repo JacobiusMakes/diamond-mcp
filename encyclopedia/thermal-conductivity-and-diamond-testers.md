@@ -17,6 +17,9 @@ A tester is a helpful screening tool, not a full identification. It can confirm 
 ## Sources
 
 - A Lab Grown Diamond is the same material as a mined diamond (the FTC defines a diamond by composition), so it registers as diamond on a thermal diamond tester. (Source: FTC, Guides for the Jewelry, Precious Metals, and Pewter Industries, 2018-08-16)
+- Handheld testers measure thermal (and sometimes electrical) conductivity with a warm tip; natural and lab-grown diamonds share identical thermal conductivity so thermal testers cannot separate them; moissanite gives false positives on thermal testers and electrical testers separate it more reliably. (Source: IGI, Diamond Detection and Handheld Testers (John Pollard), 2022-05-24. https://www.igi.org/diamond-detection-and-handheld-testers/)
+- Synthetic moissanite's thermal properties are so close to diamond's that thermal probes read it as diamond. (Source: Gems & Gemology, Winter 1997, Nassau, McClure, Elen and Shigley, Synthetic Moissanite: A New Diamond Substitute (GIA), 1997 (Winter issue, Vol. 33 No. 4). https://www.gia.edu/gems-gemology/winter-1997-synthetic-moissanite-nassau0)
+- Diamond has the highest thermal conductivity of any material at room temperature, far above copper. (Source: Nature, vol. 359, pp. 401 to 403, Graebner et al., Large anisotropic thermal conductivity in synthetic diamond films (peer-reviewed), 1992-10-01. https://www.nature.com/articles/359401a0)
 
 ## Related
 

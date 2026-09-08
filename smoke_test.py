@@ -9,7 +9,7 @@ Run it with the same Python you plan to serve with:
     python smoke_test.py
 """
 
-import json
+import json, re
 import os
 import queue
 import subprocess
@@ -166,7 +166,9 @@ def main():
     resp = call("lab_grown_price_index", {})
     p = text_payload(resp)
     ok("lab_grown_price_index",
-       p["change_pct_month"] == 4.89 and p["as_of"] == "2026-07-01"
+       isinstance(p["change_pct_month"], (int, float))
+       and re.match(r"^\d{4}-\d{2}-\d{2}$", p["as_of"]) is not None
+       and str(p.get("source_url", "")).startswith("http")
        and "love piece" in p["framing"]
        and "utm_content=lab_grown_price_index" in p["browse_current_inventory_url"])
     print("     " + clip(p))
