@@ -15,8 +15,8 @@ That five-step grade applies only to round brilliants. Fancy shapes such as oval
 ## Sources
 
 - Marcel Tolkowsky published Diamond Design in 1919, a mathematical study of light reflection and refraction in a diamond that proposed proportions for the round brilliant. (Source: Marcel Tolkowsky, Diamond Design: A Study of the Reflection and Refraction of Light in a Diamond (London: E. & F. N. Spon, 1919), full text hosted by folds.net, 1919. https://www.folds.net/diamond_design/index.html)
-- GIA released its cut grading system for standard round brilliant diamonds in 2006, with five grades from Excellent to Poor. (Source: Gemological Institute of America (GIA), reported by JCK, 2006)
-- The Dutch Marquise is a trade name for an elongated hexagonal cut and is described as "Hexagonal Modified Brilliant" on an IGI report. (Source: IGI report classification, 2026)
+- GIA released its cut grading system for standard round brilliant diamonds in 2006, with five grades from Excellent to Poor. (Source: Gemological Institute of America (GIA), reported by JCK, 2006.)
+- The Dutch Marquise is a trade name for an elongated hexagonal cut and is described as "Hexagonal Modified Brilliant" on an IGI report. (Source: IGI report classification, 2026.)
 - GIA's cut grade is a five-step scale from Excellent to Poor for standard round brilliant diamonds; it weighs brightness, fire and scintillation together with polish and symmetry; only round brilliants receive it; a round brilliant has 57 or 58 facets, the 58th being the culet. (Source: GIA 4Cs, Diamond Cut: Understanding the Cut Scale, accessed 2026-09-08. https://4cs.gia.edu/en-us/diamond-cut/)
 
 ## Related

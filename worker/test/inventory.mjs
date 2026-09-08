@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {diamondIntent,diamondBrowseUrl,selectVariant,checkedCatalogProduct} from '../src/inventory.ts';
+import {diamondIntent,diamondBrowseUrl,selectVariant,checkedCatalogProduct,matchesDiamondFilters} from '../src/inventory.ts';
 const env={STORE_ORIGIN:'https://stienhardt.com'};
 const product={title:'Everyday Band',type:'Ring',variants:[
   {id:1,title:'14K Yellow Gold',available:true,price:10000},
@@ -61,5 +61,14 @@ await test('loose-diamond carrier is returned as an unverified public listing on
 await test('generic diamond product cannot be mistaken for verified jewelry',async()=>{
   globalThis.fetch=async()=>{throw new Error('must not fetch');};
   assert.equal(await checkedCatalogProduct({url:'https://stienhardt.com/products/diamonds',title:'Catalog item',variants:product.variants},env),null);
+});
+await test('loose listings are filtered by the carat and shape parsed from the query',()=>{
+  const f=diamondIntent('1 carat dutch marquise diamond');
+  assert.equal(matchesDiamondFilters('1.96 Carat Dutch Marquise IGI Certified Lab Grown Diamond',f),false);
+  assert.equal(matchesDiamondFilters('1.05 Carat Dutch Marquise IGI Certified Lab Grown Diamond',f),true);
+  assert.equal(matchesDiamondFilters('1.05 Carat Oval IGI Certified Lab Grown Diamond',f),false);
+  assert.equal(matchesDiamondFilters('Dutch Marquise Lab Grown Diamond',f),false);
+  assert.equal(matchesDiamondFilters('2.5 Carat Oval Lab Grown Diamond',diamondIntent('2-3 carat oval')),true);
+  assert.equal(matchesDiamondFilters('anything',null),true);
 });
 console.log(JSON.stringify({passed,failed:0}));

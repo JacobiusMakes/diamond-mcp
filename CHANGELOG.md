@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.2.5 (2026-09-08)
+
+- Hosted Worker: a JSON-RPC envelope is validated (a `null` body or a non-object message answers -32600 instead
+  of a runtime error), batches are capped at 10 messages, messages without an id are treated as notifications,
+  `initialize` echoes a supported protocol version the client offers, and `resources/list`, `prompts/list`, and
+  `resources/templates/list` answer with empty lists. Tool dispatch only matches the server's own tool names.
+- `get_product` returns the public listing (flagged `availability_verified: false`, with a browse link) for the
+  loose-diamond ids that `search_inventory` returns, and reports an unknown id as not found. `search_inventory`
+  requires a query. Upstream non-JSON responses surface as `upstream_http_error`.
+- `/go` accepts HEAD, rejects destinations with a port or userinfo, and records only campaign-tagged clicks,
+  without delaying the redirect.
+- The Worker serves the repository's `agent-profile.json` verbatim, so the two copies cannot drift.
+- `faceup_size` (Node and Python) accepts only numeric carat values between 0.01 and 100.
+- Business-profile Worker 0.1.1: no geo coordinate (New York, NY only), CORS preflight answers 204 without a
+  body, `get_services` returns an object, empty identity fields are omitted, and the catalog tool no longer
+  promises availability for loose stones.
+- Data: the IGI verification URL uses the path IGI serves without a challenge page; the HRD Antwerp entry carries
+  the June 2025 announcement date and the 2026 effective date with its source URL; the FTC entry states the
+  disclosure requirement with the 2018-07-24 revision date; the Dutch Marquise 1 carat face-up anchor is scaled
+  from the certified reference stone (9.4 x 5.1 mm); the certificate-term claim names that report; the
+  publisher facts say in-person viewings are by appointment; the hexagon entry states the brilliant versus step
+  faceting distinction; "open geometry specification" replaces "standard".
+- `search_inventory` applies the shape and carat parsed from a loose-diamond query to the listings it returns.
+- Desktop bundle 0.2.5 built from this tree.
+
 ## 0.2.4 (2026-09-08)
 
 - Encyclopedia: every entry now carries verified sources with URLs. Eight factual corrections from the

@@ -16,9 +16,10 @@
  *          GET /.well-known/openai-apps-challenge (OpenAI plugin domain verification token, when set)
  */
 import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTIONS } from "../../node/src/core.js";
+import REPO_PROFILE from "../../agent-profile.json";
 import factsJson from "../../facts.json";
 import encyclopediaJson from "../../encyclopedia.json";
-import { diamondIntent, diamondBrowseUrl, checkedCatalogProduct } from './inventory';
+import { diamondIntent, diamondBrowseUrl, checkedCatalogProduct, matchesDiamondFilters } from './inventory';
 
 configure({ facts: factsJson, encyclopedia: encyclopediaJson });
 
@@ -33,6 +34,8 @@ interface Env {
 }
 
 const PROTOCOL = "2025-06-18";
+const SUPPORTED_PROTOCOLS = ["2025-06-18", "2025-03-26", "2024-11-05"];
+const MAX_BATCH = 10;
 // bump to force UCP merchants to re-fetch the profile (they cache fetch results)
 const PROFILE_REV = "2";
 
@@ -95,7 +98,7 @@ const STORE_TOOLS = [
     description:
       "Search Stienhardt's public Shopify catalog of engagement ring settings and fine jewelry (New York, direct). " +
       "Loose-diamond stock cannot be verified here; those searches return public catalog listings flagged availability_verified false plus a storefront browsing link. " +
-      "Returns prices when verified, selected variants, and links. Availability is not a reservation. " +
+      "Returns public catalog prices, selected variants, and links; availability is verified for jewelry only and is not a reservation. " +
       "Use for questions like 'show me platinum wedding bands' or 'show me tennis bracelets'. " +
       "Not for appraisal or price advice on stones sold elsewhere.",
     inputSchema: {
@@ -156,34 +159,7 @@ function directoryDiscovery(origin: string) {
 }
 
 function agentProfile(origin: string) {
-  return {
-    ucp: {
-      version: "2026-08-25",
-      services: {
-        "dev.ucp.shopping": [
-          { version: "2026-08-25", spec: "https://ucp.dev/2026-08-25/specification/overview/", transport: "mcp",
-            schema: "https://ucp.dev/2026-08-25/services/shopping/mcp.openrpc.json" },
-        ],
-      },
-      capabilities: {
-        "dev.ucp.shopping.catalog.search": [{ version: "2026-08-25", spec: "https://ucp.dev/2026-08-25/specification/catalog" }],
-        "dev.ucp.shopping.catalog.lookup": [{ version: "2026-08-25", spec: "https://ucp.dev/2026-08-25/specification/catalog" }],
-        "dev.ucp.shopping.cart": [{ version: "2026-08-25", spec: "https://ucp.dev/2026-08-25/specification/cart",
-          schema: "https://ucp.dev/2026-08-25/schemas/shopping/cart.json" }],
-        "dev.ucp.shopping.checkout": [{ version: "2026-08-25", spec: "https://ucp.dev/2026-08-25/specification/shopping/checkout",
-          schema: "https://ucp.dev/2026-08-25/schemas/shopping/checkout.json" }],
-      },
-      payment_handlers: {
-        "dev.shopify.shop_pay": [
-          { id: "shop_pay_stienhardt_agent", version: "2026-08-25", spec: "https://shopify.dev/ucp/shop-pay-handler",
-            schema: "https://shopify.dev/ucp/schemas/shop-pay-config.json", available_instruments: [{ type: "shop_pay" }] },
-        ],
-      },
-    },
-    name: "Stienhardt diamond assistant",
-    operator: "Stienhardt, New York",
-    profile_url: origin + "/agent-profile.json",
-  };
+  return { ...REPO_PROFILE, profile_url: origin + "/agent-profile.json" };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -197,8 +173,9 @@ async function ucpCall(env: Env, origin: string, tool: string, catalog: any): Pr
     headers: { "Content-Type": "application/json", Accept: "application/json, text/event-stream", "User-Agent": "diamond-mcp-worker" },
     body: JSON.stringify(body),
   });
-  const data = await res.json() as any;
   if (!res.ok) return { error: {code:'upstream_http_error', status:res.status} };
+  let data: any;
+  try { data = await res.json(); } catch { return { error: {code:'upstream_http_error', status:res.status, detail:'non-JSON response'} }; }
   if (data.error) return { error: data.error };
   const r = data.result || {};
   if (r.isError) return { error: {code:'upstream_tool_error'} };
@@ -251,6 +228,7 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
   if (name === "search_inventory") {
     const limit = Math.max(1, Math.min(10, Number(args.limit) || 5));
     const query=String(args.query || '').slice(0,500);
+    if(!query.trim()) return [{error:'query is required: describe the stone or jewelry you want, for example "platinum wedding band" or "2 carat Dutch Marquise".'},true];
     if(/\b(natural|mined)\s+(?:diamonds?|stones?)\b/i.test(query)) {
       return [{query,count:0,results:[],note:'This catalog offers lab-grown diamonds. No natural-diamond match is claimed.'},false];
     }
@@ -262,10 +240,11 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
       if (out.error) return [{ error: "store search failed", detail: out.error }, true];
       const list = out.products || out.items || out.results || [];
       const candidates=await Promise.all(list.slice(0,Math.min(15,limit*2)).map((p:any)=>checkedCatalogProduct(p,env,query,true)));
-      const results=candidates.filter(Boolean).slice(0,limit).map((p:any)=>({...p,url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+String(p.id).split('/').pop())}));
+      const results=candidates.filter(Boolean).filter((p:any)=>matchesDiamondFilters(p.title,filters)).slice(0,limit).map((p:any)=>({...p,url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+String(p.id).split('/').pop())}));
       return [{query,count:results.length,results,availability_verified:false,filters,
+        filters_applied:['shape','carat'],
         browse_url:taggedStoreUrl(diamondBrowseUrl(env,filters),env.STORE_ORIGIN,'search_inventory:browse'),
-        note:'Public catalog matches for a loose-diamond search. Availability is not verified by this tool; confirm it on the product page or through the browse link. Preserve URL query strings.'},false];
+        note:'Public catalog matches for a loose-diamond search, filtered by the shape and carat in the query (color, clarity, and lab are not checked here). Availability is not verified by this tool; confirm it on the product page or through the browse link. Preserve URL query strings.'},false];
     }
     const out = await ucpCall(env, origin, "search_catalog",
       { query, context: { address_country: "US", currency: "USD", language: "en" } });
@@ -289,13 +268,24 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
         browse_url:taggedStoreUrl(diamondBrowseUrl(env,{},String(args.id).slice('stienhardt:diamond:'.length)),env.STORE_ORIGIN,'get_product:browse')},true];
     }
     const out = await ucpCall(env, origin, "get_product", { id: String(args.id || ""), context: { address_country: "US", currency: "USD" } });
+    if (out.error && out.error.code === 'upstream_tool_error') {
+      return [{ error: "Product not found: " + String(args.id || ""), note: "No live product matches that id. Use an id returned by search_inventory, e.g. gid://shopify/Product/123." }, true];
+    }
     if (out.error) return [{ error: "product lookup failed", detail: out.error }, true];
     const p = out.product || (out.id || out.title ? out : null);
     if (!p || (!p.id && !p.title)) {
       return [{ error: "Product not found: " + String(args.id || ""), note: "No live product matches that id. Use an id returned by search_inventory, e.g. gid://shopify/Product/123." }, true];
     }
-    const checked=await checkedCatalogProduct(p,env);
+    const checked=await checkedCatalogProduct(p,env,'',true);
     if(!checked) return [{error:'Availability cannot be verified for this product.',availability_verified:false},true];
+    if(checked.availability_verified===false) {
+      const sku=String(((p.variants||[])[0]||{}).sku||'');
+      return [{...checked,
+        url:taggedStoreUrl(checked.url,env.STORE_ORIGIN,'get_product:'+String(checked.id).split('/').pop()),
+        browse_url:taggedStoreUrl(diamondBrowseUrl(env,{},sku),env.STORE_ORIGIN,'get_product:browse'),
+        description: p.description && p.description.html ? String(p.description.html).replace(/<[^>]+>/g, " ").trim().slice(0, 600) : undefined,
+      }, false];
+    }
     return [{
       ...checked,
       url:taggedStoreUrl(checked.url,env.STORE_ORIGIN,'get_product:'+String(checked.id).split('/').pop()),
@@ -322,7 +312,7 @@ function clickDimension(value: string | null, fallback: string): string {
   return (value || fallback).replace(/[^a-zA-Z0-9_:./-]/g, "_").slice(0, 120);
 }
 
-async function measuredRedirect(url: URL, env: Env): Promise<Response> {
+async function measuredRedirect(url: URL, env: Env, ctx?: ExecutionContext): Promise<Response> {
   const rawTarget = url.searchParams.get("url");
   if (!rawTarget) return json({ error: "missing destination" }, 400);
 
@@ -332,7 +322,7 @@ async function measuredRedirect(url: URL, env: Env): Promise<Response> {
   } catch {
     return json({ error: "invalid destination" }, 400);
   }
-  if (target.protocol !== "https:" || !["stienhardt.com", "www.stienhardt.com"].includes(target.hostname)) {
+  if (target.protocol !== "https:" || !["stienhardt.com", "www.stienhardt.com"].includes(target.hostname) || target.port || target.username || target.password) {
     return json({ error: "destination must be on stienhardt.com" }, 400);
   }
 
@@ -343,12 +333,15 @@ async function measuredRedirect(url: URL, env: Env): Promise<Response> {
   const destinationPath = clickDimension(target.pathname, "/");
   const capturedAt = new Date().toISOString();
   const event = { capturedAt, source, medium, campaign, content, destinationPath };
-  if (env.CLICK_COUNTS) {
-    await env.CLICK_COUNTS.put(
+  // Only campaign-tagged clicks are counted, and the write never delays the redirect.
+  const tagged = [source, medium, campaign, content].some((d) => d !== "unknown");
+  if (env.CLICK_COUNTS && tagged) {
+    const write = env.CLICK_COUNTS.put(
       `click:${capturedAt}:${crypto.randomUUID()}`,
       JSON.stringify(event),
       { expirationTtl: 90 * 24 * 60 * 60 },
     );
+    if (ctx) ctx.waitUntil(write); else await write;
   }
 
   return new Response(null, {
@@ -364,25 +357,35 @@ async function measuredRedirect(url: URL, env: Env): Promise<Response> {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null> {
+  if (!msg || typeof msg !== "object" || Array.isArray(msg) || msg.jsonrpc !== "2.0" || typeof msg.method !== "string") {
+    const badId = msg && typeof msg === "object" && !Array.isArray(msg) && msg.id !== undefined ? msg.id : null;
+    return { jsonrpc: "2.0", id: badId, error: { code: -32600, message: "Invalid Request" } };
+  }
   const id = msg.id;
   const method = msg.method;
+  // A message without an id is a notification: it is processed but never answered.
+  if (!("id" in msg) || method.startsWith("notifications/")) return null;
   if (method === "initialize") {
+    const offered = msg.params && typeof msg.params.protocolVersion === "string" ? msg.params.protocolVersion : "";
     return { jsonrpc: "2.0", id, result: {
-      protocolVersion: PROTOCOL,
+      protocolVersion: SUPPORTED_PROTOCOLS.includes(offered) ? offered : PROTOCOL,
       capabilities: { tools: { listChanged: false } },
       serverInfo: { name: SERVER_NAME, title: "Stienhardt: diamond education + live store", version: SERVER_VERSION },
       instructions: INSTRUCTIONS + " Store tools read the public Shopify catalog. Loose-diamond listings carry availability_verified false; never claim a stone is in stock, point to the returned storefront browsing link.",
     } };
   }
-  if (method === "notifications/initialized" || (typeof method === "string" && method.startsWith("notifications/"))) return null;
   if (method === "ping") return { jsonrpc: "2.0", id, result: {} };
   if (method === "tools/list") return { jsonrpc: "2.0", id, result: { tools: allTools() } };
+  if (method === "resources/list") return { jsonrpc: "2.0", id, result: { resources: [] } };
+  if (method === "resources/templates/list") return { jsonrpc: "2.0", id, result: { resourceTemplates: [] } };
+  if (method === "prompts/list") return { jsonrpc: "2.0", id, result: { prompts: [] } };
   if (method === "tools/call") {
-    const name = msg.params && msg.params.name;
-    const args = (msg.params && msg.params.arguments) || {};
+    const name = msg.params && typeof msg.params.name === "string" ? msg.params.name : "";
+    const rawArgs = msg.params && msg.params.arguments;
+    const args = rawArgs && typeof rawArgs === "object" && !Array.isArray(rawArgs) ? rawArgs : {};
     let payload: unknown; let isError = false;
     try {
-      if (TOOL_HANDLERS[name]) [payload, isError] = TOOL_HANDLERS[name](args);
+      if (Object.prototype.hasOwnProperty.call(TOOL_HANDLERS, name)) [payload, isError] = TOOL_HANDLERS[name](args);
       else if (STORE_TOOLS.some((t) => t.name === name)) [payload, isError] = await storeTool(env, origin, name, args);
       else return { jsonrpc: "2.0", id, error: { code: -32602, message: "Unknown tool: " + String(name) } };
     } catch (err) {
@@ -394,7 +397,7 @@ async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx?: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const origin = url.origin;
     // A 204 response cannot have a body. Returning json({}, 204) works in some runtimes but
@@ -414,8 +417,8 @@ export default {
     }
     if (url.pathname === "/privacy") return new Response(PRIVACY, { headers: { "Content-Type": "text/plain; charset=utf-8", "Access-Control-Allow-Origin": "*" } });
     if (url.pathname === "/go") {
-      if (request.method !== "GET") return json({ error: "method not allowed" }, 405);
-      return measuredRedirect(url, env);
+      if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method not allowed" }, 405);
+      return measuredRedirect(url, env, ctx);
     }
     if (url.pathname === "/" || url.pathname === "") {
       return json({
@@ -431,6 +434,9 @@ export default {
       if (request.method !== "POST") return json({ error: "method not allowed" }, 405);
       let body: unknown;
       try { body = await request.json(); } catch { return json({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } }, 400); }
+      if (body === null || typeof body !== "object") return json({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request" } }, 400);
+      if (Array.isArray(body) && body.length === 0) return json({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request: empty batch" } }, 400);
+      if (Array.isArray(body) && body.length > MAX_BATCH) return json({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request: batch limit is " + MAX_BATCH } }, 400);
       const msgs = Array.isArray(body) ? body : [body];
       const out = [];
       for (const m of msgs) { const r = await handleRpc(env, origin, m); if (r) out.push(r); }

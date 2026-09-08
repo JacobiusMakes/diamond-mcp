@@ -29,12 +29,15 @@ out-of-date data and should not be used):
 ```
 git clone https://github.com/JacobiusMakes/diamond-mcp
 cd diamond-mcp/node
-npm install
+npm ci
 npm run build
-node dist/index.js
+node dist/bin.js
 ```
 
-The `npm install -g diamond-mcp` and `npx diamond-mcp` paths return once 0.2.3 is published; until then they install the stale 0.2.0.
+`node dist/bin.js` starts the server on stdio and waits for a client. The `npm install -g diamond-mcp` and
+`npx diamond-mcp` paths return once 0.2.5 is published; until then they install the stale 0.2.0. The
+[desktop bundle](https://github.com/JacobiusMakes/diamond-mcp/releases/latest) is the same build, packaged
+for apps that install MCP Bundles.
 
 ## The tools
 
@@ -55,52 +58,47 @@ The server ships a diamond and gemology encyclopedia of 90 fact-checked entries 
 
 ## Claude Desktop
 
-Add this to `claude_desktop_config.json` (Settings, then Developer, then Edit Config). If you installed the package globally:
+Add this to `claude_desktop_config.json` (Settings, then Developer, then Edit Config), with the real path to
+your build:
 
 ```json
 {
   "mcpServers": {
     "diamond-mcp": {
-      "command": "diamond-mcp"
+      "command": "node",
+      "args": ["/path/to/diamond-mcp/node/dist/bin.js"]
     }
   }
 }
 ```
 
-Or run it on demand with npx, no global install needed:
-
-```json
-{
-  "mcpServers": {
-    "diamond-mcp": {
-      "command": "npx",
-      "args": ["-y", "diamond-mcp"]
-    }
-  }
-}
-```
-
-On Windows, if Claude Desktop cannot find `npx`, use `npx.cmd` as the command. Restart Claude Desktop after editing the config.
+On Windows use a path like `C:\path\to\diamond-mcp\node\dist\bin.js`. Once 0.2.5 is on npm, `"command": "npx",
+"args": ["-y", "diamond-mcp"]` works with no clone (on Windows, `npx.cmd`). Restart Claude Desktop after
+editing the config.
 
 ## Any other MCP client
 
-Configure a stdio server whose command is `diamond-mcp` (or `npx -y diamond-mcp`). The server speaks MCP over stdio and implements `initialize`, `tools/list`, and `tools/call`, and also answers `ping`, `resources/list`, and `prompts/list`.
+Configure a stdio server whose command is `node` with one argument, the absolute path to `dist/bin.js` (or
+`npx -y diamond-mcp` once 0.2.5 is on npm). The server speaks MCP over stdio and implements `initialize`,
+`tools/list`, and `tools/call`, and also answers `ping`, `resources/list`, and `prompts/list`.
 
 ## Two flavors, one dataset
 
-`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (build from source until 0.2.3 is on npm). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
+`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (build from source until 0.2.5 is on npm). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
 
 ## Build from source
 
 ```
 git clone https://github.com/JacobiusMakes/diamond-mcp.git
 cd diamond-mcp/node
-npm install
+npm ci
 npm run build
-npm run smoke
+npm test
 ```
 
-`npm run build` compiles TypeScript to `dist/` and copies the repo-root data files into `dist/data/`. `npm run smoke` spawns the built server, runs the full MCP handshake, lists the tools, and calls every tool once.
+`npm run build` compiles TypeScript to `dist/` and copies the repo-root data files into `dist/data/`. `npm test`
+(alias `npm run smoke`) spawns the built server, runs the full MCP handshake, lists the tools, and calls every
+tool once.
 
 ## License
 

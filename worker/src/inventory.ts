@@ -57,6 +57,20 @@ export function selectVariant(product: any, query: string): any | null {
       (!shape || title.includes(shape.toLowerCase()) || option.includes(shape.toLowerCase()));
   }) || null;
 }
+// Apply the parsed loose-diamond filters to a listing title. Carrier titles state carat and shape
+// ("2 Carat Dutch Marquise IGI Certified Lab Grown Diamond"); color, clarity, and lab are not in titles.
+export function matchesDiamondFilters(title: unknown, filters: any): boolean {
+  if (!filters) return true;
+  const t = normalize(title);
+  if (filters.shape && !t.includes(String(filters.shape).toLowerCase())) return false;
+  if (filters.carat_min !== null && filters.carat_min !== undefined) {
+    const m = t.match(/(\d+(?:\.\d+)?)\s*(?:carats?|ct)\b/);
+    if (!m) return false;
+    const c = Number(m[1]);
+    if (c < filters.carat_min - 1e-9 || c > filters.carat_max + 1e-9) return false;
+  }
+  return true;
+}
 export async function checkedCatalogProduct(p: any, env: InventoryEnv, query='', allowLoose=false): Promise<any | null> {
   const raw=p.url || (p.handle ? new URL('/products/'+p.handle,env.STORE_ORIGIN).toString() : '');
   let url: URL;

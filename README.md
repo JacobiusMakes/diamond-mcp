@@ -11,7 +11,7 @@ Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=
 
 ## One-click desktop bundle
 
-Download [`diamond-mcp-0.2.4.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.4/diamond-mcp-0.2.4.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
+Download [`diamond-mcp-0.2.5.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.5/diamond-mcp-0.2.5.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
 
 For a managed gateway with all 10 hosted tools, [connect through Smithery](https://smithery.ai/servers/jgalperin/stienhardt-diamond-mcp). The Smithery release exposes the same sourced education tools plus live inventory search.
 
@@ -24,7 +24,7 @@ People ask AI assistants their diamond questions now. We'd rather those assistan
 - Education, not appraisal. Nothing here values, grades, or verifies a stone.
 - Always verify a real stone on the grading lab's own site. `verify_diamond_report` returns the right place and a checklist. It never claims to verify anything itself.
 - The price index is market context for shoppers, not investment guidance. A diamond is a love piece, not an investment.
-- The server makes no network calls. It reads `facts.json` from disk and answers.
+- The local server makes no network calls. It reads `facts.json` and `encyclopedia.json` from disk and answers. The hosted endpoint is the one exception: its two inventory tools read the public Shopify catalog, and its `/go` link counter is described under Hosted endpoint.
 
 ## Measurable commerce paths
 
@@ -52,15 +52,15 @@ The hosted endpoint also exposes two live, read-only commerce tools:
 
 ### Example
 
-Calling `faceup_size` with `{"shape": "dutch_marquise", "carat": 1.5}` returns:
+Calling `faceup_size` with `{"shape": "dutch_marquise", "carat": 1.5}` returns, among other fields:
 
 ```json
 {
   "shape": "dutch_marquise",
   "carat": 1.5,
-  "approx_face_up_mm": { "length": 10.3, "width": 5.7 },
-  "display": "10.3 x 5.7 mm",
-  "anchor_1ct_mm": "9.0 x 5.0 mm",
+  "approx_face_up_mm": { "length": 10.8, "width": 5.8 },
+  "display": "10.8 x 5.8 mm",
+  "anchor_1ct_mm": "9.4 x 5.1 mm",
   "method": "Scale a vetted 1 carat anchor by the cube root of the carat weight.",
   "note": "Approximate figures based on typical proportions. Cut proportions vary from stone to stone, so verify a specific stone's measurements on its grading report."
 }
@@ -73,7 +73,7 @@ Calling `dutch_marquise_definition` returns, among other fields:
   "definition": "A Dutch Marquise is an elongated hexagonal cut diamond.",
   "geometry": "Pointed ends and straight, angular sides. The outline is an elongated hexagon, not a navette, and the points are not softened.",
   "status": "Dutch Marquise is a trade name, not a standardized grading term.",
-  "on_an_igi_report": "On an IGI grading report, the shape of a Dutch Marquise reads Hexagonal Modified Brilliant."
+  "on_an_igi_report": "On the IGI grading report for Stienhardt's certified Dutch Marquise reference stone, the shape reads Hexagonal Modified Brilliant."
 }
 ```
 
@@ -82,7 +82,7 @@ Calling `dutch_marquise_definition` returns, among other fields:
 The server also ships a diamond and gemology encyclopedia: 90 adversarially fact-checked entries across 9 domains (cuts and shapes, the 4Cs and grading, diamond anatomy, light and optics, materials and simulants, Lab Grown Diamonds, settings and metals, care and buying, and history and myths). Every historical or numeric claim in an entry carries a source and a date, the same convention as `facts.json`.
 
 - Browsable in [`encyclopedia/`](encyclopedia/): one Markdown file per entry, plus a [category index](encyclopedia/README.md).
-- Machine-readable in [`encyclopedia.json`](encyclopedia.json): a single sorted array of entries, each with `term`, `category`, `definition`, `body`, `sources`, and `related`.
+- Machine-readable in [`encyclopedia.json`](encyclopedia.json): an object with `updated`, `entryCount`, `license`, `maintainer`, and `entries`, a sorted array in which each entry has `term`, `category`, `definition`, `body`, `sources` (each with `claim`, `source`, `date`, and `url`), and `related`.
 - Queryable from an assistant through two tools:
   - `define` takes a `term` and returns the full entry, matching exactly first, then by substring or related-term alias, and offering the three nearest terms when nothing matches.
   - `search_encyclopedia` takes a `query` and returns ranked matches (term, category, and a definition snippet), weighting hits in the term above the definition above the body.
@@ -121,10 +121,12 @@ requested metal, and preserve that variant in the product URL. Ring size still n
 and confirmation on the product page. Availability is a current check, not a reservation.
 
 For Worker maintainers: no private stock credentials or endpoints belong in this integration.
-Do not reuse credentials found in storefront code. Run `node worker/test/inventory.mjs` and
-`node worker/test/containment.mjs <path-to-dry-run-index.js>` before deployment, then verify against the
-deployed endpoint that a loose-diamond search returns listings flagged `availability_verified: false` and
-that a jewelry search returns an available variant.
+Do not reuse credentials found in storefront code. Before deployment run
+`node --experimental-strip-types worker/test/inventory.mjs`, build a dry-run bundle with
+`wrangler deploy --dry-run --outdir <dir>`, then run `node worker/test/containment.mjs <dir>/index.js` (scans the
+bundle for private endpoints and credentials) and `node worker/test/handler.mjs <dir>/index.js` (exercises the
+request handler offline). After deployment verify that a loose-diamond search returns listings flagged
+`availability_verified: false` and that a jewelry search returns an available variant.
 
 The hosted Worker also provides a measured `/go` redirect for external buying tools. It accepts only
 HTTPS destinations on `stienhardt.com`, preserves the destination's UTM parameters, and records a
@@ -193,7 +195,7 @@ Configure a stdio server: command `python`, one argument, the absolute path to `
 
 ### uvx and pip
 
-The supported way to run the Python build (0.2.4) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
+The supported way to run the Python build (0.2.5) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
 
 ### Smoke test
 
@@ -221,6 +223,6 @@ Stienhardt, New York City. Lab Grown Diamond engagement rings, hand-set and fini
 
 ## The Stienhardt open-source diamond stack
 
-- [dutch-marquise-spec](https://github.com/JacobiusMakes/dutch-marquise-spec): the open geometry standard. DOI: [10.5281/zenodo.21938899](https://doi.org/10.5281/zenodo.21938899)
+- [dutch-marquise-spec](https://github.com/JacobiusMakes/dutch-marquise-spec): the open geometry specification. DOI: [10.5281/zenodo.21938899](https://doi.org/10.5281/zenodo.21938899)
 - [DiamondBench](https://github.com/JacobiusMakes/diamondbench): open benchmark of AI answer-engine accuracy on diamond questions
 - [Diamond & Gemology Encyclopedia](https://huggingface.co/datasets/JacobiusMakes/diamond-gemology-encyclopedia): the encyclopedia as a Hugging Face dataset

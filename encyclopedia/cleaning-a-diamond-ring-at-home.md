@@ -12,7 +12,7 @@ A gentle cleaning every week or two keeps a ring bright. Diamond itself is the h
 
 ## Sources
 
-- Diamond ranks 10, the maximum, on the Mohs scale of mineral hardness. (Source: Mohs scale of mineral hardness (Friedrich Mohs), 1812)
+- Diamond ranks 10, the maximum, on the Mohs scale of mineral hardness. (Source: Mohs scale of mineral hardness (Friedrich Mohs), 1812.)
 - Clean a diamond ring with dish soap and warm water and a soft toothbrush; avoid bleach, chlorine and ammonia, which can damage metals and gemstones. (Source: GIA 4Cs blog, How to Wear Your Engagement Ring and Wedding Band, 2025-10-02. https://4cs.gia.edu/en-us/blog/how-to-wear-engagement-ring-wedding-band/)
 - The back (underside) of the diamond collects the most oil and dirt; never use chlorine bleach, abrasive cleansers or toothpaste on a diamond ring. (Source: GIA 4Cs blog, How to Clean Your Diamond Jewelry, 2012-05-23. https://4cs.gia.edu/en-us/blog/how-to-clean-your-diamond-jewelry/)
 - Diamonds can be cleaned safely with household detergents; abrasive cleansers, ultrasonic cleaners and steam cleaners are not recommended for home use. (Source: GIA Gem Encyclopedia, Diamond Care and Cleaning Guide, undated (accessed 2026-09-08). https://www.gia.edu/diamond-care-cleaning)

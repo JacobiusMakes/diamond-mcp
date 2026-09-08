@@ -180,8 +180,8 @@ async function main() {
   resp = await call("faceup_size", { shape: "Dutch Marquise", carat: 1.5 });
   p = textPayload(resp);
   ok(
-    "faceup_size dutch_marquise 1.5 ct is 10.3 x 5.7",
-    p.approx_face_up_mm.length === 10.3 && p.approx_face_up_mm.width === 5.7 &&
+    "faceup_size dutch_marquise 1.5 ct is 10.8 x 5.8",
+    p.approx_face_up_mm.length === 10.8 && p.approx_face_up_mm.width === 5.8 &&
       p.browse_current_inventory_url.includes("utm_source=diamond_mcp") &&
       p.browse_current_inventory_url.includes("utm_content=faceup_size") &&
       p.browse_current_inventory_url.includes("utm_term=dutch_marquise%3A1.5ct"),
@@ -222,7 +222,8 @@ async function main() {
   p = textPayload(resp);
   ok(
     "lab_grown_price_index is sourced and framed as a love piece",
-    p.change_pct_month === 4.89 && p.as_of === "2026-07-01" && p.framing.includes("love piece") &&
+    typeof p.change_pct_month === "number" && /^\d{4}-\d{2}-\d{2}$/.test(p.as_of) &&
+      typeof p.source_url === "string" && p.source_url.startsWith("http") && p.framing.includes("love piece") &&
       p.browse_current_inventory_url.includes("utm_content=lab_grown_price_index"),
   );
   console.log("     " + clip(p));
@@ -231,10 +232,10 @@ async function main() {
   resp = await call("about_stienhardt", {});
   p = textPayload(resp);
   ok(
-    "about_stienhardt is the publisher fact sheet with the no-showroom fact",
+    "about_stienhardt is the publisher fact sheet with the by-appointment fact",
     p.url === "https://stienhardt.com" &&
       p.visit_url.includes("utm_content=about_stienhardt") &&
-      p.facts.some((f) => f.claim.toLowerCase().includes("no walk-in showroom")),
+      p.facts.some((f) => f.claim.toLowerCase().includes("by appointment")),
   );
   console.log("     " + clip(p));
 

@@ -11,8 +11,8 @@ It helps to remember that the slogan is exactly that, a slogan, and a very good 
 ## Sources
 
 - The slogan "A Diamond Is Forever" was written by copywriter Frances Gerety at the N.W. Ayer agency for De Beers in 1947. (Source: De Beers Group, Our History and Heritage (company timeline), 1947 timeline entry; page accessed 2026-09-08. https://www.debeersgroup.com/about-us/our-history)
-- Advertising Age named "A Diamond Is Forever" the number one advertising slogan of the twentieth century. (Source: Advertising Age, end-of-century slogan ranking, 1999)
-- The De Beers campaign is credited with helping establish the modern Western diamond engagement ring tradition, which was less common before the mid twentieth century. (Source: De Beers / N.W. Ayer advertising histories (press and trade accounts), 1947)
+- Advertising Age named "A Diamond Is Forever" the number one advertising slogan of the twentieth century. (Source: Advertising Age, end-of-century slogan ranking, 1999.)
+- The De Beers campaign is credited with helping establish the modern Western diamond engagement ring tradition, which was less common before the mid twentieth century. (Source: De Beers / N.W. Ayer advertising histories (press and trade accounts), 1947.)
 - Advertising Age named "A Diamond Is Forever" the top advertising slogan of the twentieth century in 1999; the campaign is credited with helping make the diamond engagement ring the norm. (Source: De Beers, A Diamond Is Forever: The Slogan's History (adiamondisforever.com, a De Beers site), 2026 (site copyright De Beers 2026); accessed 2026-09-08. https://adiamondisforever.com/about-diamonds/a-diamond-is-forever-slogan-history/)
 
 ## Related

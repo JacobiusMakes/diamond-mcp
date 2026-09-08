@@ -7,7 +7,7 @@
     "name": "Stienhardt",
     "url": "https://stienhardt.com",
     "location": "New York City",
-    "note": "Direct to consumer; in-person viewings by appointment only, no walk-in showroom."
+    "note": "Direct to consumer; in-person viewings in New York City are by appointment."
   },
   "license": "MIT",
   "scope": "Education, not appraisal. Every factual claim carries a source and a date. The price index entry carries an as_of date; check it for freshness.",
@@ -27,9 +27,9 @@
       },
       "IGI": {
         "full_name": "International Gemological Institute",
-        "verify_url": "https://www.igi.org/verify-your-report/",
-        "source": "IGI report verification page, igi.org",
-        "date": "2026-07-10"
+        "verify_url": "https://www.igi.org/Verify-Your-Report/",
+        "source": "IGI report verification page, igi.org (Verify Your Report; the capitalized path is the one IGI serves without a challenge page)",
+        "date": "2026-09-08"
       },
       "GCAL": {
         "full_name": "Gem Certification & Assurance Lab (GCAL by Sarine)",
@@ -55,33 +55,33 @@
         "width": 5.0
       },
       "dutch_marquise": {
-        "length": 9.0,
-        "width": 5.0
+        "length": 9.4,
+        "width": 5.1
       }
     },
     "honesty_note": "Approximate figures based on typical proportions. Cut proportions vary from stone to stone, so verify a specific stone's measurements on its grading report.",
-    "source": "Stienhardt vetted reference anchors for typical proportions",
-    "date": "2026-07-10"
+    "source": "Round, oval, and emerald: Stienhardt vetted reference anchors for typical proportions. Dutch Marquise: scaled to 1 carat from the certified reference stone, IGI report LG799689559, 9.49 x 5.15 mm at 1.03 ct.",
+    "date": "2026-09-08"
   },
   "dutch_marquise": {
     "definition": "A Dutch Marquise is an elongated hexagonal cut diamond.",
     "geometry": "Pointed ends and straight, angular sides. The outline is an elongated hexagon, not a navette, and the points are not softened.",
     "status": "Dutch Marquise is a trade name, not a standardized grading term.",
     "certificate_term": {
-      "claim": "On an IGI grading report, the shape of a Dutch Marquise reads Hexagonal Modified Brilliant.",
-      "source": "IGI grading report for a certified Dutch Marquise reference stone",
-      "date": "2026"
+      "claim": "On the IGI grading report for Stienhardt's certified Dutch Marquise reference stone, the shape reads Hexagonal Modified Brilliant.",
+      "source": "IGI grading report LG799689559 (verifiable at lookup.igi.org)",
+      "date": "2026-05-09"
     },
     "length_to_width": {
       "certified_reference_stone": 1.84,
-      "reference_source": "IGI grading report for a certified Dutch Marquise reference stone",
-      "reference_date": "2026"
+      "reference_source": "IGI grading report LG799689559 for Stienhardt's certified reference stone, 9.49 x 5.15 mm",
+      "reference_date": "2026-05-09"
     },
     "source": "Stienhardt published definition, stienhardt.com",
     "date": "2026-07-10"
   },
   "lab_grown_grading_landscape": {
-    "as_of": "2026-07-10",
+    "as_of": "2026-09-08",
     "items": [
       {
         "organization": "GIA",
@@ -98,16 +98,18 @@
       },
       {
         "organization": "HRD Antwerp",
-        "claim": "HRD Antwerp stopped grading loose Lab Grown Diamonds in January 2026.",
-        "effective_date": "2026-01",
-        "source": "HRD Antwerp announcement",
-        "source_date": "2026-01"
+        "claim": "HRD Antwerp announced in June 2025 that, as of 2026, it no longer issues quality certificates for loose Lab Grown Diamonds; jewelry containing them can still be certified.",
+        "effective_date": "2026",
+        "source": "HRD Antwerp / AWDC announcement",
+        "source_date": "2025-06-18",
+        "source_url": "https://www.awdc.be/news/news/world-first-antwerp-diamond-lab-hrd-becomes-first-world-end-quality-certification-loose"
       },
       {
         "organization": "FTC (United States)",
-        "claim": "The FTC recognizes Lab Grown Diamonds as diamonds.",
-        "source": "FTC Jewelry Guides",
-        "source_date": "2018"
+        "claim": "Under the FTC Jewelry Guides (16 CFR 23.12, revised 2018-07-24) a laboratory-grown diamond is a diamond, and marketers must clearly disclose that it is laboratory-grown.",
+        "source": "FTC Jewelry Guides, 16 CFR 23.12",
+        "source_date": "2018-07-24",
+        "source_url": "https://www.law.cornell.edu/cfr/text/16/23.12"
       }
     ],
     "note": "The grading landscape changes. Each lab's own site is the current authority. This dataset gets corrected when the landscape moves."
@@ -143,13 +145,13 @@
         "date": "2026-07-10"
       },
       {
-        "claim": "Stienhardt sells direct to consumer through Stienhardt.com; in-person viewings are by appointment only, and there is no walk-in showroom.",
-        "source": "Stienhardt, stienhardt.com",
-        "date": "2026-07-10"
+        "claim": "Stienhardt sells direct to consumer through Stienhardt.com; in-person viewings in New York City are by appointment.",
+        "source": "Stienhardt, stienhardt.com/llms.txt",
+        "date": "2026-09-08"
       },
       {
         "claim": "Stienhardt controls its signature Dutch Marquise cut through a specialized factory relationship and hand-sets and finishes the stones in New York City; it does not claim to have invented, named, or standardized the cut.",
-        "source": "Stienhardt, stienhardt.com",
+        "source": "Stienhardt, publisher statement (first-party)",
         "date": "2026-09-08"
       },
       {

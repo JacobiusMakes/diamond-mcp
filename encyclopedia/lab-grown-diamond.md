@@ -12,7 +12,7 @@ The recognition is official. In 2018 the U.S. Federal Trade Commission revised i
 
 ## Sources
 
-- The FTC removed the word 'natural' from its definition of a diamond, recognizing that a Lab Grown Diamond is a diamond. (Source: FTC Jewelry Guides (revised), 2018)
+- The FTC removed the word 'natural' from its definition of a diamond, recognizing that a Lab Grown Diamond is a diamond. (Source: FTC Jewelry Guides (revised), 2018.)
 - Laboratory-grown diamonds have essentially the same chemical composition, crystal structure and physical properties as natural diamonds, are grown by HPHT or CVD, are real diamonds not fakes, and only a gemological lab can authoritatively separate them from natural. (Source: GIA 4Cs blog, Lab-Grown Diamond Jewelry: What are Synthetic Diamonds?, 2016-12-13. https://4cs.gia.edu/en-us/blog/what-are-synthetic-diamonds/)
 - IGI issues full 4C grading reports for Lab Grown Diamonds. (Source: IGI press release, IGI Reaffirms Commitment to 4Cs Grading for all Diamonds, 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
 - In 2018 the FTC removed the word 'natural' from the definition of diamond because lab-created products with essentially the same optical, physical, and chemical properties as mined diamonds are also diamonds. (Source: Federal Register, 83 FR 40665, Guides for the Jewelry, Precious Metals, and Pewter Industries (final rule, effective 2018-08-16), 2018-08-16. https://www.federalregister.gov/documents/2018/08/16/2018-17454/guides-for-the-jewelry-precious-metals-and-pewter-industries)

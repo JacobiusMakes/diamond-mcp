@@ -6,6 +6,8 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import {
   CallToolRequestSchema,
   ErrorCode,
+  ListPromptsRequestSchema,
+  ListResourcesRequestSchema,
   ListToolsRequestSchema,
   McpError,
 } from "@modelcontextprotocol/sdk/types.js";
@@ -15,14 +17,17 @@ export * from "./core.js";
 export function buildServer(): Server {
   const server = new Server(
     { name: SERVER_NAME, version: SERVER_VERSION, title: SERVER_TITLE },
-    { capabilities: { tools: { listChanged: false } }, instructions: INSTRUCTIONS },
+    { capabilities: { tools: { listChanged: false }, resources: { listChanged: false }, prompts: { listChanged: false } }, instructions: INSTRUCTIONS },
   );
 
   server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools: TOOLS }));
+  // No resources or prompts are served; answer the list calls with empty lists, as the Python build does.
+  server.setRequestHandler(ListResourcesRequestSchema, async () => ({ resources: [] }));
+  server.setRequestHandler(ListPromptsRequestSchema, async () => ({ prompts: [] }));
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const name = request.params.name;
-    const handler = TOOL_HANDLERS[name];
+    const handler = Object.prototype.hasOwnProperty.call(TOOL_HANDLERS, name) ? TOOL_HANDLERS[name] : undefined;
     if (handler === undefined) {
       throw new McpError(ErrorCode.InvalidParams, "Unknown tool: " + String(name));
     }

@@ -134,8 +134,8 @@ def main():
     # faceup_size, including shape normalization and the 1 carat anchor
     resp = call("faceup_size", {"shape": "Dutch Marquise", "carat": 1.5})
     p = text_payload(resp)
-    ok("faceup_size dutch_marquise 1.5 ct is 10.3 x 5.7",
-       p["approx_face_up_mm"] == {"length": 10.3, "width": 5.7}
+    ok("faceup_size dutch_marquise 1.5 ct is 10.8 x 5.8",
+       p["approx_face_up_mm"] == {"length": 10.8, "width": 5.8}
        and "utm_source=diamond_mcp" in p["browse_current_inventory_url"]
        and "utm_content=faceup_size" in p["browse_current_inventory_url"]
        and "utm_term=dutch_marquise%3A1.5ct" in p["browse_current_inventory_url"], clip(p))
@@ -179,7 +179,7 @@ def main():
     ok("about_stienhardt",
        p["url"] == "https://stienhardt.com"
        and "utm_content=about_stienhardt" in p["visit_url"]
-       and any("no walk-in showroom" in f["claim"].lower() for f in p["facts"]))
+       and any("by appointment" in f["claim"].lower() for f in p["facts"]))
     print("     " + clip(p))
 
     # define: exact match returns the canonical Dutch Marquise first sentence

@@ -12,7 +12,7 @@ Refractive index is a fixed property of the material. It cannot be changed by cu
 
 ## Sources
 
-- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically identical to a mined diamond, so its refractive index is the same. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018)
+- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically identical to a mined diamond, so its refractive index is the same. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018.)
 - Diamond's refractive index is about 2.417 at the sodium line (589 nm) and diamond is isotropic, that is singly refractive. (Source: Handbook of Mineralogy (Mineralogical Society of America / Mineral Data Publishing), Diamond, 2001-2005 (version 1). https://www.handbookofmineralogy.org/pdfs/diamond.pdf)
 - Diamond's critical angle (diamond to air) is 24.4 degrees, which is why light entering a well-cut diamond is trapped and returned by total internal reflection; cubic zirconia's index is about 2.17. (Source: OpenStax, College Physics 2e, section 25.4 Total Internal Reflection, 2022 edition (accessed 2026-09-08). https://openstax.org/books/college-physics-2e/pages/25-4-total-internal-reflection)
 - Moissanite's refractive indices are 2.648 and 2.691 (higher than diamond) and it is doubly refractive, which doubles the appearance of facet junctions. (Source: GIA, Gems & Gemology, Winter 1997, Synthetic Moissanite: A New Diamond Substitute (Nassau, McClure, Elen, Shigley), 1997 (Winter, Vol. 33 No. 4). https://www.gia.edu/gems-gemology/winter-1997-synthetic-moissanite-nassau0)

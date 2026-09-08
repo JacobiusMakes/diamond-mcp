@@ -14,9 +14,9 @@ This is why "a Lab Grown Diamond is a real diamond" is a statement of regulatory
 
 ## Sources
 
-- The FTC revised its Jewelry Guides and removed the word 'natural' from the definition of a diamond. (Source: FTC Jewelry Guides (revised), 2018)
-- The FTC advised sellers to disclose lab-grown origin and accepted qualifiers such as 'laboratory-grown', 'laboratory-created', and '[manufacturer name]-created'. (Source: FTC Jewelry Guides (revised), 2018)
-- The FTC cautioned that language implying a Lab Grown Diamond is not a real diamond is likely deceptive. (Source: FTC Jewelry Guides (revised), 2018)
+- The FTC revised its Jewelry Guides and removed the word 'natural' from the definition of a diamond. (Source: FTC Jewelry Guides (revised), 2018.)
+- The FTC advised sellers to disclose lab-grown origin and accepted qualifiers such as 'laboratory-grown', 'laboratory-created', and '[manufacturer name]-created'. (Source: FTC Jewelry Guides (revised), 2018.)
+- The FTC cautioned that language implying a Lab Grown Diamond is not a real diamond is likely deceptive. (Source: FTC Jewelry Guides (revised), 2018.)
 - On July 24, 2018 the FTC approved final revisions to the Jewelry Guides, including changes to the definition of 'diamond' and to qualifying claims about man-made gemstone products. (Source: US Federal Trade Commission press release, "FTC Approves Final Revisions to Jewelry Guides", 2018-07-24. https://www.ftc.gov/news-events/news/press-releases/2018/07/ftc-approves-final-revisions-jewelry-guides)
 
 ## Related

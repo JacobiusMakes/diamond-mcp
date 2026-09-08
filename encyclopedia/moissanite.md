@@ -12,9 +12,9 @@ Moissanite conducts heat well, well enough that it can read as diamond on an old
 
 ## Sources
 
-- Henri Moissan found small crystals in fragments of a meteorite from Canyon Diablo, Arizona, and initially believed them to be diamond. (Source: Historical account of Moissan's meteorite analysis, per mineralogical references (Mindat.org, entry for moissanite), 1893)
+- Henri Moissan found small crystals in fragments of a meteorite from Canyon Diablo, Arizona, and initially believed them to be diamond. (Source: Historical account of Moissan's meteorite analysis, per mineralogical references (Mindat.org, entry for moissanite), 1893.)
 - Henri Moissan reported green hexagonal crystals of silicon carbide from a Canyon Diablo, Arizona meteorite (paper read November 14, 1904); George F. Kunz proposed the name moissanite in 1905. (Source: G. F. Kunz, "Moissanite, a Natural Silicon Carbide", American Journal of Science, 4th series, vol. 19 (no. 113), pp. 396-397, full text on the Internet Archive, 1905-05. https://archive.org/stream/americanjourna4191905newh/americanjourna4191905newh_djvu.txt)
-- Henri Moissan received the Nobel Prize in Chemistry for isolating the element fluorine and for the electric furnace named after him. (Source: The Nobel Foundation (nobelprize.org), 1906)
+- Henri Moissan received the Nobel Prize in Chemistry for isolating the element fluorine and for the electric furnace named after him. (Source: The Nobel Foundation (nobelprize.org), 1906.)
 - Moissan received the 1906 Nobel Prize in Chemistry for isolating fluorine and for the electric furnace named after him. (Source: The Nobel Prize, Henri Moissan, Facts (nobelprize.org), 1906. https://www.nobelprize.org/prizes/chemistry/1906/moissan/facts/)
 
 ## Related

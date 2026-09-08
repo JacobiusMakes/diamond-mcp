@@ -1,6 +1,6 @@
 {
   "name": "diamond-mcp",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "mcpName": "io.github.JacobiusMakes/diamond-mcp",
   "description": "Diamond education tools for AI assistants over the Model Context Protocol. Sourced, dated facts and a gemology encyclopedia.",
   "type": "module",
@@ -42,7 +42,8 @@
     "build": "tsc && node scripts/copy-data.mjs",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build",
-    "smoke": "node test/smoke.mjs"
+    "smoke": "node test/smoke.mjs",
+    "test": "node test/smoke.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0"

@@ -13,7 +13,7 @@ The same logic applies to color: a near-colorless stone that faces up white give
 ## Sources
 
 - Marcel Tolkowsky published Diamond Design in London in 1919 (E. & F. N. Spon), the analysis of light return behind the modern round brilliant's proportions. (Source: Marcel Tolkowsky, Diamond Design: A Study of the Reflection and Refraction of Light in a Diamond (1919), online edition, 1919 (online edition 2001). http://www.folds.net/diamond_design/index.html)
-- Lab Grown Diamonds are real diamonds graded on the same scales as mined diamonds. (Source: FTC Jewelry Guides, 2018)
+- Lab Grown Diamonds are real diamonds graded on the same scales as mined diamonds. (Source: FTC Jewelry Guides, 2018.)
 - Cut governs how a diamond handles light, expressed as brightness, fire and scintillation, and proportions decide how attractive the stone looks. (Source: GIA 4Cs, Diamond Cut, accessed 2026-09-08. https://4cs.gia.edu/en-us/diamond-cut/)
 - Eye clean is an industry term (not a GIA grade) for a diamond whose inclusions cannot be seen with the naked eye; clarity grades are set under 10x magnification; inclusion position affects the grade. (Source: GIA 4Cs blog, Seven Things to Know When Looking at Diamond Clarity, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/seven-things-to-know-about-diamond-clarity/)
 

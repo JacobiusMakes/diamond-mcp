@@ -13,7 +13,7 @@ interface Env {
 }
 
 const PROTOCOL = "2025-06-18";
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 const PUBLICMCP_VERSION = "0.3";
 
 const TOOL_NAMES = [
@@ -48,7 +48,7 @@ const TOOLS = [
       },
       additionalProperties: false,
     },
-    outputSchema: { type: "array", items: { type: "object", additionalProperties: true } },
+    outputSchema: { type: "object", properties: { services: { type: "array", items: { type: "object", additionalProperties: true } }, count: { type: "integer" } }, required: ["services"], additionalProperties: true },
   },
   {
     name: "get_location",
@@ -68,7 +68,7 @@ const TOOLS = [
     name: "get_products",
     title: "Search Stienhardt's live catalog",
     description:
-      "Search live certified Lab Grown Diamonds, engagement ring settings, wedding bands, and fine jewelry. Returns current prices, availability, images, and attributable product links.",
+      "Search Stienhardt's public catalog of certified Lab Grown Diamonds, engagement ring settings, wedding bands, and fine jewelry. Returns current listing prices, images, and attributable product links. Jewelry results carry a current availability check; loose-diamond listings are flagged availability_verified false and link to the storefront for stock.",
     inputSchema: {
       type: "object",
       properties: {
@@ -105,16 +105,16 @@ const TOOLS = [
   },
 }));
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+};
+
 function json(body: unknown, status = 200, extra: Record<string, string> = {}): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-      ...extra,
-    },
+    headers: { "Content-Type": "application/json; charset=utf-8", ...CORS_HEADERS, ...extra },
   });
 }
 
@@ -157,18 +157,13 @@ function businessInfo(storeOrigin: string, channel: DiscoveryChannel) {
     tagline: "Certified Lab Grown Diamonds and hand-set engagement rings from New York",
     description:
       "New York jeweler specializing in sourced, certified Lab Grown Diamonds, engagement rings, wedding bands, and fine jewelry. Stienhardt hand-sets and finishes rings in New York City and sells directly online.",
-    founded: null,
-    founder: "",
-    co_founder: "",
     website: trackedUrl(storeOrigin, "/", "get_info", channel),
     business_type: ["JewelryStore", "LocalBusiness", "OnlineStore"],
     legal_name: "Stienhardt & Stones",
-    logo: "",
     price_range: "Varies by diamond and setting",
     contact: {
       quote_url: trackedUrl(storeOrigin, "/pages/book-an-appointment", "get_info_appointment", channel),
       email: "jgalperin@stienhardt.com",
-      telephone: "",
     },
     opening_hours: "Online store available at all times. Consultations are by appointment.",
     social_profiles: {
@@ -187,8 +182,8 @@ function services(storeOrigin: string, channel: DiscoveryChannel) {
       name: "Certified Lab Grown Diamonds",
       category: "diamonds",
       description:
-        "Live catalog of sourced Lab Grown Diamonds with current pricing and grading-report details.",
-      highlights: ["Live inventory", "Grading-report details", "Multiple shapes and carat weights"],
+        "Public catalog of sourced Lab Grown Diamonds with listing prices and grading-report details. Stock is confirmed on the product page.",
+      highlights: ["Public catalog with listing prices", "Grading-report details on each stone", "Multiple shapes and carat weights"],
       pricing: { model: "Current catalog price in USD" },
       url: trackedUrl(storeOrigin, "/collections/lab-diamonds", "service_lab_diamonds", channel),
     },
@@ -236,7 +231,7 @@ function services(storeOrigin: string, channel: DiscoveryChannel) {
 function locationInfo() {
   return {
     headquarters: "New York, NY",
-    geo: { lat: 40.7549, lng: -73.9840 },
+    geo: null,
     geo_radius: null,
     remote_capable: true,
     offices: [
@@ -313,7 +308,8 @@ async function runTool(
   if (name === "get_services") {
     const category = String(args.category || "").trim().toLowerCase();
     const all = services(env.STORE_ORIGIN, channel);
-    return category ? all.filter((service) => service.category.includes(category)) : all;
+    const matched = category ? all.filter((service) => service.category.includes(category)) : all;
+    return { services: matched, count: matched.length, category_filter: category || undefined };
   }
   if (name === "get_location") {
     const market = String(args.market || "").trim().toLowerCase();
@@ -438,7 +434,7 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     const origin = url.origin;
-    if (request.method === "OPTIONS") return json({}, 204);
+    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS_HEADERS });
     if (url.pathname === "/.well-known/publicmcp.json") {
       return json(discovery(origin), 200, { "Cache-Control": "public, max-age=300" });
     }

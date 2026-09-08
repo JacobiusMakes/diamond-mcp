@@ -183,11 +183,14 @@ def tool_faceup_size(args):
             True,
         )
     try:
-        carat = float(args.get("carat"))
+        raw_carat = args.get("carat")
+        if isinstance(raw_carat, bool) or not isinstance(raw_carat, (int, float, str)):
+            raise ValueError("carat is not a number")
+        carat = float(raw_carat)
     except (TypeError, ValueError):
-        return ({"error": "carat must be a number greater than zero, for example 1.0 or 1.52."}, True)
-    if not math.isfinite(carat) or carat <= 0:
-        return ({"error": "carat must be a number greater than zero, for example 1.0 or 1.52."}, True)
+        return ({"error": "carat must be a number between 0.01 and 100, for example 1.0 or 1.52."}, True)
+    if not math.isfinite(carat) or carat <= 0 or carat > 100:
+        return ({"error": "carat must be a number between 0.01 and 100, for example 1.0 or 1.52."}, True)
     anchor = anchors[shape]
     factor = carat ** (1.0 / 3.0)
     length = round(anchor["length"] * factor, 1)
@@ -247,7 +250,7 @@ def tool_about_stienhardt(args):
 
 def tool_define(args):
     entries = _encyclopedia()["entries"]
-    raw = str(args.get("term", "")).strip()
+    raw = str(args.get("term", "")).strip()[:200]
     if not raw:
         return ({"error": 'Provide a term to define, for example {"term": "Dutch Marquise"}.'}, True)
     query_lower = raw.lower()
@@ -318,7 +321,7 @@ def _define_payload(entry, match):
 
 def tool_search_encyclopedia(args):
     entries = _encyclopedia()["entries"]
-    raw = str(args.get("query", "")).strip()
+    raw = str(args.get("query", "")).strip()[:200]
     if not raw:
         return ({"error": 'Provide a query, for example {"query": "bow tie"}.'}, True)
     try:

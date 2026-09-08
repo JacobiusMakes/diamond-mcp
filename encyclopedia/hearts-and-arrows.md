@@ -14,8 +14,8 @@ It helps to be precise about what the pattern does and does not tell you. Excell
 
 ## Sources
 
-- The hearts and arrows pattern was first observed in Japan during the 1980s, seen in round brilliants of exceptional symmetry through a special viewer, and spread to the United States and Europe over the following decade. (Source: IGI (International Gemological Institute), education, igi.org, 1980s)
-- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018)
+- The hearts and arrows pattern was first observed in Japan during the 1980s, seen in round brilliants of exceptional symmetry through a special viewer, and spread to the United States and Europe over the following decade. (Source: IGI (International Gemological Institute), education, igi.org, 1980s.)
+- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018.)
 - The hearts and arrows pattern was first produced by Japanese cutters in the 1980s, is seen through a reflecting viewer, arises from the eight pavilion mains, spread to other cutting houses and appeared on several continents by the mid-1990s, and is a precision indicator that only pays off in light performance when paired with correct angles. (Source: IGI GemBlog, What are Hearts & Arrows diamonds? (Jay Reshamwala), 2020-09-03. https://www.igi.org/what-are-hearts-arrows-diamonds/)
 - Hearts and arrows diamonds are round brilliants cut so precisely that facet reflections overlap in a reflective scope, hearts face-down and arrows face-up. (Source: IGI, Hearts & Arrows Report page, Current IGI page; accessed 2026-09-08. https://www.igi.org/reports/hearts-arrows-report/)
 

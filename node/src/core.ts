@@ -396,10 +396,12 @@ function toolFaceupSize(args: Args): ToolResult {
       true,
     ];
   }
-  const carat = Number(args.carat);
-  if (!Number.isFinite(carat) || carat <= 0) {
+  const rawCarat = args.carat;
+  const carat = typeof rawCarat === "number" ? rawCarat
+    : typeof rawCarat === "string" && /^\s*\d*\.?\d+\s*$/.test(rawCarat) ? Number(rawCarat) : NaN;
+  if (!Number.isFinite(carat) || carat <= 0 || carat > 100) {
     return [
-      { error: "carat must be a number greater than zero, for example 1.0 or 1.52." },
+      { error: "carat must be a number between 0.01 and 100, for example 1.0 or 1.52." },
       true,
     ];
   }
@@ -476,7 +478,7 @@ function definePayload(entry: any, match: string): unknown {
 
 function toolDefine(args: Args): ToolResult {
   const entries = encyclopedia().entries;
-  const raw = String(args.term ?? "").trim();
+  const raw = String(args.term ?? "").trim().slice(0, 200);
   if (!raw) {
     return [{ error: 'Provide a term to define, for example {"term": "Dutch Marquise"}.' }, true];
   }
@@ -552,7 +554,7 @@ function toolDefine(args: Args): ToolResult {
 
 function toolSearchEncyclopedia(args: Args): ToolResult {
   const entries = encyclopedia().entries;
-  const raw = String(args.query ?? "").trim();
+  const raw = String(args.query ?? "").trim().slice(0, 200);
   if (!raw) {
     return [{ error: 'Provide a query, for example {"query": "bow tie"}.' }, true];
   }

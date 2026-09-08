@@ -15,3 +15,10 @@ worker/.preview-url
 .env
 worker/.dev.vars
 publicmcp-worker/.wrangler/
+
+# added 2026-09-08
+node_modules/
+.dev.vars
+*/.dev.vars
+*/.wrangler/
+*.env

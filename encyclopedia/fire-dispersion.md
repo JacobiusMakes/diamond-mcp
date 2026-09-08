@@ -14,8 +14,8 @@ GIA's cut grading system counts fire as one of the three parts of a round brilli
 
 ## Sources
 
-- GIA's round brilliant cut grading system (released January 2006) assesses face-up appearance through brightness, fire, and scintillation. (Source: GIA (Gemological Institute of America), Diamond Cut grading system, gia.edu / 4cs.gia.edu, 2006-01)
-- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond, so it has the same dispersion. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018)
+- GIA's round brilliant cut grading system (released January 2006) assesses face-up appearance through brightness, fire, and scintillation. (Source: GIA (Gemological Institute of America), Diamond Cut grading system, gia.edu / 4cs.gia.edu, 2006-01.)
+- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond, so it has the same dispersion. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018.)
 - GIA's cut grading system for standard round brilliants launched on GIA reports in January 2006; steep crown and pavilion angles can produce a dark center, and fish-eye patterns are part of its pattern assessment. (Source: GIA, The GIA Cut Grading System for standard round brilliant diamonds (Estimating a Cut Grade booklet, PDF), 2006 system; PDF accessed 2026-09-08. https://cms.gia.edu/fallback/dam/jcr:eb4f573d-f7a2-4750-a352-94fee1c12275/Estimating-a-cut-grade-booklet.pdf)
 - Fire is the visible extent of light dispersed into spectral colors, and it is best seen under directed (spot) lighting rather than diffuse light; GIA modeled fire across more than 26,000 proportion combinations. (Source: Reinitz et al., Modeling the Appearance of the Round Brilliant Cut Diamond: An Analysis of Fire, and More about Brilliance, Gems & Gemology, Fall 2001, Vol. 37, No. 3, 2001 (Fall issue). https://www.gia.edu/gems-gemology/fall-2001-modeling-appearance-round-brilliant-cut-diamond-reinitz)
 

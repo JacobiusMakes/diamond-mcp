@@ -16,9 +16,9 @@ One note on labs for Lab Grown Diamonds. IGI issues full 4C reports on Lab Grown
 
 ## Sources
 
-- GIA moved its Lab Grown reports to Premium and Standard tiers instead of traditional 4C grades. (Source: GIA (Gemological Institute of America), 2025-10-01)
+- GIA moved its Lab Grown reports to Premium and Standard tiers instead of traditional 4C grades. (Source: GIA (Gemological Institute of America), 2025-10-01.)
 - IGI continues to issue full 4C grading reports for Lab Grown Diamonds. (Source: IGI press release, "IGI Reaffirms Commitment to 4Cs Grading for all Diamonds", 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
-- HRD Antwerp announced in 2025 that it will stop grading loose Lab Grown Diamonds in 2026. (Source: HRD Antwerp, 2026)
+- HRD Antwerp announced in 2025 that it will stop grading loose Lab Grown Diamonds in 2026. (Source: HRD Antwerp, 2026.)
 - Each GIA report carries a unique number that is sometimes laser inscribed on the diamond's girdle, and the number can be entered in GIA Report Check to verify the diamond is GIA graded and view its grading details. (Source: GIA 4Cs blog, "What is a GIA Diamond?", 2025-03-21. https://4cs.gia.edu/en-us/blog/what-is-a-gia-diamond/)
 
 ## Related

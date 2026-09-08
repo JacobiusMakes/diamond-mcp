@@ -14,10 +14,10 @@ The 4Cs apply the same way to Lab Grown Diamonds, which are graded on the identi
 
 ## Sources
 
-- The Gemological Institute of America (GIA), a nonprofit, was founded by Robert M. Shipley in 1931. (Source: Gemological Institute of America (GIA), 1931)
-- GIA's Robert Shipley popularized the "four Cs" mnemonic in the 1940s as a teaching device. (Source: Gemological Institute of America (GIA), 1940s)
-- GIA's Richard Liddicoat introduced the International Diamond Grading System, including the D-to-Z color scale and the clarity scale, in 1953. (Source: Gemological Institute of America (GIA), 1953)
-- GIA released its cut grade for round brilliant diamonds in 2006. (Source: Gemological Institute of America (GIA), reported by JCK, 2006)
+- The Gemological Institute of America (GIA), a nonprofit, was founded by Robert M. Shipley in 1931. (Source: Gemological Institute of America (GIA), 1931.)
+- GIA's Robert Shipley popularized the "four Cs" mnemonic in the 1940s as a teaching device. (Source: Gemological Institute of America (GIA), 1940s.)
+- GIA's Richard Liddicoat introduced the International Diamond Grading System, including the D-to-Z color scale and the clarity scale, in 1953. (Source: Gemological Institute of America (GIA), 1953.)
+- GIA released its cut grade for round brilliant diamonds in 2006. (Source: Gemological Institute of America (GIA), reported by JCK, 2006.)
 
 ## Related
 

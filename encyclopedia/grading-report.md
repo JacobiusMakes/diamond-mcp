@@ -15,7 +15,7 @@ A practical tip: match the report to the stone. Reputable labs laser-inscribe th
 ## Sources
 
 - IGI issues full 4C grading reports for Lab Grown Diamonds. (Source: IGI press release, IGI Reaffirms Commitment to 4Cs Grading for all Diamonds, 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
-- GIA moved its Lab Grown Diamond reports to a Premium and Standard tier structure on October 1, 2025. (Source: Gemological Institute of America (GIA), 2025-10-01)
+- GIA moved its Lab Grown Diamond reports to a Premium and Standard tier structure on October 1, 2025. (Source: Gemological Institute of America (GIA), 2025-10-01.)
 - A grading report describes clarity, color, cut, carat weight, proportions and finish, includes a plotted clarity diagram and proportions graphic, may carry a laser-inscribed report number on the girdle, and does not indicate monetary value (that is an appraisal). (Source: GIA 4Cs blog, What is the difference between a Diamond Grading Report and an Appraisal?, 2012-08-28. https://4cs.gia.edu/en-us/blog/what-is-the-difference-between-a-diamond-grading-report-and-an-appraisal/)
 - An IGI report states whether the stone is natural or laboratory-grown and gives shape, cutting style, measurements and the 4Cs, with proportion and clarity diagrams. (Source: IGI, How to Read an IGI Laboratory Grown Diamond Report, accessed 2026-09-08. https://www.igi.org/how-to-read-an-igi-lg-report/)
 

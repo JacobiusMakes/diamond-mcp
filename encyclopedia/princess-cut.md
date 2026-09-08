@@ -14,7 +14,7 @@ The practical note is to make sure the setting genuinely protects the corners, s
 
 ## Sources
 
-- Diamond is a 10, the maximum, on the Mohs scale of mineral hardness. (Source: Mohs scale of mineral hardness, 1812)
+- Diamond is a 10, the maximum, on the Mohs scale of mineral hardness. (Source: Mohs scale of mineral hardness, 1812.)
 - The princess cut is also called the square modified brilliant; its sharp pointed corners require protective settings to prevent chipping. (Source: GIA 4Cs, Guide to Diamond Engagement Ring Shapes, 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
 - Princess cuts have a modified brilliant facet arrangement; their pointed corners are vulnerable to chipping and should be protected with V-prongs, split prongs or a bezel; they cost less per carat than rounds because the cutter retains more of the rough; a square princess has a ratio no greater than 1.05:1. (Source: GIA 4Cs, Princess Cut Diamond Buying Guide, 2017-03-14. https://4cs.gia.edu/en-us/blog/diamond-princess-cut-engagement-ring/)
 - GIA grading reports describe princess cuts as square modified brilliants; the pavilion facet arrangement varies widely between stones. (Source: GIA 4Cs, How to Select a Princess Cut Diamond, 2015-03-12. https://4cs.gia.edu/en-us/blog/select-princess-cut-diamond/)

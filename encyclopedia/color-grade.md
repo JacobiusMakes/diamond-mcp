@@ -14,8 +14,8 @@ Diamonds with obvious, saturated color fall outside this scale entirely and are 
 
 ## Sources
 
-- GIA's D-to-Z color scale was introduced as part of Richard Liddicoat's International Diamond Grading System in 1953, and the scale starts at D to avoid confusion with earlier trade systems that had used A, B and C. (Source: Gemological Institute of America (GIA), 1953)
-- IGI still issues full 4C grading reports, including a color grade, for Lab Grown Diamonds. (Source: International Gemological Institute (IGI), 2026)
+- GIA's D-to-Z color scale was introduced as part of Richard Liddicoat's International Diamond Grading System in 1953, and the scale starts at D to avoid confusion with earlier trade systems that had used A, B and C. (Source: Gemological Institute of America (GIA), 1953.)
+- IGI still issues full 4C grading reports, including a color grade, for Lab Grown Diamonds. (Source: International Gemological Institute (IGI), 2026.)
 - GIA introduced the D-to-Z color scale in 1953 under Richard T. Liddicoat and chose D for the top grade; the same page dates the GIA cut grading system to 2006. (Source: GIA 4Cs blog, The History of the 4Cs of Diamond Quality, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/history-4cs-diamond-quality/)
 - The scale starts at D because earlier trade systems had used A, B and C (and numerals) loosely, and GIA wanted no association with them. (Source: GIA, GIA 4Cs Color D-to-Z, accessed 2026-09-08. https://www.gia.edu/gia-about/4cs-color)
 
