@@ -47,7 +47,7 @@ The hosted endpoint also exposes two live, read-only commerce tools:
 
 | Tool | Arguments | What it returns |
 | --- | --- | --- |
-| `search_inventory` | `query`, `limit` | Public Shopify engagement ring settings and fine jewelry with prices and attributed product links. Loose-diamond requests return an availability error and a storefront browsing link. |
+| `search_inventory` | `query`, `limit` | Public Shopify engagement ring settings and fine jewelry with prices and attributed product links. Loose-diamond queries return public catalog listings flagged `availability_verified: false` plus a storefront browsing link. |
 | `get_product` | `id` | Current product detail, availability, options, images, and an attributed product link. |
 
 ### Example
@@ -122,8 +122,9 @@ and confirmation on the product page. Availability is a current check, not a res
 
 For Worker maintainers: no private stock credentials or endpoints belong in this integration.
 Do not reuse credentials found in storefront code. Run `node worker/test/inventory.mjs` and
-`node worker/test/containment.mjs <path-to-dry-run-index.js>` before deployment, then verify a
-loose-diamond availability error and a successful jewelry search against the deployed endpoint.
+`node worker/test/containment.mjs <path-to-dry-run-index.js>` before deployment, then verify against the
+deployed endpoint that a loose-diamond search returns listings flagged `availability_verified: false` and
+that a jewelry search returns an available variant.
 
 The hosted Worker also provides a measured `/go` redirect for external buying tools. It accepts only
 HTTPS destinations on `stienhardt.com`, preserves the destination's UTM parameters, and records a
@@ -192,7 +193,7 @@ Configure a stdio server: command `python`, one argument, the absolute path to `
 
 ### uvx and pip
 
-The supported way to run the Python build (0.2.2) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
+The supported way to run the Python build (0.2.4) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
 
 ### Smoke test
 

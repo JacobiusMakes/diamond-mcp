@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.4 (2026-09-08)
+
+- Encyclopedia: every entry now carries verified sources with URLs. Eight factual corrections from the
+  sourcing audit (Cullinan I at 530.2 ct, octahedral cleavage, hearts and arrows, formation depth of
+  90 to 125 miles, HPHT wording, cubic zirconia in 1976, CVD post-growth treatment, refractive index 2.42).
+- Price index: StoneAlgo reading refreshed to 2026-09-07, with its URL carried in the data.
+- Hosted Worker: loose-diamond searches return public Shopify catalog listings flagged
+  `availability_verified: false` plus a first-party browse link. A same-day private stock-service check
+  was removed the same day; the Worker holds no credentials and calls only Shopify's public catalog.
+- Desktop bundle rebuilt with this data.
+
+## 0.2.3 (2026-09-08)
+
+- Publisher name is Stienhardt throughout. The Dutch Marquise ratio wording gives only the measured
+  reference stone. npm install guidance clarified.
+- Desktop bundle rebuilt with the corrected data.
+
 ## 0.2.2 (2026-09-02)
 
 - Data: the Dutch Marquise entries no longer state a length-to-width range; only the measured

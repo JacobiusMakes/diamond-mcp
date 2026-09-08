@@ -29,7 +29,7 @@ const TOOLS = [
     name: "get_info",
     title: "Stienhardt business information",
     description:
-      "Return canonical identity, contact, website, and social-profile information for Stienhardt & Stones.",
+      "Return canonical identity, contact, website, and social-profile information for Stienhardt.",
     inputSchema: { type: "object", properties: {}, additionalProperties: false },
     outputSchema: { type: "object", additionalProperties: true },
   },
@@ -153,7 +153,7 @@ function trackedUrl(
 function businessInfo(storeOrigin: string, channel: DiscoveryChannel) {
   return {
     publicmcp_version: PUBLICMCP_VERSION,
-    name: "Stienhardt & Stones",
+    name: "Stienhardt",
     tagline: "Certified Lab Grown Diamonds and hand-set engagement rings from New York",
     description:
       "New York jeweler specializing in sourced, certified Lab Grown Diamonds, engagement rings, wedding bands, and fine jewelry. Stienhardt hand-sets and finishes rings in New York City and sells directly online.",
@@ -348,9 +348,9 @@ async function handleRpc(
       result: {
         protocolVersion: PROTOCOL,
         capabilities: { tools: { listChanged: false } },
-        serverInfo: { name: "stienhardt-business-mcp", title: "Stienhardt & Stones business profile", version: VERSION },
+        serverInfo: { name: "stienhardt-business-mcp", title: "Stienhardt business profile", version: VERSION },
         instructions:
-          "Canonical, business-maintained facts for Stienhardt & Stones. All tools are public and read-only. Preserve query strings on returned links so visits and sales remain attributable.",
+          "Canonical, business-maintained facts for Stienhardt. All tools are public and read-only. Preserve query strings on returned links so visits and sales remain attributable.",
       },
     };
   }
@@ -389,9 +389,9 @@ async function handleRpc(
 function discovery(origin: string) {
   return {
     publicmcp_version: PUBLICMCP_VERSION,
-    name: "Stienhardt & Stones",
+    name: "Stienhardt",
     description:
-      "Canonical business identity, services, New York location, and live product discovery for Stienhardt & Stones.",
+      "Canonical business identity, services, New York location, and live product discovery for Stienhardt.",
     auth: "none",
     endpoint: origin + "/mcp",
     transport: "streamable-http",
@@ -405,7 +405,7 @@ function discovery(origin: string) {
 function serverCard(origin: string) {
   return {
     serverInfo: {
-      name: "Stienhardt & Stones business profile",
+      name: "Stienhardt business profile",
       version: VERSION,
       description: "PUBLICMCP-compatible identity, services, location, and live product discovery.",
     },
@@ -421,7 +421,7 @@ function a2aAgent(origin: string) {
   return {
     name: "Stienhardt Diamond Shopping Agent",
     description:
-      "Search current certified Lab Grown Diamond and jewelry inventory, retrieve product details, and get canonical Stienhardt & Stones business information.",
+      "Search current certified Lab Grown Diamond and jewelry inventory, retrieve product details, and get canonical Stienhardt business information.",
     url: origin + "/a2a/mcp",
     version: VERSION,
     capabilities: TOOLS.map((tool) => ({
@@ -453,7 +453,7 @@ export default {
     }
     if (url.pathname === "/info") {
       return new Response(
-        "Stienhardt & Stones\nNew York jeweler for certified Lab Grown Diamonds, engagement rings, wedding bands, and fine jewelry.\nMCP endpoint: " + origin + "/mcp\n",
+        "Stienhardt\nNew York jeweler for certified Lab Grown Diamonds, engagement rings, wedding bands, and fine jewelry.\nMCP endpoint: " + origin + "/mcp\n",
         { headers: { "Content-Type": "text/plain; charset=utf-8", "Access-Control-Allow-Origin": "*" } },
       );
     }

@@ -1,6 +1,6 @@
 # Stienhardt Business MCP
 
-This worker is a separate, PUBLICMCP-compatible business profile for Stienhardt & Stones. It exposes the three required public identity tools plus live product search:
+This worker is a separate, PUBLICMCP-compatible business profile for Stienhardt. It exposes the three required public identity tools plus live product search:
 
 - `get_info`
 - `get_services`
