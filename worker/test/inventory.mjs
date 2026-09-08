@@ -1,8 +1,6 @@
 import assert from 'node:assert/strict';
-import {diamondIntent,saleableDiamond,publicDiamond,selectVariant,checkedCatalogProduct,searchDiamonds,diamondBySku} from '../src/inventory.ts';
-const env={STORE_ORIGIN:'https://stienhardt.com',STOREFRONT_READ_AUTH:'synthetic-test-auth'};
-const diamond={sku:'TEST-1',is_active:true,is_visible:true,is_sold:false,is_on_hold:false,
-  shape:'Round',carat:2.02,color:'D',clarity:'VS1',lab:'IGI',sale_price:100,title:'Synthetic test diamond'};
+import {diamondIntent,diamondBrowseUrl,selectVariant,checkedCatalogProduct} from '../src/inventory.ts';
+const env={STORE_ORIGIN:'https://stienhardt.com'};
 const product={title:'Everyday Band',type:'Ring',variants:[
   {id:1,title:'14K Yellow Gold',available:true,price:10000},
   {id:2,title:'Platinum',available:true,price:20000},
@@ -16,14 +14,22 @@ await test('range, budget, color, clarity, and lab parse separately',()=>{
 });
 await test('jewelry intent remains on catalog path',()=>{assert.equal(diamondIntent('oval platinum engagement ring'),null);assert.equal(diamondIntent('tennis bracelet'),null);});
 await test('invalid weight range is rejected',()=>{assert.throws(()=>diamondIntent('3 to 2 carat oval'));assert.throws(()=>diamondIntent('25 carat pear'));});
-await test('saleable record passes',()=>assert.equal(saleableDiamond(diamond),true));
-for(const [key,value] of [['is_active',false],['is_visible',false],['is_sold',true],['is_on_hold',true],['sku','../bad']])
-  await test('stock exclusion '+key,()=>assert.equal(saleableDiamond({...diamond,[key]:value}),false));
-await test('missing stock flags fail closed',()=>assert.equal(saleableDiamond({sku:'TEST-1',is_active:true}),false));
-await test('internal supplier fields never enter results',()=>{
-  const output=publicDiamond({...diamond,vendor_cost:12,api_response:{sensitive:'private'},remarks:'private'},env);
-  assert(!JSON.stringify(output).includes('private'));assert(!('vendor_cost' in output));
-  assert.equal(new URL(output.url).searchParams.get('sku'),'TEST-1');
+await test('diamond browsing uses a first-party URL without requesting stock',()=>{
+  globalThis.fetch=async()=>{throw new Error('must not fetch');};
+  const url=new URL(diamondBrowseUrl(env,diamondIntent('2 carat round')));
+  assert.equal(url.origin,env.STORE_ORIGIN);assert.equal(url.searchParams.get('shape'),'Round');
+  assert.equal(url.searchParams.get('caratMin'),'2');assert.equal(url.searchParams.get('caratMax'),'2.1');
+});
+await test('valid legacy SKU remains a website link only',()=>{
+  const url=new URL(diamondBrowseUrl(env,{},'TEST-1'));
+  assert.equal(url.pathname,'/products/diamonds');assert.equal(url.searchParams.get('sku'),'TEST-1');
+});
+await test('invalid SKU cannot change the destination or inject URL parameters',()=>{
+  for(const sku of ['//example.invalid','../secret','A&redirect=https://example.invalid','x'.repeat(101)]) {
+    const url=new URL(diamondBrowseUrl(env,{},sku));
+    assert.equal(url.origin,env.STORE_ORIGIN);assert.equal(url.pathname,'/collections/lab-diamonds');
+    assert.equal(url.search,'');
+  }
 });
 await test('platinum request selects platinum instead of default yellow gold',()=>assert.equal(selectVariant(product,'platinum wedding band').id,2));
 await test('unavailable metal cannot be substituted',()=>assert.equal(selectVariant(product,'18k white gold band'),null));
@@ -41,19 +47,12 @@ await test('off-domain catalog link is never fetched',async()=>{
   globalThis.fetch=async()=>{throw new Error('must not fetch');};
   assert.equal(await checkedCatalogProduct({url:'https://example.invalid/products/item'},env),null);
 });
-await test('missing supplier record excludes a carrier',async()=>{
-  globalThis.fetch=async()=>new Response('',{status:404});
+await test('loose-diamond carrier is excluded without a stock-service request',async()=>{
+  globalThis.fetch=async()=>{throw new Error('must not fetch');};
   assert.equal(await checkedCatalogProduct({url:'https://stienhardt.com/products/carrier',title:'1 Carat Round Lab Grown Diamond',variants:[{sku:'MISSING'}]},env),null);
 });
-await test('stock endpoint failure is not empty inventory',async()=>{
-  globalThis.fetch=async()=>new Response('',{status:503});
-  await assert.rejects(()=>searchDiamonds(env,diamondIntent('2 carat round'),5));
-});
-await test('stock search enforces returned filters as well as request filters',async()=>{
-  globalThis.fetch=async()=>Response.json({Diamonds:{data:[diamond,{...diamond,sku:'HELD',is_on_hold:true},{...diamond,sku:'PEAR',shape:'Pear'},{...diamond,sku:'SMALL',carat:1}]}});
-  const rows=await searchDiamonds(env,diamondIntent('2 carat round'),5);assert.equal(rows.length,1);assert.equal(rows[0].sku,'TEST-1');
-});
-await test('SKU lookup accepts only active visible unsold unheld diamonds',async()=>{
-  globalThis.fetch=async()=>Response.json({Diamond:{...diamond,is_sold:true}});assert.equal(await diamondBySku(env,'TEST-1'),null);
+await test('generic diamond product cannot be mistaken for verified jewelry',async()=>{
+  globalThis.fetch=async()=>{throw new Error('must not fetch');};
+  assert.equal(await checkedCatalogProduct({url:'https://stienhardt.com/products/diamonds',title:'Catalog item',variants:product.variants},env),null);
 });
 console.log(JSON.stringify({passed,failed:0}));

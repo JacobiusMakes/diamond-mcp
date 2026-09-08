@@ -47,7 +47,7 @@ The hosted endpoint also exposes two live, read-only commerce tools:
 
 | Tool | Arguments | What it returns |
 | --- | --- | --- |
-| `search_inventory` | `query`, `limit` | Current in-stock diamonds, engagement ring settings, and fine jewelry with prices and attributed product links. |
+| `search_inventory` | `query`, `limit` | Public Shopify engagement ring settings and fine jewelry with prices and attributed product links. Loose-diamond requests return an availability error and a storefront browsing link. |
 | `get_product` | `id` | Current product detail, availability, options, images, and an attributed product link. |
 
 ### Example
@@ -110,20 +110,20 @@ https://diamond-mcp.stienhardt.workers.dev/mcp
 
 The endpoint requires no account or API key. It exposes all 10 tools, including the live inventory search.
 
-Loose-diamond results use the storefront's current stock service and exclude held, sold, hidden,
-or inactive stones. Their IDs have the form `stienhardt:diamond:SKU`; pass that exact ID to
-`get_product`. Product links open the selected SKU directly. A single carat weight searches that
-weight through 0.10 carat higher, disclosed in the returned filters. Jewelry results use Shopify's
-UCP catalog, select an available variant matching the requested metal, and preserve that variant
-in the product URL. Ring size still needs selection and confirmation on the product page.
-Availability is a current check, not a reservation. Upstream failures return an error rather than
-an empty inventory claim.
+Loose-diamond stock verification is unavailable. These searches and legacy
+`stienhardt:diamond:SKU` lookups return `isError: true`, `availability_verified: false`, and a
+first-party `browse_url` without calling a stock service. An unavailable check is not a claim that
+inventory is empty. Shopify carrier products are excluded because their availability does not
+verify the underlying stone.
 
-For Worker maintainers: live diamond reads require the existing `STOREFRONT_READ_AUTH` secret.
-Keep its value in the ignored local `.env` and the Worker secret store, never in source or logs.
-Run `node worker/test/inventory.mjs` before deployment, then verify both a loose-diamond search
-and a jewelry search against the deployed endpoint. Shopify may block Ajax catalog requests from
-Workers even when the same request works in a browser; jewelry reads use the UCP endpoint.
+Jewelry results use the public Shopify UCP catalog, select an available variant matching the
+requested metal, and preserve that variant in the product URL. Ring size still needs selection
+and confirmation on the product page. Availability is a current check, not a reservation.
+
+For Worker maintainers: no private stock credentials or endpoints belong in this integration.
+Do not reuse credentials found in storefront code. Run `node worker/test/inventory.mjs` and
+`node worker/test/containment.mjs <path-to-dry-run-index.js>` before deployment, then verify a
+loose-diamond availability error and a successful jewelry search against the deployed endpoint.
 
 The hosted Worker also provides a measured `/go` redirect for external buying tools. It accepts only
 HTTPS destinations on `stienhardt.com`, preserves the destination's UTM parameters, and records a

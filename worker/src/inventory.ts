@@ -1,9 +1,7 @@
-/* Read public storefront stock, never expose supplier records or cost fields. */
+/* Catalog selection only. Do not call private stock services or reuse browser credentials. */
 export interface InventoryEnv {
   STORE_ORIGIN: string;
-  STOREFRONT_READ_AUTH?: string;
 }
-const STOCK_ORIGIN = 'https://pxixbvvukwwmhmbyzdfu.supabase.co/functions/v1/storefront-api';
 const SHAPES = ['Dutch Marquise', 'Elongated Hexagon', 'Round', 'Oval', 'Pear', 'Princess',
   'Emerald', 'Cushion', 'Radiant', 'Asscher', 'Heart', 'Marquise'];
 const normalize = (value: unknown) => String(value || '').toLowerCase().replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -29,53 +27,18 @@ export function diamondIntent(query: string): any | null {
     clarity:clarity ? clarity[1].toUpperCase() : '', color:color ? color[1].toUpperCase() : '',
     lab:lab ? lab[1].toUpperCase() : ''};
 }
-export function saleableDiamond(d: any): boolean {
-  return !!d && d.is_active === true && d.is_visible === true && d.is_sold === false &&
-    d.is_on_hold === false && /^[A-Za-z0-9._-]{1,100}$/.test(String(d.sku || ''));
-}
-export function publicDiamond(d: any, env: InventoryEnv): any {
-  const url = new URL('/products/diamonds', env.STORE_ORIGIN);
-  url.searchParams.set('sku', d.sku);
-  const amount = Number(d.sale_price) > 0 ? Number(d.sale_price) : Number(d.original_price);
-  return {id:'stienhardt:diamond:' + d.sku, title:d.title || `${d.carat} Carat ${d.shape} Lab Grown Diamond`,
-    url:url.toString(), price:Number.isFinite(amount) && amount > 0 ? amount.toFixed(2) + ' USD' : null,
-    available:true, image:d.cover_pic || undefined, sku:d.sku,
-    shape:d.shape, carat:d.carat, color:d.color, clarity:d.clarity, lab:d.lab,
-    availability_source:'storefront_inventory', availability_checked_at:new Date().toISOString()};
-}
-async function stock(env: InventoryEnv, path: string, body?: any): Promise<any> {
-  if (!env.STOREFRONT_READ_AUTH) throw new Error('Live diamond availability is temporarily unavailable.');
-  const response = await fetch(STOCK_ORIGIN + path, {method:body ? 'POST' : 'GET',
-    headers:{Authorization:env.STOREFRONT_READ_AUTH, Accept:'application/json', ...(body ? {'Content-Type':'application/json'} : {})},
-    ...(body ? {body:JSON.stringify(body)} : {}), signal:AbortSignal.timeout(6000)});
-  if (response.status === 404) return null;
-  if (!response.ok) throw new Error('Live diamond availability is temporarily unavailable.');
-  return response.json();
-}
-export async function diamondBySku(env: InventoryEnv, sku: string): Promise<any | null> {
-  if (!/^[A-Za-z0-9._-]{1,100}$/.test(sku)) return null;
-  const data = await stock(env, '/diamond/' + encodeURIComponent(sku) + '?type=Ring');
-  return saleableDiamond(data?.Diamond) ? publicDiamond(data.Diamond, env) : null;
-}
-export async function searchDiamonds(env: InventoryEnv, filters: any, limit: number): Promise<any[]> {
-  const body = {type:'LabGrown', diamondtype:filters.shape, diamondcolor:filters.color,
-    diamondclarity:filters.clarity, diamondcut:'', reportby:filters.lab,
-    caratfrom:filters.carat_min ?? '', caratto:filters.carat_max ?? '',
-    pricefrom:'', priceto:filters.price_max ?? '', lwfrom:'',lwto:'',depthfrom:'',depthto:'',
-    tablefrom:'',tableto:'',polish:'',symmetry:'',quickship:'0',featureddeal:'0',certnum:'',sortby:'Recommended-ASC'};
-  const payload = await stock(env, '/search?page=1', body);
-  const rows = Array.isArray(payload?.Diamonds) ? payload.Diamonds : payload?.Diamonds?.data;
-  if (!Array.isArray(rows)) throw new Error('Live diamond search returned an invalid response.');
-  return rows.filter(saleableDiamond).filter((d: any) => {
-    const amount=Number(d.sale_price)>0 ? Number(d.sale_price) : Number(d.original_price);
-    return (!filters.shape || normalize(d.shape) === normalize(filters.shape)) &&
-      (filters.carat_min === null || Number(d.carat) >= filters.carat_min) &&
-      (filters.carat_max === null || Number(d.carat) <= filters.carat_max) &&
-      (!filters.price_max || (amount > 0 && amount <= filters.price_max)) &&
-      (!filters.clarity || normalize(d.clarity) === normalize(filters.clarity)) &&
-      (!filters.color || normalize(d.color) === normalize(filters.color)) &&
-      (!filters.lab || normalize(d.lab) === normalize(filters.lab));
-  }).slice(0,limit).map((d: any)=>publicDiamond(d,env));
+export function diamondBrowseUrl(env: InventoryEnv, filters: any = {}, sku=''): string {
+  const url = new URL('/collections/lab-diamonds', env.STORE_ORIGIN);
+  if (/^[A-Za-z0-9._-]{1,100}$/.test(sku)) {
+    url.pathname='/products/diamonds';
+    url.searchParams.set('sku',sku);
+  } else {
+    for (const [key,value] of Object.entries({shape:filters.shape,caratMin:filters.carat_min,
+      caratMax:filters.carat_max,priceMax:filters.price_max,color:filters.color,clarity:filters.clarity,lab:filters.lab})) {
+      if(value !== undefined && value !== null && value !== '') url.searchParams.set(key,String(value));
+    }
+  }
+  return url.toString();
 }
 export function selectVariant(product: any, query: string): any | null {
   const text = normalize(query), title = normalize(product.title);
@@ -104,7 +67,8 @@ export async function checkedCatalogProduct(p: any, env: InventoryEnv, query='')
   // from the hosted Worker even when those requests work in a shopper's browser.
   const title=normalize(p.title);
   const loose=/\bdiamonds?\b/.test(title) && !/\b(rings?|settings?|bands?|earrings?|studs?|bracelets?|necklaces?|pendants?)\b/.test(title);
-  if(loose) return diamondBySku(env,p.variants?.[0]?.sku || '');
+  // Shopify carrier availability is not a verified loose-diamond stock check.
+  if(loose || url.pathname.replace(/\/$/,'') === '/products/diamonds') return null;
   const product={...p,variants:(p.variants||[]).map((v:any)=>({...v,available:v.availability?.available===true}))};
   const variant=selectVariant(product,query);
   if(!variant) return null;

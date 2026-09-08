@@ -18,14 +18,13 @@
 import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTIONS } from "../../node/src/core.js";
 import factsJson from "../../facts.json";
 import encyclopediaJson from "../../encyclopedia.json";
-import { diamondIntent, searchDiamonds, diamondBySku, checkedCatalogProduct } from './inventory';
+import { diamondIntent, diamondBrowseUrl, checkedCatalogProduct } from './inventory';
 
 configure({ facts: factsJson, encyclopedia: encyclopediaJson });
 
 interface Env {
   UCP_ENDPOINT: string;
   STORE_ORIGIN: string;
-  STOREFRONT_READ_AUTH?: string;
   AGENT_PROFILE_URL?: string;
   OPENAI_APPS_CHALLENGE?: string; // plain-text token from the OpenAI plugin portal (domain verification)
   CLICK_COUNTS?: {
@@ -73,16 +72,16 @@ weight and shape, a grading lab and report number, or a search phrase. Purpose: 
 request.
 
 Where it goes: the education tools are answered from data bundled in the server. The live
-inventory tools (search_inventory, get_product) read Stienhardt's Shopify catalog and its storefront
-inventory service hosted on Supabase. Shopify receives the search phrase or product id; the inventory
-service receives parsed product filters or a diamond SKU. No shopper identity is forwarded. Supplier
-costs and internal inventory fields are not returned by these tools. Store privacy policy:
+inventory tools (search_inventory, get_product) read Stienhardt's public Shopify UCP catalog.
+Shopify receives the jewelry search phrase or product id. Loose-diamond stock verification is
+unavailable in this tool; those requests return a storefront browsing link without a stock-service
+request. No shopper identity is forwarded. Store privacy policy:
 https://stienhardt.com/policies/privacy-policy. Cloudflare, which hosts this server, may keep
 standard operational logs (IP address, timestamps) under its own policy.
 
 Retention: MCP request content is not retained. Outbound click events expire after 90 days and are
 used only for aggregate campaign measurement. Third parties: Cloudflare (hosting and click storage), Shopify
-(catalog reads), and Supabase (Stienhardt storefront inventory reads). Your controls: the click data cannot be tied to an identity because Stienhardt does
+(catalog reads). Your controls: the click data cannot be tied to an identity because Stienhardt does
 not store one in the dataset; stop using measured outbound links to stop sending click events.
 
 Contact: jgalperin@stienhardt.com
@@ -94,10 +93,10 @@ const STORE_TOOLS = [
     name: "search_inventory",
     title: "Search Stienhardt's live inventory",
     description:
-      "Search Stienhardt's live catalog of certified Lab Grown Diamonds, engagement ring settings, " +
-      "and fine jewelry (New York, direct). Checks current storefront availability and excludes held, hidden, or sold stones. " +
+      "Search Stienhardt's public Shopify catalog of engagement ring settings and fine jewelry (New York, direct). " +
+      "Loose-diamond stock cannot be verified here; those requests return an error with a storefront browsing link. " +
       "Returns prices when verified, selected variants, and links. Availability is not a reservation. " +
-      "Use for questions like 'do you have a 2 carat Dutch Marquise' or 'show me tennis bracelets'. " +
+      "Use for questions like 'show me platinum wedding bands' or 'show me tennis bracelets'. " +
       "Not for appraisal or price advice on stones sold elsewhere.",
     inputSchema: {
       type: "object",
@@ -114,7 +113,7 @@ const STORE_TOOLS = [
     title: "Product detail from Stienhardt's live catalog",
     description:
       "Full detail for one Stienhardt product by id (as returned by search_inventory): title, price, " +
-      "availability, options, images, and the product URL on stienhardt.com.",
+      "availability, options, images, and the product URL on stienhardt.com. Loose-diamond availability is not verified.",
     inputSchema: {
       type: "object",
       properties: { id: { type: "string", description: "Exact id returned by search_inventory: a Shopify product gid or stienhardt:diamond:SKU." } },
@@ -257,19 +256,9 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
     }
     const filters=diamondIntent(query);
     if(filters) {
-      const results=(await searchDiamonds(env,filters,limit)).map(p=>({...p,
-        url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+p.sku)}));
-      const browse=new URL('/collections/lab-diamonds',env.STORE_ORIGIN);
-      if(filters.shape) browse.searchParams.set('shape',filters.shape);
-      if(filters.carat_min!==null) browse.searchParams.set('caratMin',String(filters.carat_min));
-      if(filters.carat_max!==null) browse.searchParams.set('caratMax',String(filters.carat_max));
-      if(filters.price_max) browse.searchParams.set('priceMax',String(filters.price_max));
-      if(filters.color) browse.searchParams.set('color',filters.color);
-      if(filters.clarity) browse.searchParams.set('clarity',filters.clarity);
-      if(filters.lab) browse.searchParams.set('lab',filters.lab);
-      return [{query,count:results.length,results,filters,
-        browse_url:taggedStoreUrl(browse.toString(),env.STORE_ORIGIN,'search_inventory:browse'),
-        note:'Current storefront inventory, excluding held, hidden, inactive, and sold stones. A single carat weight searches that weight through 0.10 carat higher; see filters. Availability is not a reservation. Verify the grading report with the lab. Preserve URL query strings.'},false];
+      return [{error:'Live loose-diamond stock cannot be verified by this tool. Check current availability on Stienhardt.',
+        availability_verified:false,filters,
+        browse_url:taggedStoreUrl(diamondBrowseUrl(env,filters),env.STORE_ORIGIN,'search_inventory:browse')},true];
     }
     const out = await ucpCall(env, origin, "search_catalog",
       { query, context: { address_country: "US", currency: "USD", language: "en" } });
@@ -288,9 +277,9 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
   }
   if (name === "get_product") {
     if(String(args.id || '').startsWith('stienhardt:diamond:')) {
-      const diamond=await diamondBySku(env,String(args.id).slice('stienhardt:diamond:'.length));
-      if(!diamond) return [{error:'This diamond is not currently available.',available:false},true];
-      return [{...diamond,url:taggedStoreUrl(diamond.url,env.STORE_ORIGIN,'get_product:'+diamond.sku)},false];
+      return [{error:'Live loose-diamond stock cannot be verified by this tool. Check current availability on Stienhardt.',
+        availability_verified:false,
+        browse_url:taggedStoreUrl(diamondBrowseUrl(env,{},String(args.id).slice('stienhardt:diamond:'.length)),env.STORE_ORIGIN,'get_product:browse')},true];
     }
     const out = await ucpCall(env, origin, "get_product", { id: String(args.id || ""), context: { address_country: "US", currency: "USD" } });
     if (out.error) return [{ error: "product lookup failed", detail: out.error }, true];
@@ -299,7 +288,7 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
       return [{ error: "Product not found: " + String(args.id || ""), note: "No live product matches that id. Use an id returned by search_inventory, e.g. gid://shopify/Product/123." }, true];
     }
     const checked=await checkedCatalogProduct(p,env);
-    if(!checked) return [{error:'This product is not currently available.',available:false},true];
+    if(!checked) return [{error:'Availability cannot be verified for this product.',availability_verified:false},true];
     return [{
       ...checked,
       url:taggedStoreUrl(checked.url,env.STORE_ORIGIN,'get_product:'+String(checked.id).split('/').pop()),
@@ -375,7 +364,7 @@ async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null
       protocolVersion: PROTOCOL,
       capabilities: { tools: { listChanged: false } },
       serverInfo: { name: SERVER_NAME, title: "Stienhardt: diamond education + live store", version: SERVER_VERSION },
-      instructions: INSTRUCTIONS + " Live inventory tools (search_inventory, get_product) read stienhardt.com in real time.",
+      instructions: INSTRUCTIONS + " Store tools read the public Shopify jewelry catalog. Loose-diamond stock verification is unavailable; use the returned storefront browsing link without claiming availability.",
     } };
   }
   if (method === "notifications/initialized" || (typeof method === "string" && method.startsWith("notifications/"))) return null;
