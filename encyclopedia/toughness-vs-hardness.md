@@ -6,7 +6,7 @@
 
 People use hard loosely to mean durable, but gemology keeps two ideas apart. Hardness is about the surface: can something scratch it? That is what the Mohs scale measures. Toughness is about the whole stone: hit it or drop it, and does it chip or fracture? A material can be extremely hard and still not especially tough.
 
-Diamond is the clearest example. It is the hardest natural material, a 10 on Mohs, so in normal wear almost nothing scratches it. But diamond has perfect cleavage in four directions, meaning its atomic structure has planes along which it splits cleanly. A sharp knock at the wrong angle, especially on an exposed corner or a pointed tip, can chip or cleave a diamond even though nothing could scratch it. Hard, yes. Indestructible, no.
+Diamond is the clearest example. It is the hardest natural material, a 10 on Mohs, so in normal wear almost nothing scratches it. But diamond has perfect cleavage along its octahedral planes, meaning its atomic structure has planes along which it splits cleanly. A sharp knock at the wrong angle, especially on an exposed corner or a pointed tip, can chip or cleave a diamond even though nothing could scratch it. Hard, yes. Indestructible, no.
 
 At the other end, some less hard materials are remarkably tough. Jade, meaning nephrite and jadeite, is only about 6 to 7 on Mohs, so it scratches relatively easily, yet its interlocking fibrous structure makes it extraordinarily resistant to breaking. It has been carved and even used for tools for exactly that reason.
 

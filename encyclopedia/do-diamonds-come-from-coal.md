@@ -4,7 +4,7 @@
 
 **Mostly no. Almost all natural diamonds form deep in Earth's mantle from carbon-rich material, and most are far older than the land plants that coal is made from, so coal is not their source.**
 
-Mostly no. The popular image of a lump of coal squeezed into a diamond makes a nice story, but it does not match the geology. Almost all natural diamonds form deep inside the Earth's mantle, roughly 90 miles or more below the surface, where extreme pressure and heat let carbon crystallize over very long spans of time. They are carried up toward the surface much later by rare, deep volcanic eruptions that leave behind a rock called kimberlite.
+Mostly no. The popular image of a lump of coal squeezed into a diamond makes a nice story, but it does not match the geology. Almost all natural diamonds form deep inside the Earth's mantle, roughly 90 to 125 miles (150 to 200 km) below the surface, where extreme pressure and heat let carbon crystallize over very long spans of time. They are carried up toward the surface much later by rare, deep volcanic eruptions that leave behind a rock called kimberlite.
 
 Coal is a different material made in a different place. It forms near the surface from the remains of plants, under far lower pressure and temperature. The timelines do not line up either. Most natural diamonds are more than a billion years old, hundreds of millions of years before the first land plants existed. Since coal is made of plant matter, it simply was not around when most diamonds were forming. The carbon in diamonds comes instead from carbon-bearing minerals and fluids deep in the mantle.
 

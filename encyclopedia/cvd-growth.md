@@ -8,7 +8,7 @@ CVD grows a diamond from gas. The process starts with a thin, flat slice of diam
 
 CVD gives growers fine control over the conditions in the chamber, which is one reason the method is widely used for gem-quality material. It tends to produce diamonds low in nitrogen, a category known as Type IIa that is uncommon among mined diamonds. The crystal grows as a squared-off tabular block rather than the shape a mined diamond takes, and it's later cut and polished like any other rough.
 
-Fresh out of the chamber, CVD diamonds sometimes carry a faint brown or gray tint from the way the crystal grew. Growers often follow with post-growth treatment (HPHT annealing) to move the color toward colorless. That step is standard, permanent, and disclosed on the grading report. The finished stone is a genuine diamond, the same carbon and the same hardness as a mined one; CVD is simply the method that produced it.
+Fresh out of the chamber, CVD diamonds sometimes carry a faint brown or gray tint from the way the crystal grew. Growers often follow with post-growth treatment (HPHT annealing) to move the color toward colorless. That step is common (GIA reports roughly 80 percent of the CVD diamonds it sees have had post-growth processing), is considered permanent, and is noted on the grading report when the laboratory detects it. The finished stone is a genuine diamond, the same carbon and the same hardness as a mined one; CVD is simply the method that produced it.
 
 ## Sources
 

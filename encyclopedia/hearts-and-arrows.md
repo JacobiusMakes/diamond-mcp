@@ -8,7 +8,7 @@ The pattern comes from the way a round brilliant's facets reflect one another. W
 
 You need a simple viewer to see it. A hearts and arrows scope is a small tube that shines even, colored light onto the stone so the reflections stand out. The arrows are usually visible face-up, while the hearts require viewing from the back, so they are checked before the diamond is set.
 
-The pattern was first observed in Japan in the 1980s and spread to the United States and Europe over the following decade. It applies specifically to round brilliants, because the eightfold arrangement of that cut is what produces the shapes. Fancy shapes, including the elongated hexagonal Dutch Marquise, do not show hearts and arrows.
+The pattern was first observed in Japan in the 1980s and spread to the United States and Europe over the following decade. It applies specifically to round brilliants, because the eightfold arrangement of that cut is what produces the shapes. The classic eightfold pattern belongs to the round brilliant; it is not assessed on fancy shapes such as the elongated hexagonal Dutch Marquise, whose outline does not produce the same eight-arrow symmetry.
 
 It helps to be precise about what the pattern does and does not tell you. Excellent optical symmetry usually tracks with strong light performance, but hearts and arrows is a symmetry indicator, not a direct measurement of light return, and a stone can show good hearts and arrows and still be cut to angles that leak some light. Treat it as one useful, checkable quality signal among several. The pattern behaves the same in a mined or Lab Grown Diamond.
 
