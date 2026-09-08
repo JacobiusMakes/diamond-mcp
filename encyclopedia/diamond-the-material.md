@@ -10,7 +10,7 @@ Optically, diamond has a high refractive index of about 2.42 and strong dispersi
 
 In nature, diamond forms deep in the Earth's mantle under high pressure and temperature and is carried toward the surface in volcanic rock. It can also be grown in a laboratory. A Lab Grown Diamond is the same material, with the same crystal structure and the same properties. Under U.S. rules a diamond is defined by its composition, not its origin, so a Lab Grown Diamond is a diamond, not an imitation.
 
-Diamond's hardness, a 10 on the Mohs scale, means only another diamond will readily scratch it. It is also the best thermal conductor of any gemstone, which is the principle behind diamond testers. Hardness is not the same as toughness, though. Diamond has perfect cleavage in four directions, so a sharp blow in the wrong spot can still chip it.
+Diamond's hardness, a 10 on the Mohs scale, means only another diamond will readily scratch it. It is also the best thermal conductor of any gemstone, which is the principle behind diamond testers. Hardness is not the same as toughness, though. Diamond has perfect cleavage along its octahedral planes, so a sharp blow in the wrong spot can still chip it.
 
 ## Sources
 
