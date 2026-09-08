@@ -256,9 +256,16 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
     }
     const filters=diamondIntent(query);
     if(filters) {
-      return [{error:'Live loose-diamond stock cannot be verified by this tool. Check current availability on Stienhardt.',
-        availability_verified:false,filters,
-        browse_url:taggedStoreUrl(diamondBrowseUrl(env,filters),env.STORE_ORIGIN,'search_inventory:browse')},true];
+      // Public catalog listings only (Shopify's own catalog endpoint). No stock service, no credential.
+      const out=await ucpCall(env, origin, "search_catalog",
+        { query, context: { address_country: "US", currency: "USD", language: "en" } });
+      if (out.error) return [{ error: "store search failed", detail: out.error }, true];
+      const list = out.products || out.items || out.results || [];
+      const candidates=await Promise.all(list.slice(0,Math.min(15,limit*2)).map((p:any)=>checkedCatalogProduct(p,env,query,true)));
+      const results=candidates.filter(Boolean).slice(0,limit).map((p:any)=>({...p,url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+String(p.id).split('/').pop())}));
+      return [{query,count:results.length,results,availability_verified:false,filters,
+        browse_url:taggedStoreUrl(diamondBrowseUrl(env,filters),env.STORE_ORIGIN,'search_inventory:browse'),
+        note:'Public catalog matches for a loose-diamond search. Availability is not verified by this tool; confirm it on the product page or through the browse link. Preserve URL query strings.'},false];
     }
     const out = await ucpCall(env, origin, "search_catalog",
       { query, context: { address_country: "US", currency: "USD", language: "en" } });

@@ -57,7 +57,7 @@ export function selectVariant(product: any, query: string): any | null {
       (!shape || title.includes(shape.toLowerCase()) || option.includes(shape.toLowerCase()));
   }) || null;
 }
-export async function checkedCatalogProduct(p: any, env: InventoryEnv, query=''): Promise<any | null> {
+export async function checkedCatalogProduct(p: any, env: InventoryEnv, query='', allowLoose=false): Promise<any | null> {
   const raw=p.url || (p.handle ? new URL('/products/'+p.handle,env.STORE_ORIGIN).toString() : '');
   let url: URL;
   try {url=new URL(raw); } catch {return null;}
@@ -67,8 +67,19 @@ export async function checkedCatalogProduct(p: any, env: InventoryEnv, query='')
   // from the hosted Worker even when those requests work in a shopper's browser.
   const title=normalize(p.title);
   const loose=/\bdiamonds?\b/.test(title) && !/\b(rings?|settings?|bands?|earrings?|studs?|bracelets?|necklaces?|pendants?)\b/.test(title);
-  // Shopify carrier availability is not a verified loose-diamond stock check.
-  if(loose || url.pathname.replace(/\/$/,'') === '/products/diamonds') return null;
+  if(url.pathname.replace(/\/$/,'') === '/products/diamonds') return null;
+  // Shopify carrier availability is not a verified loose-diamond stock check, so loose stones are
+  // returned only as public catalog listings, flagged unverified, and only when the caller asks.
+  if(loose) {
+    if(!allowLoose) return null;
+    const first=(p.variants||[])[0] || {};
+    const price=first.price || p.price;
+    return {id:p.id,title:p.title,url:url.toString(),
+      price:price && typeof price.amount==='number' && price.currency ? (price.amount/100).toFixed(2)+' '+price.currency : null,
+      image:(first.media?.[0] || p.media?.[0])?.url || undefined, variant_id:first.id,
+      availability_verified:false, availability_source:'shopify_ucp_catalog',
+      availability_note:'Listed in the public catalog. Loose-diamond stock is verified on the product page, not by this tool.'};
+  }
   const product={...p,variants:(p.variants||[]).map((v:any)=>({...v,available:v.availability?.available===true}))};
   const variant=selectVariant(product,query);
   if(!variant) return null;

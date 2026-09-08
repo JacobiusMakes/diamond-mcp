@@ -51,6 +51,13 @@ await test('loose-diamond carrier is excluded without a stock-service request',a
   globalThis.fetch=async()=>{throw new Error('must not fetch');};
   assert.equal(await checkedCatalogProduct({url:'https://stienhardt.com/products/carrier',title:'1 Carat Round Lab Grown Diamond',variants:[{sku:'MISSING'}]},env),null);
 });
+await test('loose-diamond carrier is returned as an unverified public listing only when asked, with no stock-service request',async()=>{
+  globalThis.fetch=async()=>{throw new Error('must not fetch');};
+  const item=await checkedCatalogProduct({id:'gid://shopify/Product/1',url:'https://stienhardt.com/products/carrier',title:'1 Carat Round Lab Grown Diamond',
+    variants:[{id:'gid://shopify/ProductVariant/2',sku:'M1',price:{amount:53900,currency:'USD'}}]},env,'1 carat round',true);
+  assert.equal(item.availability_verified,false);assert.equal(item.availability_source,'shopify_ucp_catalog');
+  assert.equal('available' in item,false);assert.equal(item.price,'539.00 USD');assert.equal(item.variant_id,'gid://shopify/ProductVariant/2');
+});
 await test('generic diamond product cannot be mistaken for verified jewelry',async()=>{
   globalThis.fetch=async()=>{throw new Error('must not fetch');};
   assert.equal(await checkedCatalogProduct({url:'https://stienhardt.com/products/diamonds',title:'Catalog item',variants:product.variants},env),null);
