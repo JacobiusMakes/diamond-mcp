@@ -19,4 +19,4 @@ Carat weight says nothing about a diamond's origin or its standing on the other 
 
 ## Related
 
-[the 4Cs](the-4cs.md), [cut grade](cut-grade.md), [color grade](color-grade.md), [clarity grade](clarity-grade.md), [round brilliant cut](round-brilliant-cut.md)
+[The 4Cs](the-4cs.md), [Cut grade](cut-grade.md), [Color grade](color-grade.md), [Clarity grade](clarity-grade.md), [round brilliant cut](round-brilliant-cut.md)

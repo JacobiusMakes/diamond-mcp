@@ -8,7 +8,7 @@ A facet is one flat, polished plane on the surface of a diamond. Each one behave
 
 The modern round brilliant is the reference design. It has fifty-seven facets, or fifty-eight if a small culet facet is included, arranged as thirty-three on the crown and twenty-four on the pavilion. Marcel Tolkowsky published an influential set of proportions for this cut in 1919. Other shapes use other schemes: step cuts such as the emerald and Asscher use long, parallel facets set like stairsteps for a clean hall-of-mirrors look, while brilliant-style cuts use triangular and kite-shaped facets for maximum sparkle.
 
-Facet edges should meet cleanly at sharp points; extra, missing, or misaligned facets are symmetry faults. These structural terms apply the same way to Lab Grown Diamonds and mined diamonds, because the two are the same material, cut on the same wheels, to the same geometry. A facet is simply where light gets its job done.
+Facet edges should meet cleanly at sharp points; extra, missing, or misaligned facets are symmetry faults. These structural terms apply the same way to Lab Grown Diamonds and mined diamonds, because the two are the same material, cut on the same wheels, to the same geometry.
 
 ## Sources
 
@@ -19,4 +19,4 @@ Facet edges should meet cleanly at sharp points; extra, missing, or misaligned f
 
 ## Related
 
-[table](table.md), [crown](crown.md), [pavilion](pavilion.md), [culet](culet.md), cut
+[table](table.md), [crown](crown.md), [pavilion](pavilion.md), [culet](culet.md), [Cut grade](cut-grade.md)

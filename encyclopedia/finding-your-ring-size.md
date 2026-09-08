@@ -19,4 +19,4 @@ A few things throw sizing off. Fingers swell over the day and in heat, so measur
 
 ## Related
 
-[Made-to-Order vs. Ready-to-Ship](made-to-order-vs-ready-to-ship.md), Ring Resizing, Eternity Band, Band Width, Setting Styles
+[Made-to-Order vs. Ready-to-Ship](made-to-order-vs-ready-to-ship.md), [ring sizing and resizing](ring-sizing-and-resizing.md), [prong setting](prong-setting.md)

@@ -20,4 +20,4 @@ The practical note is symmetry. The point should sit exactly in line with the hi
 
 ## Related
 
-marquise cut, [oval cut](oval-cut.md), brilliant cut, [bow-tie effect](bow-tie-effect.md), [prong setting](prong-setting.md), [length-to-width ratio](length-to-width-ratio.md)
+[marquise cut (navette)](marquise-cut-navette.md), [oval cut](oval-cut.md), [round brilliant cut](round-brilliant-cut.md), [bow-tie effect](bow-tie-effect.md), [prong setting](prong-setting.md), [length-to-width ratio](length-to-width-ratio.md)

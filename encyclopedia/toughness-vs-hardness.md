@@ -21,4 +21,4 @@ For a ring you actually wear, both properties matter. Hardness keeps the surface
 
 ## Related
 
-[Mohs hardness](mohs-hardness.md), [Diamond (the material)](diamond-the-material.md), Cleavage, [White sapphire](white-sapphire.md), Simulant vs synthetic
+[Mohs hardness](mohs-hardness.md), [Diamond (the material)](diamond-the-material.md), [White sapphire](white-sapphire.md), [Simulant vs synthetic (the distinction)](simulant-vs-synthetic-the-distinction.md)

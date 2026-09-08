@@ -18,4 +18,4 @@ You will often hear that the diamond is cursed. That part is a legend, a story p
 
 ## Related
 
-[The Cullinan diamond](the-cullinan-diamond.md), Fancy color diamonds, Blue diamonds (Type IIb, boron), Fluorescence and phosphorescence, [Carat](carat.md)
+[The Cullinan diamond](the-cullinan-diamond.md), [Fluorescence](fluorescence.md), [Carat](carat.md)

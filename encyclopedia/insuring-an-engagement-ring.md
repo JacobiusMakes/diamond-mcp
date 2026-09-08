@@ -19,4 +19,4 @@ A few practical questions to ask: Is loss covered or only theft and damage? Is t
 
 ## Related
 
-Appraisal, [Grading Report](grading-report.md), Verifying a Grading Report, [Annual Prong Check](annual-prong-check.md), Replacement Value
+[Grading report](grading-report.md), [Verifying a Grading Report (the 3-Step Check)](verifying-a-grading-report-the-3-step-check.md), [Annual Prong Check](annual-prong-check.md)

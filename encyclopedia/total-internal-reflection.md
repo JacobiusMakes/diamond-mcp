@@ -21,4 +21,4 @@ The physics is identical for mined and Lab Grown Diamonds, since both share the 
 
 ## Related
 
-[refractive index](refractive-index.md), critical angle, [brilliance](brilliance.md), [light performance](light-performance.md), [windowing and light leakage](windowing-and-light-leakage.md)
+[Refractive index](refractive-index.md), [Brilliance](brilliance.md), [Light performance](light-performance.md), [Windowing and light leakage](windowing-and-light-leakage.md)

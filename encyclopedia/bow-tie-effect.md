@@ -19,4 +19,4 @@ What varies is degree, and that's the useful thing to look at. A well-cut stone 
 
 ## Related
 
-[length-to-width ratio](length-to-width-ratio.md), [pavilion](pavilion.md), [oval cut](oval-cut.md), marquise cut, [Dutch Marquise](dutch-marquise.md)
+[length-to-width ratio](length-to-width-ratio.md), [pavilion](pavilion.md), [oval cut](oval-cut.md), [marquise cut (navette)](marquise-cut-navette.md), [Dutch Marquise](dutch-marquise.md)

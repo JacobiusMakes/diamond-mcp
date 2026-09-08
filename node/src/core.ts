@@ -473,6 +473,7 @@ function definePayload(entry: any, match: string): unknown {
     body: entry.body,
     sources: entry.sources,
     related: entry.related,
+    aliases: entry.aliases ?? [],
   };
 }
 
@@ -491,43 +492,44 @@ function toolDefine(args: Args): ToolResult {
     }
   }
 
-  // 2. Substring or alias match. A term substring in either direction wins;
-  //    failing that, a hit against the entry's related terms counts as an alias.
+  // 2. Exact alias match (each entry may list aliases), with a plain plural allowed.
   const queryNorm = encNorm(raw);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let best: any = null;
-  let bestScore = 0;
+  const querySingular = queryNorm.endsWith("s") ? queryNorm.slice(0, -1) : queryNorm;
   for (const e of entries) {
-    const termNorm = encNorm(e.term);
-    let score = 0;
-    if (queryNorm && termNorm.includes(queryNorm)) {
-      score = 70 + queryNorm.length;
-    } else if (queryNorm && queryNorm.includes(termNorm)) {
-      score = 40 + termNorm.length;
-    } else {
-      for (const related of e.related ?? []) {
-        const relatedNorm = encNorm(related);
-        if (
-          queryNorm &&
-          (queryNorm === relatedNorm ||
-            relatedNorm.includes(queryNorm) ||
-            queryNorm.includes(relatedNorm))
-        ) {
-          score = 30;
-          break;
-        }
+    for (const alias of e.aliases ?? []) {
+      const aliasNorm = encNorm(alias);
+      if (queryNorm === aliasNorm || querySingular === aliasNorm) {
+        return [definePayload(e, "alias"), false];
       }
     }
-    if (score > bestScore) {
-      bestScore = score;
+  }
+
+  // 3. Substring match, ranked: the query starts the term, then the query is a whole word of the
+  //    term, then any substring, then the term inside the query. Ties go to the shorter term.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let best: any = null;
+  let bestKey: [number, number] | null = null;
+  const escaped = queryNorm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  for (const e of entries) {
+    const termNorm = encNorm(e.term);
+    if (!queryNorm) break;
+    let rank: number;
+    if (termNorm.startsWith(queryNorm + " ") || termNorm === queryNorm) rank = 4;
+    else if (new RegExp("(^| )" + escaped + "( |$)").test(termNorm)) rank = 3;
+    else if (termNorm.includes(queryNorm)) rank = 2;
+    else if (queryNorm.includes(termNorm)) rank = 1;
+    else continue;
+    const key: [number, number] = [rank, -termNorm.length];
+    if (bestKey === null || key[0] > bestKey[0] || (key[0] === bestKey[0] && key[1] > bestKey[1])) {
+      bestKey = key;
       best = e;
     }
   }
   if (best !== null) {
-    return [definePayload(best, "alias"), false];
+    return [definePayload(best, "substring"), false];
   }
 
-  // 3. No match. Offer the three nearest terms as suggestions.
+  // 4. No match. Offer the three nearest terms as suggestions.
   const lowerToTerm = new Map<string, string>();
   for (const e of entries) {
     const k = String(e.term).toLowerCase();
@@ -699,8 +701,8 @@ export const TOOLS = [
     title: "Define a diamond or gemology term",
     description:
       "Look up a single diamond or gemology term in the encyclopedia of 90 " +
-      "adversarially fact-checked entries. Matches the term exactly (case " +
-      "insensitive), then by substring or related-term alias. Returns the full " +
+      "fact-checked and sourced entries. Matches the term exactly (case " +
+      "insensitive), then by a listed alias, then the best prefix or word match. Returns the full " +
       "entry: definition, body, sourced claims, and related terms. If nothing " +
       "matches, returns the three nearest term suggestions.",
     inputSchema: {

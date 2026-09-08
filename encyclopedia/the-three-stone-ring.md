@@ -19,4 +19,4 @@ Knowing the origin does not cheapen the idea. Plenty of couples like the framing
 
 ## Related
 
-[A Diamond Is Forever](a-diamond-is-forever.md), Engagement ring history, Solitaire setting, Side stones, [The 4Cs](the-4cs.md)
+[A Diamond Is Forever](a-diamond-is-forever.md), [solitaire](solitaire.md), [The 4Cs](the-4cs.md)

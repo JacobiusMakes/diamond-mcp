@@ -21,4 +21,4 @@ Brightness is a property of the diamond material and the cut, not of origin. A L
 
 ## Related
 
-[fire (dispersion)](fire-dispersion.md), [scintillation](scintillation.md), [total internal reflection](total-internal-reflection.md), [light performance](light-performance.md), [cut grade](cut-grade.md)
+[Fire (dispersion)](fire-dispersion.md), [Scintillation](scintillation.md), [Total internal reflection](total-internal-reflection.md), [Light performance](light-performance.md), [Cut grade](cut-grade.md)

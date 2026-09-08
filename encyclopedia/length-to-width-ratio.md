@@ -19,4 +19,4 @@ The ratio also shapes how a stone reads in wear. A more elongated outline can ma
 
 ## Related
 
-[bow-tie effect](bow-tie-effect.md), [Dutch Marquise](dutch-marquise.md), [oval cut](oval-cut.md), marquise cut, [girdle](girdle.md)
+[bow-tie effect](bow-tie-effect.md), [Dutch Marquise](dutch-marquise.md), [oval cut](oval-cut.md), [marquise cut (navette)](marquise-cut-navette.md), [girdle](girdle.md)

@@ -17,4 +17,4 @@ East-west works best with shapes that have a clear long axis: ovals, marquises, 
 
 ## Related
 
-[solitaire](solitaire.md), [half bezel](half-bezel.md), marquise cut, [emerald cut](emerald-cut.md), [Dutch Marquise](dutch-marquise.md), [oval cut](oval-cut.md)
+[solitaire](solitaire.md), [half bezel](half-bezel.md), [marquise cut (navette)](marquise-cut-navette.md), [emerald cut](emerald-cut.md), [Dutch Marquise](dutch-marquise.md), [oval cut](oval-cut.md)

@@ -19,4 +19,4 @@ When a culet facet is present, it is graded by size, on a scale that runs from v
 
 ## Related
 
-[pavilion](pavilion.md), [girdle](girdle.md), [facet](facet.md), [old European cut](old-european-cut.md), [crown](crown.md)
+[pavilion](pavilion.md), [girdle](girdle.md), [facet](facet.md), [old european cut](old-european-cut.md), [crown](crown.md)

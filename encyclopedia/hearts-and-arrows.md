@@ -21,4 +21,4 @@ It helps to be precise about what the pattern does and does not tell you. Excell
 
 ## Related
 
-[scintillation](scintillation.md), [light performance](light-performance.md), [cut grade](cut-grade.md), optical symmetry, round brilliant
+[Scintillation](scintillation.md), [Light performance](light-performance.md), [Cut grade](cut-grade.md), [round brilliant cut](round-brilliant-cut.md)

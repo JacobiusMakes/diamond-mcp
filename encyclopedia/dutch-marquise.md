@@ -21,4 +21,4 @@ One practical note: because it is a trade name, different sellers may apply the 
 
 ## Related
 
-[hexagon cut](hexagon-cut.md), marquise cut, navette, [length-to-width ratio](length-to-width-ratio.md), IGI report
+[hexagon cut](hexagon-cut.md), [marquise cut (navette)](marquise-cut-navette.md), [length-to-width ratio](length-to-width-ratio.md), [Grading report](grading-report.md)

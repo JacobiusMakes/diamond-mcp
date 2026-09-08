@@ -19,4 +19,4 @@ Many jewelers do this inspection for free, and some jewelry insurance policies e
 
 ## Related
 
-[Prong Setting](prong-setting.md), [Cleaning a Diamond Ring at Home](cleaning-a-diamond-ring-at-home.md), [Insuring an Engagement Ring](insuring-an-engagement-ring.md), Ultrasonic Cleaners, Setting Styles
+[prong setting](prong-setting.md), [Cleaning a Diamond Ring at Home](cleaning-a-diamond-ring-at-home.md), [Insuring an Engagement Ring](insuring-an-engagement-ring.md), [Ultrasonic Cleaners (When to Be Cautious)](ultrasonic-cleaners-when-to-be-cautious.md)

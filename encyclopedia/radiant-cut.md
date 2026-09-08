@@ -2,9 +2,9 @@
 
 *Cuts and shapes*
 
-**A radiant cut is a rectangular or square diamond with cut corners and brilliant-style faceting. It combines the trimmed corners of an emerald cut with the sparkling, triangular-facet interior of a round, which makes it a mixed cut.**
+**A radiant cut is a rectangular or square diamond with cut corners and a brilliant-cut pavilion; GIA describes its crown facets as step cut. Mixing step and brilliant faceting on one stone is what makes it a mixed cut.**
 
-The radiant is the bridge between the two main faceting families. Its outline looks like an emerald cut, a rectangle or square with the corners cropped off, but its interior is faceted in the brilliant style, with many small triangular and kite facets instead of long step-cut rows. That combination is why it is called a mixed cut, and it is what gives a radiant far more sparkle than an emerald or Asscher of the same outline.
+The radiant is the bridge between the two main faceting families. Its outline looks like an emerald cut, a rectangle or square with the corners cropped off, but its pavilion is faceted in the brilliant style, with many small triangular and kite facets instead of long step-cut rows, while GIA describes the crown facets as step cut. That mix is why it is called a mixed cut, and the brilliant pavilion is what gives a radiant far more sparkle than an emerald or Asscher of the same outline.
 
 Face-up, a radiant is lively and bright, and the busy faceting has a useful side effect: it breaks light up so thoroughly that it tends to disguise body color and small inclusions better than an open step cut does. A radiant can therefore look white and clean at a slightly lower color or clarity grade. Radiants come in square and elongated versions, and the elongated ones flatter the finger the way any stretched shape does.
 
@@ -19,4 +19,4 @@ One honest caveat: radiant is a broad label. The faceting pattern and how chunky
 
 ## Related
 
-[emerald cut](emerald-cut.md), [princess cut](princess-cut.md), [cushion cut](cushion-cut.md), brilliant cut, mixed cut, [length-to-width ratio](length-to-width-ratio.md)
+[emerald cut](emerald-cut.md), [princess cut](princess-cut.md), [cushion cut](cushion-cut.md), [round brilliant cut](round-brilliant-cut.md), [length-to-width ratio](length-to-width-ratio.md)

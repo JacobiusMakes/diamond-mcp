@@ -16,4 +16,4 @@ The appeal is timelessness and clarity. A solitaire never looks dated, it is eas
 
 ## Related
 
-[prong setting](prong-setting.md), [bezel setting](bezel-setting.md), [halo](halo.md), [cathedral setting](cathedral-setting.md), round brilliant, [Dutch Marquise](dutch-marquise.md)
+[prong setting](prong-setting.md), [bezel setting](bezel-setting.md), [halo](halo.md), [cathedral setting](cathedral-setting.md), [round brilliant cut](round-brilliant-cut.md), [Dutch Marquise](dutch-marquise.md)

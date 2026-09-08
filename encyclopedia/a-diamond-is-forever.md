@@ -17,4 +17,4 @@ It helps to remember that the slogan is exactly that, a slogan, and a very good 
 
 ## Related
 
-[The months-of-salary rule](the-months-of-salary-rule.md), [The 4Cs](the-4cs.md), [Round brilliant cut](round-brilliant-cut.md), Engagement ring history, Lab Grown Diamonds
+[The months-of-salary rule](the-months-of-salary-rule.md), [The 4Cs](the-4cs.md), [round brilliant cut](round-brilliant-cut.md), [Lab Grown Diamond](lab-grown-diamond.md)

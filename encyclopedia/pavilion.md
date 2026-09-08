@@ -19,4 +19,4 @@ On a standard round brilliant the pavilion carries twenty-four facets, twenty-fi
 
 ## Related
 
-[crown](crown.md), [girdle](girdle.md), [culet](culet.md), pavilion angle, [depth percentage](depth-percentage.md)
+[crown](crown.md), [girdle](girdle.md), [culet](culet.md), [depth percentage](depth-percentage.md)

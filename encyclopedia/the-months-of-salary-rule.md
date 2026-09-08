@@ -10,11 +10,10 @@ Knowing this should take pressure off, not add it. The rule was never etiquette 
 
 ## Sources
 
-- The guideline to spend a fixed share of salary on an engagement ring originated in De Beers advertising created by N.W. Ayer, from the late 1930s onward, rather than in older tradition or etiquette. (Source: Task anchor (months-of-salary guideline, De Beers / N.W. Ayer advertising, 1930s onward), 1930s.)
 - A one-month-salary figure appeared in the mid twentieth century, and "two months' salary" became the familiar United States benchmark by the 1980s. (Source: De Beers advertising histories (press and trade accounts), 1980s.)
 - De Beers went to the N.W. Ayer agency in the late 1930s to make diamond engagement rings an indispensable part of American couples' lives; the later De Beers ad line asked how else two months' salary could last forever. (Source: NPR, Here & Now (WBUR), "The Ad-Woman Who Made Diamonds 'Forever'" (interview with J. Courtney Sullivan), 2013-07-26. https://www.npr.org/transcripts/205839105)
 - De Beers advertising initially suggested one month's salary and by the 1980s asked how to make two months' salary last forever. (Source: Al Jazeera, George Charles Darley, "How the diamond engagement ring was invented and sold around the world", 2025-09-14. https://www.aljazeera.com/features/2025/9/14/how-the-diamond-engagement-ring-was-invented-and-sold-around-the-world)
 
 ## Related
 
-[A Diamond Is Forever](a-diamond-is-forever.md), [The 4Cs](the-4cs.md), [Cut grade](cut-grade.md), Engagement ring history, Lab Grown Diamonds
+[A Diamond Is Forever](a-diamond-is-forever.md), [The 4Cs](the-4cs.md), [Cut grade](cut-grade.md), [Lab Grown Diamond](lab-grown-diamond.md)

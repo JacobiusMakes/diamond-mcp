@@ -20,4 +20,4 @@ The honest practical note is that each old mine cut is an individual. These ston
 
 ## Related
 
-[old european cut](old-european-cut.md), [cushion cut](cushion-cut.md), [culet](culet.md), brilliant cut, [crown](crown.md), [table](table.md)
+[old european cut](old-european-cut.md), [cushion cut](cushion-cut.md), [culet](culet.md), [round brilliant cut](round-brilliant-cut.md), [crown](crown.md), [table](table.md)

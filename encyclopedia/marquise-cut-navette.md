@@ -21,4 +21,4 @@ The practical note is orientation and symmetry: the two points must line up exac
 
 ## Related
 
-navette, brilliant cut, [pear cut](pear-cut.md), [bow-tie effect](bow-tie-effect.md), [prong setting](prong-setting.md), [Dutch Marquise](dutch-marquise.md)
+[round brilliant cut](round-brilliant-cut.md), [pear cut](pear-cut.md), [bow-tie effect](bow-tie-effect.md), [prong setting](prong-setting.md), [Dutch Marquise](dutch-marquise.md)

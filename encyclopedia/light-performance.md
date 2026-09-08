@@ -14,11 +14,11 @@ Light performance is a matter of cut and the diamond material, so it is identica
 
 ## Sources
 
-- GIA's round brilliant cut grading system (released January 2006) assigns a cut grade from Excellent to Poor based on proportions and on brightness, fire, and scintillation. (Source: GIA (Gemological Institute of America), Diamond Cut grading system, gia.edu / 4cs.gia.edu, 2006-01.)
+- GIA's round brilliant cut grading system (released January 2006) assigns a cut grade from Excellent to Poor based on proportions and on brightness, fire, and scintillation. (Source: GIA (Gemological Institute of America), Diamond Cut grading system, gia.edu / 4cs.gia.edu, 2006-01. https://4cs.gia.edu/en-us/diamond-cut/)
 - The American Gem Society Laboratories launched a cut grade built on a ray-traced light performance model in 2005, scoring light return, leakage, dispersion, and contrast; its ASET (Angular Spectrum Evaluation Tool) maps where a stone gathers light. (Source: AGS Laboratories (American Gem Society); PriceScope education, 2005.)
 - AGS Laboratories closed at the end of 2022 and merged into GIA; GIA began offering AGS Ideal light performance reports as a supplement to its diamond reports in January 2023. (Source: National Jeweler; JCK Online (AGS Laboratories to close, merge with GIA), 2022.)
-- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018.)
+- Under the U.S. FTC Jewelry Guides, a Lab Grown Diamond is a real diamond, chemically and physically the same material as a mined diamond. (Source: U.S. Federal Trade Commission, revised Jewelry Guides, 2018-07-24. https://www.law.cornell.edu/cfr/text/16/23.12)
 
 ## Related
 
-[brilliance](brilliance.md), [fire (dispersion)](fire-dispersion.md), [scintillation](scintillation.md), [windowing and light leakage](windowing-and-light-leakage.md), [cut grade](cut-grade.md)
+[Brilliance](brilliance.md), [Fire (dispersion)](fire-dispersion.md), [Scintillation](scintillation.md), [Windowing and light leakage](windowing-and-light-leakage.md), [Cut grade](cut-grade.md)

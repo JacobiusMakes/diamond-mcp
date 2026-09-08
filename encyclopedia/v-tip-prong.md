@@ -17,4 +17,4 @@ You will see V-tips on the pointed ends of marquise and pear cuts, on the tip of
 
 ## Related
 
-[prong setting](prong-setting.md), marquise cut, [pear cut](pear-cut.md), [princess cut](princess-cut.md), [Dutch Marquise](dutch-marquise.md), heart cut
+[prong setting](prong-setting.md), [marquise cut (navette)](marquise-cut-navette.md), [pear cut](pear-cut.md), [princess cut](princess-cut.md), [Dutch Marquise](dutch-marquise.md)

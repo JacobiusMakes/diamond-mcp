@@ -18,4 +18,4 @@ Eye-clean isn't printed on a grading report, because it depends on the observer,
 
 ## Related
 
-[clarity grade](clarity-grade.md), [the 4Cs](the-4cs.md), inclusion, [emerald cut](emerald-cut.md), [grading report](grading-report.md)
+[Clarity grade](clarity-grade.md), [The 4Cs](the-4cs.md), [Inclusions in Lab Grown Diamonds](inclusions-in-lab-grown-diamonds.md), [emerald cut](emerald-cut.md), [Grading report](grading-report.md)

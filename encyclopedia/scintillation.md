@@ -21,4 +21,4 @@ GIA's cut grading system, released in January 2006, treats scintillation as one 
 
 ## Related
 
-[brilliance](brilliance.md), [fire (dispersion)](fire-dispersion.md), [hearts and arrows](hearts-and-arrows.md), [light performance](light-performance.md), [cut grade](cut-grade.md)
+[Brilliance](brilliance.md), [Fire (dispersion)](fire-dispersion.md), [Hearts and arrows](hearts-and-arrows.md), [Light performance](light-performance.md), [Cut grade](cut-grade.md)

@@ -19,4 +19,4 @@ Flatness and placement matter too. The table should sit level and centered over 
 
 ## Related
 
-[crown](crown.md), [table percentage](table-percentage.md), [facet](facet.md), [girdle](girdle.md), [brilliance](brilliance.md)
+[crown](crown.md), [table percentage](table-percentage.md), [facet](facet.md), [girdle](girdle.md), [Brilliance](brilliance.md)

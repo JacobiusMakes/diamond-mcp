@@ -1,6 +1,6 @@
 # Diamond & Gemology Encyclopedia
 
-90 adversarially fact-checked entries across 9 domains. Every historical or numeric claim carries a source and a date.
+90 fact-checked and sourced entries across 9 domains. Every historical or numeric claim carries a source and a date.
 
 Machine-readable copy: [`../encyclopedia.json`](../encyclopedia.json). Queryable in the MCP server via the `define` and `search_encyclopedia` tools.
 

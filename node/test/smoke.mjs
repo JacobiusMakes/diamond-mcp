@@ -246,6 +246,11 @@ async function main() {
     "define Dutch Marquise is an exact match",
     resp.result.isError === false && p.found === true && p.match === "exact",
   );
+  for (const [q, want] of [["marquise", "marquise cut (navette)"], ["four Cs", "The 4Cs"], ["Lab Grown Diamonds", "Lab Grown Diamond"]]) {
+    const ra = await call("define", { term: q });
+    const pa = textPayload(ra);
+    ok("define " + q + " resolves to " + want, pa.term === want && pa.match === "alias");
+  }
   ok(
     "define Dutch Marquise definition first sentence is byte-exact",
     p.definition.split(". ")[0] + "." === "A Dutch Marquise is an elongated hexagonal cut diamond.",

@@ -40,7 +40,7 @@ for (const e of entries) writeFileSync(join(outDir, slug(e.term) + ".md"), rende
 const cats = [...CATEGORY_ORDER, ...[...new Set(entries.map((e) => e.category))].filter((c) => !CATEGORY_ORDER.includes(c))];
 const index = [
   "# Diamond & Gemology Encyclopedia", "",
-  `${entries.length} adversarially fact-checked entries across ${cats.filter((c) => entries.some((e) => e.category === c)).length} domains. Every historical or numeric claim carries a source and a date.`, "",
+  `${entries.length} fact-checked and sourced entries across ${cats.filter((c) => entries.some((e) => e.category === c)).length} domains. Every historical or numeric claim carries a source and a date.`, "",
   "Machine-readable copy: [`../encyclopedia.json`](../encyclopedia.json). Queryable in the MCP server via the `define` and `search_encyclopedia` tools.", "",
   `Updated ${data.updated}. Maintained by ${data.maintainer || "Stienhardt"}. License: ${data.license || "MIT"}.`, "",
 ];

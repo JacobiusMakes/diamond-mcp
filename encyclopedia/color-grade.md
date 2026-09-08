@@ -10,15 +10,16 @@ The scale famously begins at D rather than A. When GIA built its modern system i
 
 Most differences of a single grade are invisible once a diamond is set, especially across the D-to-J range, and they get harder to see in warmer metals like yellow or rose gold. This is why many buyers choose a near-colorless grade that faces up white to the eye rather than a top grade whose advantage only a grader beside a masterstone would notice.
 
-Diamonds with obvious, saturated color fall outside this scale entirely and are graded as fancy-color stones on a separate system. Lab Grown Diamonds are color-graded on the same D-to-Z scale, and IGI still issues full 4C reports that state the color grade for them.
+Diamonds with obvious, saturated color fall outside this scale entirely and are graded as fancy-color stones on a separate system. IGI still color-grades Lab Grown Diamonds on this same D-to-Z scale and issues full 4C reports for them; GIA stopped doing so on October 1, 2025, and now describes them only as Premium or Standard.
 
 ## Sources
 
 - GIA's D-to-Z color scale was introduced as part of Richard Liddicoat's International Diamond Grading System in 1953, and the scale starts at D to avoid confusion with earlier trade systems that had used A, B and C. (Source: Gemological Institute of America (GIA), 1953.)
-- IGI still issues full 4C grading reports, including a color grade, for Lab Grown Diamonds. (Source: International Gemological Institute (IGI), 2026.)
+- IGI still issues full 4C grading reports, including a color grade, for Lab Grown Diamonds. (Source: IGI press release, IGI Reaffirms Commitment to 4Cs Grading for all Diamonds, 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
 - GIA introduced the D-to-Z color scale in 1953 under Richard T. Liddicoat and chose D for the top grade; the same page dates the GIA cut grading system to 2006. (Source: GIA 4Cs blog, The History of the 4Cs of Diamond Quality, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/history-4cs-diamond-quality/)
 - The scale starts at D because earlier trade systems had used A, B and C (and numerals) loosely, and GIA wanted no association with them. (Source: GIA, GIA 4Cs Color D-to-Z, accessed 2026-09-08. https://www.gia.edu/gia-about/4cs-color)
+- From October 1, 2025 GIA describes D-to-Z Lab Grown Diamonds as Premium or Standard instead of issuing the color and clarity nomenclature created for natural diamonds. (Source: GIA press release, GIA Launches Updated Laboratory-Grown Diamond Services October 1, 2025-08-26. https://www.gia.edu/gia-news-press/updated-laboratory-grown-diamond-services-to-launch-october-1)
 
 ## Related
 
-[the 4Cs](the-4cs.md), [clarity grade](clarity-grade.md), [fluorescence](fluorescence.md), fancy color diamond, [grading report](grading-report.md)
+[The 4Cs](the-4cs.md), [Clarity grade](clarity-grade.md), [Fluorescence](fluorescence.md), [Grading report](grading-report.md)

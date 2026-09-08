@@ -21,4 +21,4 @@ The practical note is that hexagon is a shape, not a standardized cut with fixed
 
 ## Related
 
-[Dutch Marquise](dutch-marquise.md), [emerald cut](emerald-cut.md), step cut, [bezel setting](bezel-setting.md), marquise cut, brilliant cut
+[Dutch Marquise](dutch-marquise.md), [emerald cut](emerald-cut.md), [bezel setting](bezel-setting.md), [marquise cut (navette)](marquise-cut-navette.md), [round brilliant cut](round-brilliant-cut.md)

@@ -19,4 +19,4 @@ The honest practical note is that cushion covers a wide range of looks. A chunky
 
 ## Related
 
-[elongated cushion](elongated-cushion.md), [old mine cut](old-mine-cut.md), brilliant cut, [princess cut](princess-cut.md), crushed-ice faceting, [length-to-width ratio](length-to-width-ratio.md)
+[elongated cushion](elongated-cushion.md), [old mine cut](old-mine-cut.md), [round brilliant cut](round-brilliant-cut.md), [princess cut](princess-cut.md), [length-to-width ratio](length-to-width-ratio.md)

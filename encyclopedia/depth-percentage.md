@@ -19,4 +19,4 @@ What counts as favorable depends on the shape and on the grading lab's cut stand
 
 ## Related
 
-[table percentage](table-percentage.md), [girdle](girdle.md), [pavilion](pavilion.md), cut, crown angle
+[table percentage](table-percentage.md), [girdle](girdle.md), [pavilion](pavilion.md), [Cut grade](cut-grade.md), [crown](crown.md)

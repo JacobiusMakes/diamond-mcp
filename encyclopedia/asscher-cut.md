@@ -21,4 +21,4 @@ On durability the cut corners work in your favor, removing the sharp ninety-degr
 
 ## Related
 
-[emerald cut](emerald-cut.md), step cut, [princess cut](princess-cut.md), [cushion cut](cushion-cut.md), [table](table.md), four Cs
+[emerald cut](emerald-cut.md), [princess cut](princess-cut.md), [cushion cut](cushion-cut.md), [table](table.md), [The 4Cs](the-4cs.md)

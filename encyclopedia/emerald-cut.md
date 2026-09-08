@@ -21,4 +21,4 @@ On durability the emerald cut is well behaved: its beveled corners remove the sh
 
 ## Related
 
-step cut, [asscher cut](asscher-cut.md), [radiant cut](radiant-cut.md), [table](table.md), four Cs, baguette
+[asscher cut](asscher-cut.md), [radiant cut](radiant-cut.md), [table](table.md), [The 4Cs](the-4cs.md)

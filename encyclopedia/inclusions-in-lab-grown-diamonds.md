@@ -21,4 +21,4 @@ It's worth saying plainly: inclusions aren't flaws to be nervous about. They're 
 
 ## Related
 
-[HPHT Growth](hpht-growth.md), [CVD Growth](cvd-growth.md), [Lab Grown Diamond](lab-grown-diamond.md), Diamond Clarity, [The 4Cs](the-4cs.md), [Grading Report](grading-report.md)
+[HPHT Growth](hpht-growth.md), [CVD Growth](cvd-growth.md), [Lab Grown Diamond](lab-grown-diamond.md), [Clarity grade](clarity-grade.md), [The 4Cs](the-4cs.md), [Grading report](grading-report.md)

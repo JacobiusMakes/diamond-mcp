@@ -20,4 +20,4 @@ The practical note is that the moval is a fancy, less common shape, so selection
 
 ## Related
 
-[oval cut](oval-cut.md), marquise cut, brilliant cut, [bow-tie effect](bow-tie-effect.md), [length-to-width ratio](length-to-width-ratio.md), [pear cut](pear-cut.md)
+[oval cut](oval-cut.md), [marquise cut (navette)](marquise-cut-navette.md), [round brilliant cut](round-brilliant-cut.md), [bow-tie effect](bow-tie-effect.md), [length-to-width ratio](length-to-width-ratio.md), [pear cut](pear-cut.md)

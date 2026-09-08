@@ -19,4 +19,4 @@ A gentle cleaning every week or two keeps a ring bright. Diamond itself is the h
 
 ## Related
 
-Ultrasonic Cleaners, [Annual Prong Check](annual-prong-check.md), Mohs Scale, [Prong Setting](prong-setting.md), Diamond Durability
+[Ultrasonic Cleaners (When to Be Cautious)](ultrasonic-cleaners-when-to-be-cautious.md), [Annual Prong Check](annual-prong-check.md), [Mohs hardness](mohs-hardness.md), [prong setting](prong-setting.md), [Toughness vs hardness](toughness-vs-hardness.md)

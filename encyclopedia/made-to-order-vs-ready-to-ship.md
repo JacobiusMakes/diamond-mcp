@@ -21,4 +21,4 @@ Which one fits depends on your priorities. If you know exactly what you want, ca
 
 ## Related
 
-[Finding Your Ring Size](finding-your-ring-size.md), The Eye-Clean Buying Strategy, Setting Styles, Ring Resizing, [Grading Report](grading-report.md)
+[Finding Your Ring Size](finding-your-ring-size.md), [The Eye-Clean Buying Strategy (Prioritize Cut)](the-eye-clean-buying-strategy-prioritize-cut.md), [prong setting](prong-setting.md), [ring sizing and resizing](ring-sizing-and-resizing.md), [Grading report](grading-report.md)

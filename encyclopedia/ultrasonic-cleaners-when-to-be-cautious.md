@@ -19,4 +19,4 @@ Because Lab Grown Diamonds are grown crystals with the same physical properties 
 
 ## Related
 
-[Cleaning a Diamond Ring at Home](cleaning-a-diamond-ring-at-home.md), [Annual Prong Check](annual-prong-check.md), Feather (Inclusion), Fracture Filling, [Prong Setting](prong-setting.md)
+[Cleaning a Diamond Ring at Home](cleaning-a-diamond-ring-at-home.md), [Annual Prong Check](annual-prong-check.md), [Clarity grade](clarity-grade.md), [prong setting](prong-setting.md)

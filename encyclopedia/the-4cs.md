@@ -21,4 +21,4 @@ The 4Cs apply the same way to Lab Grown Diamonds, which are graded on the identi
 
 ## Related
 
-[carat](carat.md), [color grade](color-grade.md), [clarity grade](clarity-grade.md), [cut grade](cut-grade.md), [grading report](grading-report.md), [certification labs](certification-labs.md)
+[Carat](carat.md), [Color grade](color-grade.md), [Clarity grade](clarity-grade.md), [Cut grade](cut-grade.md), [Grading report](grading-report.md), [Certification labs](certification-labs.md)

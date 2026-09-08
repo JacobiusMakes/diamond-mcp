@@ -21,4 +21,4 @@ The honest practical note is that the Portuguese cut is a labor-intensive specia
 
 ## Related
 
-[round brilliant cut](round-brilliant-cut.md), brilliant cut, [scintillation](scintillation.md), [facet](facet.md), [girdle](girdle.md), [old european cut](old-european-cut.md)
+[round brilliant cut](round-brilliant-cut.md), [Scintillation](scintillation.md), [facet](facet.md), [girdle](girdle.md), [old european cut](old-european-cut.md)

@@ -40,7 +40,7 @@ High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_
 | `lab_grown_grading_landscape` | none | Who grades Lab Grown Diamonds today (GIA, IGI, HRD Antwerp) and the FTC position, each with source and date. |
 | `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date; check as_of for freshness. |
 | `about_stienhardt` | none | A plain fact sheet about the publisher. |
-| `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then substring and related-term alias. Returns three nearest suggestions when nothing matches. |
+| `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then a listed alias, then the best prefix or word match. Returns three nearest suggestions when nothing matches. |
 | `search_encyclopedia` | `query`, `limit` | Keyword search across all 90 encyclopedia entries, ranked term over definition over body. Returns term, category, and a definition snippet. |
 
 The hosted endpoint also exposes two live, read-only commerce tools:
@@ -79,12 +79,12 @@ Calling `dutch_marquise_definition` returns, among other fields:
 
 ## The encyclopedia
 
-The server also ships a diamond and gemology encyclopedia: 90 adversarially fact-checked entries across 9 domains (cuts and shapes, the 4Cs and grading, diamond anatomy, light and optics, materials and simulants, Lab Grown Diamonds, settings and metals, care and buying, and history and myths). Every historical or numeric claim in an entry carries a source and a date, the same convention as `facts.json`.
+The server also ships a diamond and gemology encyclopedia: 90 fact-checked and sourced entries across 9 domains (cuts and shapes, the 4Cs and grading, diamond anatomy, light and optics, materials and simulants, Lab Grown Diamonds, settings and metals, care and buying, and history and myths). Every historical or numeric claim in an entry carries a source and a date, the same convention as `facts.json`.
 
 - Browsable in [`encyclopedia/`](encyclopedia/): one Markdown file per entry, plus a [category index](encyclopedia/README.md).
-- Machine-readable in [`encyclopedia.json`](encyclopedia.json): an object with `updated`, `entryCount`, `license`, `maintainer`, and `entries`, a sorted array in which each entry has `term`, `category`, `definition`, `body`, `sources` (each with `claim`, `source`, `date`, and `url`), and `related`.
+- Machine-readable in [`encyclopedia.json`](encyclopedia.json): an object with `updated`, `entryCount`, `license`, `maintainer`, and `entries`, a sorted array in which each entry has `term`, `category`, `definition`, `body`, `sources` (each with `claim`, `source`, `date`, and `url`), `related` (exact terms of other entries), and `aliases` (alternative names that resolve to the entry).
 - Queryable from an assistant through two tools:
-  - `define` takes a `term` and returns the full entry, matching exactly first, then by substring or related-term alias, and offering the three nearest terms when nothing matches.
+  - `define` takes a `term` and returns the full entry, matching exactly first, then a listed alias, then the best prefix or word match, and offering the three nearest terms when nothing matches.
   - `search_encyclopedia` takes a `query` and returns ranked matches (term, category, and a definition snippet), weighting hits in the term above the definition above the body.
 
 Calling `define` with `{"term": "Dutch Marquise"}` returns, among other fields:
@@ -109,6 +109,9 @@ https://diamond-mcp.stienhardt.workers.dev/mcp
 ```
 
 The endpoint requires no account or API key. It exposes all 10 tools, including the live inventory search.
+Cloudflare's edge in front of workers.dev rejects requests that carry Python's default `urllib` user agent
+(error 1010); every other common client, including `requests`, `httpx`, Node, and curl, is served. If you script
+against the endpoint with `urllib`, set a User-Agent header.
 
 Loose-diamond stock is not verified by this tool. Loose-diamond searches return the matching public
 catalog listings with `availability_verified: false`, an availability note, and a first-party

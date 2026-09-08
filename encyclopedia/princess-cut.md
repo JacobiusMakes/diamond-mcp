@@ -21,4 +21,4 @@ The practical note is to make sure the setting genuinely protects the corners, s
 
 ## Related
 
-brilliant cut, [radiant cut](radiant-cut.md), [cushion cut](cushion-cut.md), [Mohs hardness](mohs-hardness.md), [prong setting](prong-setting.md), four Cs
+[round brilliant cut](round-brilliant-cut.md), [radiant cut](radiant-cut.md), [cushion cut](cushion-cut.md), [Mohs hardness](mohs-hardness.md), [prong setting](prong-setting.md), [The 4Cs](the-4cs.md)

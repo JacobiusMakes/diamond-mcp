@@ -18,4 +18,4 @@ Fresh out of the chamber, CVD diamonds sometimes carry a faint brown or gray tin
 
 ## Related
 
-[HPHT Growth](hpht-growth.md), [Post-Growth Treatment (HPHT Annealing)](post-growth-treatment-hpht-annealing.md), [Lab Grown Diamond](lab-grown-diamond.md), [Inclusions in Lab Grown Diamonds](inclusions-in-lab-grown-diamonds.md), Diamond Type IIa
+[HPHT Growth](hpht-growth.md), [Post-Growth Treatment (HPHT Annealing)](post-growth-treatment-hpht-annealing.md), [Lab Grown Diamond](lab-grown-diamond.md), [Inclusions in Lab Grown Diamonds](inclusions-in-lab-grown-diamonds.md)

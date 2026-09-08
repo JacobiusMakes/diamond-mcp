@@ -20,4 +20,4 @@ Lab Grown Diamonds are graded on the same clarity scale and assessed the same wa
 
 ## Related
 
-[the 4Cs](the-4cs.md), [eye-clean](eye-clean.md), inclusion, [laser inscription](laser-inscription.md), [grading report](grading-report.md)
+[The 4Cs](the-4cs.md), [Eye-clean](eye-clean.md), [Inclusions in Lab Grown Diamonds](inclusions-in-lab-grown-diamonds.md), [Laser inscription](laser-inscription.md), [Grading report](grading-report.md)

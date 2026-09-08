@@ -19,4 +19,4 @@ Where white sapphire differs from diamond is in the way it handles light. Its re
 
 ## Related
 
-Corundum, [Diamond (the material)](diamond-the-material.md), [Cubic zirconia](cubic-zirconia.md), [Moissanite](moissanite.md), Simulant vs synthetic
+[Diamond (the material)](diamond-the-material.md), [Cubic zirconia](cubic-zirconia.md), [Moissanite](moissanite.md), [Simulant vs synthetic (the distinction)](simulant-vs-synthetic-the-distinction.md)

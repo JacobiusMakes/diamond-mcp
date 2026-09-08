@@ -19,4 +19,4 @@ In practice, table percentage is always read together with depth percentage, cro
 
 ## Related
 
-[table](table.md), [depth percentage](depth-percentage.md), [crown](crown.md), [facet](facet.md), cut
+[table](table.md), [depth percentage](depth-percentage.md), [crown](crown.md), [facet](facet.md), [Cut grade](cut-grade.md)

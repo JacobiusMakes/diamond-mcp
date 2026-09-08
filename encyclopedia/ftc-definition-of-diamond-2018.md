@@ -21,4 +21,4 @@ This is why "a Lab Grown Diamond is a real diamond" is a statement of regulatory
 
 ## Related
 
-[Lab Grown Diamond](lab-grown-diamond.md), [Lab-Grown vs Mined Diamonds](lab-grown-vs-mined-diamonds.md), [Grading Report](grading-report.md), Diamond Simulant, GIA vs IGI Grading
+[Lab Grown Diamond](lab-grown-diamond.md), [Lab-Grown vs Mined Diamonds](lab-grown-vs-mined-diamonds.md), [Grading report](grading-report.md), [Simulant vs synthetic (the distinction)](simulant-vs-synthetic-the-distinction.md), [Certification labs](certification-labs.md)

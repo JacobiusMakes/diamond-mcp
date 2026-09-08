@@ -19,4 +19,4 @@ The honest practical note is cost. A round brilliant uses a smaller share of the
 
 ## Related
 
-brilliant cut, [oval cut](oval-cut.md), [old european cut](old-european-cut.md), [facet](facet.md), [culet](culet.md), [Lab Grown Diamond](lab-grown-diamond.md)
+[oval cut](oval-cut.md), [old european cut](old-european-cut.md), [facet](facet.md), [culet](culet.md), [Lab Grown Diamond](lab-grown-diamond.md)

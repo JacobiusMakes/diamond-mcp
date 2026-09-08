@@ -19,4 +19,4 @@ Compared with diamond, CZ is softer, about 8 to 8.5 on the Mohs scale versus 10,
 
 ## Related
 
-[Diamond (the material)](diamond-the-material.md), [Moissanite](moissanite.md), [White sapphire](white-sapphire.md), Simulant vs synthetic, [Mohs hardness](mohs-hardness.md)
+[Diamond (the material)](diamond-the-material.md), [Moissanite](moissanite.md), [White sapphire](white-sapphire.md), [Simulant vs synthetic (the distinction)](simulant-vs-synthetic-the-distinction.md), [Mohs hardness](mohs-hardness.md)

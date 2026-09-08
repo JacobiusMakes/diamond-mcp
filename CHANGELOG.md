@@ -23,6 +23,16 @@
   publisher facts say in-person viewings are by appointment; the hexagon entry states the brilliant versus step
   faceting distinction; "open geometry specification" replaces "standard".
 - `search_inventory` applies the shape and carat parsed from a loose-diamond query to the listings it returns.
+- Encyclopedia: every `related` value now names an existing entry (210 cross-references remapped or dropped),
+  entries carry an `aliases` list, and `define` resolves an exact term, then a listed alias, then the best
+  prefix or word match; the old related-term fallback that sent "marquise" to the Dutch Marquise entry is
+  gone. Corrections: Moissan (1904) identified silicon carbide and Kunz (1905) named it; the oval bow-tie is
+  an obstruction effect per GIA; the radiant has step-cut crown facets over a brilliant pavilion per GIA;
+  bezel, elongated cushion, certification labs, cut, color, grading report, laser inscription, post-growth
+  treatment, and cloud-or-fade entries reworded to match their sources; GIA's 2025-10-01 change is sourced
+  wherever it is stated; Federal Register page and CFR section numbers corrected; internal scaffolding
+  labels removed from four source entries. The browsable Markdown is generated from the JSON.
+- A GitHub Actions workflow now runs the Python (3.9, 3.12) and Node (20, 24) smoke tests on every push.
 - Desktop bundle 0.2.5 built from this tree.
 
 ## 0.2.4 (2026-09-08)
@@ -32,7 +42,7 @@
   90 to 125 miles, HPHT wording, cubic zirconia in 1976, CVD post-growth treatment, refractive index 2.42).
 - Price index: StoneAlgo reading refreshed to 2026-09-07, with its URL carried in the data.
 - Hosted Worker: loose-diamond searches return public Shopify catalog listings flagged
-  `availability_verified: false` plus a first-party browse link. A same-day private stock-service check
+  `availability_verified: false` plus a first-party browse link. A same-day Worker call to the storefront's own browser-facing diamond-lookup service
   was removed the same day; the Worker holds no credentials and calls only Shopify's public catalog.
 - Desktop bundle rebuilt with this data.
 

@@ -17,4 +17,4 @@ There are variations. A double halo adds a second ring for even more scale. A hi
 
 ## Related
 
-[hidden halo](hidden-halo.md), [pave](pave.md), [solitaire](solitaire.md), [cathedral setting](cathedral-setting.md), [carat](carat.md), [oval cut](oval-cut.md)
+[hidden halo](hidden-halo.md), [pave](pave.md), [solitaire](solitaire.md), [cathedral setting](cathedral-setting.md), [Carat](carat.md), [oval cut](oval-cut.md)

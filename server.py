@@ -260,33 +260,41 @@ def tool_define(args):
         if e["term"].lower() == query_lower:
             return (_define_payload(e, "exact"), False)
 
-    # 2. Substring or alias match. A term substring in either direction wins;
-    #    failing that, a hit against the entry's related terms counts as an alias.
+    # 2. Exact alias match (each entry may list aliases), with a plain plural allowed.
     query_norm = _enc_norm(raw)
+    query_singular = query_norm[:-1] if query_norm.endswith("s") else query_norm
+    for e in entries:
+        for alias in e.get("aliases", []):
+            alias_norm = _enc_norm(alias)
+            if query_norm == alias_norm or query_singular == alias_norm:
+                return (_define_payload(e, "alias"), False)
+
+    # 3. Substring match, ranked: the query starts the term, then the query is a whole word of the
+    #    term, then any substring, then the term inside the query. Ties go to the shorter term.
     best = None
-    best_score = 0
+    best_key = None
     for e in entries:
         term_norm = _enc_norm(e["term"])
-        score = 0
-        if query_norm and query_norm in term_norm:
-            score = 70 + len(query_norm)
-        elif query_norm and term_norm in query_norm:
-            score = 40 + len(term_norm)
+        if not query_norm:
+            break
+        if term_norm.startswith(query_norm + " ") or term_norm == query_norm:
+            rank = 4
+        elif re.search(r"(^| )" + re.escape(query_norm) + r"( |$)", term_norm):
+            rank = 3
+        elif query_norm in term_norm:
+            rank = 2
+        elif term_norm in query_norm:
+            rank = 1
         else:
-            for related in e.get("related", []):
-                related_norm = _enc_norm(related)
-                if query_norm and (query_norm == related_norm
-                                   or query_norm in related_norm
-                                   or related_norm in query_norm):
-                    score = 30
-                    break
-        if score > best_score:
-            best_score = score
+            continue
+        key = (rank, -len(term_norm))
+        if best_key is None or key > best_key:
+            best_key = key
             best = e
     if best is not None:
-        return (_define_payload(best, "alias"), False)
+        return (_define_payload(best, "substring"), False)
 
-    # 3. No match. Offer the three nearest terms as suggestions.
+    # 4. No match. Offer the three nearest terms as suggestions.
     lower_to_term = {}
     for e in entries:
         lower_to_term.setdefault(e["term"].lower(), e["term"])
@@ -316,6 +324,7 @@ def _define_payload(entry, match):
         "body": entry["body"],
         "sources": entry["sources"],
         "related": entry["related"],
+        "aliases": entry.get("aliases", []),
     }
 
 
@@ -451,8 +460,8 @@ TOOLS = [
         "title": "Define a diamond or gemology term",
         "description": (
             "Look up a single diamond or gemology term in the encyclopedia of 90 "
-            "adversarially fact-checked entries. Matches the term exactly (case "
-            "insensitive), then by substring or related-term alias. Returns the full "
+            "fact-checked and sourced entries. Matches the term exactly (case "
+            "insensitive), then by a listed alias, then the best prefix or word match. Returns the full "
             "entry: definition, body, sourced claims, and related terms. If nothing "
             "matches, returns the three nearest term suggestions."
         ),

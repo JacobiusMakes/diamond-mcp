@@ -21,4 +21,4 @@ Some leakage is normal and even useful, since a little contrast reads as sparkle
 
 ## Related
 
-[light performance](light-performance.md), [total internal reflection](total-internal-reflection.md), [refractive index](refractive-index.md), critical angle, [cut grade](cut-grade.md)
+[Light performance](light-performance.md), [Total internal reflection](total-internal-reflection.md), [Refractive index](refractive-index.md), [Cut grade](cut-grade.md)

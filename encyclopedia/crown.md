@@ -19,4 +19,4 @@ Crown height, given as a percentage of the stone's width, is one of the proporti
 
 ## Related
 
-[table](table.md), [girdle](girdle.md), [pavilion](pavilion.md), crown angle, [facet](facet.md)
+[table](table.md), [girdle](girdle.md), [pavilion](pavilion.md), [facet](facet.md)

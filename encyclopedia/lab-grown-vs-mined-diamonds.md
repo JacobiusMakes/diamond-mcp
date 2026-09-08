@@ -19,4 +19,4 @@ A diamond, mined or grown, is not an investment. It's a love piece, something yo
 
 ## Related
 
-[Lab Grown Diamond](lab-grown-diamond.md), [FTC Definition of Diamond (2018)](ftc-definition-of-diamond-2018.md), [Do Lab Grown Diamonds Cloud or Fade?](do-lab-grown-diamonds-cloud-or-fade.md), [The 4Cs](the-4cs.md), Diamond Simulant, [Grading Report](grading-report.md)
+[Lab Grown Diamond](lab-grown-diamond.md), [FTC Definition of Diamond (2018)](ftc-definition-of-diamond-2018.md), [Do Lab Grown Diamonds Cloud or Fade?](do-lab-grown-diamonds-cloud-or-fade.md), [The 4Cs](the-4cs.md), [Simulant vs synthetic (the distinction)](simulant-vs-synthetic-the-distinction.md), [Grading report](grading-report.md)

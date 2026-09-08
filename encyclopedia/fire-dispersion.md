@@ -21,4 +21,4 @@ GIA's cut grading system counts fire as one of the three parts of a round brilli
 
 ## Related
 
-[brilliance](brilliance.md), [scintillation](scintillation.md), [refractive index](refractive-index.md), [cut grade](cut-grade.md), [moissanite](moissanite.md)
+[Brilliance](brilliance.md), [Scintillation](scintillation.md), [Refractive index](refractive-index.md), [Cut grade](cut-grade.md), [Moissanite](moissanite.md)

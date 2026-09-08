@@ -23,4 +23,4 @@ A tester is a helpful screening tool, not a full identification. It can confirm 
 
 ## Related
 
-[Diamond (the material)](diamond-the-material.md), [Moissanite](moissanite.md), [Lab Grown Diamond](lab-grown-diamond.md), Simulant vs synthetic, [Cubic zirconia](cubic-zirconia.md)
+[Diamond (the material)](diamond-the-material.md), [Moissanite](moissanite.md), [Lab Grown Diamond](lab-grown-diamond.md), [Simulant vs synthetic (the distinction)](simulant-vs-synthetic-the-distinction.md), [Cubic zirconia](cubic-zirconia.md)

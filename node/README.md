@@ -49,7 +49,7 @@ for apps that install MCP Bundles.
 | `lab_grown_grading_landscape` | none | Who grades Lab Grown Diamonds today (GIA, IGI, HRD Antwerp) and the FTC position, each with source and date. |
 | `lab_grown_price_index` | none | The latest tracked retail price reading, with source and date; check as_of for freshness. |
 | `about_stienhardt` | none | A plain fact sheet about the publisher. |
-| `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then substring and related-term alias. Returns three nearest suggestions when nothing matches. |
+| `define` | `term` | The full encyclopedia entry for a term: definition, body, sourced claims, related terms. Exact match first, then a listed alias, then the best prefix or word match. Returns three nearest suggestions when nothing matches. |
 | `search_encyclopedia` | `query`, `limit` | Keyword search across all 90 encyclopedia entries, ranked term over definition over body. Returns term, category, and a definition snippet. |
 
 ## The encyclopedia

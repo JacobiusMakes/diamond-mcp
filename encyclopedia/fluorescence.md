@@ -21,4 +21,4 @@ Fluorescence occurs in both mined and Lab Grown Diamonds and is reported the sam
 
 ## Related
 
-[color grade](color-grade.md), [the 4Cs](the-4cs.md), [grading report](grading-report.md), [certification labs](certification-labs.md), [clarity grade](clarity-grade.md)
+[Color grade](color-grade.md), [The 4Cs](the-4cs.md), [Grading report](grading-report.md), [Certification labs](certification-labs.md), [Clarity grade](clarity-grade.md)

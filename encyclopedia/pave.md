@@ -17,4 +17,4 @@ Pave adds a great deal of sparkle for relatively little carat weight, and it mak
 
 ## Related
 
-[halo](halo.md), [hidden halo](hidden-halo.md), channel setting, [solitaire](solitaire.md), [girdle](girdle.md), [carat](carat.md)
+[halo](halo.md), [hidden halo](hidden-halo.md), [solitaire](solitaire.md), [girdle](girdle.md), [Carat](carat.md)

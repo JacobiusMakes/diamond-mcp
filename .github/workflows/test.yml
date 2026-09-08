@@ -1,0 +1,43 @@
+name: Tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Smoke test the Python server (full MCP handshake, every tool)
+        run: python smoke_test.py
+
+  node:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20", "24"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Build and smoke test the Node server
+        working-directory: node
+        run: |
+          npm ci
+          npm run build
+          npm test
+      - name: Worker inventory unit tests
+        if: matrix.node-version == '24'
+        run: node --experimental-strip-types worker/test/inventory.mjs

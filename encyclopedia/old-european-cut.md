@@ -20,4 +20,4 @@ The practical note is that old European cuts predate standardized, machine-assis
 
 ## Related
 
-[old mine cut](old-mine-cut.md), [round brilliant cut](round-brilliant-cut.md), [culet](culet.md), brilliant cut, [crown](crown.md), [table](table.md)
+[old mine cut](old-mine-cut.md), [round brilliant cut](round-brilliant-cut.md), [culet](culet.md), [crown](crown.md), [table](table.md)

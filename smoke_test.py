@@ -188,6 +188,10 @@ def main():
     ok("define Dutch Marquise is an exact match",
        resp["result"]["isError"] is False
        and p.get("found") is True and p.get("match") == "exact")
+    for q, want in (("marquise", "marquise cut (navette)"), ("four Cs", "The 4Cs"), ("Lab Grown Diamonds", "Lab Grown Diamond")):
+        resp_alias = call("define", {"term": q})
+        pa = text_payload(resp_alias)
+        ok("define " + q + " resolves to " + want, pa.get("term") == want and pa.get("match") == "alias")
     ok("define Dutch Marquise definition first sentence is byte-exact",
        p["definition"].split(". ")[0] + "."
        == "A Dutch Marquise is an elongated hexagonal cut diamond.", clip(p))

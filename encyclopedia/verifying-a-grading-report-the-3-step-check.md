@@ -8,7 +8,7 @@ A diamond grading report is a document from an independent laboratory describing
 
 Step one: look up the report. Major labs publish an online report-check tool. Enter the report number on the lab's own website (GIA Report Check or IGI's Verify Your Report page, for example) and confirm the details on screen match the document you were given. This confirms the report is real and has not been altered.
 
-Step two: match the stone to the report. Most modern reports record a laser inscription, a tiny copy of the report number etched onto the diamond's girdle, which is the thin outer edge. Under magnification, or with the seller's help, read that inscription and confirm it matches the report number. This ties this specific certificate to this specific stone.
+Step two: match the stone to the report. Many reports record a laser inscription, a tiny copy of the report number etched onto the diamond's girdle, which is the thin outer edge. Under magnification, or with the seller's help, read that inscription and confirm it matches the report number. This ties this specific certificate to this specific stone.
 
 Step three: confirm the measurements. Check that the physical stone's millimeter dimensions and carat weight line up with what the report lists. Measurements act like a fingerprint, and a match closes the loop.
 
@@ -16,11 +16,11 @@ One note on labs for Lab Grown Diamonds. IGI issues full 4C reports on Lab Grown
 
 ## Sources
 
-- GIA moved its Lab Grown reports to Premium and Standard tiers instead of traditional 4C grades. (Source: GIA (Gemological Institute of America), 2025-10-01.)
+- GIA moved its Lab Grown reports to Premium and Standard tiers instead of traditional 4C grades. (Source: GIA press release, GIA Launches Updated Laboratory-Grown Diamond Services October 1, 2025-08-26. https://www.gia.edu/gia-news-press/updated-laboratory-grown-diamond-services-to-launch-october-1)
 - IGI continues to issue full 4C grading reports for Lab Grown Diamonds. (Source: IGI press release, "IGI Reaffirms Commitment to 4Cs Grading for all Diamonds", 2025-07-17. https://www.igi.org/igi-reaffirms-commitment-to-4cs-grading-for-all-diamonds/)
-- HRD Antwerp announced in 2025 that it will stop grading loose Lab Grown Diamonds in 2026. (Source: HRD Antwerp, 2026.)
+- HRD Antwerp announced in June 2025 that, as of 2026, it no longer issues quality certificates for loose Lab Grown Diamonds; jewelry containing them can still be certified. (Source: Antwerp World Diamond Centre (AWDC, HRD Antwerp's parent), news release, 2025-06-18. https://www.awdc.be/news/news/world-first-antwerp-diamond-lab-hrd-becomes-first-world-end-quality-certification-loose)
 - Each GIA report carries a unique number that is sometimes laser inscribed on the diamond's girdle, and the number can be entered in GIA Report Check to verify the diamond is GIA graded and view its grading details. (Source: GIA 4Cs blog, "What is a GIA Diamond?", 2025-03-21. https://4cs.gia.edu/en-us/blog/what-is-a-gia-diamond/)
 
 ## Related
 
-[Grading Report](grading-report.md), [Laser Inscription](laser-inscription.md), [The 4Cs](the-4cs.md), IGI, GIA, Appraisal
+[Grading report](grading-report.md), [Laser inscription](laser-inscription.md), [The 4Cs](the-4cs.md), [Certification labs](certification-labs.md)

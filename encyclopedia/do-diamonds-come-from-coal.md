@@ -19,4 +19,4 @@ One nuance, for completeness: a rare few diamonds hold carbon that was once near
 
 ## Related
 
-Kimberlite, Diamond formation, Lab Grown Diamonds, HPHT and CVD growth, Carbon, Mohs scale
+[Lab Grown Diamond](lab-grown-diamond.md), [CVD Growth](cvd-growth.md), [HPHT Growth](hpht-growth.md), [Diamond (the material)](diamond-the-material.md), [Mohs hardness](mohs-hardness.md)

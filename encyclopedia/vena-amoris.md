@@ -19,4 +19,4 @@ None of this should spoil the custom. Knowing that the anatomy is a myth takes n
 
 ## Related
 
-Engagement ring history, Wedding band traditions, [The three-stone ring](the-three-stone-ring.md), [A Diamond Is Forever](a-diamond-is-forever.md)
+[The three-stone ring](the-three-stone-ring.md), [A Diamond Is Forever](a-diamond-is-forever.md)
