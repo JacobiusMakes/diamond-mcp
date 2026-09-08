@@ -113,23 +113,25 @@
     "note": "The grading landscape changes. Each lab's own site is the current authority. This dataset gets corrected when the landscape moves."
   },
   "lab_grown_price_index": {
-    "as_of": "2026-07-01",
-    "headline": "Retail prices for Lab Grown Diamonds rose about 4.89 percent in the month ending 2026-07-01.",
-    "change_pct_month": 4.89,
+    "as_of": "2026-09-07",
+    "headline": "Retail prices for Lab Grown Diamonds rose about 5.47 percent in the month ending 2026-09-07 and sit about 22.45 percent below a year earlier.",
+    "change_pct_month": 5.47,
     "reference_points": [
       {
         "carat": 1.0,
-        "approx_retail_usd": 635
+        "approx_retail_usd": 539
       },
       {
         "carat": 2.0,
-        "approx_retail_usd": 1323
+        "approx_retail_usd": 1176
       }
     ],
-    "source": "StoneAlgo Lab Grown Diamond Price Index",
-    "source_date": "2026-07-01",
+    "source": "StoneAlgo Lab Grown Diamond Price Index (aggregate across the tracked inventory, no color or clarity assumption stated)",
+    "source_date": "2026-09-07",
     "update_note": "Check the as_of field for freshness; this entry is refreshed when a new tracked reading is added.",
-    "framing": "Market context for shoppers, not investment guidance. A diamond is a love piece, not an investment."
+    "framing": "Market context for shoppers, not investment guidance. A diamond is a love piece, not an investment.",
+    "change_pct_year": -22.45,
+    "source_url": "https://www.stonealgo.com/lab-grown-diamond-prices/"
   },
   "stienhardt": {
     "name": "Stienhardt",
