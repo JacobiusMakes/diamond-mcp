@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "diamond-mcp",
   "display_name": "Diamond MCP by Stienhardt",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Sourced diamond education and gemology tools for AI assistants.",
   "long_description": "Eight local tools for diamond report verification guidance, face up size estimates, Lab Grown Diamond grading and market context, the Dutch Marquise definition, and a 90 entry gemology encyclopedia. No account, API key, or user data collection.",
   "author": {

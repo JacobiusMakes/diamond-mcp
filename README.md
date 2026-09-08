@@ -11,7 +11,7 @@ Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=
 
 ## One-click desktop bundle
 
-Download [`diamond-mcp-0.2.3.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.3/diamond-mcp-0.2.3.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
+Download [`diamond-mcp-0.2.4.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.4/diamond-mcp-0.2.4.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
 
 For a managed gateway with all 10 hosted tools, [connect through Smithery](https://smithery.ai/servers/jgalperin/stienhardt-diamond-mcp). The Smithery release exposes the same sourced education tools plus live inventory search.
 
