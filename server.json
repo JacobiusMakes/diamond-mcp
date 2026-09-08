@@ -6,16 +6,16 @@
     "url": "https://github.com/JacobiusMakes/diamond-mcp",
     "source": "github"
   },
-  "version": "0.2.5",
+  "version": "0.2.6",
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.2/diamond-mcp-0.2.2.mcpb",
-      "fileSha256": "25370cbc4b24ab5d9b2e0e0b75f8b12a198f0c55b73ac854081676a92f4f6326",
+      "identifier": "https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.3/diamond-mcp-0.2.3.mcpb",
+      "fileSha256": "b897c5c32a81a48312bf2ca2dc1f7b32cb5ac94ec0e9525328beeab99eec0ee4",
       "transport": {
         "type": "stdio"
       },
-      "version": "0.2.2"
+      "version": "0.2.3"
     }
   ],
   "websiteUrl": "https://stienhardt.com/?utm_source=mcp_registry&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=registry_website",
