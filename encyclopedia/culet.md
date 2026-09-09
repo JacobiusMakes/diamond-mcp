@@ -13,7 +13,7 @@ When a culet facet is present, it is graded by size, on a scale that runs from v
 ## Sources
 
 - The culet is the small facet at the bottom of a diamond intended to prevent chipping of the point; culet size is graded none, very small, small, medium, slightly large, large, very large, extremely large; no culet is also called pointed. (Source: GIA 4Cs, "Diamond Anatomy, Explained", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/diamond-anatomy-explained/)
-- GIA's laboratory definition of the culet, its protective purpose, and the None to Extremely Large scale assessed face-up through the table. (Source: GIA, "Finish, Culet Size, and Girdle Thickness: Categories of the GIA Cut Grading System" (PDF booklet), undated GIA document (Cut Grading System materials, c. 2006); accessed 2026-09-08. https://www.gia.edu/doc/booklet_finish_culet_girdle.pdf)
+- GIA's laboratory definition of the culet, its protective purpose, and the None to Extremely Large scale assessed face-up through the table. (Source: GIA, "Finish, Culet Size, and Girdle Thickness: Categories of the GIA Diamond Cut Grading System" (PDF booklet), 2009. https://www.gia.edu/dam/migrated-assets/docs/doc1/booklet_finish_culet_girdle.pdf)
 - A round brilliant has 57 or 58 facets; the 58th is the culet. (Source: GIA 4Cs, Diamond Cut: Understanding the Cut Scale, undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/diamond-cut/)
 - Old mine cuts and old European cuts characteristically show an open, visible culet. (Source: GIA 4Cs, "Guide to Diamond Engagement Ring Shapes", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
 

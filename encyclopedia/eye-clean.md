@@ -4,7 +4,7 @@
 
 **Eye-clean describes a diamond with no inclusions or blemishes visible to a person with normal vision at a typical viewing distance. It's a practical trade description, not an official grade on the clarity scale.**
 
-Clarity grades are assigned under 10x magnification, but you don't wear a diamond at 10x. Eye-clean bridges that gap by describing what the stone looks like to the unaided eye at normal viewing distance, usually taken to be roughly a foot away, in ordinary light. A diamond can carry inclusions that a grader records under the loupe yet show none of them to the naked eye once it's set and on a hand.
+Clarity grades are assigned under 10x magnification, but you don't wear a diamond at 10x. Eye-clean bridges that gap by describing what the stone looks like to the unaided eye at normal viewing distance, in ordinary light. A diamond can carry inclusions that a grader records under the loupe yet show none of them to the naked eye once it's set and on a hand.
 
 This matters because eye-clean stones appear across a wide span of clarity grades. Flawless and Internally Flawless diamonds are eye-clean by definition, and so are essentially all VVS and VS stones. Many SI1 diamonds are eye-clean too, and even some SI2 stones are, depending on where their inclusions sit and how large they are. A diamond several steps down the clarity scale can therefore look identical, to your eye, to one near the top. That's the whole value of the idea: you can choose clarity by what you can actually see rather than by a number read under a loupe.
 

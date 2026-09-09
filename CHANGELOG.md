@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.6 (2026-09-09)
+
+- Encyclopedia sourcing pass: 125 verified corrections across the entries, each drafted against the cited page
+  and confirmed by a second independent check. Source URLs rose from 274 to 324 of 343 claims, and no entry is
+  left without a linkable source (Light performance and The 4Cs previously had none).
+- Dates now record what the cited page actually carries: publication dates replace "accessed" wording wherever
+  the page is dated, and citations that pointed at the wrong article, section, or edition were repointed.
+- Factual wording brought in line with the sources: the GIA cut grading system is dated to its 2005 introduction
+  with cut grades appearing on reports from 2006; cubic zirconia's melting point, the moissanite discovery
+  account, cushion corner geometry, prong-check intervals, bezel appearance, and several other passages now say
+  what their sources say. Sources that could not be verified were removed rather than left unlinked.
+- Six drafted corrections were left out because their second check did not complete; they are unverified rather
+  than refuted and are queued for the next data pass.
+- Desktop bundle 0.2.6 built from this tree.
+
 ## 0.2.5 (2026-09-08)
 
 - Hosted Worker: a JSON-RPC envelope is validated (a `null` body or a non-object message answers -32600 instead

@@ -23,7 +23,7 @@ from urllib.parse import urlencode
 
 SERVER_NAME = "diamond-mcp"
 SERVER_TITLE = "Diamond MCP (Stienhardt)"
-SERVER_VERSION = "0.2.5"
+SERVER_VERSION = "0.2.6"
 
 # Protocol versions this server accepts. If a client asks for one of these,
 # the server echoes it back. Anything else gets the first entry.

@@ -14,10 +14,10 @@ Which one fits depends on your priorities. If you know exactly what you want, ca
 
 ## Sources
 
-- A straightforward custom ring takes at least two weeks; complex designs or stone matching take five to six weeks or longer, so ask the lead time. (Source: GIA 4Cs blog, Custom Made Engagement Rings Guide, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/guys-guide-custom-engagement-rings/)
-- Ready-made components (semi-mounts and in-stock diamonds) can be on hand or arrive within about two days, and cost significantly less than a custom ring. (Source: GIA 4Cs blog, How to Build Your Own Engagement Ring: The Magic of Semi Mount Rings, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/how-to-build-your-own-engagement-ring/)
-- Preset (ready-made) rings are generally more affordable because production is streamlined and in volume; custom rings typically cost more and take a few weeks to several months. (Source: GIA 4Cs blog, How Much Should a Diamond Engagement Ring Cost, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/how-much-should-engagement-ring-cost/)
-- In the US, a seller must have a reasonable basis for any stated shipping time (30 days if none is stated) and must seek consent or offer a full-refund cancellation if it cannot ship on time. (Source: US Federal Trade Commission, Business Guide to the FTC's Mail, Internet, or Telephone Order Merchandise Rule, accessed 2026-09-08. https://www.ftc.gov/business-guidance/resources/business-guide-ftcs-mail-internet-or-telephone-order-merchandise-rule)
+- A straightforward custom ring takes at least two weeks; complex designs or stone matching take five to six weeks or longer, so ask the lead time. (Source: GIA 4Cs blog, Not Just a Guy's Guide to Custom Engagement Rings, 2016-01-19. https://4cs.gia.edu/en-us/blog/guys-guide-custom-engagement-rings/)
+- Ready-made components (semi-mounts and in-stock diamonds) can be on hand or arrive within about two days, and cost significantly less than a custom ring. (Source: GIA 4Cs blog, How to Build Your Own Engagement Ring: The Magic of Semi Mount Rings, 2018-08-01. https://4cs.gia.edu/en-us/blog/how-to-build-your-own-engagement-ring/)
+- Preset (ready-made) rings are generally more affordable because production is streamlined and in volume; custom rings typically cost more and take a few weeks to several months. (Source: GIA 4Cs blog, How Much Should an Engagement Ring Cost?, 2025-06-10. https://4cs.gia.edu/en-us/blog/how-much-should-engagement-ring-cost/)
+- In the US, a seller must have a reasonable basis for any stated shipping time (30 days if none is stated) and must seek consent or offer a full-refund cancellation if it cannot ship on time. (Source: US Federal Trade Commission, Business Guide to the FTC's Mail, Internet, or Telephone Order Merchandise Rule, 2011-09-09. https://www.ftc.gov/business-guidance/resources/business-guide-ftcs-mail-internet-or-telephone-order-merchandise-rule)
 
 ## Related
 

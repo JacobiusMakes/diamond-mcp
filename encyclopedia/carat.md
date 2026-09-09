@@ -12,7 +12,6 @@ Carat weight says nothing about a diamond's origin or its standing on the other 
 
 ## Sources
 
-- The Cullinan is the largest gem-quality rough diamond ever found, at 3,106 carats, recovered in 1905. (Source: Gemological Institute of America (GIA), 1905.)
 - One metric carat equals exactly 200 milligrams and each carat is divided into 100 points. (Source: GIA 4Cs, Diamond Carat Weight, accessed 2026-09-08. https://4cs.gia.edu/en-us/diamond-carat-weight/)
 - Carat (gem weight) is not karat (gold fineness); carat weight is not the same as size; a deep cut hides weight below the girdle so a heavier stone can look no larger than a well-cut lighter one. (Source: GIA 4Cs blog, Nine Things About Diamond Carat Weight You Need to Know, 2018-05-17. https://4cs.gia.edu/en-us/blog/nine-things-about-diamond-carat-weight-you-need-to-know/)
 - The Cullinan, the largest gem-quality rough diamond ever found, weighed 3,106 carats and was discovered in 1905. (Source: Gems & Gemology, Summer 2006, Scarratt and Shor, The Cullinan Diamond Centennial: A History and Gemological Analysis of Cullinans I and II (GIA), 2006 (Summer issue). https://www.gia.edu/gems-gemology/summer-2006-cullinan-diamond-scarratt)

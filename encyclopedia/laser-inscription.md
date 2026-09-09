@@ -12,7 +12,6 @@ Inscriptions can also carry a brand mark or, at some labs, a short personal mess
 
 ## Sources
 
-- GIA laser-inscribes "Laboratory-Grown" and the report number on the girdle of Lab Grown Diamonds. (Source: Gemological Institute of America (GIA), 2026.)
 - IGI inscribes an LG prefix ahead of the report number on laboratory-grown diamonds; the words LAB GROWN were dropped from the girdle inscription in early February 2023. (Source: IGI, How to Read an IGI Laboratory Grown Diamond Report; Gem-A GemAC report on IGI's inscription change, 2023-02. https://www.igi.org/how-to-read-an-igi-lg-report/)
 - GIA laser-inscribes the term "Laboratory-Grown" and the report or quality assessment number on the girdle of Lab Grown Diamonds. (Source: GIA, Laboratory-Grown Diamond Services, 2026 (page current; policy effective 2025-10-01). https://www.gia.edu/gem-lab-service/laboratory-grown-diamond)
 - A laser inscription is an identifying number, mark or words on the girdle, read with a loupe or microscope at 10x; common inscriptions are the report number, a company logo or a personal message. (Source: GIA 4Cs, Important Engagement Ring Terms to Know When Shopping, 2015-10-07. https://4cs.gia.edu/en-us/blog/guide-diamond-engagement-ring-terms/)

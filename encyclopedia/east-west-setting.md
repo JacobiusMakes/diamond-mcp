@@ -10,10 +10,10 @@ East-west works best with shapes that have a clear long axis: ovals, marquises, 
 
 ## Sources
 
-- An east-west setting turns an elongated (here oval) diamond horizontally across the finger instead of vertically. (Source: GIA 4Cs, "Oval Cut Diamond Buying Guide", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/oval-cut-diamond-guide/)
-- Emerald cuts can be set vertically or horizontally, the horizontal orientation being known as east-west. (Source: GIA 4Cs, "Emerald Cut Diamond Buying Guide", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/diamond-emerald-cut-engagement-ring/)
-- East-west is a modern twist for marquise diamonds, and marquise points need protection at each end. (Source: GIA 4Cs, "Guide to Diamond Engagement Ring Shapes", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
-- V-shaped prongs protect pointed corners and are used for marquise, pear, princess and heart shapes regardless of orientation. (Source: GIA 4Cs, "Complete Guide to Engagement Ring Settings: Types vs. Styles", undated page; accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/guide-to-ring-settings/)
+- An east-west setting turns an elongated (here oval) diamond horizontally across the finger instead of vertically. (Source: GIA 4Cs, "Oval Cut Diamond Buying Guide", 2025-09-23. https://4cs.gia.edu/en-us/blog/oval-cut-diamond-guide/)
+- Emerald cuts can be set vertically or horizontally, the horizontal orientation being known as east-west. (Source: GIA 4Cs, "Emerald Cut Diamond Buying Guide", 2016-09-20. https://4cs.gia.edu/en-us/blog/diamond-emerald-cut-engagement-ring/)
+- East-west is a modern twist for marquise diamonds, and marquise points need protection at each end. (Source: GIA 4Cs, "Guide to Diamond Engagement Ring Shapes", 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
+- V-shaped prongs protect pointed corners and are used for marquise, pear, princess and heart shapes regardless of orientation. (Source: GIA 4Cs, "Complete Guide to Engagement Ring Settings: Types vs. Styles", 2026-08-14. https://4cs.gia.edu/en-us/blog/guide-to-ring-settings/)
 
 ## Related
 

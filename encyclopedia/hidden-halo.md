@@ -11,9 +11,9 @@ People choose a hidden halo when they want the crisp, uncluttered look of a soli
 ## Sources
 
 - A hidden halo gives the pave sparkle of a traditional halo but hidden, so it adds sparkle without distracting from the center stone and keeps the solitaire look from above. (Source: JCK (trade press), Brittany Siminitz, The Hidden Halo Engagement Ring Is The New Must-Stock, 2023-02-01. https://www.jckonline.com/editorial-article/hidden-halo-engagement-rings/)
-- GIA recognizes the hidden halo as a setting detail that adds material and labor to a ring. (Source: GIA 4Cs blog, How Much Should a Diamond Engagement Ring Cost, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/how-much-should-engagement-ring-cost/)
-- A halo is a center stone surrounded by a ring of smaller accent stones; pave stones are held by tiny beads or prongs of metal. (Source: GIA 4Cs blog, Complete Guide to Engagement Ring Settings: Types vs. Styles, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/guide-to-ring-settings/)
-- A traditional halo visually enlarges the center stone to the size of the halo (the effect a hidden halo deliberately avoids from above). (Source: GIA 4Cs blog, How to Make Your Diamond Engagement Ring Look Bigger, accessed 2026-09-08. https://4cs.gia.edu/en-us/blog/engagement-ring-settings-that-make-your-diamond-look-bigger/)
+- GIA recognizes the hidden halo as a setting detail that adds material and labor to a ring. (Source: GIA 4Cs blog, How Much Should a Diamond Engagement Ring Cost, 2025-06-10. https://4cs.gia.edu/en-us/blog/how-much-should-engagement-ring-cost/)
+- A halo is a center stone surrounded by a ring of smaller accent stones; pave stones are held by tiny beads or prongs of metal. (Source: GIA 4Cs blog, Complete Guide to Engagement Ring Settings: Types vs. Styles, 2026-08-14. https://4cs.gia.edu/en-us/blog/guide-to-ring-settings/)
+- A traditional halo visually enlarges the center stone to the size of the halo (the effect a hidden halo deliberately avoids from above). (Source: GIA 4Cs blog, How to Make Your Diamond Engagement Ring Look Bigger, 2025-07-16. https://4cs.gia.edu/en-us/blog/engagement-ring-settings-that-make-your-diamond-look-bigger/)
 
 ## Related
 

@@ -12,8 +12,8 @@ The practical lesson for a shopper is that cut is the quality you can see most d
 
 ## Sources
 
-- Marcel Tolkowsky, of a Belgian diamond-cutting family, trained as an engineer (a Doctor of Science in engineering from the University of London) and published "Diamond Design" in 1919, proposing optimized proportions for the round brilliant cut. (Source: Cape Town Diamond Museum; GIA, 1919.)
-- The modern round brilliant cut has 57 facets, or 58 counting the culet. (Source: GIA 4Cs, Anatomy of a Round Brilliant (57 or 58 facets), 1919.)
+- Marcel Tolkowsky was born into a Belgian family known for diamond cutting; in 1919, while studying engineering at the University of London, he published "Diamond Design", proposing round brilliant proportions of a 53% table, a 34.5 degree crown angle, a 40.75 degree pavilion angle and 59.3% total depth. (Source: Cape Town Diamond Museum, "The History of Marcel Tolkowsky", 2025-05-15. https://www.capetowndiamondmuseum.org/education/history-of-marcel-tolkowsky/)
+- The modern round brilliant cut has 57 facets, or 58 counting the culet. (Source: GIA 4Cs, Diamond Cut, accessed 2026-09-09. https://4cs.gia.edu/en-us/diamond-cut/)
 - Tolkowsky's specified proportions for table size, crown angle, and pavilion angle became the reference for the "ideal" round brilliant and underpin modern round-brilliant cut evaluation. (Source: Marcel Tolkowsky, "Diamond Design" (1919); GIA and diamond-trade references, 1919.)
 - Marcel Tolkowsky published Diamond Design in London in 1919 as a mathematical study of reflection and refraction in a diamond; the title page identifies him as an engineering graduate (B.Sc., A.C.G.I.). (Source: Marcel Tolkowsky, Diamond Design: A Study of the Reflection and Refraction of Light in a Diamond (London: E. & F. N. Spon, 1919), full text hosted by folds.net, 1919. https://www.folds.net/diamond_design/index.html)
 

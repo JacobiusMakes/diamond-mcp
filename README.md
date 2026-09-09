@@ -11,7 +11,7 @@ Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=
 
 ## One-click desktop bundle
 
-Download [`diamond-mcp-0.2.5.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.5/diamond-mcp-0.2.5.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
+Download [`diamond-mcp-0.2.6.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.6/diamond-mcp-0.2.6.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
 
 For a managed gateway with all 10 hosted tools, [connect through Smithery](https://smithery.ai/servers/jgalperin/stienhardt-diamond-mcp). The Smithery release exposes the same sourced education tools plus live inventory search.
 
@@ -198,7 +198,7 @@ Configure a stdio server: command `python`, one argument, the absolute path to `
 
 ### uvx and pip
 
-The supported way to run the Python build (0.2.5) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
+The supported way to run the Python build (0.2.6) is straight from a clone. `pyproject.toml` is included so the package can go to PyPI later; once it is there, `uvx diamond-mcp` will work.
 
 ### Smoke test
 

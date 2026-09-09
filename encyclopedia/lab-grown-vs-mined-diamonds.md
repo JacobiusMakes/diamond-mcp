@@ -12,7 +12,6 @@ A diamond, mined or grown, is not an investment. It's a love piece, something yo
 
 ## Sources
 
-- Lab-grown and mined diamonds are both recognized as diamonds under the FTC's revised definition. (Source: FTC Jewelry Guides (revised), 2018.)
 - IGI still issues full 4C reports (carat, color, clarity, cut) for Lab Grown Diamonds. (Source: IGI, How to Read an IGI Laboratory Grown Diamond Report, accessed 2026-09-08. https://www.igi.org/how-to-read-an-igi-lg-report/)
 - From October 1, 2025 GIA describes Lab Grown Diamonds as Premium or Standard on an overall assessment instead of using the color and clarity nomenclature created for natural diamonds. (Source: GIA press release, GIA Launches Updated Laboratory-Grown Diamond Services to Launch October 1, 2025-08-26. https://www.gia.edu/gia-news-press/updated-laboratory-grown-diamond-services-to-launch-october-1)
 - Under the FTC Jewelry Guides as revised in 2018, a diamond is defined as a mineral of essentially pure carbon crystallized in the isometric system, with no 'natural' qualifier, and laboratory-created stones must be disclosed with terms such as laboratory-grown or laboratory-created. (Source: US FTC Jewelry Guides, 16 CFR 23.12, Definition and misuse of the word 'diamond' (text hosted by Cornell Law School Legal Information Institute), 2018 (revised Guides; page accessed 2026-09-08). https://www.law.cornell.edu/cfr/text/16/23.12)

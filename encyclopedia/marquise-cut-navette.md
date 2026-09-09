@@ -14,7 +14,6 @@ The practical note is orientation and symmetry: the two points must line up exac
 
 ## Sources
 
-- Diamond is the maximum, a 10, on the Mohs scale of mineral hardness. (Source: Mohs scale of mineral hardness, 1812.)
 - The marquise is an elongated diamond with curved sides and pointed ends, also called a navette (Old French for little ship); it looks larger face-up than a round of the same weight and makes fingers look longer; its pointed ends are susceptible to breakage; many brilliant-style marquises show a bow-tie; wing symmetry matters; typical length-to-width 1.6:1 to 2.2:1. (Source: GIA 4Cs, Marquise Diamond Buying Guide, 2016-11-29. https://4cs.gia.edu/en-us/blog/choose-marquise-diamond/)
 - The marquise (navette) has two pointed ends, often appears larger than other shapes of the same weight, and needs secure settings such as V-prongs to protect the tips. (Source: GIA 4Cs, Guide to Diamond Engagement Ring Shapes, 2025-11-21. https://4cs.gia.edu/en-us/blog/guide-diamond-shapes-engagement-rings/)
 - Diamond is 10, the top of the Mohs scale, a scale of resistance to scratching devised in 1812 by Friedrich Mohs. (Source: Encyclopaedia Britannica, Mohs hardness, accessed 2026-09-08. https://www.britannica.com/science/Mohs-hardness)

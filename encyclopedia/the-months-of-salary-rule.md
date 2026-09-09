@@ -4,13 +4,12 @@
 
 **The idea that an engagement ring should cost a set share of your income (one, two, or three months' salary) is not an old tradition or etiquette rule. It comes from De Beers advertising, and you are free to spend whatever fits your budget.**
 
-There is no traditional rule that a ring must cost one, two, or three months of your income. The guideline comes from De Beers advertising, produced by the agency N.W. Ayer from the late 1930s onward, and it was written to give shoppers a number to aim for. The specific figure shifted over time: a one month benchmark appeared in the middle of the century, and "two months' salary" became the familiar United States version by the 1980s. Advertising in other countries used other numbers.
+There is no traditional rule that a ring must cost one, two, or three months of your income. The guideline comes from De Beers advertising, produced by the agency N.W. Ayer from the late 1930s onward, and it was written to give shoppers a number to aim for. The specific figure shifted over time: De Beers advertising initially suggested one month's salary, and "two months' salary" became the familiar United States version by the 1980s. Advertising in other countries used other numbers.
 
 Knowing this should take pressure off, not add it. The rule was never etiquette handed down through generations. It was a helpful-sounding target in an advertisement, and you are not doing anything wrong by spending more or less. A sensible way to choose is to set a budget you are comfortable with first, then get the best combination of the 4Cs within it, where cut usually does the most visible work. The ring is a personal, meaningful object, not a test you pass by hitting a dollar figure. Buy the piece that fits your life and your finances, and let the number in the old advertisement stay in the old advertisement.
 
 ## Sources
 
-- A one-month-salary figure appeared in the mid twentieth century, and "two months' salary" became the familiar United States benchmark by the 1980s. (Source: De Beers advertising histories (press and trade accounts), 1980s.)
 - De Beers went to the N.W. Ayer agency in the late 1930s to make diamond engagement rings an indispensable part of American couples' lives; the later De Beers ad line asked how else two months' salary could last forever. (Source: NPR, Here & Now (WBUR), "The Ad-Woman Who Made Diamonds 'Forever'" (interview with J. Courtney Sullivan), 2013-07-26. https://www.npr.org/transcripts/205839105)
 - De Beers advertising initially suggested one month's salary and by the 1980s asked how to make two months' salary last forever. (Source: Al Jazeera, George Charles Darley, "How the diamond engagement ring was invented and sold around the world", 2025-09-14. https://www.aljazeera.com/features/2025/9/14/how-the-diamond-engagement-ring-was-invented-and-sold-around-the-world)
 

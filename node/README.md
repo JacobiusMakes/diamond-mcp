@@ -35,7 +35,7 @@ node dist/bin.js
 ```
 
 `node dist/bin.js` starts the server on stdio and waits for a client. The `npm install -g diamond-mcp` and
-`npx diamond-mcp` paths return once 0.2.5 is published; until then they install the stale 0.2.0. The
+`npx diamond-mcp` paths return once 0.2.6 is published; until then they install the stale 0.2.0. The
 [desktop bundle](https://github.com/JacobiusMakes/diamond-mcp/releases/latest) is the same build, packaged
 for apps that install MCP Bundles.
 
@@ -72,19 +72,19 @@ your build:
 }
 ```
 
-On Windows use a path like `C:\path\to\diamond-mcp\node\dist\bin.js`. Once 0.2.5 is on npm, `"command": "npx",
+On Windows use a path like `C:\path\to\diamond-mcp\node\dist\bin.js`. Once 0.2.6 is on npm, `"command": "npx",
 "args": ["-y", "diamond-mcp"]` works with no clone (on Windows, `npx.cmd`). Restart Claude Desktop after
 editing the config.
 
 ## Any other MCP client
 
 Configure a stdio server whose command is `node` with one argument, the absolute path to `dist/bin.js` (or
-`npx -y diamond-mcp` once 0.2.5 is on npm). The server speaks MCP over stdio and implements `initialize`,
+`npx -y diamond-mcp` once 0.2.6 is on npm). The server speaks MCP over stdio and implements `initialize`,
 `tools/list`, and `tools/call`, and also answers `ping`, `resources/list`, and `prompts/list`.
 
 ## Two flavors, one dataset
 
-`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (build from source until 0.2.5 is on npm). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
+`diamond-mcp` ships as a Python build (run from a clone with `python server.py`; PyPI publication pending) and this Node package (build from source until 0.2.6 is on npm). Both expose the same eight tools and load the same `facts.json` and `encyclopedia.json`, so they answer the same questions the same way. The source of truth for both lives at the root of the [repository](https://github.com/JacobiusMakes/diamond-mcp).
 
 ## Build from source
 

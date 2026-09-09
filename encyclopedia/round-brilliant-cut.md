@@ -13,7 +13,7 @@ The honest practical note is cost. A round brilliant uses a smaller share of the
 ## Sources
 
 - Marcel Tolkowsky's 1919 book Diamond Design worked out mathematically the proportions of the brilliant that give the most fire and brilliancy (pavilion angle 40 degrees 45 minutes). (Source: Marcel Tolkowsky, Diamond Design: A Study of the Reflection and Refraction of Light in a Diamond (London: E. & F. N. Spon; New York: Spon & Chamberlain), 1919, Library of Congress copy scanned on the Internet Archive, 1919. https://archive.org/details/diamonddesign00tolk)
-- A Lab Grown Diamond is a real diamond. (Source: FTC Jewelry Guides, 2018.)
+- A Lab Grown Diamond is a real diamond. (Source: FTC Jewelry Guides (Guides for the Jewelry, Precious Metals, and Pewter Industries, final rule, 83 FR 40665, Federal Register), 2018-08-16. https://www.federalregister.gov/documents/2018/08/16/2018-17454/guides-for-the-jewelry-precious-metals-and-pewter-industries)
 - A round brilliant has 58 facets with a culet or 57 with a pointed culet; the modern round brilliant's angles were suggested by Henry Morse in the 1860s and refined by Tolkowsky in 1919; round is the most popular shape, estimated at 75% of diamonds sold. (Source: GIA 4Cs, How Diamonds Shape Up, 2012-06-19. https://4cs.gia.edu/en-us/blog/how-diamonds-shape-up/)
 - Round brilliants are usually the most expensive shape because of demand and because more of the rough crystal is lost in cutting. (Source: GIA 4Cs, How Much Should a Diamond Engagement Ring Cost, 2025-06-10. https://4cs.gia.edu/en-us/blog/how-much-should-engagement-ring-cost/)
 
