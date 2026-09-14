@@ -2,7 +2,7 @@
  * diamond-mcp: diamond education tools for AI assistants, over MCP.
  *
  * A Model Context Protocol (MCP) server built on the official TypeScript SDK.
- * A faithful Node port of the Python server in this repository: the same eight
+ * A Node port of the Python education server, extended with comparison. The eight
  * tools, the same data, the same output shapes. All facts ship in facts.json and
  * encyclopedia.json, and every factual claim there carries a source and a date.
  *
@@ -15,6 +15,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { COMPARE_TOOL, compareDiamonds } from './compare.js';
 
 
 export const SERVER_NAME = "diamond-mcp";
@@ -616,6 +617,7 @@ function toolSearchEncyclopedia(args: Args): ToolResult {
 // ---------------------------------------------------------------------------
 
 export const TOOLS = [
+  COMPARE_TOOL,
   {
     name: "verify_diamond_report",
     title: "Where and how to verify a diamond grading report",
@@ -742,6 +744,7 @@ export const TOOLS = [
 ];
 
 export const TOOL_HANDLERS: Record<string, ToolHandler> = {
+  compare_diamonds: compareDiamonds,
   verify_diamond_report: toolVerifyDiamondReport,
   faceup_size: toolFaceupSize,
   dutch_marquise_definition: toolDutchMarquiseDefinition,

@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {compareDiamonds} from '../dist/compare.js';
+const a={label:'A',carat:2,length_mm:10,width_mm:7,price:1000,currency:'USD'};
+const b={label:'B',carat:2.5,length_mm:11,width_mm:7.5,price:1500,currency:'USD'};
+const compare=(stones)=>compareDiamonds({stones})[0];
+const p=compare([a,b]);
+assert.equal(p.stones[0].price_per_carat,500);assert.equal(p.stones[0].length_to_width_ratio,1.43);
+assert.deepEqual(p.differences[0],{label:'B',price_difference:500,carat_difference:0.5,length_difference_mm:1,width_difference_mm:0.5});
+assert.equal(compare([a,{...b,currency:'EUR'}]).price_comparison_available,false);
+assert.equal(compare([a,{label:'B'}]).differences[0].price_difference,null);
+assert.deepEqual(compare([a,{label:'B'}]).stones[1].missing,['carat','measured_dimensions','price']);
+for(const stone of [{...b,label:' a '},{...b,carat:true},{...b,carat:'2'},{...b,price:NaN},{...b,price:-1},{...b,currency:null},{...b,width_mm:null},{...b,length_mm:Infinity},{...b,carat:5e-324}]) assert.throws(()=>compare([a,stone]));
+assert.throws(()=>compare([a]));assert.throws(()=>compare(Array(6).fill(a)));
+assert.equal(compare([{...a,length_mm:7,width_mm:10},b]).stones[0].length_to_width_ratio,1.43);
+assert.equal(compare([a,b]).stones[0].verification,'user_supplied_unverified');
+console.log('PASS comparison arithmetic, currencies, missing data, malformed inputs and non-appraisal output');

@@ -1,11 +1,13 @@
 # diamond-mcp
 
+Hosted comparison update (September 14, 2026): see [worker/COMPARISON.md](worker/COMPARISON.md) for an executable example and availability. Catalog search and measurement: see [worker/MEASUREMENT.md](worker/MEASUREMENT.md) for budget filtering, optional measured links, validation and attribution limits.
+
 [![AllMCPs Verified](https://allmcps.com/api/badge/stienhardt-diamond-mcp)](https://allmcps.com/mcp/stienhardt-diamond-mcp?verify=071f1de3-b208-4ddc-b8b9-dc0738dd128d)
 [![MCP Badge](https://lobehub.com/badge/mcp/jacobiusmakes-diamond-mcp)](https://lobehub.com/mcp/jacobiusmakes-diamond-mcp)
 
 Diamond education tools for AI assistants, served over the Model Context Protocol (MCP).
 
-Eight local tools are backed by a sourced, dated facts file and a 90 entry gemology encyclopedia. The hosted endpoint adds two read-only live inventory tools, for 10 tools total. The local Python build uses only the standard library and makes no network calls. All education data ships in this repo as `facts.json` and `encyclopedia.json`.
+The hosted endpoint now has 11 tools: eight education tools, a seller-independent specification comparison, and two read-only inventory tools. The Node source includes comparison; published 0.2.6 packages and the Python server still have the original eight tools. Education tools use a sourced, dated facts file and a 90 entry gemology encyclopedia. The local Python build uses only the standard library and makes no network calls. All education data ships in this repo as `facts.json` and `encyclopedia.json`.
 
 Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=referral&utm_campaign=diamond_mcp&utm_content=readme_intro), a New York City Lab Grown Diamond jeweler.
 
@@ -13,7 +15,7 @@ Maintained by [Stienhardt](https://stienhardt.com/?utm_source=github&utm_medium=
 
 Download [`diamond-mcp-0.2.6.mcpb`](https://github.com/JacobiusMakes/diamond-mcp/releases/download/v0.2.6/diamond-mcp-0.2.6.mcpb) for a self-contained local bundle. Apps that support MCP Bundles can install it without an account, API key, Python environment, or package-manager command. The bundle runs locally with Node.js and makes no network calls.
 
-For a managed gateway with all 10 hosted tools, [connect through Smithery](https://smithery.ai/servers/jgalperin/stienhardt-diamond-mcp). The Smithery release exposes the same sourced education tools plus live inventory search.
+For a managed gateway with the hosted tools, [connect through Smithery](https://smithery.ai/servers/jgalperin/stienhardt-diamond-mcp). The Smithery release exposes the same sourced education tools plus live inventory search.
 
 ## Why a jeweler published an MCP server
 
@@ -28,12 +30,13 @@ People ask AI assistants their diamond questions now. We'd rather those assistan
 
 ## Measurable commerce paths
 
-High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_price_index`, and `about_stienhardt` include an optional Stienhardt link. Each link carries `diamond_mcp` source tags plus the originating tool. Shape and carat are included for `faceup_size`. Preserve the query string if you surface one of these links to a user. This lets the publisher measure useful visits and orders without collecting identity or conversation text.
+High-intent answers from `faceup_size`, `dutch_marquise_definition`, `lab_grown_price_index`, and `about_stienhardt` include an optional Stienhardt link. Each link carries `diamond_mcp` source tags plus the originating tool. Shape and carat are included for `faceup_size`. Preserve the query string if you surface one of these links to a user. These tags support downstream attribution if the storefront preserves them. The optional redirect counter measures requests, not unique shoppers, purchases, or revenue.
 
 ## The tools
 
 | Tool | Arguments | What it returns |
 | --- | --- | --- |
+| `compare_diamonds` | `stones` (2 to 5 labeled specifications) | Supplied dimensions, length-to-width ratio, price per carat, differences from the first stone, and missing information. Explicit currencies required for prices. Hosted endpoint and Node source only. No appraisal or winner. |
 | `verify_diamond_report` | `lab`, `report_number` | The official verification URL for GIA, IGI, or GCAL, plus a three step checklist. Where and how to verify, never a verification itself. |
 | `faceup_size` | `shape`, `carat` | Approximate face up millimeter dimensions, scaled from vetted 1 carat anchors by the cube root of the carat weight. Shapes: round, oval, emerald, dutch_marquise. |
 | `dutch_marquise_definition` | none | The published definition: geometry, certificate wording, and the measured length to width ratio of a certified reference stone. |
@@ -108,7 +111,7 @@ Connect any Streamable HTTP MCP client to:
 https://diamond-mcp.stienhardt.workers.dev/mcp
 ```
 
-The endpoint requires no account or API key. It exposes all 10 tools, including the live inventory search.
+The endpoint requires no account or API key. It exposes all 11 tools, including the live inventory search.
 Cloudflare's edge in front of workers.dev rejects requests that carry Python's default `urllib` user agent
 (error 1010); every other common client, including `requests`, `httpx`, Node, and curl, is served. If you script
 against the endpoint with `urllib`, set a User-Agent header.
@@ -145,7 +148,7 @@ The business endpoint is separate from the 10-tool Diamond MCP server. Its sourc
 
 ## Two local flavors: Python and Node
 
-`diamond-mcp` ships in two builds that expose the same eight tools and load the same data, so they answer the same questions the same way:
+`diamond-mcp` has Python and Node builds sharing the eight education tools and data. Current Node source adds `compare_diamonds`; the published 0.2.6 packages retain eight tools:
 
 - Python (this directory): run straight from a clone with `python server.py` (PyPI publication pending). Pure standard library.
 - Node and TypeScript ([`node/`](node/)): build from the repo; the npm release is being updated (the version on npm today, 0.2.0 from 2026-07-13, carries an older data snapshot). Built on the official MCP SDK.

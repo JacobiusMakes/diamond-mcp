@@ -147,6 +147,7 @@ async function main() {
   const names = tools.map((t) => t.name).sort();
   const expected = [
     "about_stienhardt",
+    "compare_diamonds",
     "define",
     "dutch_marquise_definition",
     "faceup_size",
@@ -156,8 +157,8 @@ async function main() {
     "verify_diamond_report",
   ];
   ok(
-    "tools/list has exactly the 8 tools",
-    names.length === 8 && JSON.stringify(names) === JSON.stringify(expected),
+    "tools/list has exactly the 9 tools",
+    names.length === 9 && JSON.stringify(names) === JSON.stringify(expected),
     JSON.stringify(names),
   );
   ok(

@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
-import {diamondIntent,diamondBrowseUrl,selectVariant,checkedCatalogProduct,matchesDiamondFilters} from '../src/inventory.ts';
+import {diamondIntent,diamondBrowseUrl,selectVariant,checkedCatalogProduct,matchesDiamondFilters,matchesBudget} from '../src/inventory.ts';
 const env={STORE_ORIGIN:'https://stienhardt.com'};
 const product={title:'Everyday Band',type:'Ring',variants:[
   {id:1,title:'14K Yellow Gold',available:true,price:10000},
   {id:2,title:'Platinum',available:true,price:20000},
   {id:3,title:'18K White Gold',available:false,price:30000}]};
+assert.throws(()=>diamondIntent('oval under 2 carats'));
+assert.equal(diamondIntent('2 carat oval under 2k').price_max,2000);
 let passed=0;
 async function test(name,fn){await fn();passed++;console.log('PASS '+name);}
 await test('single weight has explicit narrow bounds',()=>{const f=diamondIntent('2 carat round');assert.equal(f.carat_min,2);assert.equal(f.carat_max,2.1);});
@@ -70,5 +72,11 @@ await test('loose listings are filtered by the carat and shape parsed from the q
   assert.equal(matchesDiamondFilters('Dutch Marquise Lab Grown Diamond',f),false);
   assert.equal(matchesDiamondFilters('2.5 Carat Oval Lab Grown Diamond',diamondIntent('2-3 carat oval')),true);
   assert.equal(matchesDiamondFilters('anything',null),true);
+});
+await test('budget excludes expensive, missing and foreign-currency quotes',()=>{
+  for(const price of ['2000.01 USD',null,'100.00 EUR','NaN USD','-1.00 USD']) assert.equal(matchesBudget({price},{price_max:2000}),false);
+  assert.equal(matchesBudget({price:'2000.00 USD'},{price_max:2000}),true);
+  assert.equal(matchesBudget({price:'539.00 USD'},{price_max:2000}),true);
+  assert.equal(matchesBudget({price:null},{price_max:null}),true);
 });
 console.log(JSON.stringify({passed,failed:0}));

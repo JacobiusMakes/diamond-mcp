@@ -22,3 +22,7 @@ node_modules/
 */.dev.vars
 */.wrangler/
 *.env
+
+# Disposable Worker test bundles
+.test-build-*/
+worker/.test-build-*/

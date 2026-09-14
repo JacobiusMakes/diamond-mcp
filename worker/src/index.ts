@@ -19,7 +19,8 @@ import { TOOLS, TOOL_HANDLERS, configure, SERVER_NAME, SERVER_VERSION, INSTRUCTI
 import REPO_PROFILE from "../../agent-profile.json";
 import factsJson from "../../facts.json";
 import encyclopediaJson from "../../encyclopedia.json";
-import { diamondIntent, diamondBrowseUrl, checkedCatalogProduct, matchesDiamondFilters } from './inventory';
+import { diamondIntent, diamondBrowseUrl, checkedCatalogProduct, matchesDiamondFilters, matchesBudget } from './inventory';
+import { withMeasuredLinks } from './measurement';
 
 configure({ facts: factsJson, encyclopedia: encyclopediaJson });
 
@@ -65,10 +66,13 @@ const PRIVACY = `Stienhardt diamond MCP server: privacy notice (2026-09-08)
 What we collect about MCP users: nothing. The MCP tools are stateless and unauthenticated. They set
 no cookies, store no requests, and build no profiles.
 
-Measured outbound links: the /go redirect records one click event containing the declared
+Measured outbound links: the /go redirect records a tagged GET request containing the declared
 source, medium, campaign, content label, and destination path. It does not record an IP address,
 cookie, account, identity, or free-form search phrase in Stienhardt's analytics dataset. The tagged
 destination URL is then returned as an immediate redirect.
+HEAD requests and declared previews/prefetches are excluded. Other automated GET requests may
+still be counted: these events are not unique people, confirmed page loads, or purchases.
+Tool results include optional measured links alongside the original direct merchant URLs.
 
 What a request contains: the tool name and its arguments, for example a diamond term, a carat
 weight and shape, a grading lab and report number, or a search phrase. Purpose: to answer that
@@ -132,7 +136,7 @@ function serverCard() {
       name: "Stienhardt Diamond MCP",
       version: SERVER_VERSION,
       description:
-        "Ten no-auth tools for sourced diamond education, report-verification guidance, " +
+        "Eleven no-auth tools for diamond comparison, sourced education, report-verification guidance, " +
         "face-up size estimates, encyclopedia search, and live Stienhardt inventory.",
     },
     authentication: { required: false, schemes: [] },
@@ -146,7 +150,7 @@ function directoryDiscovery(origin: string) {
   return {
     name: "Stienhardt Diamond MCP",
     description:
-      "Ten no-auth tools for sourced diamond education, report-verification guidance, " +
+      "Eleven no-auth tools for diamond comparison, sourced education, report-verification guidance, " +
       "face-up size estimates, encyclopedia search, and live Stienhardt inventory.",
     version: SERVER_VERSION,
     url: origin + "/mcp",
@@ -240,11 +244,12 @@ async function storeTool(env: Env, origin: string, name: string, args: any): Pro
       if (out.error) return [{ error: "store search failed", detail: out.error }, true];
       const list = out.products || out.items || out.results || [];
       const candidates=await Promise.all(list.slice(0,Math.min(15,limit*2)).map((p:any)=>checkedCatalogProduct(p,env,query,true)));
-      const results=candidates.filter(Boolean).filter((p:any)=>matchesDiamondFilters(p.title,filters)).slice(0,limit).map((p:any)=>({...p,url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+String(p.id).split('/').pop())}));
+      const results=candidates.filter(Boolean).filter((p:any)=>matchesDiamondFilters(p.title,filters) && matchesBudget(p,filters)).slice(0,limit).map((p:any)=>({...p,url:taggedStoreUrl(p.url,env.STORE_ORIGIN,'search_inventory:'+String(p.id).split('/').pop())}));
       return [{query,count:results.length,results,availability_verified:false,filters,
-        filters_applied:['shape','carat'],
+        filters_applied:[...(filters.shape ? ['shape'] : []),...(filters.carat_min != null ? ['carat'] : []),...(filters.price_max != null ? ['price_max_usd'] : [])],
+        filters_unverified:['color','clarity','lab'].filter(key=>filters[key]),
         browse_url:taggedStoreUrl(diamondBrowseUrl(env,filters),env.STORE_ORIGIN,'search_inventory:browse'),
-        note:'Public catalog matches for a loose-diamond search, filtered by the shape and carat in the query (color, clarity, and lab are not checked here). Availability is not verified by this tool; confirm it on the product page or through the browse link. Preserve URL query strings.'},false];
+        note:'Public catalog matches filtered by requested shape, carat and maximum USD catalog price. Color, clarity, and lab are not checked here. Missing or non-USD prices are excluded when a budget is requested. Availability is not verified; confirm it on the product page. Results cover the returned catalog candidates, not an exhaustive inventory search. Preserve URL query strings.'},false];
     }
     const out = await ucpCall(env, origin, "search_catalog",
       { query, context: { address_country: "US", currency: "USD", language: "en" } });
@@ -312,7 +317,7 @@ function clickDimension(value: string | null, fallback: string): string {
   return (value || fallback).replace(/[^a-zA-Z0-9_:./-]/g, "_").slice(0, 120);
 }
 
-async function measuredRedirect(url: URL, env: Env, ctx?: ExecutionContext): Promise<Response> {
+async function measuredRedirect(url: URL, env: Env, ctx?: ExecutionContext, countRequest = true): Promise<Response> {
   const rawTarget = url.searchParams.get("url");
   if (!rawTarget) return json({ error: "missing destination" }, 400);
 
@@ -335,12 +340,12 @@ async function measuredRedirect(url: URL, env: Env, ctx?: ExecutionContext): Pro
   const event = { capturedAt, source, medium, campaign, content, destinationPath };
   // Only campaign-tagged clicks are counted, and the write never delays the redirect.
   const tagged = [source, medium, campaign, content].some((d) => d !== "unknown");
-  if (env.CLICK_COUNTS && tagged) {
-    const write = env.CLICK_COUNTS.put(
+  if (env.CLICK_COUNTS && tagged && countRequest) {
+    const write = Promise.resolve().then(() => env.CLICK_COUNTS!.put(
       `click:${capturedAt}:${crypto.randomUUID()}`,
       JSON.stringify(event),
       { expirationTtl: 90 * 24 * 60 * 60 },
-    );
+    )).catch(() => { console.warn('outbound_measurement_write_failed'); });
     if (ctx) ctx.waitUntil(write); else await write;
   }
 
@@ -386,7 +391,10 @@ async function handleRpc(env: Env, origin: string, msg: any): Promise<any | null
     let payload: unknown; let isError = false;
     try {
       if (Object.prototype.hasOwnProperty.call(TOOL_HANDLERS, name)) [payload, isError] = TOOL_HANDLERS[name](args);
-      else if (STORE_TOOLS.some((t) => t.name === name)) [payload, isError] = await storeTool(env, origin, name, args);
+      else if (STORE_TOOLS.some((t) => t.name === name)) {
+        [payload, isError] = await storeTool(env, origin, name, args);
+        payload = withMeasuredLinks(payload, origin, name);
+      }
       else return { jsonrpc: "2.0", id, error: { code: -32602, message: "Unknown tool: " + String(name) } };
     } catch (err) {
       payload = { error: "Tool failed: " + (err instanceof Error ? err.message : String(err)) }; isError = true;
@@ -418,7 +426,8 @@ export default {
     if (url.pathname === "/privacy") return new Response(PRIVACY, { headers: { "Content-Type": "text/plain; charset=utf-8", "Access-Control-Allow-Origin": "*" } });
     if (url.pathname === "/go") {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method not allowed" }, 405);
-      return measuredRedirect(url, env, ctx);
+      const purpose = request.headers.get('sec-purpose') || request.headers.get('purpose') || '';
+      return measuredRedirect(url, env, ctx, request.method === 'GET' && !/prefetch|preview/i.test(purpose));
     }
     if (url.pathname === "/" || url.pathname === "") {
       return json({

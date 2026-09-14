@@ -50,8 +50,8 @@ await test('resources and prompts lists are empty lists, not method-not-found', 
     const r = await post(rpc(1, m)); const j = await r.json(); assert.deepEqual(j.result[key], []);
   }
 });
-await test('tools/list exposes ten tools', async () => {
-  const r = await post(rpc(1, 'tools/list')); const j = await r.json(); assert.equal(j.result.tools.length, 10);
+await test('tools/list exposes eleven tools', async () => {
+  const r = await post(rpc(1, 'tools/list')); const j = await r.json(); assert.equal(j.result.tools.length, 11);
 });
 await test('inherited object names are not tools', async () => {
   for (const name of ['constructor', 'toString', '__proto__', 'hasOwnProperty', 42, null]) {
@@ -86,17 +86,58 @@ await test('/go rejects other hosts, userinfo, ports, and non-https', async () =
   }
   assert.equal(puts.length, 0);
 });
-await test('/go redirects on GET and HEAD, records only campaign-tagged clicks, never blocks on the write', async () => {
+await test('/go ignores HEAD and declared previews but records a tagged GET', async () => {
   const dest = encodeURIComponent('https://stienhardt.com/collections/lab-diamonds?utm_source=x');
   const untagged = await worker.fetch(new Request('https://w.test/go?url=' + dest), env, ctx);
   assert.equal(untagged.status, 302); assert.equal(puts.length, 0);
   const head = await worker.fetch(new Request('https://w.test/go?url=' + dest + '&source=hn&campaign=launch', { method: 'HEAD' }), env, ctx);
   assert.equal(head.status, 302); assert.match(head.headers.get('location'), /^https:\/\/stienhardt\.com\/collections\/lab-diamonds\?utm_source=x$/);
+  assert.equal(waited.length, 0); assert.equal(puts.length, 0);
+  for (const header of ['purpose','sec-purpose']) {
+    const preview = await worker.fetch(new Request('https://w.test/go?url=' + dest + '&source=hn', {headers:{[header]:'prefetch'}}), env, ctx);
+    assert.equal(preview.status,302); assert.equal(waited.length,0);
+  }
+  await worker.fetch(new Request('https://w.test/go?url=' + dest + '&source=hn&campaign=launch'), env, ctx);
   assert.equal(waited.length, 1); await Promise.all(waited); assert.equal(puts.length, 1);
   const event = JSON.parse(puts[0][1]); assert.deepEqual(Object.keys(event).sort(), ['campaign', 'capturedAt', 'content', 'destinationPath', 'medium', 'source']);
+});
+await test('analytics storage failures do not break redirects with or without a context', async () => {
+  const url='https://w.test/go?url='+encodeURIComponent('https://stienhardt.com/products/ring?variant=42')+'&source=diamond_mcp';
+  for(const put of [()=>{throw new Error('sync storage failure');},async()=>{throw new Error('async storage failure');}]) {
+    for(const context of [ctx,undefined]) {
+      const response=await worker.fetch(new Request(url),{...env,CLICK_COUNTS:{put}},context);
+      assert.equal(response.status,302); assert.match(response.headers.get('location'),/variant=42/);
+    }
+  }
+  await Promise.all(waited);
 });
 await test('/agent-profile.json is the repository profile plus profile_url', async () => {
   const r = await worker.fetch(new Request('https://w.test/agent-profile.json'), env, ctx); const j = await r.json();
   assert.ok(j.ucp && j.ucp.capabilities['dev.ucp.shopping.fulfillment']); assert.equal(j.profile_url, 'https://w.test/agent-profile.json');
+});
+await test('catalog search enforces USD budget and supplies optional measured links without logging a visit', async () => {
+  const originalFetch=globalThis.fetch;
+  const before=puts.length;
+  globalThis.fetch=async()=>new Response(JSON.stringify({result:{content:[{type:'text',text:JSON.stringify({products:[
+    ...[100000,200001].map((amount,i)=>({id:'gid://shopify/Product/'+(i+1),title:'2 Carat Oval Lab Grown Diamond',url:'https://stienhardt.com/products/oval-'+i,variants:[{id:'gid://shopify/ProductVariant/'+i,price:{amount,currency:'USD'}}]})),
+    {id:'gid://shopify/Product/3',title:'2 Carat Oval Lab Grown Diamond',url:'https://stienhardt.com/products/no-price',variants:[]}
+  ]})}]}}),{headers:{'content-type':'application/json'}});
+  try {
+    const r=await post(rpc(1,'tools/call',{name:'search_inventory',arguments:{query:'2 carat oval under $2000 D color'}}));
+    const j=await r.json(); assert.equal(j.result.isError,false);
+    const p=JSON.parse(j.result.content[0].text);
+    assert.equal(p.count,1);assert.equal(p.results[0].price,'1000.00 USD');
+    assert.deepEqual(p.filters_applied,['shape','carat','price_max_usd']);assert.deepEqual(p.filters_unverified,['color']);
+    assert.equal(p.results[0].availability_verified,false);
+    const measured=new URL(p.results[0].measured_url);
+    assert.equal(measured.searchParams.get('url'),p.results[0].url);assert.equal(puts.length,before);
+  } finally { globalThis.fetch=originalFetch; }
+});
+await test('comparison is callable over MCP and malformed comparisons are tool errors', async () => {
+  const r = await post(rpc(1,'tools/call',{name:'compare_diamonds',arguments:{stones:[{label:'A',carat:2,price:1000,currency:'USD'},{label:'B',carat:3,price:1800,currency:'USD'}]}}));
+  const j=await r.json(); assert.equal(j.result.isError,false);
+  const p=JSON.parse(j.result.content[0].text); assert.equal(p.stones[0].price_per_carat,500); assert.equal(p.differences[0].price_difference,800);
+  const bad=await post(rpc(2,'tools/call',{name:'compare_diamonds',arguments:{stones:[{label:'A'}]}}));
+  assert.equal((await bad.json()).result.isError,true);
 });
 console.log(JSON.stringify({ passed, failed: 0 }));

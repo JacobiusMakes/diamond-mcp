@@ -18,7 +18,10 @@ export function diamondIntent(query: string): any | null {
   let high = range ? Number(range[2]) : low !== null ? Math.round((low + .1) * 100) / 100 : null;
   if (low !== null && (!(low > 0) || low > 20 || high! < low || high! > 20)) throw new Error('Carat range must be between 0 and 20.');
   const maximum = text.match(/(?:under|below|up to|at most|budget(?: of)?)\s*\$?\s*([\d,]+(?:\.\d+)?)/);
-  const maxPrice = maximum ? Number(maximum[1].replace(/,/g,'')) : null;
+  const suffix = maximum ? text.slice(maximum.index! + maximum[0].length) : '';
+  if (maximum && /^\s*(?:carats?|ct)\b/.test(suffix))
+    throw new Error('Use an explicit carat range, for example 1 to 2 carats. Price budgets are in USD.');
+  const maxPrice = maximum ? Number(maximum[1].replace(/,/g,'')) * (/^k\b/.test(suffix) ? 1000 : 1) : null;
   const clarity = text.match(/\b(fl|if|vvs1|vvs2|vs1|vs2|si1|si2)\b/);
   const color = text.match(/\b([d-j])\s*(?:color|colour)\b/);
   const lab = text.match(/\b(igi|gia|gcal)\b/);
@@ -70,6 +73,14 @@ export function matchesDiamondFilters(title: unknown, filters: any): boolean {
     if (c < filters.carat_min - 1e-9 || c > filters.carat_max + 1e-9) return false;
   }
   return true;
+}
+// Catalog amounts are integer minor units. A USD budget must not silently match
+// a missing price or a price quoted in another currency.
+export function matchesBudget(product: any, filters: any): boolean {
+  if (filters?.price_max == null) return true;
+  const quote = product?.price;
+  const match = typeof quote === 'string' && quote.match(/^(\d+(?:\.\d{1,2})?) USD$/);
+  return !!match && Number(match[1]) <= filters.price_max;
 }
 export async function checkedCatalogProduct(p: any, env: InventoryEnv, query='', allowLoose=false): Promise<any | null> {
   const raw=p.url || (p.handle ? new URL('/products/'+p.handle,env.STORE_ORIGIN).toString() : '');
